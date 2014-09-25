@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Liste doublement chainée: Variables globale</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Liste doublement chainée
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.2 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li class="current"><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li class="current"><a href="globals.html"><span>Tout</span></a></li>
+      <li><a href="globals_func.html"><span>Fonctions</span></a></li>
+      <li><a href="globals_type.html"><span>Définitions&#160;de&#160;type</span></a></li>
+      <li><a href="globals_defs.html"><span>Macros</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index__"><span>_</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Liste de toutes les fonctions, variables, macros, enumérations, et définitions de type documentés avec des liens vers la documentation :</div>
+
+<h3><a class="anchor" id="index__"></a>- _ -</h3><ul>
+<li>__CHAINE__affiche()
+: <a class="el" href="liste_8h.html#aa359268fb18484632ae700e82b36bfc4">liste.h</a>
+</li>
+<li>__CHAINE__compare()
+: <a class="el" href="liste_8h.html#acee2cbb3418624d83c051fc6949de26e">liste.h</a>
+</li>
+<li>__CHAR__affiche()
+: <a class="el" href="liste_8h.html#ad958f01e19c4451c7075261ad0b3d7d7">liste.h</a>
+</li>
+<li>__CHAR__compare()
+: <a class="el" href="liste_8h.html#af0dd0cbf9a4b7ce905c9c5a49aa3e538">liste.h</a>
+</li>
+<li>__DOUBLE__affiche()
+: <a class="el" href="liste_8h.html#a0700538632048fc7c4743ed1e98c03e3">liste.h</a>
+</li>
+<li>__DOUBLE__compare()
+: <a class="el" href="liste_8h.html#a78909e71e0b3c2d5ec2f36f08b631f9b">liste.h</a>
+</li>
+<li>__FLOAT__affiche()
+: <a class="el" href="liste_8h.html#a07a093bd767ef1e2735f55d318f51523">liste.h</a>
+</li>
+<li>__FLOAT__compare()
+: <a class="el" href="liste_8h.html#a954586ea547994c027acc10789d6395b">liste.h</a>
+</li>
+<li>__INT__affiche()
+: <a class="el" href="liste_8h.html#aca653315b32befca2d4a15ec9fdac0db">liste.h</a>
+</li>
+<li>__INT__compare()
+: <a class="el" href="liste_8h.html#a92ff2a3d13541cd896d6e25e9007f2ec">liste.h</a>
+</li>
+<li>__LONG__affiche()
+: <a class="el" href="liste_8h.html#a095d199a29bd9be79158a13f469dbc01">liste.h</a>
+</li>
+<li>__LONG__compare()
+: <a class="el" href="liste_8h.html#a14d504a388bb827c1fdd91ec66786aff">liste.h</a>
+</li>
+<li>__SHORT__affiche()
+: <a class="el" href="liste_8h.html#a0a572d42ebb1a70aeb4f4b413206eecc">liste.h</a>
+</li>
+<li>__SHORT__compare()
+: <a class="el" href="liste_8h.html#acc95d8bd5f0cd264ba1cf533c124e047">liste.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>Cellule
+: <a class="el" href="liste_8h.html#a15ddea793abf8d86dcbdc7772979cc00">liste.h</a>
+</li>
+<li>Cellule_afficher()
+: <a class="el" href="liste_8h.html#a14be01a3e8e47cbc31f16dbe7fba97f6">liste.h</a>
+</li>
+<li>Cellule_cloner()
+: <a class="el" href="liste_8h.html#ad4276c801531671ef0f5df12d98818b5">liste.h</a>
+</li>
+<li>Cellule_comparer()
+: <a class="el" href="liste_8h.html#a29e5a61cff03c87a9c1ca59ffeb9a03d">liste.h</a>
+</li>
+<li>Cellule_creer()
+: <a class="el" href="liste_8h.html#a66d8baa9b2f739c68d74cec91811a7b2">liste.h</a>
+</li>
+<li>Cellule_detruire()
+: <a class="el" href="liste_8h.html#aba6485762505b5e16e3fcb0c9abacb56">liste.h</a>
+</li>
+<li>Cellule_detruireSiInutilise()
+: <a class="el" href="liste_8h.html#a6326c83b5bf7326f0670706e5ea51def">liste.h</a>
+</li>
+<li>Cellule_egal()
+: <a class="el" href="liste_8h.html#aa429d431d6834880a39c941e1defd3bf">liste.h</a>
+</li>
+<li>CELLULE_VALEUR
+: <a class="el" href="liste_8h.html#ad7585cfed8eb0a342187c4a9bf9f6554">liste.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>Liste
+: <a class="el" href="liste_8h.html#a5b59b555992b41f8daba3fe9db70a3b4">liste.h</a>
+</li>
+<li>Liste_a()
+: <a class="el" href="liste_8h.html#acfec16a811472f3d43b99902c6e5c2fb">liste.h</a>
+</li>
+<li>Liste_afficher()
+: <a class="el" href="liste_8h.html#a69970245f36de6c3bcf0f79487c78473">liste.h</a>
+</li>
+<li>Liste_cloner()
+: <a class="el" href="liste_8h.html#ab34deb28d46dc8a792078edd041f11c1">liste.h</a>
+</li>
+<li>Liste_creer()
+: <a class="el" href="liste_8h.html#aab9137130a244f26b001fedaa2cd42da">liste.h</a>
+</li>
+<li>Liste_dernierElement()
+: <a class="el" href="liste_8h.html#ad1dde1058cf160a4f6b4c3568803251f">liste.h</a>
+</li>
+<li>Liste_detruire()
+: <a class="el" href="liste_8h.html#a301976629e9b91d7443a3dd0f6440f96">liste.h</a>
+</li>
+<li>Liste_egal()
+: <a class="el" href="liste_8h.html#af72954cbf6e8b18df334393735a78430">liste.h</a>
+</li>
+<li>Liste_insererAIndex()
+: <a class="el" href="liste_8h.html#a859ee2fa88788512c10031c261da5b27">liste.h</a>
+</li>
+<li>Liste_insererDebut()
+: <a class="el" href="liste_8h.html#a219a67eb53658b24275a8efff6e5aeae">liste.h</a>
+</li>
+<li>Liste_insererFin()
+: <a class="el" href="liste_8h.html#a303600b687ae885733ecb18ae3b5d9f0">liste.h</a>
+</li>
+<li>Liste_insererListeAIndex()
+: <a class="el" href="liste_8h.html#a2b865b02c0bd46d2374fc806317f4722">liste.h</a>
+</li>
+<li>Liste_insererListeDebut()
+: <a class="el" href="liste_8h.html#ae1e0f2a105ecb8e238eea0ce95ee68c8">liste.h</a>
+</li>
+<li>Liste_insererListeFin()
+: <a class="el" href="liste_8h.html#a64ceb7767b3518c245f2df2bfb6fc20d">liste.h</a>
+</li>
+<li>Liste_premierElement()
+: <a class="el" href="liste_8h.html#a535dd7f340d38349554f8826b0b3992e">liste.h</a>
+</li>
+<li>Liste_sousListe()
+: <a class="el" href="liste_8h.html#a00a232260bad81af0a4b7f524d7af0cc">liste.h</a>
+</li>
+<li>Liste_supprimerAIndex()
+: <a class="el" href="liste_8h.html#a1294baa699d7dd782661ec48193e03bc">liste.h</a>
+</li>
+<li>Liste_supprimerDernier()
+: <a class="el" href="liste_8h.html#abec4215e9fe17248b29de8dd632a1127">liste.h</a>
+</li>
+<li>Liste_supprimerPremier()
+: <a class="el" href="liste_8h.html#a8980eae16dd6733b511ea9a046cac10b">liste.h</a>
+</li>
+<li>Liste_trier()
+: <a class="el" href="liste_8h.html#a5dac0089d200cda2516e45c5bdd12c00">liste.h</a>
+</li>
+<li>Liste_vider()
+: <a class="el" href="liste_8h.html#a29b240bfcd770d1562e0863118a53912">liste.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>typeAssocie
+: <a class="el" href="liste_8h.html#ac7d8411010c037e8b16853cebad6e38e">liste.h</a>
+</li>
+<li>typeAssocie_creer()
+: <a class="el" href="liste_8h.html#ace5dee8ab94c656ad2e6ee1e61006bf6">liste.h</a>
+</li>
+<li>typeAssocie_estEgal()
+: <a class="el" href="liste_8h.html#ad2258fa5df4bb47add335cf9a0a665fb">liste.h</a>
+</li>
+<li>typeAssocie_estNull()
+: <a class="el" href="liste_8h.html#afc347f9a10677880510ea94a6b34df76">liste.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 23:16:53 pour Liste doublement chainée par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.2
+</small></address>
+</body>
+</html>

@@ -1,0 +1,11 @@
+SELECT nom FROM emp WHERE comm IS NOT NULL ORDER BY comm DESC;
+select nom from emp group by nom,fonction,salaire order by salaire desc;
+select nom from emp where embauche>='01-JAN-01';
+select distinct emp.nom,lieu from emp,dept where emp.n_dept=dept.n_dept;
+select distinct r1.nom as emp,r2.nom as sup from emp r1,emp r2 where r1.n_sup=r2.num;
+select nom from emp where salaire>ALL(select salaire from emp where n_dept=30);
+select distinct r1.nom as nom from emp r1,emp r2 where r1.n_sup=r2.num and r1.n_dept!=r2.n_dept;
+select nom,fonction,salaire from emp where salaire=(select MAX(salaire) from emp);
+select n_dept,SUM(salaire) from emp group by n_dept;
+select n_dept from emp group by n_dept having count(nom)=(select max(count(nom)) from emp group by n_dept);
+select dept.nom from emp,dept where emp.n_dept=dept.n_dept group by dept.nom,emp.nom having emp.nom IN (select nom from emp group by nom having count(nom)=(select count(fonction) from (select distinct fonction from emp)));

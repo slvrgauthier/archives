@@ -1,0 +1,79 @@
+input[type=text]:hover{
+	background-color: rgba(2,0,2,0.06)
+}
+
+input[type=date]:hover{
+	background-color: rgba(3,2,2,0.06)
+}
+
+textarea:hover{
+	background-color: rgba(3,2,2,0.06)
+}
+
+input[type=text]:focus{
+	background-color: rgba(2,0,2,0.06)
+}
+
+input[type=date]:focus{
+	background-color: rgba(3,2,2,0.06)
+}
+
+textarea:focus{
+	background-color: rgba(3,2,2,0.06)
+}
+
+img[id=id_img]:hover{
+	cursor:pointer
+}
+
+img[class=img_plus]:hover{
+	cursor:pointer
+}
+
+.users{
+	display: block
+}
+.users_nom{
+	display:inline
+}
+.users_prenom{
+	display:inline
+}
+
+body {
+  margin: 0px;
+}
+#head {
+  height: 15%;
+  width: 100%;
+  float: left;
+  background-color: #6C8387;
+}
+#content {
+  height: 75%;
+  width: 100%;
+  float: left;
+  background-color: #E8E8E8;
+}
+#menu {
+  height: 100%;
+  width: 15%;
+  float: left;
+  background-color: #9FB8BD;
+}
+#member {
+  width: 100%;
+}
+#corps {
+  width: 100%;
+}
+#foot {
+  height: 10%;
+  width: 100%;
+  float: left;
+  background-color: #6C8387;
+}
+
+#disconnect {
+  float: right;
+}

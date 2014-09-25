@@ -1,0 +1,111 @@
+; GAUTHIER Silvère 20100568
+; L2 - Info B
+
+;exo1
+(define empty-al ())
+
+(define empty-al? null?)
+
+(define (add-assoc k v al) (if (empty-al? al) (append (list (cons k v)) al) (if (symbol=? (caar al) k) (append (list (cons k v)) (cdr al)) (append (list (car al)) (add-assoc k v (cdr al))))))
+
+(define (get-assoc k al) (if (empty-al? al) empty-al (if (eq? (caar al) k) (car al) (get-assoc k (cdr al)))))
+
+(define (get-keys al) (if (empty-al? al) empty-al (cons (caar al) (get-keys (cdr al)))))
+
+(define (remove-assoc k al) (if (empty-al? al) empty-al (if (eq? (caar al) k) (remove-assoc k (cdr al)) (cons (car al) (remove-assoc k (cdr al))))))
+
+;exo2
+(define (add-assoc-term k v al) (let ((acc ()))
+                                  (define (add k v al acc) (if (empty-al? al) (append acc (list (cons k v))) (if (eq? (caar al) k) (append (append acc (list (cons k v))) (cdr al)) (add k v (cdr al) (append acc (list (car al)))))))
+                                  (add k v al acc)))
+
+(define (get-keys-term al) (let ((acc ()))
+                             (define (get al acc) (if (empty-al? al) acc (get (cdr al) (append acc (list (caar al))))))
+                             (get al acc)))
+
+(define (remove-assoc-term k al) (let ((acc ()))
+                                   (define (remove k al acc) (if (empty-al? al) acc (if (eq? (caar al) k) (remove k (cdr al) acc) (remove k (cdr al) (append acc (list (car al)))))))
+                                   (remove k al acc)))
+
+;exo3
+(define (saisir nom note bd) (if (and (symbol? nom) (number? note)) (add-assoc-term nom note bd) (display "Mauvais type de donnée.")))
+
+
+;exo4
+(define (enlever nom bd) (remove-assoc-term nom bd))
+
+
+;exo5
+(define (note nom bd) (cdr (get-assoc nom bd)))
+
+
+;exo6
+(define (etudiants bd note) (if(empty-al? bd) bd (if(= (cdar bd) note) (cons (caar bd) (etudiants (cdr bd) note)) (etudiants (cdr bd) note))))
+
+;exo7
+(define (moyenne bd) (let((n (length bd)))
+                       (define (sum bd) (if (empty-al? bd) 0 (+ (cdar bd) (sum (cdr bd)))))
+                       (/ (sum bd) n)))
+
+;exo8
+(define (ecart-type bd) (let ((m (moyenne bd)) (n (length bd)))
+                          (define (sum bd) (if (empty-al? bd) 0 (+ (* (- (cdar bd) m) (- (cdar bd) m)) (sum (cdr bd)))))
+                          (sqrt (/ (sum bd) n))))
+
+;exo9
+(define (combien bd) (let ((al empty-al))
+                       (define (cb bd al) (cond 
+                                            ((empty-al? bd) al)
+                                            ((empty-al? (get-assoc (cdar bd) al)) (cb (cdr bd) (cons (cons (cdar bd) 1) al)))
+                                            (else (cb (cdr bd) (add-assoc-term (cdar bd) (+ (cdr (get-assoc (cdar bd) al)) 1) al)))))
+                       (reverse (cb bd al))))
+
+
+
+
+;------------------------------------------------------------------------
+;    EXAM TP
+;------------------------------------------------------------------------
+
+;Exercice 5 :
+(define b empty-al)
+(define b (add-assoc 'Bourque 15 b))
+(define b (add-assoc 'Pevzner 11 b))
+(define b (add-assoc 'Tesler 8 b))
+(define b (add-assoc 'Froenicke 17 b))
+(define b (add-assoc 'Garcia 4 b))
+(define b (add-assoc 'Robinson 5 b))
+(define b (add-assoc 'Yang 11 b))
+(define b (add-assoc 'Wienberg 15 b))
+(define b (add-assoc 'Blanchette 11 b))
+(define b (add-assoc 'Miller 14 b))
+b
+
+;Exercice 6 :
+(display "moyenne :")
+(moyenne b)
+(display "écart-type :")
+(ecart-type b)
+
+;Exercice 7 :
+(define (genliste d f p) (if (> d f)
+                             ()
+                             (cons d (genliste (+ d p) f p))))
+
+;Exercice 8 :
+(define (make-lancer a b c) (list a b c))
+(define (premier l) (car l))
+(define (deuxieme l) (cadr l))
+(define (troisieme l) (caddr l))
+
+;Exercice 9 :
+(define (gagnant? l) (if (and
+                          (= (premier l) 4)
+                          (= (deuxieme l) 2)
+                          (= (troisieme l) 1))
+                         #t
+                         #f))
+(define jouer (gagnant? (make-lancer (+ 1 (random 6)) (+ 1 (random 6)) (+ 1 (random 6)))))
+
+;Exercice 10 :
+(define (jeux n) (if (= n 0) () (cons jouer (jeux (- n 1)))))

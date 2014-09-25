@@ -1,0 +1,62 @@
+	.file	"HELLO.c"
+	.section	.rodata
+.LC0:
+	.string	"Arg%d : %s\n"
+	.text
+.globl main
+	.type	main, @function
+main:
+	leal	4(%esp), %ecx
+	andl	$-16, %esp
+	pushl	-4(%ecx)
+	pushl	%ebp
+	movl	%esp, %ebp
+	pushl	%ecx
+	subl	$36, %esp
+	movl	%ecx, -24(%ebp)
+	movl	$0, -8(%ebp)
+	jmp	.L2
+.L3:
+	movl	-8(%ebp), %eax
+	sall	$2, %eax
+	movl	-24(%ebp), %edx
+	addl	4(%edx), %eax
+	movl	(%eax), %eax
+	movl	%eax, 8(%esp)
+	movl	-8(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$.LC0, (%esp)
+	call	printf
+	addl	$1, -8(%ebp)
+.L2:
+	movl	-8(%ebp), %eax
+	movl	-24(%ebp), %edx
+	cmpl	(%edx), %eax
+	jl	.L3
+	jmp	.L5
+.L6:
+	movl	-8(%ebp), %eax
+	sall	$2, %eax
+	movl	-24(%ebp), %edx
+	addl	8(%edx), %eax
+	movl	(%eax), %eax
+	movl	%eax, (%esp)
+	call	puts
+	addl	$1, -8(%ebp)
+.L5:
+	movl	-8(%ebp), %eax
+	sall	$2, %eax
+	movl	-24(%ebp), %edx
+	addl	8(%edx), %eax
+	movl	(%eax), %eax
+	testl	%eax, %eax
+	jne	.L6
+	movl	$0, %eax
+	addl	$36, %esp
+	popl	%ecx
+	popl	%ebp
+	leal	-4(%ecx), %esp
+	ret
+	.size	main, .-main
+	.ident	"GCC: (GNU) 4.1.2 20080704 (Red Hat 4.1.2-48)"
+	.section	.note.GNU-stack,"",@progbits

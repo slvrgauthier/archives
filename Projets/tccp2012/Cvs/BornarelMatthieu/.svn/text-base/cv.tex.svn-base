@@ -1,0 +1,285 @@
+\documentclass[a4paper]{article}
+
+
+
+
+\usepackage[french]{babel}
+%\usepackage[T1]{fontenc} % iso-8859-1
+\usepackage[utf8]{inputenc} % utf8
+\usepackage{colortbl}
+%\usepackage{graphicx}%photo
+
+
+
+
+
+
+
+
+
+
+
+
+\pagestyle{empty} % ni head ni foot
+
+
+
+
+\topmargin=-2.5cm
+\textheight=33cm
+\evensidemargin=-1cm
+\oddsidemargin=-1cm
+\textwidth=21cm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+
+\pagestyle {plain}%numero de page
+
+
+
+
+\begin{center} 
+%Premier tableau
+\begin{tabular}{|p{21cm}}
+\hline 
+\rowcolor[gray]{0.5}
+\begin{center}
+\textcolor{white}{{\Huge BORNAREL   Matthieu}}
+\end{center}
+\end{tabular}
+
+
+
+
+
+
+
+
+%Deuxième tableau
+\begin{tabular}{|c|p{17.73cm}}
+
+
+
+
+\hline 
+\rowcolor{black}
+    \arrayrulecolor[gray]{0.5}
+\textcolor{white}{\Large \textbf{21/07/1988}} &
+
+
+
+
+\end{tabular}
+
+
+
+
+\end{center}
+
+
+
+
+
+
+
+
+%\includegraphics[width=5cm,height=16mm]{images.jpeg} &
+\begin{center}
+
+
+
+
+\noindent 
+{\large 18, rue des Tilleuls} \\
+{\large 34090 Montpellier(France).}\\
+{\large Tél. : 06.85.91.24.88}\\
+{\large Mail:\underline{matthieu.bornarel@gmail.com}} 
+\end{center}
+
+
+
+
+
+
+
+
+\noindent
+\newline
+%--------------------Profil---------------
+
+
+
+
+\textcolor[gray]{0.6}{{\Large  PROFIL}}
+
+
+
+
+\noindent 
+\newline %saut de ligne
+\hspace*{0.5cm} Jeune professionnel pluridisciplinaire, étudiant en licence Informatique à l'Université Montpellier II.\\
+\newline
+%--------------------Expérience-------------
+
+
+
+
+\textcolor[gray]{0.6}{{\Large  EXPERIENCE}}
+
+
+
+
+\noindent 
+\newline %saut de ligne
+\begin{itemize}
+
+
+
+
+\item \textbf{Septembre 2011 :}\hspace*{0.5cm}Travail d'acceuil dans le cadre des inscriptions des étudiants pour l'Université de Montpellier II
+\item \textbf{Juillet - Aout  2008 / Juillet - Aout - Septembre - Decembre  2009 / Juillet - Aout - Septembre  2010 :}\hspace*{0.5cm}Travail en tant que guichetier/banque pour " La Poste "
+\item \textbf{Juillet  2007 :}\hspace*{0.5cm}Tenue de l’accueil en période d’affluence dans une administration
+\item \textbf{Juillet - Aout  2006 / Aout  2007 :}\hspace*{0.5cm}Travaux de classement et de manutention dans l’administration
+\newline
+Divers travaux dans le cadre familial.
+\newline 
+\newline 
+
+
+
+
+\end{itemize}
+
+
+
+
+%-------------------Cursus---------------------
+
+
+
+
+\textcolor[gray]{0.6}{{\Large  CURSUS}}
+
+
+
+
+\noindent 
+\newline
+\begin{itemize}
+\item \textcolor{blue}{\textbf{Université Montpellier II - Département Informatique.}}
+\newline
+\underline{\textbf{2011-2012}}
+\newline
+\newline
+Licence (L3) Informatique.
+\newline
+\item \textcolor{blue}{\textbf{Lycée Notre Dame de Bon-Secours - Perpignan.}}
+\newline
+\underline{\textbf{2006}}
+\newline
+\newline
+Baccalauréat scientifique, option sciences de la vie et de la terre.
+\newline
+\newline
+\end{itemize}
+
+
+
+
+%---------------Langues------------------
+\textcolor[gray]{0.6}{{\Large  LANGUES}}
+
+
+
+
+\noindent 
+\newline
+\begin{itemize}
+\item  Français:\textbf{\hspace*{0.9cm}Lanque maternelle.}
+\newline
+\item  Anglais:\textbf{\hspace*{0.7cm}Assez bonne maîtrise à l’oral et à l’écrit.}
+\newline
+\item Espagnol:\textbf{\hspace*{0.7cm}Niveau scolaire.}
+\newline
+\newline
+\end{itemize}
+
+
+
+
+%----------------Compétences Informatiques-------------
+\textcolor[gray]{0.6}{{\Large  COMPETENCES INFORMATIQUES}}
+\noindent 
+\newline
+\newline
+
+
+
+
+\begin{itemize}
+\item  Technologies web:\hspace*{0.5cm}XHTML/HTML, CSS, XML, Javascript
+\item  Programmation:\hspace*{0.7cm}Programmation impérative, objet et fonctionnelle.
+\item   Bases de données:\hspace*{0.5cm}MySQL , Oracle.
+\item   Administration:\hspace*{0.7cm} Apache, MySQL
+\newline
+\newline
+\newline
+
+
+
+
+\vspace{3pt}\hrule\vspace{6pt}%tracer une ligne horiz en haut page 
+\noindent  
+\newline
+\newline
+\item   Langages :\hspace*{0.5cm} PHP, XML/XSL, JAVA , C/C++ , Prolog , Scheme , Python , Maple.
+\item Systèmes d'exploitation:\hspace*{0.5cm}Linux, Unix et Windows (Utilisation quotidienne). 
+\newline
+\newline
+\end{itemize}
+
+
+
+
+%----------------Centre d'interets---------------
+\textcolor[gray]{0.6}{{\Large  CENTRES D'INTERETS}}
+
+
+
+
+\noindent 
+\newline
+\newline
+\hspace*{0.5cm} Théâtre (depuis 15ans), Jeux Interactif et navigation sur internet.
+\newline
+\newline
+\hspace*{0.5cm} \textbf{Qualité:}\hspace*{0.5cm} Esprit ouvert, motivé, dynamique, grande adaptabilité, rigoureux, bonne intégration,
+\newline
+\hspace*{0.6cm}esprit d'équipe.
+
+
+
+
+
+
+
+
+\end{document}

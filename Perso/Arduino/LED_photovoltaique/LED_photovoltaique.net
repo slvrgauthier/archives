@@ -1,0 +1,56 @@
+# EESchema Netlist Version 1.1 created  jeu. 09 janv. 2014 17:53:35 CET
+(
+ ( /52CED381 $noname  D2 LED {Lib=LED}
+  (    1 ? )
+  (    2 ? )
+ )
+ ( /52CED288 $noname  D1 LED {Lib=LED}
+  (    1 ? )
+  (    2 N-000027 )
+ )
+ ( /52CED1E9 $noname  R1 220 {Lib=R}
+  (    1 N-000027 )
+  (    2 ? )
+ )
+ ( /52CED12B $noname  ATMEGA328 ARDUINO_UNO {Lib=ARDUINO_UNO}
+  (  Pwm ? )
+  (  Rx< ? )
+  (  Tx> ? )
+  (    ~ ? )
+ )
+)
+*
+{ Allowed footprints by component:
+$component D2
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component D1
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 27 "" ""
+ D1 2
+ R1 1
+}
+#End

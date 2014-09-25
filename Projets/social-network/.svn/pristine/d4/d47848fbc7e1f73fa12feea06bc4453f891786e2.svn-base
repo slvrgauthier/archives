@@ -1,0 +1,79 @@
+/* Fichier servant à la création des tables concernant le chat
+ *   
+ * @author: GAUTHIER Silvère.
+ * @update: 05-04 18:42
+ * @last_update_author : GAUTHIER Silvère
+ */
+
+USE mastering;
+
+DROP TABLE IF EXISTS chat_favoris;
+DROP TABLE IF EXISTS chat_conversation;
+DROP TABLE IF EXISTS chat_message;
+
+-- Table contenant tous les favoris
+CREATE TABLE IF NOT EXISTS chat_favoris (
+  id_favoris        SERIAL          PRIMARY KEY,
+  id_utilisateur    BIGINT(20) UNSIGNED             NOT NULL,
+  id_contact        BIGINT(20) UNSIGNED             NOT NULL,
+  CONSTRAINT FK_user_fav1 FOREIGN KEY (id_utilisateur) REFERENCES utilisateur (id_user),
+  CONSTRAINT FK_user_fav2 FOREIGN KEY (id_contact) REFERENCES utilisateur (id_user)
+) ENGINE=InnoDB,DEFAULT CHARSET=utf8;
+
+-- Table contenant toutes les conversations
+CREATE TABLE IF NOT EXISTS chat_conversation (
+  id_conversation   int UNSIGNED             NOT NULL, /* ni primary, ni serial sinon 1 seul membre */
+  id_membre         BIGINT(20) UNSIGNED             NOT NULL,
+  CONSTRAINT FK_user_conv FOREIGN KEY (id_membre) REFERENCES utilisateur (id_user)
+) ENGINE=InnoDB,DEFAULT CHARSET=utf8;
+
+
+-- Table contenant tous les messages
+CREATE TABLE IF NOT EXISTS chat_message (
+  id_message        SERIAL          PRIMARY KEY,
+  id_conversation   int UNSIGNED             NOT NULL,
+  id_source         BIGINT(20) UNSIGNED             NOT NULL,
+  message           TEXT            NOT NULL,
+  date_envoi        datetime        NOT NULL,
+  /*CONSTRAINT FK_user_msg1 FOREIGN KEY (id_conversation) REFERENCES chat_conversation (id_conversation),*/
+  CONSTRAINT FK_user_msg2 FOREIGN KEY (id_source) REFERENCES utilisateur (id_user)
+) ENGINE=InnoDB,DEFAULT CHARSET=utf8;
+
+/* Requetes pour les tests */
+INSERT INTO utilisateur VALUES	(20100568, 'Gauthier', 'Silvère', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO utilisateur VALUES	(20100000, 'Test', 'Slvr', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO utilisateur VALUES	(1, 'Lecerf', 'Geoffrey', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO utilisateur VALUES	(2, 'Bichon', 'Jean', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO utilisateur VALUES	(3, 'Babar', 'Pierre', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO utilisateur VALUES	(4, 'Durand', 'Richard', '',0, '','', '2010-04-0', 'professionnel');
+INSERT INTO utilisateur VALUES	(5, 'Dupuis', 'Elodie', '',0, '','', '2010-04-0', 'professeur');
+INSERT INTO utilisateur VALUES	(6, 'Alphonse', 'Fred', '',0, '','', '2010-04-0', 'professeur');
+INSERT INTO utilisateur VALUES	(7, 'Test', 'tessst', '',0, '','', '2010-04-0', 'etudiant');
+INSERT INTO `mastering`.`promotion` VALUES ('1', 'ZER', '2012', '2013');
+INSERT INTO `mastering`.`promotion` VALUES ('2', 'ZERY', '2013', '2014');
+INSERT INTO `mastering`.`groupe` VALUES ('1', 'A', '1');
+INSERT INTO `mastering`.`groupe` VALUES ('2', 'B', '1');
+INSERT INTO `mastering`.`groupe` VALUES ('3', 'A', '2');
+INSERT INTO `mastering`.`etudiant`VALUES ('1', '20101772', '23', '1', '1');
+INSERT INTO `mastering`.`etudiant`VALUES ('2', '20101992', '24', '2', '2');
+INSERT INTO `mastering`.`etudiant`VALUES ('3', '20101882', '25', '3', '2');
+INSERT INTO `mastering`.`etudiant`VALUES ('4', '20101001', '26', '7', '3');
+INSERT INTO `mastering`.`etudiant`VALUES ('5', 'abc', '27', '20100568', '1');
+INSERT INTO `mastering`.`etudiant`VALUES ('6', 'cba', '28', '20100000', '1');
+INSERT INTO `mastering`.`utilisateur` (`id_user`, `nom`, `prenom`, `adresse`, `cp`, `mail`, `mdp`, `date_inscription`, `role_user`) VALUES ('8', 'Ulrich', 'Vincent', '', '0', '', '', '2013-04-17', 'professionnel');
+INSERT INTO `mastering`.`utilisateur` (`id_user`, `nom`, `prenom`, `adresse`, `cp`, `mail`, `mdp`, `date_inscription`, `role_user`) VALUES ('9', 'Ulrich', 'Albert', '', '0', '', '', '2013-04-17', 'professionnel');
+
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 20100000);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 1);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 2);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 3);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 4);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 5);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 6);
+INSERT INTO chat_favoris(id_utilisateur, id_contact) VALUES(20100568, 7);
+INSERT INTO chat_conversation VALUES(0, 20100000);
+INSERT INTO chat_conversation VALUES(0, 20100568);
+INSERT INTO chat_conversation VALUES(1, 20090000);
+INSERT INTO chat_conversation VALUES(1, 20090568);
+INSERT INTO chat_message(id_conversation, id_source, message, date_envoi) VALUES(0, 20100568, "Salut !", NOW());
+INSERT INTO chat_message(id_conversation, id_source, message, date_envoi) VALUES(0, 20100000, "Hey !", NOW());

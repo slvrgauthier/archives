@@ -1,0 +1,90 @@
+;;Predicats :
+(define (neg? s) (equal? s 'non))
+(define (ou? s) (equal? s 'ou))
+(define (et? s) (equal? s 'et))
+(define (impl? s) (equal? s 'impl))
+(define (equi? s) (equal? s 'equi))
+(define (nand? s) (equal? s 'nand))
+
+(define (connecteurBinaire? s) (if (member s '(et ou impl equi nand)) #t #f))
+
+(define (symboleProp? s) (if (or (not (symbol? s)) (or (connecteurBinaire? s) (neg? s))) #f #t))
+
+
+;Exercice 1
+(define (oterOU f) (cond 
+                     ((null? f) f)
+                     ((symboleProp? f) f)
+                     ((ou? (car f)) (list 'non (list 'et (list 'non (oterOU (cadr f))) (list 'non (oterOU (caddr f))))))
+                     ((connecteurBinaire? (car f)) (cons (car f) (list (oterOU (cadr f)) (oterOU (caddr f)))))
+                     ((neg? (car f)) (list (car f) (oterOU (cadr f))))
+                     (#t #f)))
+
+;Exercice 2  (voir prédicats)
+(define (fbf? f) (cond 
+                   ((null? f) #f)
+                   ((symboleProp? f) #t)
+                   ((or (connecteurBinaire? f) (neg? f)) #f)
+                   ((connecteurBinaire? (car f)) (and (= (length f) 3) (and (fbf? (cadr f)) (fbf? (caddr f)))))
+                   ((neg? (car f)) (and (= (length f) 2) (fbf? (cadr f))))
+                   (#t #f)))
+
+;Exercice 3
+(define (oterET f) (cond 
+                     ((null? f) f)
+                     ((symboleProp? f) f)
+                     ((et? (car f)) (list 'non (list 'nand (oterET (cadr f)) (oterET (caddr f)))))
+                     ((connecteurBinaire? (car f)) (cons (car f) (list (oterET (cadr f)) (oterET (caddr f)))))
+                     ((neg? (car f)) (list (car f) (oterET (cadr f))))
+                     (#t #f)))
+
+;Exercice 4
+(define (oterNON f) (cond 
+                      ((null? f) f)
+                      ((symboleProp? f) f)
+                      ((neg? (car f)) (list 'nand (oterNON (cadr f)) (oterNON (cadr f))))
+                      ((connecteurBinaire? (car f)) (cons (car f) (list (oterNON (cadr f)) (oterNON (caddr f)))))
+                      (#t #f)))
+
+;Exercice 5
+(define (queDesNAND f) (oterNON (oterET (oterOU f)))) 
+
+;Exercice 6
+(define (queNAND? f) (cond 
+                       ((or (null? f) (symboleProp? f) (nand? f)) #t)
+                       ((nand? (car f)) (and (queNAND? (cadr f)) (queNAND? (caddr f))))
+                       (#t #f)))
+
+;Exercice 7
+(define (intNand p q) (if (and (= p 1) (= q 1)) 0 1))
+
+;;Interprétation
+(define (intSP sP I) (if (null? I) #f (if (equal? sP (caar I)) (cadar I) (intSP sP (cdr I)))))
+
+(define (intNon p) (- 1 p))
+(define (intEt p q) (* p q))
+(define (intOu p q) (if (= (+ p q) 2) 1 (+ p q)))
+(define (intImpl p q) (intOu (intNon p) q))
+(define (intEqui p q) (* (intImpl p q) (intImpl q p)))
+
+;Exercice 8
+(define (val_V f I) (cond 
+                     ((null? f) #t)
+                     ((symboleProp? f) (intSP f I))
+                     ((nand? (car f)) (intNand (val_V (cadr f) I) (val_V (caddr f) I)))
+                     (#t #f)))
+
+;Exercice 9
+(define (remplacerSP f I) (cond 
+                            ((null? f) f)
+                            ((symboleProp? f) (if (= (intSP f I) 1) 'top 'bottom))
+                            ((connecteurBinaire? (car f)) (cons (car f) (list (remplacerSP (cadr f) I) (remplacerSP (caddr f) I))))
+                            ((neg? (car f)) (list (car f) (remplacerSP (cadr f) I)))
+                            (#t #f)))
+
+;Exercice 10
+(define (val_V2 f I) (cond 
+                     ((null? f) #t)
+                     ((symboleProp? f) (if (equal? (remplacerSP f I) 'top) 1 0))
+                     ((nand? (car f)) (intNand (val_V (cadr f) I) (val_V (caddr f) I)))
+                     (#t #f)))

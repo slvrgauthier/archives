@@ -1,0 +1,140 @@
+
+body
+{
+   width: 760px;
+   margin: auto;
+   margin-top: 20px;
+   margin-bottom: 20px;    
+   background-image: url("arplanbart.gif");
+}
+
+/* L'en-tête */
+
+#en_tete
+{
+   width: 760px;
+   height: 50px;
+   margin-bottom: 10px;
+}
+
+#en_tete h1
+{
+   color: green;
+   text-align: center;
+   font-family: Arial;
+}
+
+
+
+/* Le menu */
+
+#menu
+{
+   float: left;
+   width: 120px;
+	 background-color: white;
+   border: 2px solid black;
+   margin-bottom: 20px;
+}
+
+#menu h3
+{    
+   color: black;
+   font-family: Arial;
+   text-align: center;
+}
+
+#menu ul
+{
+  
+   padding: 0px;
+   padding-left: 20px;
+   margin: 0px;
+   margin-bottom: 5px;
+}
+
+#menu a
+{
+   color: black;
+}
+
+#menu a:hover
+{
+   background-color: green;
+   color: black;
+}
+
+
+/* Le corps de la page */
+
+#corps
+{
+   margin-left: 140px;
+   margin-bottom: 20px;
+   padding: 5px;
+   
+   background-color: white;
+   
+   border: 2px solid black;
+}
+
+#corps h2
+{
+   color: Black;
+   text-align: left;
+   font-family: Arial;
+}
+
+
+#corps p 
+{
+color: blue;
+text-align: justify;
+ }
+
+#corps ol
+{
+  color: blue;
+
+}
+
+#corps table
+{
+border-width:1px; 
+border-style:solid; 
+border-color:black;
+width:100%;
+border-collapse:collapse;
+color:blue;
+}
+
+#corps th
+{ 
+border-width:1px;
+border-style:solid; 
+border-color:orange;
+width:30%;
+}
+
+#corps td
+{ 
+border-width:1px;
+border-style:solid; 
+border-color:orange;
+width:30%;
+}
+
+
+/* Le pied de page  */
+
+#pied_de_page
+{
+   padding: 5px;
+
+   text-align: center;
+
+   color: black;
+   background-color: white;
+
+   border: 2px solid black;
+}

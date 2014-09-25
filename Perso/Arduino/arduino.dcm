@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0  Date: jeu. 09 janv. 2014 17:38:59 CET
+#
+$CMP ARDUINO_UNO
+D Carte Arduino Uno
+K arduino
+$ENDCMP
+#
+#End Doc Library

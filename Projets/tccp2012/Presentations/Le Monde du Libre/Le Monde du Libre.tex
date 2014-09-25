@@ -1,0 +1,349 @@
+\documentclass{beamer}
+\setbeamercovered{transparent}
+
+\usepackage{lmodern}                %meilleure police
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{graphicx} 
+
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks}
+
+%\usetheme[secheader]{Madrid}    % titre en haut
+ \usetheme{Marburg} 
+ 
+%\useoutertheme{smoothbars}       %ligne d'en-tête et de pied de page
+\setbeamertemplate{caption}[numbered] % pour numéroter tables et figures !
+
+\institute{UM2}
+\date{Univ. Montpellier 2}
+\title{Le Monde du Libre}
+\author{PEREIRA Julien \and MASIP Florian}
+
+
+\begin{document}
+
+%-diapo 1---------------------------------------------
+\begin{frame}
+	\titlepage
+\end{frame}
+
+%-diapo 2---------------------------------------------
+\begin{frame}
+	\frametitle{Sommaire}
+	\tableofcontents[hideothersubsections]
+\end{frame}
+
+%-diapo 3---------------------------------------------
+\section{Introduction}
+
+\begin{frame}
+	\frametitle{Introduction}
+	Le monde de l'informatique est un vaste domaine, dans lequel différentes \textbf{philosophies} s'affrontent.
+	\newline \newline
+	De nos jours, le nombre de logiciels accessibles à n'importe quel utilisateur ne cesse d'augmenter et l'utilisateur peut lui même s'impliquer dans sa conception.
+	\newline\newline 
+	Les logiciels libres permettent à tout utilisateur de \textbf{personnaliser} son environnement à sa guise.
+	\newline\newline
+	Le monde du libre est défendu par deux mouvements 
+\end{frame}
+
+%-diapo 4---------------------------------------------
+\section{Historique}
+\subsection[Logiciel libre]{Logiciel libre}
+
+\begin{frame}
+	\frametitle{Logiciel libre}
+	\begin{itemize}
+		\item Notion décrite pour la première fois dans la première moitié des années 1980 par \textbf{Richard Stallman.}
+		\newline
+		\begin{itemize}
+			\item Formalisée et popularisée avec le projet \textbf{GNU} et la \textbf{Free Software Foundation} (FSF)
+			\newline
+		\end {itemize}
+		\begin{figure}
+				\centering
+				\includegraphics<1->[width=2cm]{GNU.png}\includegraphics<1->[width=4cm]{FSF.png}
+		\end{figure}
+		\pause
+		
+		\item \textbf{Free Software Foundation}: met en avant la finalité philosophique et politique de la licence
+		\newline
+		\begin{itemize}
+			\item le logiciel non libre est un problème social et le logiciel libre en est la solution.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%-diapo 5-------------------------------------------
+\subsection[open source]{open source}
+
+\begin{frame}
+	\frametitle{open source}
+	\begin{itemize}
+		\item La désignation open source s'applique aux logiciels dont la licence respecte des critères précisément établis par\newline
+		l' \textbf{Open Source Initiative} (OSI)
+	 	\newline
+	 	\begin{itemize}
+	 		\item crée par \textbf{Eric Steven}  et \textbf{Bruce Perens} 
+	 		\item délivre le label \textbf{OSI approved} aux licences 
+	 		\newline
+		\end{itemize}
+		\begin{figure}
+				\centering
+				\includegraphics<1->[width=2cm]{OSI.png}
+		\end{figure}
+		\pause
+		
+		\item \textbf{Open Source Definition}: met l'accent sur la méthode de développement et de diffusion du logiciel.
+		\newline
+		\begin{itemize}
+			\item un logiciel non libre est une solution sous-optimale
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+%-diapo 6---------------------------------------------
+\subsection[Points commun / distinctions]{Points commun / distinctions}
+
+\begin{frame}
+	\frametitle{Points commun / distinctions}
+	\begin{itemize}
+	\item La différence fondamentale entre les deux mouvements se situe dans \textbf{leurs valeurs et leurs façons de voir le monde}
+	\newline\newline
+	\item Le mouvement du logiciel libre et l'open source sont aujourd'hui des mouvements séparés, avec \textbf{des idées\newline et des objectifs différents}
+	\newline\newline
+	\item Les définitions officielles du logiciel libre et de l'open source \textbf{renvoient dans la pratique aux mêmes licences}
+	\end{itemize}
+\end{frame}
+
+
+%-diapo 7---------------------------------------------
+\section[Les Licences et l'Open source]{Les Licences et l'Open source}
+\subsection[Les Licences]{Les Licences}
+
+\begin{frame}
+	\frametitle{Les Licences}
+	Pour classifier les différentes utilisations qu'il est possible de faire d'une oeuvre, il à était créé des licences possédant chacune des régles définies par différentes organisations :
+	\pause
+	\begin{itemize}
+		\item Pour protéger les droits d'auteur et la liberté de l'utilisateur.
+		\pause
+		\item Les licences sont commune à l'\textbf{ensemble} des "oeuvres de l'esprit" (i.e musiques, peintures ... mais aussi pour l'informatique).
+		\pause
+		\item Elles sont plus au moins restrictives pour l'utilisateur et plus ou moins lucratives pour l'auteur.
+		\pause
+		\item Elles sont représentées par des symboles : \includegraphics<5->[width=1cm]{symbNonComm.png}  \includegraphics<5->[width=1cm]{symbCopyleft.png} 
+	\end{itemize}
+\end{frame}
+
+%-diapo 8---------------------------------------------
+\subsection[Les catégories]{Les catégories}
+
+\begin{frame}
+	\frametitle{Les catégories}
+	\begin{itemize}
+		\item Les licences sont regroupées en plusieurs domaines : 
+		\pause
+		\begin{itemize}
+			\item\footnotesize Les licences libres
+			\pause
+			\begin{itemize}
+				\item\footnotesize \underline{Les licences libres non-copyleft} : Permettent la réutilisation de tout ou d'une partie du logiciel sans restriction.
+				\item\footnotesize \underline{Les licences libres copyleft} : Permettent la réutilisation, l'étude, la modification du tout ou d'une partie du logiciel sans restriction \textbf{dans la mesure où cette autorisation reste préservée}
+			\end{itemize}
+			\pause
+			\item\footnotesize \underline{Les licences libres de diffusion} : Ont le même principe que les licences libres mais favorisent la diffusion du programme.
+			\pause
+			\item\footnotesize \underline{Les licences propriétaires} : Tout programme ne respectant pas une des conditions des licences libres.
+		\end{itemize}
+	\end{itemize}
+	\pause
+	Les logiciels n'ayant pas de licence appartiennent au \textbf{domaine public}, c'est à dire pas protégés par les droits d'auteur.
+\end{frame}
+
+%-diapo 9---------------------------------------------
+\subsection[L'Open source]{L'Open source}
+
+\begin{frame}
+	\frametitle{L'Open source}
+	L'open source s'applique aux logiciels dont la licence respecte des critères précisément établis par l'Open Source Initiative.
+	\pause
+	\begin{itemize}
+		\item\footnotesize Il s'attache aux avantages d'une méthode de développement au travers de la réutilisation du code source. 
+		\pause
+		\item\footnotesize L'open source s'applique aux logiciels mais aussi aux \textbf{travaux dérivés} \textit{(algorithmes, fonctions ...)}.
+		\pause
+		\item\footnotesize Souvent, un logiciel libre est qualifié d'open source, car les licences compatibles open source englobent les licences libres (selon la définition de la Free Software Foundation).
+		\pause
+		\item\footnotesize Le terme open source est en concurrence avec le terme \textit{free software} recommandé par la Free Software Foundation.\\
+		Attention : Pourtant les termes n'ont pas les mêmes critéres (exemple le projet \textit{Darwin} de Apple certifié open source par OSI mais pas par FSF).
+	\end{itemize}
+\end{frame}
+
+%-diapo 10---------------------------------------------
+\section[Les logiciels libres]{Les logiciels libres}
+\subsection[Définition]{Définition}
+
+\begin{frame}
+	\frametitle{Les logiciels libres}
+	Les logiciels libres appartiennent soit au domaine public soit aux licences libres. Ils doivent conférer à l'utilisateur quatres libertés définies par la Free Software Fondation :
+	\begin{enumerate}
+		\pause
+		\item\footnotesize La liberté d'exécuter le programme, pour tous les usages.
+		\pause
+		\item\footnotesize La liberté d'étudier le fonctionnement du programme et de l'adapter à ses besoins.
+		\pause
+		\item\footnotesize La liberté de redistribuer des copies du programme (ce qui implique la possibilité aussi bien de donner que de vendre des copies).
+		\pause
+		\item\footnotesize La liberté d'améliorer le programme et de distribuer ces améliorations au public, pour en faire profiter toute la communauté.
+	\end{enumerate}
+	\pause
+	Ces régles sont irrévocable et la redistribution du programme peut se faire sous toute forme à la condition de toujours rendre disponible le code source correspondant.
+\end{frame}
+
+%-diapo 10---------------------------------------------
+\subsection[Exemple de logiciels libres]{Exemple de logiciels libres}
+
+\begin{frame}
+	\frametitle{Exemple de logiciels libres}
+	Les logiciels libres sont omniprésents dans l'informatique :
+	\begin{itemize}
+		\pause
+		\item Noyau du système d'exploitation LINUX, \textbf{GNU/Linux} : \textit{Licence GNU GPL}.
+		\pause
+		\item Environnements graphiques de bureau \textbf{GNOME} et \textbf{KDE} : \textit{Licence GNU GPL}.
+		\pause
+		\item Navigateur internet \textbf{Chromium} (google chrome) : Majoritairement \textit{licence BSD}.
+		\pause
+		\item Serveur de gestion de nom de domaine \textbf{BIND} : \textit{Licence ISC}.
+	\end{itemize}
+\end{frame}
+
+%-diapo 11---------------------------------------------
+\section[Avantages/Inconvéniants]{Avantage, inconvéniant et usage du Libre}
+\subsection[Avantages]{Avantages}
+
+\begin{frame}
+	\frametitle{Avantages}
+	Les logiciels libres possédent certains avantages sur les logiciels propriétaires :
+	\begin{itemize}
+		\pause
+		\item Une communauté : Un support constant de \textbf{bénévoles} dans le monde pour localiser tout problème dans le code.
+		\pause
+		\item La personnalisation du programme grâce à la \textbf{modification du code source} aussi bien fonctionnellement et visuellement.
+		\pause
+		\item Le logiciel libre tend vers la gratuité même si elle n'est pas obligatoire.
+		\pause
+		\item Ils utilisent un format ouvert menant vers une meilleure compatibilité.
+		\pause
+		\item En tant que développeur, il est plus facile de ce faire aider par la communauté en montrant son code source.
+	\end{itemize}
+\end{frame}
+%-diapo 12--------------------------------------------
+\subsection[Inconvéniants]{Inconvéniants}
+
+\begin{frame}
+	\frametitle{Inconvéniants}
+	Mais également des inconvéniants :
+	\begin{itemize}
+		\pause
+		\item Le suivi du logiciel est au bon vouloir de la communauté et/ou des sponsors.
+		\pause
+		\item Demande des connaissances pour utiliser au mieux le logiciel.
+		\pause
+		\item Le code source étant disponible, la sécurité par l'\textbf{obscurité} n'est pas possible.
+	\end{itemize}
+\end{frame}
+
+%-diapo 13---------------------------------------------
+\section[L'avenir du Libre]{L'avenir du Libre}
+\subsection[L'évolution]{L'évolution}
+
+\begin{frame}
+	\frametitle{L'avenir du Libre}
+	Le logiciel libre s'impose de plus en plus comme une solution de remplacement aux logiciels proprétaires.
+	
+	\begin{itemize}
+		\pause
+		\item Le marché du logiciel libre est très largement \textbf{orienté service}.
+		\pause
+		\item \textbf{Solution moins couteuse} : choix du gouvernement français actuel et des universités.
+		\pause
+		\item Les entreprises ne \textbf{dépendent} plus de l'éditeur du logiciel et des lois qu'il impose.
+		\pause
+		\item \textbf{Standardisation} des composants technologiques, \textbf{interopérabilité} entre les différents produits.
+		\pause
+		\item Le logiciel produit par l'entreprise peut être diffusé ou même revendu après modifications.
+	\end{itemize}	
+\end{frame}
+
+%-diapo 13---------------------------------------------
+\subsection[Le financement]{Le financement}
+
+\begin{frame}
+	\frametitle{Le financement}
+	Les entreprises open source ont plusieurs modèles économiques :\newline
+	\pause
+	\begin{itemize}
+		\item\footnotesize \textbf{L'entraide de la communauté}, dons et/ou participations bévévoles (Mozilla Firefox).
+		\pause
+		\item\footnotesize \textbf{Facturation de services} inclus dans un système libre (Ubuntu One) ou autour du logiciel (installation, formation).
+		\pause
+		\item\footnotesize \textbf{Le financement par les grands acteurs de l'industrie de l'informatique} (Linux financé entre autres par RedHat et IBM).
+		\pause
+		\item\footnotesize Le paiment de \textbf{royalties} (approche open source tronquée).
+		\pause
+		\item\footnotesize \textbf{Associations} entre les fabricants de matériels informatiques et les éditeurs pour une meilleure compatibilité.
+		\newline
+	\end{itemize}
+	\pause
+	Ce système de financement reste moins stable que celui des logiciels propriétaires.
+\end{frame}
+
+%-diapo 14---------------------------------------------
+\subsection[Quelques chiffres]{Quelques chiffres}
+
+\begin{frame}
+	\frametitle{Quelques chiffres}
+	\begin{tikzpicture}
+		\begin{axis}[xlabel={Année}, ylabel={CA en millions}, title={Evolution du CA des logiciels libres}, enlarge x limits=false, enlarge y limits=false, x tick label style={/pgf/number format/1000 sep=}, y tick label style={/pgf/number format/1000 sep=}]
+			\addplot[ybar, ybar interval=0] coordinates{
+			(2002,60) (2003,100) (2004,140) (2005,250) (2006,440) (2007,733) (2008,1100) (2009,1500) (2010,2200) (2011,2501) (2012,3000)};
+		\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+%-diapo 14---------------------------------------------
+\section[Conclusion]{Conclusion}
+
+\begin{frame}
+	\frametitle{Conclusion}
+	Le monde du libre est un domaine très vaste, sa classification en Licence permet de regrouper les logiciels ayant les mêmes caractéristiques tout en protégeant le droit d'auteur.\newline
+	\begin{itemize}
+		\item Pour les utilisateurs, les logiciels libres représentent une trés bonne alternative au logiciel propriétaire, bien souvent payant et restrictif.\newline
+		\item Pour les développeurs, le choix du libre n'est pas évident. Le financement necessaire est bien plus difficile à trouver.	
+	\end{itemize}
+\end{frame}
+
+%-diapo 14---------------------------------------------
+\section[Sources]{Source}
+
+\begin{frame}
+	\frametitle{Sources}
+	\begin{itemize}
+		\item \url{http://www.gnu.org}
+		\item \url{http://www.wikipedia.fr}
+		\item \url{http://www.fsf.org}
+		\item \url{http://opensource.org}
+	\end{itemize}
+\end{frame}
+
+
+\end{document}

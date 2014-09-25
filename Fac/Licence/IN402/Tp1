@@ -1,0 +1,123 @@
+;(require racket/set)
+
+;Formules :
+(define F1 '(equi (et a d) (ou (non a) d)))
+(define F2 '(ou (non (et a (non b))) (non (impl a b))))
+(define F3 '(et (non (impl a (ou a b))) (non (non (et a (ou b (non c)))))))
+(define F4 '(et (ou (non a) (ou b d)) (et (ou (non d) c) (et (ou c a) (et (ou (non c) b) (et (ou (non c) (non b)) (ou (non b) d)))))))
+
+
+;Predicats :
+(define (neg? s) (equal? s 'non))
+(define (ou? s) (equal? s 'ou))
+(define (et? s) (equal? s 'et))
+(define (impl? s) (equal? s 'impl))
+(define (equi? s) (equal? s 'equi))
+
+(define (connecteurBinaire? s) (if (member s '(et ou impl equi)) #t #f))
+
+(define (symboleProp? s) (if (or (not (symbol? s)) (or (connecteurBinaire? s) (neg? s))) #f #t))
+
+
+;Test :
+(define (fbf? f) (cond 
+                   ((null? f) #f)
+                   ((symboleProp? f) #t)
+                   ((or (connecteurBinaire? f) (neg? f)) #f)
+                   ((connecteurBinaire? (car f)) (and (= (length f) 3) (and (fbf? (cadr f)) (fbf? (cddr f)))))
+                   ((neg? (car f)) (and (= (length f) 2) (fbf? (cadr f))))
+                   (#t #f)))
+
+
+;SET
+(define (set l) (if (null? l) l (if (member (car l) (cdr l)) (set (cdr l)) (cons (car l) (set (cdr l))))))
+
+(define (set-add s f) (if (member f s) s (cons f s)))
+
+(define (subset? s1 s2) (if (null? s1) #t (if (member (car s1) s2) (subset? (cdr s1) s2) #f)))
+
+;Verifications :
+(display "Verification des fbf : \n")
+(display "F1 : ")
+(fbf? F1)
+(display "F2 : ")
+(fbf? F2)
+(display "F3 : ")
+(fbf? F3)
+(display "F4 : ")
+(fbf? F4)
+(display "(impl a b) : ")
+(fbf? '(impl a b))
+(display "b : ")
+(fbf? 'b)
+(display "(ou et (non a)) : ")
+(fbf? '(ou et (non a)))
+
+(define (ssFbf i f) (if (fbf? f) (if (= i 1) (cadr f) (if (and (= i 2) (not (neg? (car f)))) (caddr f) (display "Operateur unaire\n"))) (display "Pas une fbf\n")))
+
+(define connecteur car)
+
+(define (nbc f) (cond 
+                   ((null? f) 0)
+                   ((symboleProp? f) 0)
+                   ((or (connecteurBinaire? f) (neg? f)) 1)
+                   ((connecteurBinaire? (car f)) (+ 1 (+ (nbc (ssFbf 1 f)) (nbc (ssFbf 2 f)))))
+                   ((neg? (car f)) (+ 1 (nbc (ssFbf 1 f))))
+                   (#t 0)))
+
+(define (prof f) (cond 
+                   ((null? f) 0)
+                   ((symboleProp? f) 0) ;0 ou 1 comme profondeur de la racine
+                   ((or (connecteurBinaire? f) (neg? f)) 1)
+                   ((connecteurBinaire? (car f)) (+ 1 (max (prof (ssFbf 1 f)) (prof (ssFbf 2 f)))))
+                   ((neg? (car f)) (+ 1 (prof (ssFbf 1 f))))
+                   (#t 0)))
+
+(define (symbProp f) (cond 
+                       ((symboleProp? f) (list f))
+                       ((connecteurBinaire? (car f)) (set (append (symbProp (cadr f)) (symbProp (caddr f)))))
+                       ((neg? (car f)) (symbProp (cadr f)))
+                       ))
+
+
+;Interpretations :
+(define I1 '((a 1) (b 0) (c 1)))
+(define I2 '((a 0) (b 0) (c 0)))
+(define I3 '((a 1) (b 1) (c 1)))
+
+(define (symbInt I) (map car I))
+
+(define (intComp? I f) (let ((si (symbInt I)) (sf (symbProp f)))
+                         (subset? sf si)))
+
+(define (intSP sP I) (if (null? I) #f (if (equal? sP (caar I)) (cadar I) (intSP sP (cdr I)))))
+
+(define (intNon p) (- 1 p))
+(define (intEt p q) (* p q))
+(define (intOu p q) (if (= (+ p q) 2) 1 (+ p q)))
+(define (intImpl p q) (intOu (intNon p) q))
+(define (intEqui p q) (* (intImpl p q) (intImpl q p)))
+
+(define (valV f I) (cond
+                     ((null? f) #t)
+                     ((symboleProp? f) (intSP f I))
+                     ((neg? (car f)) (intNon (valV (cadr f) I)))
+                     ((et? (car f)) (intEt (valV (cadr f) I) (valV (cddr f) I)))
+                     ((ou? (car f)) (intOu (valV (cadr f) I) (valV (cddr f) I)))
+                     ((impl? (car f)) (intImpl (valV (cadr f) I) (valV (cddr f) I)))
+                     ((equi? (car f)) (intEqui (valV (cadr f) I) (valV (cddr f) I)))
+                     ((#t #f))))
+
+
+;Satisfiabilite et validite :
+(define (lisInt lisSP) (let ((lisIntp ()))
+                         (define (lI lSP) (if (null? lSP)
+                                              lisIntp
+                                              (begin
+                                                (cons (cons (cons (car lSP) 0) ()) lisIntp)
+                                                (cons (cons (cons (car lSP) 1) ()) lisIntp)
+                                                (lI (cdr lSP))
+                                                )
+                                              ))
+                         (lI lisSP)))
+                         

@@ -1,0 +1,48 @@
+\documentclass[12pt]{lettre}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{eurosym}
+\usepackage[french]{babel}
+\makeatletter
+\newcommand*{\NoRule}{\renewcommand*{\rule@length}{0}}
+\makeatother
+\begin{document}
+
+
+\begin{letter}{M. le directeur du Master informatique de l'Université
+Montpellier 2}
+\name{BORNAREL Matthieu}
+\address{BORNAREL Matthieu\\18, rue des tilleuls\\34 090 Montpellier}
+\lieu{Montpellier}
+\telephone{06 85 91 }
+\nofax
+
+
+\conc{candidature en Master informatique AIGLE}
+\opening{Monsieur,}
+
+
+La présente a pour objet de vous présenter ma candidature en Master
+informatique et de vous exposer les raisons de ce choix.\
+
+
+Ayant suivi une formation Licence informatique au sein de l'université Montpellier2, afin d’avoir la possibilité d’intégrer le Master AIGLE : Architecture et ingénierie du logiciel et du web. Je souhaite donc par la présente soumettre ma candidature au Master Informatique
+spécialité AIGLE.\
+
+
+En effet, ce Master m'interesse dans la mesure où je pourrais gérer des projets informatiques nécessitant des connaissances pointues en architectures logicielles, permettant de créer des ingénieurs capables de travailler sur les nouvelles
+technologies du web les plus récentes, ainsi que les technologies liées au développement pour mobiles.
+Etant motivé par ce choix, j’aimerais pouvoir mettre tout mon sérieux et mon énergie au service de votre département afin de préparer au mieux mon insertion professionnelle dans ce domaine. \\
+Je reste à votre dispositon pour toutes informations complémentaires.
+
+
+\closing{Veuillez agréer, Monsieur, mes salutations distinguées.}
+
+
+\end{letter}
+
+
+\end{document}

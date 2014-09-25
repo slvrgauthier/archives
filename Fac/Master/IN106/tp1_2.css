@@ -1,0 +1,31 @@
+body {
+	background-color: #001B91;
+}
+#titre {
+	display: none;
+}
+#menu{
+	float: right;
+}
+#menu li {
+	display: inline;
+}
+#page {
+	background-color: #D3D4DB;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#content {
+	float: left;
+	margin-left: 1%;
+	margin-right: 20%;
+	margin-top: -25%;
+}
+#sidebar {
+	float: right;
+	margin-right: 1%;
+}
+#footer {
+	text-align: center;
+}
+

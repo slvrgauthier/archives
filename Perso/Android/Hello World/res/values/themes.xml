@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="Theme.Custom" parent="@android:style/Theme.Black">
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+    
+    
+    <style name="Theme.Custom_2" parent="@android:style/Theme.Black">
+        <item name="myTextViewAttr">@style/FillParent.Centered</item>
+    </style>
+	
+</resources>

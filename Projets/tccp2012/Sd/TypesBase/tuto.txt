@@ -1,0 +1,119 @@
+Description de la bibliothèque typeBase.h : 
+
+1 ) Les types disponibles : 
+
+Il y a actuellement 4 types qui ont été implémentés : 
+- Entier (équivalent int)
+- Flottant (équivalent float)
+- Car (équivalent char)
+- String (équivalent char*)
+
+2 ) Les types à implémenter :
+
+- (optionnel) Double (équivalent double)
+
+3 ) Que représente un type ?
+
+Chaque type représente un pointeur sur une structure commune à tous les types (Type). 
+Les types se différencient dans une seconde structure interne.
+L'accès à la valeur stockée dans la variable ne peut se faire directement.
+Dans les fonctions génériques proposées, toutes les variables devront être de type Type.
+
+4 ) Les outils de manipulation des types :  
+
+-Création de variable : 
+Pour créer une variable, il faut passer par un constructeur avec la syntaxe suivante : 
+<Type> <variable> = <Type>_Creer(<valeur>);
+Les constructeurs sont les seules fonctions dépendantes du type (mises à part les fonctions spécifiques à String).
+Exemple : 
+Entier e = Entier_Creer(5);
+
+-Destruction de variable : 
+Pour libérer la zone mémoire allouée par une variable a, il faut utiliser la fonction void Detruire(Type a).
+Exemple : 
+Entier e = Entier_Creer(5);
+Detruire(e);
+
+-Copier une variable : 
+Pour copier une variable, il faut utiliser void* Clone(Type a).
+Exemple : 
+Entier e = Entier_Creer(5);
+Entier e2 = Clone(e);
+
+-Test d'égalité : 
+La fonction int Egal(Type a, Type b) renvoie 0 si a=b, 1 sinon.
+A noter que si a et b sont de type différent, la fonction renverra 1.
+Exemple : 
+Entier e = Entier_Creer(5);
+Entier e2 = Clone(e);
+Entier e3 = Entier_Creer(4);
+Egal(e, e2); (= 0)
+Egal(e, e3); (= 1)
+
+-Comparaison : 
+La fonction Compare(Type a, Type b) renvoie -1 si a<b, 0 si a=b, 1 si a>b, -2 en cas d'erreur (type different pour a et b).
+Exemple : 
+Entier e = Entier_Creer(5);
+Entier e1 = Entier_Creer(4);
+Flottant e2 = Flottant_Creer(5.);
+Compare(e,e1); (=-1)
+Compare(e,e2); (=-2  Un message d'erreur est ecrit sur la sortie standard)
+
+-Récupération de la valeur : 
+La fonction void* Eval(Type a) renvoie un pointeur vers la valeur stockée dans a.
+Exemple : 
+Entier e = Entier_Creer(5);
+int* v = Eval(e);
+Attention : Modifier v modifiera e.
+
+-Modification de la variable : 
+La fonction void Modifie(Type a, void* b) modifiera la valeur stockée dans a par la valeur pointée par b.
+Dans le cas ou b est d'un type différent de a, un cast est effectué.
+Exemple : 
+Entier e = Entier_Creer(5);
+char c = 'a';
+Modifie(e, &c); (e vaudra 97)
+
+-Afficher la valeur stockée : 
+La fonction void Affiche(Type a) affichera dans la sortie standard la valeur stockée dans a.
+Exemple : 
+Entier e = Entier_Creer(5);
+Affiche(e); > 5
+
+-Convertir en String : 
+La fonction String toString(Type a) renvoie un String contenant la valeur stockée dans a.
+Exemple : 
+Entier e = Entier_Creer(5);
+String s = toString(e); (s vaudra "5")
+
+-Concaténer 2 variables String : 
+La fonction void String_Concat(String a, String b) concatène la chaine de caractère contenue dans a et celle contenue dans b et la stock dans a.
+Exemple : 
+String s1 = String_Creer("Salut");
+String s2 = String_Creer(" lecteur !");
+String_Concat(s1,s2);
+Afficher(s1); > Salut lecteur !
+
+-Connaitre la taille d'un String : 
+int String_Taille(String a) renvoie la taille de la chaine de caractères contenue dans a.
+Exemple : 
+String s = String_Creer("Coucou");
+int t = String_Taille(s); (t vaudra 6)
+
+-Accéder à un caractère d'un String : 
+char String_At(String a, int i) renvoie le caractère à l'indice i de la chaine de caractères contenue dans a.
+Exemple : 
+String s = String_Creer("Coucou");
+char c = String_At(s, 2); (c vaudra 'u')
+
+5 ) Fonctions à ajouter : 
+
+
+Commentaires : 
+Pour toute question merci d'envoyer un mail à fredverdier30@gmail.com
+
+Frédéric VERDIER
+Yannick LAMEIRA
+
+ 
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1304078518 source:/auto_home/sgauthier/FLIN202/TP_note/exo1/main.c
+	<stdio.h>
+	<stdlib.h>
+

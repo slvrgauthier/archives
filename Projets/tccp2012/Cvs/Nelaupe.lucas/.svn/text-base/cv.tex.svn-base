@@ -1,0 +1,79 @@
+\documentclass[a4paper]{article}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+
+\pagestyle{empty}
+
+\topmargin=-2.5cm
+\textheight=26cm
+\evensidemargin=-1cm
+\oddsidemargin=-1cm
+\textwidth=18cm
+\setlength\parindent{0em}
+
+\title{curriculum Tit\ae}
+\author{Lucas Nelaupe}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{\'Etat Civil}
+
+  Lucas Nelaupe\\
+  9 Fake Street\\
+  34800 Montpellier\\\\
+  Tel. : 06 88 50 ** **\\
+  Email : \texttt{lucas.nelaupe@etud.univ-montp2.fr}
+\section{Formation}
+
+
+
+\section{Diplôme}
+    \begin{itemize}
+        \item{\textbf{2006} Brevet des colléges}
+        \item{\textbf{2010} Baccalaureat scientifique}
+          \item{\textbf{2013} Licence en informatique à l'ufr science de Montpellier}
+    \end{itemize}
+
+\section{Stages}
+
+
+\section{Expériences professionnelles}
+
+\section*{Compétences informatique}
+Compétance dans les languages suivants :
+\subsection{Orienté Object}
+    \begin{itemize}
+        \item{C++}
+        \item{Java} 
+    \end{itemize}
+\subsection{Web}
+    \begin{itemize}
+        \item{Html}
+        \item{Php} 
+        \item{Css}
+    \end{itemize}
+\subsection{Base De Donnée}
+    \begin{itemize}
+        \item{SQL}
+     \end{itemize}
+\subsection{Autre}
+    \begin{itemize}
+        \item{Python}
+        \item{Latex} 
+        \item{C}
+    \end{itemize}
+  
+
+
+\section*{Compétences linguistiques}
+
+Francais\\%
+Anglais
+
+
+\end{document}
+

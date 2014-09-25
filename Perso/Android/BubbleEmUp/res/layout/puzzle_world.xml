@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+	android:background="@drawable/background_world">
+
+<ImageButton android:background="@drawable/button_world1"
+	android:layout_width="wrap_content" 
+	android:layout_gravity="center"
+	android:id="@+id/go_puzzle_w1" 
+	android:layout_height="wrap_content"
+	android:layout_marginTop="110dp" 
+	android:onClick="go_puzzle_w1" />
+
+<ImageButton android:background="@drawable/button_world2"
+	android:layout_width="wrap_content" 
+	android:id="@+id/go_puzzle_w2"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="6dp"
+	android:layout_gravity="center"
+	android:onClick="go_puzzle_w2" />
+
+<ImageButton android:background="@drawable/button_world3"
+	android:layout_width="wrap_content" 
+	android:id="@+id/go_puzzle_w3"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="6dp"
+	android:layout_gravity="center"
+	android:onClick="go_puzzle_w3"/>
+	
+<ImageButton android:background="@drawable/button_back" 
+	android:layout_width="wrap_content" 
+	android:layout_gravity="right"
+	android:id="@+id/back" 
+	android:layout_height="wrap_content"
+	android:onClick="go_main"
+	android:layout_marginTop="8dp"
+	android:layout_marginLeft="8dp" />
+    
+</LinearLayout>

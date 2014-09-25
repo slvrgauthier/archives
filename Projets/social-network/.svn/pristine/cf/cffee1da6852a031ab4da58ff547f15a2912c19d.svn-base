@@ -1,0 +1,50 @@
+body {
+  margin: 0px;
+}
+a {
+  color: #000000;
+}
+form {
+  display: inline;
+}
+#head {
+  height: 14.5%;
+  width: 100%;
+  float: left;
+  background-color: #6C8387;
+  overflow: auto;
+  border-bottom: double;
+}
+#content {
+  height: 75%;
+  width: 100%;
+  float: left;
+  background-color: #E8E8E8;
+}
+#menu {
+  height: 100%;
+  width: 15%;
+  float: left;
+  background-color: #9FB8BD;
+}
+#member {
+  width: 100%;
+}
+#corps, #profil, #connect, #profil_contact {
+  width: 85%;
+  height: 100%;
+  float: left;
+  overflow: auto;
+}
+#foot {
+  height: 9.5%;
+  width: 100%;
+  float: left;
+  background-color: #6C8387;
+  text-align: center;
+  border-top: double;
+}
+
+#disconnect {
+  float: right;
+}

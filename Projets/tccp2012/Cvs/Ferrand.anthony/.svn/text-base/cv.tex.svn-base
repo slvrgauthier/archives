@@ -1,0 +1,34 @@
+\documentclass[10pt,a4paper]{moderncv}
+\moderncvtheme[green]{classic} 
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.8]{geometry}
+
+\firstname{Anthony}
+\familyname{Ferrand}
+\title{Développeur}              
+\address{5 Rue du Parc}{34210 Siran}    
+\mobile{0687579669}                    
+\email{anthony.ferrand@etud.univ-montp2.fr} 
+
+\begin{document}
+\maketitle
+
+\section{Diplômes}
+\cventry{2009}{Baccalaureat Scientifique -- Science de l'ingenieur}{}{}{Lycée Diderot}{Narbonne}
+
+\section{Compétences}
+\subsection{Informatique}
+\cvcomputer{Langage orienté objet}{C++, Java maitrisé}{}{}
+\cvcomputer{Web}{HTML/CSS}{}{}
+\cvcomputer{Conception}{UML}{}{}
+\cvcomputer{Base de données}{Oracle}{}{}
+\cvcomputer{Langage impératif}{C}{}{}
+\cvcomputer{Gestionnaire de version}{SVN}{}{}
+\cvcomputer{Connaissance théorique}{Architecture système et réseau}{}{}
+\cvcomputer{API}{Qt, Eclipse, Android API}{}{}
+
+\section{Langues}
+\cvlanguage{Anglais}{Niveau correct}{}
+\cvlanguage{Espagnol}{Bon niveau}{}
+
+\end{document}

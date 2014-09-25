@@ -1,0 +1,78 @@
+DROP TABLE IF EXISTS `ami`;
+DROP TABLE IF EXISTS `evenement`;
+DROP TABLE IF EXISTS `message`;
+DROP TABLE IF EXISTS `profil`;
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE IF NOT EXISTS `ami` (
+	`id_u` INT(20) NOT NULL ,
+	`id_ami` INT(20) NOT NULL
+);
+
+/*------------------------------------INSERTIONS--------------------------------------*/
+/*
+INSERT INTO ami VALUES(1, 2);
+INSERT INTO ami VALUES(1, 4);
+INSERT INTO ami VALUES(4, 1);
+INSERT INTO ami VALUES(5, 4);
+INSERT INTO ami VALUES(4, 5);
+*/
+
+CREATE TABLE IF NOT EXISTS `evenement` (
+	`id_e` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`id_hote` INT(20) NOT NULL,
+	`nom` VARCHAR(50) NOT NULL,
+	`lieu` VARCHAR(50) NOT NULL,
+	`date` DATE NOT NULL,
+	`id_participant` TEXT NOT NULL,
+	PRIMARY KEY (`id_e`)
+);
+
+CREATE TABLE IF NOT EXISTS `message` (
+	`id_m` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`id_user` INT(20) NOT NULL,
+	`id_ami` INT(20) NOT NULL,
+	`contenu` TEXT NOT NULL,
+	`date_message` DATETIME NOT NULL,
+	`aime` INT(20),
+	`aime_pas` INT(20),
+	PRIMARY KEY (`id_m`)
+);
+
+CREATE TABLE IF NOT EXISTS `profil` (
+	`id_user` BIGINT(20) NOT NULL AUTO_INCREMENT,
+	`photo_path` VARCHAR(50) NOT NULL,
+	`text_desc` TEXT NOT NULL,
+	`date_naissance` DATE NOT NULL,
+	`lieu_naissance` VARCHAR(50) NOT NULL,
+	`lieu_residence` VARCHAR(50) NOT NULL,
+	`travail` VARCHAR(50) NOT NULL,
+	`lieu_travail` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`id_user`)
+);
+
+/*------------------------------------INSERTIONS--------------------------------------*/
+/*
+INSERT INTO profil VALUES(1,'medias/upload_img/path','ceci est ma description', 1992-09-26,'france','france','veilleur','ici');
+INSERT INTO profil VALUES(2,'medias/upload_img/path','ceci est ma description', 1992-09-27,'france','france','veilleur','ici');
+INSERT INTO profil VALUES(4,'medias/upload_img/path','ceci est ma description', 1992-09-28,'france','france','veilleur','ici');
+INSERT INTO profil VALUES(5,'medias/upload_img/path','ceci est ma description', 1992-09-29,'france','france','veilleur','ici');
+*/
+
+CREATE TABLE IF NOT EXISTS `user` (
+	`id_u` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+	`nom_u` VARCHAR(50) NOT NULL,
+	`prenom_u` VARCHAR(50) NOT NULL,
+	`mail_u` VARCHAR(50) NOT NULL,
+	`mdp_u` VARCHAR(50) NOT NULL,
+	`date_u` DATE NOT NULL,
+	PRIMARY KEY (`id_u`)
+);
+
+/*------------------------------------INSERTIONS--------------------------------------*/
+
+INSERT INTO user values (1, 'Lecerf', 'Geoffrey', 'admin@gmail.com', 'admin', NOW());
+INSERT INTO user values (2, 'Gauthier', 'Silvere', 'silv@gmail.com', 'admin', NOW());
+INSERT INTO user values (3, 'TEST', 'Test', 'test@gmail.com', 'admin', NOW());
+
+

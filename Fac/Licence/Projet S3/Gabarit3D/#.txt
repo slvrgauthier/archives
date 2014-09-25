@@ -1,0 +1,1 @@
+gcc -std=c99 -Wall -lGL -lGLU -lglut -lm -oGabarit3D main.c var.c dessin.c fonc.c glutfonc.c model.c rendu.c

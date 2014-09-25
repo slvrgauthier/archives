@@ -1,0 +1,44 @@
+TP2
+
+on creait la dft et idft , on remarque qu'il y a trop de valeur à traiter 
+( la compléxité de chacune des fonction est trop élevé pour les ordi de la fac :p).
+Donc pour plus de facilité on reduit la frequence a 20 100hz pour voir si cela marche 
+(cela ne marche pas)Du coup on creait un petit tableau pour afficher leurs valeurs et 
+voir les tranformations produites.
+Après correction de votre sujet ( mauvaise formule de idft , manque le 1/N), 
+nous nous apercevons que les transformations s'effecuent bien sur un echantillion 
+de 10 valeurs.
+
+  Nous avons testé nos fonctions de transformations grâce à des fonctions simples s'étalant
+sur 10 échantillons.
+  Suite à différents tests sur les fonctions de DFT et d'IDFT, et suite à l'optimisation
+de la DFT par la symétrie, nous nous sommes aperçu que l'on ne considérait pas
+l'échantillon N/2. C'est pour celà que deux de nos valeurs ne correspondaient pas.
+En corrigeant cela, nous avions bien les valeurs correctes pour la DFT, mais pas
+du tout pour l'IDFT, ceci dû à la précision des valeurs flottantes. Pour palier à ce
+problème, nous avons remarqué qu'il était bien plus judicieux de faire la normalisation
+WAV après les manipulations (entre 0 et 255).
+  Avec ces corrections, le signal |1|0|0|0|0|0|0|0|0|0| se transforme bien lors de la DFT
+en |1|1|1|1|1|1|1|1|1|1| puis se retransforme à l'état initial avec l'IDFT.
+  Par contre, le signal |1|1|1|1|1|1|1|1|1|1|, par double transformation (DFT puis IDFT)
+ne revient pas à son état initial...
+
+  Pour faciliter les tests suivants, nous ne prendrons plus que 3 échantillons.
+Le signal |1|1|1| se transforme bien en |1|0|0| par DFT mais en |0|0|0| par IDFT. Nous 
+avons par la suite remarqué grâce aux tests que les parties imaginaires n'étaient pas 
+toujours proches de zéro après une IDFT, d'où notre erreur de diviser par le nombre 
+d'échantillon chacune des parties entière et imaginaire au lieu du signal recomposé.
+  Après correction, notre signal revient bien à sa forme initiale, donc |1|1|1|.
+  
+  En retestant sur le signal à dix bits à 1, et sur d'autres signaux, nous nous rendons
+compte que le meilleur truc à faire est de se tirer une balle...
+
+                   _______  _______  _          _            
+                  (  ____ )(  ___  )( (    /|  ( )           
+                  | (    )|| (   ) ||  \  ( |  | |           
+                  | (____)|| (___) ||   \ | |  | |           
+                  |  _____)|  ___  || (\ \) |  | |           
+                  | (      | (   ) || | \   |  (_)           
+                  | )      | )   ( || )  \  |   _    _  _  _ 
+                  |/       |/     \||/    )_)  (_)  (_)(_)(_)
+                                                             

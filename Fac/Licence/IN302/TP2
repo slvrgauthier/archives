@@ -1,0 +1,163 @@
+; GAUTHIER Silvère 20100568
+; L2 - Info B
+
+;exo1
+(define (eucl x u v x2 u2 v2) (if (= x2 0) (list x u v) (eucl x2 u2 v2 (remainder x x2) (- u (* u2 (quotient x x2))) (- v (* v2 (quotient x x2))))))
+
+;exo2
+(define (euclide_etendu p q) (list p q (car(cdr (eucl p 1 0 q 0 1))) (car(cdr(cdr (eucl p 1 0 q 0 1))))))
+
+;exo3
+;Nous pouvons nous arrêter à sqrt(N) car on observe une symétrie des multiplicateurs.
+
+;exo4
+
+(define (genere_liste N)(let ((n N))
+                          (define (genere_liste2 N n) (if (< n 2) () (cons (- N (- n 2)) (genere_liste2 N (- n 1)))))
+                          (genere_liste2 N n)))
+
+;exo5
+(define (crible l d) (if (null? l) () (if (= (car l) d) (cons (car l) (crible (cdr l) d)) (if (= (modulo (car l) d) 0) (crible (cdr l) d) (cons (car l) (crible (cdr l) d))))))
+
+;exo6 avec m = 2 et l=(genere_liste N N)
+(define (eratosthene N) (let ((m 2))
+                              (define (eratosthene2 N m l) (if (> m (sqrt N)) l (eratosthene2 N (+ m 1) (crible l m))))
+                              (eratosthene2 N m (genere_liste N))))
+
+;exo7
+(define (filtre_3modulo4 l) (if (null? l) () (if (= (modulo (car l) 4) 3) (cons (car l) (filtre_3modulo4 (cdr l))) (filtre_3modulo4 (cdr l)))))
+
+;exo8
+(define (extraction l i) (if (null? l) 0 (if (= i 1) (car l) (extraction (cdr l) (- i 1)))))
+
+;exo9
+(define (cherche_pq N) (let* ((l (filtre_3modulo4 (eratosthene N))) (a (random (length l))) (b (random (length l))))
+                         (if (or (= a b) (= a 0) (= b 0))
+                             (cherche_pq N) 
+                             (list (extraction l a) (extraction l b)))))
+
+;exo10
+(define (genere_cles N) (let* ((p (car(cherche_pq N))) (q (car(cdr(cherche_pq N)))) (n (* p q)))
+                          (cons n (cons p (cons q (cdr(cdr(euclide_etendu p q))))))))
+
+; !!! Clé : (26599081 5531 3371 2962 -923) !!!
+
+;exo11
+(define (graine nA) (let ((r (random (- nA 1)))) (modulo (* r r) nA)))
+
+;exo12
+(define (suite_residus x0 nA t) (if (= t 0) () (cons (modulo (* x0 x0) nA) (suite_residus (modulo (* x0 x0) nA) nA (- t 1)))))
+
+;exo13
+(define (encrypte m nA) (let* ((t (length m)) 
+                               (l (suite_residus (graine nA) nA t)) 
+                               (xt (extraction l t)) 
+                               (xt1 (modulo (* xt xt) nA)) 
+                               (c (list xt1)))
+                          (define (plist l t) (if (= t 0) 
+                                                  () 
+                                                  (if (= (modulo (car l) 2) 0) 
+                                                      (cons 0 (plist (cdr l) (- t 1))) 
+                                                      (cons 1 (plist (cdr l) (- t 1))))))
+                          (let ((p (plist l (length l))) (t2 t))
+                            (define (encrypte2 m p t) (if (> t t2) 
+                                                          c 
+                                                          (cons (bitwise-xor (extraction p t) (extraction m t)) (encrypte2 m p (+ t 1)))))
+                            (encrypte2 m p 1))))
+
+;exo14 : cp = clef privée
+(define (graine_decryption cp c) (let* (
+                                        (p (car cp)) 
+                                        (q (car(cdr cp))) 
+                                        (u (car(cdr(cdr cp)))) 
+                                        (v (car(cdr(cdr(cdr cp)))))
+                                        (t+1 (length c))
+                                        (xt+1 (extraction c t+1))
+                                        (nA (* p q)))
+                                   (define (puis x n) (if (= n 0) 1 (* x (puis x (- n 1)))))
+                                   (let* (
+                                          (d1 (modulo (puis (/ (+ p 1) 4) t+1) (- p 1)))
+                                          (d2 (modulo (puis (/ (+ q 1) 4) t+1) (- q 1)))
+                                          (a (modulo (puis xt+1 d1) p))
+                                          (b (modulo (puis xt+1 d2) q)))
+                                     (modulo (+ (* u b p) (* v a q)) nA))))
+
+;exo15
+(define (decrypte c cp) (let* ((t (- (length c) 1))
+                               (nA (* (car cp) (car (cdr cp))))
+                               (l (suite_residus (graine_decryption cp c) nA t)))
+                            (define (plist l t) (if (= t 0) 
+                                                  () 
+                                                  (if (= (modulo (car l) 2) 0) 
+                                                      (cons 0 (plist (cdr l) (- t 1))) 
+                                                      (cons 1 (plist (cdr l) (- t 1))))))
+                          (let ((p (plist l (length l))))
+                            (define (decrypte2 c p t) (if (= t 0) 
+                                                          ()
+                                                          (cons (bitwise-xor (extraction p t) (extraction c t)) (decrypte2 c p (- t 1)))))
+                            (decrypte2 c p t))))
+
+;exo17
+(define (string->integer-list ch) (let ((l (string->list ch))) (map char->integer l)))
+
+(define (integer-list->string l) (let ((ch (map integer->char l))) (list->string ch)))
+
+;exo18
+(define (integer->digit-list x) (begin
+                                  (define (base x) (if(> x 65535) "erreur" (if(= x 0) () (cons (modulo x 2) (base (quotient x 2))))))
+                                  (define (fin l) (if(= (length l) 16) l (fin (cons 0 l))))
+                                  (fin (reverse (base x)))))
+
+;exo19
+(define (string->digit-list ch) (let ((l (string->integer-list ch)))
+                                  (begin
+                                    (define (append-l l) (if(= (length l) 0) l (append (car l) (append-l (cdr l)))))
+                                  (append-l (map integer->digit-list l)))))
+
+;exo20
+(define (horner l b) (let ((acc 0))
+                       (begin
+                         (define (horner2 l b acc) (if(= (length l) 0) 
+                                                    acc 
+                                                    (horner2 (cdr l) b (+ (* acc b) (car l)))))
+                         (horner2 l b acc))))
+
+;exo21
+(define (decoupe l) (if (not (= (modulo (length l) 16) 0)) #f
+                        (let ((n 16))
+                          (define (regroupe l n) (if (= n 0) () (cons (car l) (regroupe (cdr l) (- n 1)))))
+                          (define (decoupe2 l) (if (= (length l) 0) l (cons (regroupe l n) (decoupe2 (list-tail l n)))))
+                          (decoupe2 l))))
+
+;exo22
+(define (digit-list->integer l) (horner l 2))
+
+;exo23
+(define (digit-list->string l) (integer-list->string(map digit-list->integer (decoupe l))))
+
+
+
+
+;------------------------------------------------------------------------
+;    EXAM TP
+;------------------------------------------------------------------------
+
+;Exercice 3 :
+(extraction (filtre_3modulo4 (eratosthene 1000)) 25)
+
+;Exercice 4 :
+(define cle (genere_cles 10000))
+(display "clé :")
+cle
+(define n (car cle))
+(define m '(1 1 1 1 1 1 1))
+(define mc (encrypte m n))
+(display "crypté :")
+mc
+(display "décrypté :")
+(decrypte mc (cdr cle))
+
+;Exercice 13 :
+(display "Scheme en bits :")
+(string->digit-list "Scheme")
+(digit-list->string '(0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0))

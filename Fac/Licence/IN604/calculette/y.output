@@ -1,0 +1,810 @@
+Terminaux qui ne sont utilisés
+
+   REF
+
+
+Grammaire
+
+    0 $accept: liste $end
+
+    1 liste: /* vide */
+    2      | liste ligne
+
+    3 ligne: '\n'
+    4      | error '\n'
+    5      | expr '\n'
+    6      | QUIT '\n'
+    7      | HELP '\n'
+
+    8 expr: '(' expr ')'
+    9     | expr '+' expr
+   10     | expr '-' expr
+   11     | expr '*' expr
+   12     | expr '/' expr
+   13     | expr '^' expr
+   14     | expr '%' expr
+   15     | '-' expr
+   16     | SIN '(' expr ')'
+   17     | COS '(' expr ')'
+   18     | EXP '(' expr ')'
+   19     | LN '(' expr ')'
+   20     | AVG '(' le ')'
+   21     | PI
+   22     | LITFLOT
+
+   23 le: expr se
+   24   | /* vide */
+
+   25 se: ',' expr se
+   26   | /* vide */
+
+
+Terminaux, suivis des règles où ils apparaissent
+
+$end (0) 0
+'\n' (10) 3 4 5 6 7
+'%' (37) 14
+'(' (40) 8 16 17 18 19 20
+')' (41) 8 16 17 18 19 20
+'*' (42) 11
+'+' (43) 9
+',' (44) 25
+'-' (45) 10 15
+'/' (47) 12
+'^' (94) 13
+error (256) 4
+LITFLOT (258) 22
+SIN (259) 16
+COS (260) 17
+EXP (261) 18
+LN (262) 19
+PI (263) 21
+QUIT (264) 6
+HELP (265) 7
+AVG (266) 20
+REF (267)
+MOINSUNAIRE (268)
+
+
+Non-terminaux, suivis des règles où ils apparaissent
+
+$accept (24)
+    à gauche: 0
+liste (25)
+    à gauche: 1 2, à droite: 0 2
+ligne (26)
+    à gauche: 3 4 5 6 7, à droite: 2
+expr (27)
+    à gauche: 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22,
+    à droite: 5 8 9 10 11 12 13 14 15 16 17 18 19 23 25
+le (28)
+    à gauche: 23 24, à droite: 20
+se (29)
+    à gauche: 25 26, à droite: 23 25
+
+
+état 0
+
+    0 $accept: . liste $end
+
+    $défaut  réduction par utilisation de la règle 1 (liste)
+
+    liste  aller à l'état 1
+
+
+état 1
+
+    0 $accept: liste . $end
+    2 liste: liste . ligne
+
+    $end     décalage et aller à l'état 2
+    error    décalage et aller à l'état 3
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    QUIT     décalage et aller à l'état 10
+    HELP     décalage et aller à l'état 11
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '\n'     décalage et aller à l'état 14
+    '('      décalage et aller à l'état 15
+
+    ligne  aller à l'état 16
+    expr   aller à l'état 17
+
+
+état 2
+
+    0 $accept: liste $end .
+
+    $défaut  accepter
+
+
+état 3
+
+    4 ligne: error . '\n'
+
+    '\n'  décalage et aller à l'état 18
+
+
+état 4
+
+   22 expr: LITFLOT .
+
+    $défaut  réduction par utilisation de la règle 22 (expr)
+
+
+état 5
+
+   16 expr: SIN . '(' expr ')'
+
+    '('  décalage et aller à l'état 19
+
+
+état 6
+
+   17 expr: COS . '(' expr ')'
+
+    '('  décalage et aller à l'état 20
+
+
+état 7
+
+   18 expr: EXP . '(' expr ')'
+
+    '('  décalage et aller à l'état 21
+
+
+état 8
+
+   19 expr: LN . '(' expr ')'
+
+    '('  décalage et aller à l'état 22
+
+
+état 9
+
+   21 expr: PI .
+
+    $défaut  réduction par utilisation de la règle 21 (expr)
+
+
+état 10
+
+    6 ligne: QUIT . '\n'
+
+    '\n'  décalage et aller à l'état 23
+
+
+état 11
+
+    7 ligne: HELP . '\n'
+
+    '\n'  décalage et aller à l'état 24
+
+
+état 12
+
+   20 expr: AVG . '(' le ')'
+
+    '('  décalage et aller à l'état 25
+
+
+état 13
+
+   15 expr: '-' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 26
+
+
+état 14
+
+    3 ligne: '\n' .
+
+    $défaut  réduction par utilisation de la règle 3 (ligne)
+
+
+état 15
+
+    8 expr: '(' . expr ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 27
+
+
+état 16
+
+    2 liste: liste ligne .
+
+    $défaut  réduction par utilisation de la règle 2 (liste)
+
+
+état 17
+
+    5 ligne: expr . '\n'
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '+'   décalage et aller à l'état 28
+    '-'   décalage et aller à l'état 29
+    '*'   décalage et aller à l'état 30
+    '/'   décalage et aller à l'état 31
+    '%'   décalage et aller à l'état 32
+    '^'   décalage et aller à l'état 33
+    '\n'  décalage et aller à l'état 34
+
+
+état 18
+
+    4 ligne: error '\n' .
+
+    $défaut  réduction par utilisation de la règle 4 (ligne)
+
+
+état 19
+
+   16 expr: SIN '(' . expr ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 35
+
+
+état 20
+
+   17 expr: COS '(' . expr ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 36
+
+
+état 21
+
+   18 expr: EXP '(' . expr ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 37
+
+
+état 22
+
+   19 expr: LN '(' . expr ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 38
+
+
+état 23
+
+    6 ligne: QUIT '\n' .
+
+    $défaut  réduction par utilisation de la règle 6 (ligne)
+
+
+état 24
+
+    7 ligne: HELP '\n' .
+
+    $défaut  réduction par utilisation de la règle 7 (ligne)
+
+
+état 25
+
+   20 expr: AVG '(' . le ')'
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    $défaut  réduction par utilisation de la règle 24 (le)
+
+    expr  aller à l'état 39
+    le    aller à l'état 40
+
+
+état 26
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   15     | '-' expr .
+
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 15 (expr)
+
+
+état 27
+
+    8 expr: '(' expr . ')'
+    9     | expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ')'  décalage et aller à l'état 41
+
+
+état 28
+
+    9 expr: expr '+' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 42
+
+
+état 29
+
+   10 expr: expr '-' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 43
+
+
+état 30
+
+   11 expr: expr '*' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 44
+
+
+état 31
+
+   12 expr: expr '/' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 45
+
+
+état 32
+
+   14 expr: expr '%' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 46
+
+
+état 33
+
+   13 expr: expr '^' . expr
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 47
+
+
+état 34
+
+    5 ligne: expr '\n' .
+
+    $défaut  réduction par utilisation de la règle 5 (ligne)
+
+
+état 35
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   16     | SIN '(' expr . ')'
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ')'  décalage et aller à l'état 48
+
+
+état 36
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   17     | COS '(' expr . ')'
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ')'  décalage et aller à l'état 49
+
+
+état 37
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   18     | EXP '(' expr . ')'
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ')'  décalage et aller à l'état 50
+
+
+état 38
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   19     | LN '(' expr . ')'
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ')'  décalage et aller à l'état 51
+
+
+état 39
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   23 le: expr . se
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ','  décalage et aller à l'état 52
+
+    $défaut  réduction par utilisation de la règle 26 (se)
+
+    se  aller à l'état 53
+
+
+état 40
+
+   20 expr: AVG '(' le . ')'
+
+    ')'  décalage et aller à l'état 54
+
+
+état 41
+
+    8 expr: '(' expr ')' .
+
+    $défaut  réduction par utilisation de la règle 8 (expr)
+
+
+état 42
+
+    9 expr: expr . '+' expr
+    9     | expr '+' expr .
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 9 (expr)
+
+
+état 43
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   10     | expr '-' expr .
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 10 (expr)
+
+
+état 44
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   11     | expr '*' expr .
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 11 (expr)
+
+
+état 45
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   12     | expr '/' expr .
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 12 (expr)
+
+
+état 46
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   14     | expr '%' expr .
+
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 14 (expr)
+
+
+état 47
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   13     | expr '^' expr .
+   14     | expr . '%' expr
+
+    '^'  décalage et aller à l'état 33
+
+    $défaut  réduction par utilisation de la règle 13 (expr)
+
+
+état 48
+
+   16 expr: SIN '(' expr ')' .
+
+    $défaut  réduction par utilisation de la règle 16 (expr)
+
+
+état 49
+
+   17 expr: COS '(' expr ')' .
+
+    $défaut  réduction par utilisation de la règle 17 (expr)
+
+
+état 50
+
+   18 expr: EXP '(' expr ')' .
+
+    $défaut  réduction par utilisation de la règle 18 (expr)
+
+
+état 51
+
+   19 expr: LN '(' expr ')' .
+
+    $défaut  réduction par utilisation de la règle 19 (expr)
+
+
+état 52
+
+   25 se: ',' . expr se
+
+    LITFLOT  décalage et aller à l'état 4
+    SIN      décalage et aller à l'état 5
+    COS      décalage et aller à l'état 6
+    EXP      décalage et aller à l'état 7
+    LN       décalage et aller à l'état 8
+    PI       décalage et aller à l'état 9
+    AVG      décalage et aller à l'état 12
+    '-'      décalage et aller à l'état 13
+    '('      décalage et aller à l'état 15
+
+    expr  aller à l'état 55
+
+
+état 53
+
+   23 le: expr se .
+
+    $défaut  réduction par utilisation de la règle 23 (le)
+
+
+état 54
+
+   20 expr: AVG '(' le ')' .
+
+    $défaut  réduction par utilisation de la règle 20 (expr)
+
+
+état 55
+
+    9 expr: expr . '+' expr
+   10     | expr . '-' expr
+   11     | expr . '*' expr
+   12     | expr . '/' expr
+   13     | expr . '^' expr
+   14     | expr . '%' expr
+   25 se: ',' expr . se
+
+    '+'  décalage et aller à l'état 28
+    '-'  décalage et aller à l'état 29
+    '*'  décalage et aller à l'état 30
+    '/'  décalage et aller à l'état 31
+    '%'  décalage et aller à l'état 32
+    '^'  décalage et aller à l'état 33
+    ','  décalage et aller à l'état 52
+
+    $défaut  réduction par utilisation de la règle 26 (se)
+
+    se  aller à l'état 56
+
+
+état 56
+
+   25 se: ',' expr se .
+
+    $défaut  réduction par utilisation de la règle 25 (se)

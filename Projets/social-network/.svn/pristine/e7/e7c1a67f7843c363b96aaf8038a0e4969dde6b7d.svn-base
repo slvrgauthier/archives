@@ -1,0 +1,41 @@
+input[type=text]:hover{
+	background-color: rgba(2,0,2,0.06)
+}
+
+input[type=date]:hover{
+	background-color: rgba(3,2,2,0.06)
+}
+
+textarea:hover{
+	background-color: rgba(3,2,2,0.06)
+}
+
+input[type=text]:focus{
+	background-color: rgba(2,0,2,0.06)
+}
+
+input[type=date]:focus{
+	background-color: rgba(3,2,2,0.06)
+}
+
+textarea:focus{
+	background-color: rgba(3,2,2,0.06)
+}
+
+img[id=id_img]:hover{
+	cursor:pointer
+}
+
+img[class=img_plus]:hover{
+	cursor:pointer
+}
+
+.users{
+	display: block
+}
+.users_nom{
+	display:inline
+}
+.users_prenom{
+	display:inline
+}

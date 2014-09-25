@@ -1,0 +1,121 @@
+EESchema-LIBRARY Version 2.3  Date: jeu. 09 janv. 2014 17:53:39 CET
+#encoding utf-8
+#
+# ARDUINO_UNO
+#
+DEF ARDUINO_UNO ATMEGA328 0 40 Y Y 1 F N
+F0 "ATMEGA328" -150 -350 30 V V C CNN
+F1 "ARDUINO_UNO" 0 800 60 H V C CNN
+DRAW
+T 0 -400 150 30 0 0 0 3,3V  Normal 0 C C
+T 0 -400 50 30 0 0 0 5V  Normal 0 C C
+T 900 -300 -650 30 0 0 0 _____~Analog~Input~_____  Normal 0 C C
+T 900 -300 -50 30 0 0 0 ______~Power~______  Normal 0 C C
+T 900 300 -900 30 0 0 0 ___________________~Digital~Input/Output~___________________  Normal 0 L C
+T 0 -400 -400 30 0 0 0 A0  Normal 0 C C
+T 0 -400 -500 30 0 0 0 A1  Normal 0 C C
+T 0 -400 -600 30 0 0 0 A2  Normal 0 C C
+T 0 -400 -700 30 0 0 0 A3  Normal 0 C C
+T 0 -400 -800 30 0 0 0 A4  Normal 0 C C
+T 0 -400 -900 30 0 0 0 A5  Normal 0 C C
+T 0 400 650 30 0 0 0 Aref  Normal 0 C C
+T 0 400 -900 30 0 0 0 D0  Normal 0 C C
+T 0 400 -800 30 0 0 0 D1  Normal 0 C C
+T 0 400 150 30 0 0 0 D10  Normal 0 C C
+T 0 400 250 30 0 0 0 D11  Normal 0 C C
+T 0 400 350 30 0 0 0 D12  Normal 0 C C
+T 0 400 450 30 0 0 0 D13  Normal 0 C C
+T 0 400 -700 30 0 0 0 D2  Normal 0 C C
+T 0 400 -600 30 0 0 0 D3  Normal 0 C C
+T 0 400 -500 30 0 0 0 D4  Normal 0 C C
+T 0 400 -400 30 0 0 0 D5  Normal 0 C C
+T 0 400 -300 30 0 0 0 D6  Normal 0 C C
+T 0 400 -200 30 0 0 0 D7  Normal 0 C C
+T 0 400 -50 30 0 0 0 D8  Normal 0 C C
+T 0 400 50 30 0 0 0 D9  Normal 0 C C
+T 0 -400 -150 30 0 0 0 Gnd  Normal 0 C C
+T 0 -400 -50 30 0 0 0 Gnd  Normal 0 C C
+T 0 400 550 30 0 0 0 Gnd  Normal 0 C C
+T 0 -400 350 30 0 0 0 IOref  Normal 0 C C
+T 0 -400 250 30 0 0 0 Reset  Normal 0 C C
+T 0 -400 -250 30 0 0 0 Vin  Normal 0 C C
+S 500 -950 -500 950 0 1 0 N
+X ~ ~ -500 -900 300 L 30 50 1 1 I
+X ~ ~ -500 -800 300 L 30 50 1 1 I
+X ~ ~ -500 -700 300 L 30 50 1 1 I
+X ~ ~ -500 -600 300 L 30 50 1 1 I
+X ~ ~ -500 -500 300 L 30 50 1 1 I
+X ~ ~ -500 -400 300 L 30 50 1 1 I
+X ~ ~ -500 -250 300 L 30 50 1 1 I
+X ~ ~ -500 -150 300 L 30 50 1 1 I
+X ~ ~ -500 -50 300 L 30 50 1 1 I
+X ~ ~ -500 50 300 L 30 50 1 1 I
+X ~ ~ -500 150 300 L 30 50 1 1 I
+X ~ ~ -500 250 300 L 30 50 1 1 I
+X ~ ~ -500 350 300 L 30 50 1 1 I
+X ~ ~ -500 450 300 L 30 50 1 1 I
+X ~ ~ 500 -700 300 R 50 50 1 1 I
+X ~ ~ 500 -500 300 R 50 50 1 1 I
+X ~ ~ 500 -200 300 R 50 50 1 1 I
+X ~ ~ 500 -50 300 R 50 50 1 1 I
+X ~ ~ 500 350 300 R 30 50 1 1 I
+X ~ ~ 500 450 300 R 30 50 1 1 I
+X ~ ~ 500 550 300 R 30 50 1 1 I
+X ~ ~ 500 650 300 R 30 50 1 1 I
+X ~ ~ 500 750 300 R 30 50 1 1 I
+X ~ ~ 500 850 300 R 30 50 1 1 I
+X ~ Rx< 500 -900 300 R 30 50 1 1 I
+X ~ Tx> 500 -800 300 R 30 50 1 1 I
+X ~ Pwm 500 -600 300 R 30 50 1 1 I
+X ~ Pwm 500 -400 300 R 30 50 1 1 I
+X ~ Pwm 500 -300 300 R 30 50 1 1 I
+X ~ Pwm 500 50 300 R 30 50 1 1 I
+X ~ Pwm 500 150 300 R 30 50 1 1 I
+X ~ Pwm 500 250 300 R 30 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# LED
+#
+DEF LED D 0 40 Y N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "LED" 0 -100 50 H V C CNN
+$FPLIST
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$ENDFPLIST
+DRAW
+P 2 0 1 0  50 50  50 -50 N
+P 3 0 1 0  -50 50  50 0  -50 -50 F
+P 3 0 1 0  65 -40  110 -80  105 -55 N
+P 3 0 1 0  80 -25  125 -65  120 -40 N
+X A 1 -200 0 150 R 40 40 1 1 P
+X K 2 200 0 150 L 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+# R
+#
+DEF R R 0 0 N Y 1 F N
+F0 "R" 80 0 50 V V C CNN
+F1 "R" 0 0 50 V V C CNN
+$FPLIST
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$ENDFPLIST
+DRAW
+S -40 150 40 -150 0 1 12 N
+X ~ 1 0 250 100 D 60 60 1 1 P
+X ~ 2 0 -250 100 U 60 60 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library

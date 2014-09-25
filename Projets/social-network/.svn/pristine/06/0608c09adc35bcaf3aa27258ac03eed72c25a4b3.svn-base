@@ -1,0 +1,11 @@
+<div id="menu">
+	<a href="/projetWeb/index.php">Accueil</a><br/>
+<?php
+	if (isset($_SESSION['nom']) AND isset($_SESSION['prenom'])){
+?>
+	<a href="/projetWeb/menu/profil.php">Profil</a><br/>
+	<a href="/projetWeb/menu/display_friend.php">Amis</a><br/>
+</div>
+<?php 
+	}
+?>

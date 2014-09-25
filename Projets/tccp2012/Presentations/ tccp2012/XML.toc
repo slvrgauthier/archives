@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {2}{Qu'est ce que le XML ?}{7}{0}{1}
+\beamer@sectionintoc {3}{A quoi \IeC {\c c}a ressemble ?}{22}{0}{2}
+\beamer@sectionintoc {4}{A quoi \IeC {\c c}a peut bien servir ?}{28}{0}{3}
+\beamer@sectionintoc {5}{Comment j'exploite mes donn\IeC {\'e}es ?}{29}{0}{4}
+\beamer@sectionintoc {6}{Pour r\IeC {\'e}sumer}{39}{0}{5}
+\beamer@sectionintoc {7}{Nos sources}{46}{0}{6}

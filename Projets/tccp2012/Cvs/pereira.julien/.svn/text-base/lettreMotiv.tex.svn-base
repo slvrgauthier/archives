@@ -1,0 +1,18 @@
+\documentclass[11pt]{letter}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+
+\name{PEREIRA Julien}
+\address{Responsable Master \\Université de Montpellier II\\34080 MONTPELLIER}
+\date{\today} 
+\def\concname{Objet : Demande d'admission en Master}
+\conc{Objet de la lettre}
+\begin{document}
+\begin{letter}{\textbf{Responsable Master informatique}}
+\opening{Madame, Monsieur}
+
+
+
+\closing{Veuillez agréer l'expression de mes sentiments les plus distingués.}
+\end{letter}
+\end{document}

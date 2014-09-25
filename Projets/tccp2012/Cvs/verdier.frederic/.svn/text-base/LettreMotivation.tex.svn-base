@@ -1,0 +1,25 @@
+\documentclass[11pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+
+\name{Verdier Frédéric}
+\address{Rue de l'Eglise 30260 CORCONNE}
+\signature{Frédéric Verdier}
+\date{\today} 
+
+\begin{document}
+\begin{letter}{Université Montpellier 2 Master Informatique}
+\def\concname{\textbf{Objet :~}}
+\conc{candidature au Master AIGLE}
+\opening{Madame, Monsieur}
+Effectuant actuellement ma troisième année de Licence Informatique à l'Université de Montpellier 2 à Montpellier, je me permets de vous adresser mon dossier de candidature pour le Master 1 Professionnel AIGLE que vous proposez.\\
+Au cours de mes études universitaires, j'ai eu l'occasion de bénéficier d'un cursus fondé sur le développement informatique, le fonctionnement théorique des ordinateurs et la programmation.\\
+Particulièrement interessé par le fait de développer des applications, j'ai profité de mon année universitaire pour approfondir mes connaissances dans ce domaine. J'ai notamment pu suivre un cours intitulé Projet
+%a suivre
+\closing{formule de politesse (veuillez agréer, etc)}
+\ps{post-scriptum}
+\cc{nom des autres destinataires}
+\encl{pièces jointes}
+\end{letter}
+\end{document}
+ 

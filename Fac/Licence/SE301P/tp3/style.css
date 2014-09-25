@@ -1,0 +1,150 @@
+/* Gimp tutorial style.css file */
+
+/*=== Eric Meyer Reset ===*/
+@import url('reset.css');
+
+/*=== Page Styles ===*/
+
+html, body {
+    background: url('images/bg.png') top left no-repeat #1e1d1a;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 95%;
+    color: #dbdbdb;
+}
+
+/*=== Page Layout ===*/
+
+/*== Header ==*/
+#header {
+    margin: 0 20px 5px 20px;
+    background: transparent;
+}
+
+#logo {
+    width: 332px; height: 38px;
+    margin: 75px 0 0 0;
+    
+    background: url('images/logo.png') top left no-repeat;
+}
+
+#logo a {
+    width: 332px; height: 38px;
+    display: block;
+}
+
+h1 {
+    width: 0; height: 0;
+    overflow: hidden;
+}
+
+/*== Main wrapper ==*/
+#wrapper {
+    background: #1e1d1a;
+    
+    width: 945px;
+    margin: 0 20px;
+}
+
+/*= Left =*/
+#main {
+    float: left;
+    width: 665px;
+}
+
+.box {
+    background: url('images/gradient.png') top left repeat-x #27211b;
+    border: 2px solid #272421;
+    
+    padding: 2px;
+}
+
+#featured {
+    width: 661px;
+    margin: 0 0 20px 0;
+}
+
+#latest-posts {
+    width: 290px;
+    float: left;
+}
+
+#latest-work {
+    width: 340px;
+    float: right;
+}
+
+#latest-work img {
+    margin: 10px;
+}
+
+/*= Sidebar =*/
+#sidebar {
+    float: right;
+}
+
+#nav {
+    width: 240px;
+    margin: 0 0 20px 0;
+}
+
+#nav li {
+    list-style-type: none;
+    margin: 0 0 0.4em 0.3em;
+}
+
+#nav a {
+    font-size: large;
+    color: #7b7b7b;
+    text-decoration: none;
+}
+
+#ads {
+    width: 240px;
+}
+
+#ads img {
+    margin: 18px;
+}
+
+/*== Footer ==*/
+#footer {
+    margin: 10px 0;
+}
+
+/*=== General Styles ===*/
+
+.floatleft {
+    float: left;
+}
+
+.floatright {
+    float: right;
+}
+
+.clearing {
+    clear: both;
+}
+
+p {
+    margin: 0 0 1em 0;
+    line-height: 1.3em;
+}
+
+/*=== Home page styles ===*/
+
+#home h2 {
+    font-size: large;
+    color: #5a5a5a;
+    margin: 0 0 0.1em 0;
+}
+
+#home #featured h3 {
+    font-size: large;
+    margin: 0 0 0.2em 0;
+}
+
+#home h3 {
+    font-weight: bold;
+    margin: 0 0 0.2em 0;
+}

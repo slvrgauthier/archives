@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" 
+	android:background="@drawable/background_main">
+
+<ImageButton android:background="@drawable/button_puzzle"
+	android:layout_width="wrap_content" 
+	android:layout_gravity="center"
+	android:id="@+id/go_puzzle_world" 
+	android:layout_height="wrap_content"
+	android:layout_marginTop="200dp" 
+	android:onClick="go_puzzle_world" />
+
+<ImageButton android:background="@drawable/button_arcade"
+	android:layout_width="wrap_content" 
+	android:id="@+id/go_arcade_levels"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="15dp"
+	android:layout_gravity="center"
+	android:onClick="go_arcade_levels" />
+
+<ImageButton android:background="@drawable/button_moregames"
+	android:layout_width="wrap_content" 
+	android:id="@+id/more_games"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="15dp"
+	android:layout_gravity="center"/>
+
+<ImageButton android:background="@drawable/button_settings"
+	android:layout_width="wrap_content" 
+	android:id="@+id/settings"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="40dp"
+	android:layout_marginLeft="6dp"
+	android:layout_gravity="left"/>
+
+<ImageButton android:background="@drawable/button_leave"
+	android:layout_width="wrap_content" 
+	android:id="@+id/leave"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="-40dp"
+	android:layout_marginRight="6dp"
+	android:layout_gravity="right"
+	android:onClick="leave"/>
+
+
+
+</LinearLayout>

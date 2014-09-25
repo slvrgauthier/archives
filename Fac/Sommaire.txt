@@ -1,0 +1,35 @@
+=============================================================
+======================= Licence : ===========================
+=============================================================
+IN101 : Initiation à l'algorithmique et programmation
+IN102 : Concepts de base en informatiques
+IN202 : Programmation impérative 1
+IN301 : Algorithmique et structures de données
+IN302 : Programmation applicative
+IN303 : Introduction aux systèmes et aux réseaux
+IN304 : Systèmes d' information et bases de données
+IN401 : Analyse d'algorithmes
+IN402 : Logique 1
+IN403 : Programmation impérative 2
+IN404 : Conception et Programmation par objet
+IN501 : Algorithme de graphes
+IN503 : Réseaux
+IN504 : Systèmes
+IN505 : Programmation par objet 1
+IN506 : Techniques de communication et conduite de projets
+IN603 : Programmation par objets 2
+IN604 : Interprétation et compilation
+IN605 : Systèmes d'information et bases de données 2
+IN607 : Architecture et programmation du web
+
+=============================================================
+======================== Master : ===========================
+=============================================================
+IN101 : Intelligence artificielle
+IN104 : Traitement du signal
+IN106 : Interaction Homme-Machine
+IN107 : Ingénierie logicielle
+IN207 : Programmation Orientée Agents
+IN212 : Programmation 3D
+IN215 : Traitement d'images
+IN216 : Algorithmique Géométrique

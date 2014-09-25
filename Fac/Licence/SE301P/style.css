@@ -1,0 +1,17 @@
+body {
+	float : center;
+	background-image : url(background.png);
+	background-repeat:repeat;
+	background-position:top left;
+}
+
+h1, h2, h3, p {
+	background-color : #000000;
+	color : #FFCC33 ;
+	text-align : center;
+}
+
+a:link, a:visited, a:hover, a:active{
+	background-color : #000000;
+	color : #FFCC33;
+}

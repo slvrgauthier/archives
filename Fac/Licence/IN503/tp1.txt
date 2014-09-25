@@ -1,0 +1,11 @@
+ex 1 :
+1. on obtient le détail des actions effectuées pour se connecter
+2. le ssh de la machine courante et un démon ssh se duplique sur la machine distante
+3. le client est sur sa machine et le démon sur la machine distante ; on peut les distinguer par leur UID (utilisateur ou root pour les démons)
+4. du moment où un démon tourne sur ce site
+5. le logiciel se lance sur la machine distante mais s'affiche sur la machine courante (processus présent sur la machine distante et absent sur la machine courante) ; fichiers créés : id_rsa, id_rsa.pub et autorized_keys (protection respective 600, 644, 664) ; la connexion sans mot de passe ne se fait que depuis la machine ayant id_rsa à celle ayant autorized_keys ; il faut changer le login autorisé avec la clef publique et se connecter en tant que tel.
+
+ex 1 bis :
+1. le mot de passe peut être demandé sur chaque machine distante
+2. il faut avoir les droits de lecture au minimum pour les "others" (ou de "group" si l'on est dans le même)
+3. en regardant le dossier /tmp où seront stockés sur une unique machine

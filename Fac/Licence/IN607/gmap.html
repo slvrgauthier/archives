@@ -1,0 +1,59 @@
+ <html>
+   <head>
+       <style type="text/css">
+          html { height: 100% }
+          body { height: 100%; margin: 0px; padding: 0px; }
+          #themes {float : left; padding-left: 10px; height: 0%; width: 10%; }
+          #map_canvas { height: 100%; float: right; }
+       </style>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+       <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+       <script type="text/javascript">
+var map;
+            function initialize() {
+                var latlng = new google.maps.LatLng(43.6111, 3.87667);
+                var myOptions = { zoom: 15,
+                                   center: latlng,
+                                   mapTypeId: google.maps.MapTypeId.ROADMAP
+                                };
+                map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+                var latlng = new google.maps.LatLng(43.6111, 3.87667);
+                var marker = new google.maps.Marker({ position: latlng,
+                                                       map: map,
+                                                       title: "MONTPELLIER, ICI MONTPELLIER !",
+                                                       draggable: true
+                                                     });
+                }
+
+function load(json) {
+    $.getJSON(json, function(data){
+        $.each(data, function(entryIndex, entry) {
+            var latlng = new google.maps.LatLng(entry['lat'],entry['lng']);
+            var marker = new google.maps.Marker({ position: latlng,
+                                                  map: map,
+                                                  title: entry['nom'],
+                                                  draggable: false
+                                                });
+        });
+   });
+}
+
+$().ready(function() {
+    $.getJSON('themes.json', function(data){
+        $("#themes").append("<p><strong> Choix : </strong></p><br/>");
+        $.each(data, function(entryIndex, entry) {
+            var html = "<label>"+entry['nom']+"</label><input type='checkbox' id='"+entry['nom']+"' /><br/>";
+            $("#themes").append(html);
+            $('#'+entry['nom']).click(function(){ load(entry['nom']+".json");});
+        });
+        $("#themes").append("<br/><input type='submit' onclick='validate' value='Valider'>");
+    });
+});
+
+       </script>
+   </head>
+   <body onLoad="initialize()">
+          <form id="themes"></form>
+          <div id="map_canvas" style="width:80%; height:100%"></div>
+   </body>
+</html>

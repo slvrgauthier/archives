@@ -1,0 +1,9 @@
+<?php
+	date_default_timezone_set('Europe/Paris');
+	session_start();
+	$_SESSION= array();
+	session_destroy();
+	
+	echo "<script type=text/javascript>location.href='/projetWeb/index.php'</script>";
+	
+?>

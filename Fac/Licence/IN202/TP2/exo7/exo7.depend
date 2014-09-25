@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1297433197 source:/auto_home/sgauthier/FLIN202/TP2/exo7/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"lecture.h"
+
+1297432118 /auto_home/sgauthier/FLIN202/TP2/exo7/lecture.h
+	<stdio.h>
+	<stdlib.h>
+

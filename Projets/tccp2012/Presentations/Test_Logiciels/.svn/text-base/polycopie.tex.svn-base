@@ -1,0 +1,469 @@
+\documentclass[a4paper]{beamer}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphics}
+\usepackage{caption} 
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{hyperref} 
+\usetheme{Szeged}    
+\useoutertheme{shadow}
+\usecolortheme[RGB={115,0,100}]{structure}
+\usepackage{pgfpages}
+\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm, landscape]
+
+\setcounter{tocdepth}{1}
+
+\title{Les Tests de logiciel}
+\author{Mélina MAIZEROI \& Jerry FRANCHET}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+Sommaire:
+\tableofcontents
+\end{frame}
+
+\section{Les Tests: Où, Quand, Pourquoi, Pour qui?}
+\subsection{Qu'est-ce qu'un test?}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Qu'est-ce qu'un test?}
+Il doit permettre d'apporter une réponse aux questions:
+\begin{itemize}
+\item "Est-ce que le système effectue ce pour quoi il est fait?" (\textbf{Validation})
+\item "Est ce que le système ne comporte aucune défaillance?" (\textbf{Vérification})
+\end{itemize}
+\end{frame}
+
+\subsection{Pourquoi tester?}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Pourquoi tester?}
+Tester est important pour:
+\begin{itemize}
+\item S'assurer qu'il remplit bien les spécifications définies
+\item Faciliter et accélérer le développement du projet
+\item Faire en sorte que le logiciel ne comporte pas de danger
+\end{itemize}
+\end{frame}
+
+\subsection{Le Standard IEEE 829}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Le Standard IEEE 829}
+Une classification des anomalies par leur gravité:
+\begin{tabular}{clc}
+niveau 1: & \textit{Négligeable} & \includegraphics[scale=0.65]{1dubitatif.png}\\
+niveau 2: & \textit{Marginal} & \includegraphics[scale=0.3]{2colere.png}\\
+niveau 3: & \textit{Critique} & \includegraphics[scale=0.4]{3rageux.png}\\
+niveau 4: & \textit{Catastrophique} & \includegraphics[scale=1]{4mort.png}
+\end{tabular}
+\end{frame}
+
+\subsection{Exemples de catastrophes}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Exemples de catastrophes}
+Voici quelques exemples de catastrophes:
+\begin{itemize}
+\item Décollage raté d'Ariane 5: plus de 400M \$ perdus.
+\item Therac-25: mort de nombreuses personnes.
+\item Mauvais guidage d'un missile: mort de soldats Américains.
+\item Logiciel du FBI abandonné: plus de 200M \$ perdus.
+\end{itemize}
+\end{frame}
+
+\subsection{Quand tester ?}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Quand tester ?}
+\includegraphics[scale=0.38]{cycle_developpement.jpg}\captionof{figure}{Cycle de développement}
+\end{frame}
+
+\subsection{Normes et organisations}
+\begin{frame}{Les Tests: Où, Quand, Pourquoi, Pour qui?}{Normes et organisations}
+Exemples d'organisations:
+\begin{figure}[!h]
+\includegraphics[scale=0.3]{IEEE.jpg}\\
+\begin{minipage}[b]{2cm}
+\includegraphics[scale=0.15]{ISTQB.jpg}
+\end{minipage}\hfill
+\begin{minipage}[b]{2cm}
+\includegraphics[scale=0.15]{CFTL.png}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+
+\section{Les Différents Tests}
+\subsection{Des Tests à différents niveaux}
+\begin{frame}{Les Différents Tests}{Des Tests à différents niveaux}
+Exemples de tests:
+\begin{description}
+\item[test unitaire] Considération d'un seul élément minimal du système pour le test. Cet élément peut par exemple être une fonction ou une classe.
+\item[test d'intégration] Le test porte sur le fonctionnement coordonné des éléments du système, préalablement testés.
+\end{description}
+\end{frame}
+
+\subsection{Différentes visibilités de test}
+\begin{frame}{Les Différents Tests}{Différentes visibilités de test}
+\begin{tabular}{cc}
+\includegraphics[scale=0.2]{boite_noire.jpg} & \includegraphics[scale=0.2]{boite_blanche.jpg}
+\end{tabular}
+\end{frame}
+
+\subsection{Plusieurs caractéristiques à tester}
+\begin{frame}{Les Différents Tests}{Plusieurs caractéristiques à tester}
+Des tests selon les caractéristiques:
+\begin{description}
+\item[test de vérification fonctionnelle] Validation de l'élément.
+\item[test de non-régression] Vérification des changements apportés.
+\item[test de performances] Test des différentes caractéristiques du système.
+\end{description}
+\end{frame}
+
+\subsection{Exemple 1}
+\begin{frame}{Les Différents Tests}{Exemple 1}
+Un test Boite Blanche unitaire et fonctionnel
+\includegraphics[scale=0.3]{exemple1.jpg}
+\end{frame}
+
+\subsection{Exemple 2}
+\begin{frame}{Les Différents Tests}{Exemple 2}
+Un test Boite Noire d'intégration et de performances 
+\includegraphics[scale=0.3]{exemple2.jpg}
+\end{frame}
+
+\subsection{Test Driven Development}
+\begin{frame}{Les Différents Tests}{Test Driven Development}
+Développement d'un projet dirigé par les tests.\\
+Cinq étapes:
+\begin{enumerate}
+\item écrire les tests unitaires
+\item vérifier que les tests échouent
+\item écrire le code de l'élément
+\item vérifier que les tests passent
+\item améliorer l'élément
+\end{enumerate}
+\end{frame}
+
+
+\section{Des Méthodes pour Tester}
+\subsection{Les mauvaises méthodes}
+\begin{frame}{Des Méthodes pour Tester}{Les mauvaises méthodes}
+Ce qu'il ne faut pas faire:
+\begin{itemize}
+\item La méthode de test naturelle:
+\begin{itemize}
+\item exécuter pour repérer les erreurs.
+\item lire le code pour chercher la provenance du problème.
+\item placer des affichages de texte et des conditions en plus et constater les résultats en exécutant.
+\end{itemize}
+\item Implémenter les tests à la fin du projet.
+\end{itemize}
+\end{frame}
+
+\subsection{Les méthodes de test Boite Noire}
+\begin{frame}{Des Méthodes pour Tester}{Les méthodes de test Boite Noire}
+Trois exemples de méthodes:
+\begin{itemize}
+\item Test aux limites
+\item Graphe causes-effet
+\item Test statistique
+\end{itemize}
+\end{frame}
+
+\subsection{Exemples:}
+\subsubsection*{Test aux limites}
+\begin{frame}{Des Méthodes pour Tester}{Exemples:}
+Soit une fonction créant un Rectangle d'après deux paramètres entrés par l'utilisateur: longueur et largeur.\\
+\underline{Test aux limites}\\
+Paramètres testés:
+\begin{description}
+\item[(2,3) ]longueur et largeur quelconque
+\item[(2,2) ]longueur égal largeur
+\item[(0,0) ]valeurs nulles
+\item[(2,3,4) ]trop de paramètres
+\item[(1000000,1000000) ]très grandes valeurs
+\item[(0.00001,0.00003) ]très petites valeurs
+\item[(-5,-4) ]valeurs négatives
+\item[(0.00001,1000000)]valeurs extrêmes
+\end{description}
+\end{frame}
+\subsubsection*{Graphe causes-effet}
+\begin{frame}{Des Méthodes pour Tester}{Exemples:}
+\underline{Graphe causes-effet}\\
+\begin{center} \includegraphics[scale=0.2]{graphe_causes_effets.jpg} \end{center}
+\vspace{1pt}
+\begin{small}
+\begin{tabular}{|l|c|c|c|}
+\hline ENTREES & largeur != longueur & largeur == longueur & longueur < 0 \\
+\hline SORTIES & Rectangle quelconque & Carré & Erreur! \\
+\hline
+\end{tabular}
+\end{small}
+\end{frame}
+\subsubsection*{Test statistique}
+\begin{frame}{Des Méthodes pour Tester}{Exemples:}
+\underline{Test statistique}\\
+\vspace{1cm}
+\begin{tabular}{|l|c|c|c|}
+\hline SORTIES & Rectangle quelconque & Carré & Erreur!\\
+\hline POURCENTAGES & 49\% & 1\% & 50\% \\
+\hline
+\end{tabular}
+\end{frame}
+
+\subsection{Les méthodes de test Boite Blanche}
+\begin{frame}{Des Méthodes pour Tester}{Les méthodes de test Boite Blanche}
+On distingue deux types de test Boite Blanche:
+\begin{enumerate}
+\item Test structurel \textit{Statique}: sans exécution du code.
+\item Test structurel \textit{Dynamique}: avec exécution du code.
+\end{enumerate}
+\end{frame}
+
+\subsubsection*{Test Structurel Statique}
+\begin{frame}{Des Méthodes pour Tester}{Les méthodes de test Boite Blanche}
+\underline{Test Structurel Statique}
+\begin{itemize}
+\item Relecture du code.
+\begin{itemize}
+\item preuve de fonctionnement.
+\item preuve de validité.
+\end{itemize}
+\item Estimation de la complexité du code.
+\end{itemize}
+\end{frame}
+
+\subsubsection*{Test Dynamique Flot de contrôle}
+\begin{frame}{Des Méthodes pour Tester}{Les méthodes de test Boite Blanche}
+\underline{Test Dynamique Flot de contrôle}
+\begin{center}
+\includegraphics[scale=0.4]{flot_controles.jpg}
+\end{center}
+\end{frame}
+
+\subsubsection*{Test Dynamique Flot de données}
+\begin{frame}{Des Méthodes pour Tester}{Les méthodes de test Boite Blanche}
+\underline{Test Dynamique Flot de données}
+\begin{center}
+\includegraphics[scale=0.39 ]{flot_donnees.jpg}
+\end{center}
+\end{frame}
+
+\subsubsection*{Test Mutationnel}
+\begin{frame}[fragile]{Des Méthodes pour Tester}{Les méthodes de test Boite Blanche}
+\underline{Test Mutationnel}\newline\newline
+\begin{minipage}{3cm}
+\begin{Verbatim}[frame=single,fontsize=\small]
+int main(){
+  int a,b;
+  if(a<3){
+  	b=a*2;
+  }
+}
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{Verbatim}[frame=single,fontsize=\small ,commandchars=\\\{\}]
+int main()\{
+  int a,b;
+  if({\textbf{\color{red}a>3}})\{
+  	b=a*2;
+  \}
+\}
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}{3cm}
+\begin{Verbatim}[frame=single,fontsize=\small ,commandchars=\\\{\}]
+int main()\{
+  int a,b;
+  if(a<3)\{
+  	{\textbf{\color{red}b=a}};
+  \}
+\}
+\end{Verbatim}
+\end{minipage}
+\end{frame}
+
+
+\section{Les Tests en pratique}
+\subsection{Exemple d'implémentation}
+\begin{frame}[fragile]{Les Tests en pratique}{Exemple d'implémentation}
+\begin{Verbatim}[frame=single,fontsize=\tiny]
+int multiplication(int a, int b){
+  return a*b;
+} 
+int testMultiplication(){
+  int retour = 0;
+  
+  int a = 1, b = 1;			// Arranger
+  int r = multiplication(a,b);		// Agir
+  if(r!=1){printf("Echec test 1");	// Auditer
+    retour=-1;}
+  
+  a = 0; b = 1;				// Arranger
+  r = multiplication(a,b);		// Agir
+  if(r!=0){printf("Echec test 2");	// Auditer
+    retour=-1;}
+  
+  a = -3; b = 5;			// Arranger
+  r = multiplication(a,b);		// Agir
+  if(r!=-15){printf("Echec test 3");	// Auditer
+    retour=-1;}
+    
+  return retour;
+}
+int main(){
+  int etat = testMultiplication();  
+}
+\end{Verbatim}
+\end{frame}
+
+\subsection{Les tests facilités par les IDE}
+\begin{frame}{Les Tests en pratique}{Les tests facilités par les IDE}
+\begin{itemize}
+\item Détection des erreurs de syntaxe par le Débogueur lors de la compilation
+\item Parcours étape par étape de l'exécution de l'application
+\item Vérification syntaxique et référentielle lors de l'écriture du code.
+\item Exemples d'avertissements:
+\begin{itemize}
+\item attributs non utilisés ou portion de code non-atteinte
+\item utilisation d'une classe non-correspondante a la classe créée ou inexistante
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Les tests dans les langages à objet}
+\begin{frame}{Les Tests en pratique}{Les tests dans les langages à objet}
+Le langage objet intègre des fonctionnalités facilitant les tests:
+\begin{description}
+\item[code partitionné en classes:]facilite les tests unitaires. 
+\item[notion d'héritage:]facilite les tests d'intégration.
+\item[assertions:]déjà des vérifications en elles-même.
+\item[exceptions:]permettent de récupérer des informations sur des tests effectués.
+\item[introspections:]permettent d'automatiser les tests sur des classes génériques.
+\end{description}
+\end{frame}
+
+\subsection{L'automatisation des tests}
+\begin{frame}{Les Tests en pratique}{L'automatisation des tests}
+Elle permet de:
+\begin{itemize}
+\item Réduire le temps requis pour tester
+\item Améliorer la productivité des testeurs
+\item Améliorer la couverture des tests de régression
+\item Améliorer la qualité des tests
+\item Faciliter la maintenance et l'exécution d'un ensemble de test
+\item Améliorer la répétabilité ou la réutilisabilité des tests
+\item Améliorer la qualité de l'application
+\item Obtenir un enregistrement organisé et détaillé des tests exécutés
+\item Simplifier le déverminage.
+\end{itemize}
+\end{frame}
+
+\subsection{Les XUnits}
+\begin{frame}{Les Tests en pratique}{Les XUnits}
+Outils permettant de réaliser des test unitaires dans un language donné.\\
+Quelques exemples:
+\begin{description}
+\item{SUnit} pour Smalltalk
+\item{CUnit} pour C
+\item{cppunit} pour C++
+\item{JUnit} pour Java
+\end{description}
+\end{frame}
+
+\subsection{Implémentation de CUnit}
+\begin{frame}[fragile]{Les Tests en pratique}{Implémentation de CUnit}
+\begin{Verbatim}[frame=single,fontsize=\tiny]
+int max (int n1, int n2 ){
+   if ( n2 > n1 )  return n2;
+   return n1;
+}
+void test_case_sample(void){
+   CU_ASSERT(CU_TRUE);
+   CU_ASSERT_NOT_EQUAL(2, -1);
+   CU_ASSERT_STRING_EQUAL("string #1", "string #1");
+   CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #2");
+
+   CU_ASSERT(CU_FALSE);
+   CU_ASSERT_EQUAL(2, 3);
+   CU_ASSERT_STRING_NOT_EQUAL("string #1", "string #1");
+   CU_ASSERT_STRING_EQUAL("string #1", "string #2");
+}
+void max_test_1(void) {
+  CU_ASSERT_EQUAL( max(1,2), 2);
+  CU_ASSERT_EQUAL( max(2,1), 2);
+}
+void max_test_2(void) {
+  CU_ASSERT_EQUAL( max(2,2), 2);
+  CU_ASSERT_EQUAL( max(0,0), 0);
+  CU_ASSERT_EQUAL( max(-1,-1), -1);
+}
+void max_test_3(void) {
+  CU_ASSERT_EQUAL( max(-1,-2), -1);}
+\end{Verbatim}
+\end{frame}
+\begin{frame}[fragile]{Les Tests en pratique}{Implémentation de CUnit}
+\begin{Verbatim}[frame=single,fontsize=\tiny]
+int main (void){
+   CU_pSuite pSuite = NULL; //Définition de la suite de test.
+
+   /* initialisation du registre */   
+   pSuite = CU_add_suite( "max_test_suite", init_suite, clean_suite); //Suite initialisée.
+   CU_add_test(pSuite, "max_test_1", max_test_1); //  
+   CU_add_test(pSuite, "max_test_2", max_test_2); // Ajout des tests dans la suite.
+   CU_add_test(pSuite, "max_test_3", max_test_3); //  
+
+   CU_basic_set_mode(CU_BRM_VERBOSE);             // Affichage pendant l'exécution des tests.
+   CU_basic_run_tests(); printf("\n");            // Lancement de l'exécution des tests.
+   CU_basic_show_failures(CU_get_failure_list()); // Affichage des erreurs détectées.
+   printf("\n\n");
+   
+   /* Nettoyage du registre */
+   return CU_get_error();   
+}
+
+Suite: max_test_suite
+  Test: max_test_1 ...passed
+  Test: max_test_2 ...passed
+  Test: max_test_3 ...passed
+Run Summary:    Type  Total    Ran Passed Failed Inactive
+              suites      1      1    n/a      0        0
+               tests      3      3      3      0        0
+             asserts      6      6      6      0      n/a
+\end{Verbatim}
+\end{frame}
+
+
+\section{Conclusion et Bibliographie}
+\subsection{Conclusion}
+\begin{frame}{Conclusion et Bibliographie}{Conclusion}
+\begin{itemize}
+\item Des tests couteux mais nécessaires
+\item Des métiers pour la confiance
+\item Les tests de plus en plus informatisés
+\end{itemize}
+\end{frame}
+
+\subsection{Bibliographie}
+\begin{frame}{Conclusion et Bibliographie}{Bibliographie}
+\setbeamertemplate{bibliography item}[text]
+\usebibitemtemplate{\color{structure} *} 
+\usebibliographyblocktemplate{\color{black}}{\color{black}}{\color{black}}{\color{black}} 
+\begin{itemize}
+\item Des livres intéressants:
+\begin{scriptsize}
+\begin{thebibliography}{3}
+   \bibitem[1]{livre1} Karapoulios, Le test des logiciels, Hermès - Lavoisier, 1999
+   \bibitem[2]{livre2} John Watkins,Test logiciel en pratique,Vuibert,2002
+   \bibitem[3]{livre3} Bernard Homès,Les tests logiciels,Hermès - Lavoisier,2011
+\end{thebibliography}
+\end{scriptsize}
+\item Des sites à consulter:
+\begin{itemize}
+\item \url{http://fr.wikibooks.org/}
+\item \url{http://istqb.org/}
+\item \url{http://www.cftl.fr/}
+\item \url{http://wpollock.com/}
+\item \url{http://sebastien.bardin.free.fr/}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,242 @@
+{VERSION 6 0 "IBM INTEL LINUX" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 1 12 255 0 0 1 0 1 0 
+2 1 2 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 
+0 0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 
+1 }{CSTYLE "_cstyle1" -1 201 "Courier" 1 12 255 0 0 1 0 1 0 2 1 2 0 0 
+0 1 }{CSTYLE "_cstyle2" -1 202 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 0 0 0 
+1 }{CSTYLE "_cstyle3" -1 203 "MS Serif" 1 16 0 0 0 0 1 1 0 2 2 2 0 0 
+0 1 }{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 
+2 2 2 2 2 0 0 0 1 }1 0 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "Heading 1" 
+0 3 1 {CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 
+4 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }
+{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Title" 0 18 1 {CSTYLE "" 
+-1 -1 "" 1 18 0 0 0 0 0 1 1 0 0 0 0 0 0 0 }3 0 0 -1 12 12 0 0 0 0 0 0 
+19 0 }{PSTYLE "_pstyle1" -1 200 1 {CSTYLE "" -1 -1 "MS Serif" 1 18 0 
+0 0 0 0 1 0 2 2 2 0 0 0 1 }1 0 0 -1 8 4 1 0 1 0 2 2 -1 1 }{PSTYLE "_ps
+tyle2" -1 201 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 0 
+0 1 }1 0 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle3" -1 202 1 
+{CSTYLE "" -1 -1 "MS Serif" 1 16 0 0 0 0 0 1 0 2 2 2 0 0 0 1 }1 0 0 
+-1 8 2 1 0 1 0 2 2 -1 1 }{PSTYLE "_pstyle4" -1 203 1 {CSTYLE "" -1 -1 
+"" 0 1 0 0 0 0 0 0 0 2 2 2 0 0 0 1 }0 0 0 -1 -1 -1 1 0 1 0 2 2 -1 1 }
+}
+{SECT 0 {EXCHG {PARA 18 "" 0 "" {TEXT -1 29 "   TP1 de FLIN301     200
+9/10" }}}{SECT 1 {PARA 200 "" 0 "" {TEXT -1 20 "D\351finition de Taill
+e" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "kernelopts(assertlevel=
+2);" }}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 145 "taille:=proc(t)
+::integer;\nif type(t,array) then return op([2,2],eval(t));\nelse erro
+r \" : le param\350tre n'est pas de type array\"\nend if;\nend proc :
+" }}}}{SECT 0 {PARA 200 "" 0 "" {TEXT -1 26 "Recherche dans un tableau
+ " }}{SECT 0 {PARA 202 "" 0 "" {TEXT -1 22 "Recherche s\351quentielle
+" }}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 753 "rechLineaire:=proc(
+T::array,e::integer) :: integer;\ndescription \"T \351tant un tableau \+
+d'entier tri\351, e un entier \"\n            \"renvoie l'indice de e \+
+dans T, ou 0 si T ne contient pas e\";\nlocal Res::integer;           \+
+                            # d\351claration des variables locales\n  \+
+         Res:=1;                                        # une affectat
+ion\n           while Res<= taille(T) and T[Res]<>e do         # It
+\351ration tant que\n                      Res:= Res+1;\n           en
+d do;                                        # fin du tant que\n      \+
+     if Res>taille(T) then return 0                 # conditionnelle S
+i-Sinon\n           else return Res                                # v
+aleur retourn\351e par l'algorithme \n           end if;\nend proc:" }
+}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 43 "T:=array([13,88,123,21
+2,213,800,801,839]);\n" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"TGK%'vec
+torG6#7*\"#8\"#))\"$B\"\"$7#\"$8#\"$+)\"$,)\"$R)Q(pprint06\"" }}}
+{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 40 "rechLineaire(T,124);rech
+Lineaire(T,800);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#\"\"'" }}}}{SECT 0 {PARA 202 "" 0 "" {TEXT -1 
+22 "Recherche Dichotomique" }}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 
+201 540 "rechDicho:=proc(T::array,e::integer) :: integer;\ndescription
+ \"T \351tant un tableau d'entier tri\351, e un entier \"\n           \+
+ \"renvoie l'indice de e dans T, ou 0 si T ne contient pas e\";\nlocal
+ Deb :: integer,Fin :: integer, Mil::integer;\n        Deb:=1; Fin:=ta
+ille(T);\n        while Deb<=Fin do\n                Mil := iquo(Deb+F
+in,2) ;\n                if T[Mil]>=e then Fin:=Mil-1\n               \+
+ else Deb := Mil + 1\n                end if;\n        end do;\n      \+
+  if Deb<=taille(T) and T[Deb]=e then return Deb else return 0 end if;
+\nend proc:" }}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 122 "T:=arra
+y([13,88,123,212,213,800,801,839]);\nrechLineaire(T,124);rechDicho(T,1
+24);rechLineaire(T,800);rechDicho(T,800);\n \n \n" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"TGK%'vectorG6#7*\"#8\"#))\"$B\"\"$7#\"$8#\"$+)\"$,)
+\"$R)Q(pprint16\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"
+\"'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"'" }}}}{SECT 0 {PARA 202 "
+" 0 "" {TEXT -1 12 "Comparaisons" }}{EXCHG {PARA 201 "> " 0 "" 
+{MPLTEXT 1 201 508 "compare:=proc(n::integer,nbtir::integer)\nlocal T:
+:array,t1::float,t2::float,i::integer,x::integer;\n        T:=array(so
+rt([seq(rand(0..10^3)(),i=1..n)])):\n        t1:=0.;t2:=0.;\n        f
+or i from 1 to nbtir do\n                x:=rand(0..10^3)();\n        \+
+        t1:=t1+time(rechLineaire(T,x));\n                t2:=t2+time(r
+echDicho(T,x));\n        end do:\n        print(\"temps moyen de la re
+cherche s\351quentielle :\",t1/nbtir);\n        print(\"temps moyen de
+ la recherche par dichotomie :\",t2/nbtir);\nend proc:\n\n" }}}{EXCHG 
+{PARA 201 "> " 0 "" {MPLTEXT 1 201 18 "compare(100000,5);" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6$QKtemps~moyen~de~la~recherche~s|dyquentielle~:6
+\"$\"++++i9!#5" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QMtemps~moyen~de~la~
+recherche~par~dichotomie~:6\"$\"\"!F&" }}}{EXCHG {PARA 201 "> " 0 "" 
+{MPLTEXT 1 201 18 "compare(200000,5);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6$QKtemps~moyen~de~la~recherche~s|dyquentielle~:6\"$\"++++yI!#5" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6$QMtemps~moyen~de~la~recherche~par~dich
+otomie~:6\"$\"\"!F&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "comp
+are(300000,5);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QKtemps~moyen~de~la~
+recherche~s|dyquentielle~:6\"$\"++++#o$!#5" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6$QMtemps~moyen~de~la~recherche~par~dichotomie~:6\"$\"\"!
+F&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "compare(400000,5);" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6$QKtemps~moyen~de~la~recherche~s|dyque
+ntielle~:6\"$\"++++ik!#5" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QMtemps~mo
+yen~de~la~recherche~par~dichotomie~:6\"$\"\"!F&" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 18 "compare(600000,5);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6$QKtemps~moyen~de~la~recherche~s|dyquentielle~:6\"$\"+++
++I(*!#5" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QMtemps~moyen~de~la~recherc
+he~par~dichotomie~:6\"$\"+++++?!#8" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 18 "compare(800000,5);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+$QKtemps~moyen~de~la~recherche~s|dyquentielle~:6\"$\"+++!yq\"!\"*" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6$QMtemps~moyen~de~la~recherche~par~dich
+otomie~:6\"$\"\"!F&" }}}}}{SECT 0 {PARA 200 "" 0 "" {TEXT -1 29 "Sous-
+Tableau de somme maximum" }}{SECT 0 {PARA 200 "" 0 "" {TEXT -1 13 "Ver
+sion en n3" }}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 426 "somMax1:=
+proc(T::array)::integer;\nlocal i::integer,j::integer,k::integer, somM
+ax::integer,som::integer;\n        somMax:=0;\n        for i from 1 to
+ taille(T) do\n                for j from i to taille(T) do\n         \+
+               som:=0;\n                        for k from i to j do s
+om:=som+T[k]; end do;\n                        somMax:=max(somMax,som)
+;\n                end do;\n        end do;\n        return somMax;\ne
+nd proc:" }}}}{SECT 0 {PARA 200 "" 0 "" {TEXT -1 13 "Version en n2" }}
+{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 398 "somMax2:=proc(T::array)
+  :: integer;\nlocal  i::integer,j::integer, somMax::integer,som::inte
+ger;\n        somMax:=0;\n        for i from 1 to taille(T) do\n      \+
+          som:=0;\n                for j from i to taille(T) do\n     \+
+                   som:=som+T[j];\n                        if som > so
+mMax then somMax:=som end if;\n                end do;\n        end do
+;\n        return somMax;\nend proc:" }}}}{SECT 0 {PARA 202 "" 0 "" 
+{TEXT -1 18 "Version en n log n" }}{EXCHG {PARA 201 "> " 0 "" 
+{MPLTEXT 1 201 976 "somMax3:=proc(T::array):: integer;\nlocal somMax3b
+is;\n\n          somMax3bis:=proc(i::integer,j::integer):: integer;\n \+
+         local m::integer,k::integer,\n                somMaxG::intege
+r,somMaxD::integer,\n                somG::integer,somD::integer,som::
+integer;\n            if i=j then return max(0,T[i]) \n            els
+e   m:= iquo(i+j,2);\n                   somMaxG:=somMax3bis(i,m);\n  \+
+                 somMaxD:=somMax3bis(m+1,j);\n                   somG:
+=0;som:=0;\n                   for k from m to i by -1 do\n           \+
+                 som:=som+T[k];\n                            somG:=max
+(som,somG)\n                   end do;\n                   somD:=0;som
+:=0;\n                   for k from m+1 to j do\n                     \+
+       som:=som+T[k];\n                            somD:=max(som,somD)
+\n                   end do;\n                   return max(somMaxG,so
+mMaxD,somG+somD);\n             end if;\n           end proc:\n\n     \+
+return somMax3bis(1,taille(T));\nend proc:" }}}}{SECT 0 {PARA 202 "" 
+0 "" {TEXT -1 21 "G\351n\351ration de Tableau" }}{EXCHG {PARA 201 "> \+
+" 0 "" {MPLTEXT 1 201 218 "genTab:=proc(t::integer)::array;\ndescripti
+on \"Retourne un tableau de t nombres entre -100 et 100\";\nlocal i::i
+nteger,Tab::array;\n        Tab:=array([seq(rand(-10^2..10^2)(),i=1..t
+)]);\n        return eval(Tab);\nend proc:" }}}{EXCHG {PARA 201 "> " 
+0 "" {MPLTEXT 1 201 48 "T:=genTab(20); somMax1(T);somMax2(T);somMax3(T
+);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"TGK%'vectorG6#76\"#C!#a!#()
+\"#\"*\"#y\"#Z\"#**\"#F!#=\"#)*F,\"#\\!#6\"#c!#A!#5!#W!\"&!#q\"#EQ(ppr
+int26\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$2'" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$2'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$2'" }}}}
+{SECT 0 {PARA 200 "" 0 "" {TEXT -1 16 "Version lin\351aire" }}{EXCHG 
+{PARA 201 "" 0 "" {TEXT 202 24 ">  Proc\351dure \340 compl\351ter" }}
+{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 
+1 201 292 "somMax4:=proc(T::array)::integer;\nlocal i::integer,somMax:
+:integer,somMaxD::integer;\n        somMax:=0; somMaxD:=0;\n        fo
+r i from 1 to taille(T) do\n                somMaxD:=max(somMaxD+T[i],
+0);\n                somMax:=max(somMaxD,somMax);\n        end do;\n  \+
+      return somMax;\nend proc:" }}}{EXCHG {PARA 201 "" 0 "" {TEXT -1 
+1 " " }}}}{SECT 0 {PARA 202 "" 0 "" {TEXT -1 6 "Essais" }}{EXCHG 
+{PARA 201 "> " 0 "" {MPLTEXT 1 201 14 "T:=genTab(20);" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%\"TGK%'vectorG6#76!\"\"\"#$)!\"'!$+\"\"#(*F-\"#
+\\!#g!#k\"#$*F+\"#6\"#X!#))\"#w\"\"(\"$+\"\"#G!#a\"#dQ(pprint36\"" }}}
+{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 44 "somMax1(T);somMax2(T);so
+mMax3(T);somMax4(T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)Q" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)Q" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$)Q" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)Q" }}}}{SECT 0 {PARA 
+202 "" 0 "" {TEXT 203 29 "Comparaison des 4 algorithmes" }}{EXCHG 
+{PARA 201 "> " 0 "" {MPLTEXT 1 201 166 "comp1234:=proc(n::integer)::li
+st;\nlocal T::array;\n        T:=genTab(n);\n        return [time(somM
+ax1(T)),time(somMax2(T)),time(somMax3(T)),time(somMax4(T))]\nend proc:
+" }}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 14 "comp1234(400);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#7&$\"%L`!\"$$\"#mF&$\"\"&F&$\"\"!F," }
+}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 261 "ntests1234:=[seq(comp
+1234(20*i),i=1..10)];\nplot([[seq([20*i,ntests1234[i][1]],i=1..10)],[s
+eq([20*i,ntests1234[i][2]],i=1..10)],[seq([20*i,ntests1234[i][3]],i=1.
+.10)],[seq([20*i,ntests1234[i][4]],i=1..10)]],color=[yellow,green,blue
+,red],legend=[n3,n2,nlogn,n]);\n" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%
++ntests1234G7,7&$\"\"\"!\"$$\"\"!F+F*F*7&$\"\")F)F'F*F*7&$\"#KF)F*F'F*
+7&$\"#VF)$\"\"#F)F*F*7&$\"##*F)$\"\"%F)F'F*7&$\"$_\"F)$\"\"&F)F5F*7&$
+\"$K#F)F-F5F*7&$\"$a$F)$\"#5F)FGF*7&$\"$1&F)$\"#8F)F'F*7&$\"$\"pF)$\"#
+;F)F5F'" }}}}{SECT 0 {PARA 202 "" 0 "" {TEXT 203 30 "Comparaison des 3
+ algorithmes " }}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 336 "comp23
+4:=proc(n)\nlocal T;\n        T:=genTab(n);\n        return [time(somM
+ax2(T)),time(somMax3(T)),time(somMax4(T))]\nend proc:\nntests234:=[seq
+(comp234(50*i),i=1..10)]:\n \nplot([[seq([50*i,ntests234[i][1]],i=1..1
+0)],[seq([50*i,ntests234[i][2]],i=1..10)],[seq([50*i,ntests234[i][3]],
+i=1..10)]],color=[green,blue,red],legend=[n2,nlogn,n]);\n\n" }}}
+{EXCHG {PARA 201 "" 0 "" {TEXT -1 0 "" }}}}{SECT 0 {PARA 202 "" 0 "" 
+{TEXT 203 29 "Comparaison des 2 algorithmes" }}{EXCHG {PARA 201 "> " 
+0 "" {MPLTEXT 1 201 273 "comp34:=proc(n)\nlocal T;\n        T:=genTab(
+n);\n        return [time(somMax3(T)),time(somMax4(T))]\nend proc:\nnt
+ests34:=[seq(comp34(1000*i),i=1..10)]:\n \nplot([[seq([1000*i,ntests34
+[i][1]],i=1..10)],[seq([1000*i,ntests34[i][2]],i=1..10)]],color=[blue,
+red],legend=[nlogn,n]);\n\n" }}}}{SECT 0 {PARA 202 "" 0 "" {TEXT -1 
+52 "Calcule des indices du sous-tableau de somme maximum" }}{EXCHG 
+{PARA 201 "> " 0 "" {MPLTEXT 1 201 916 "somMax4ind:=proc(T::array)::li
+st;\ndescription \"calcule la somme maximum des sous tableaux\"\n     \+
+     \"ainsi que les indices du sous tableau de somme max\"\n         \+
+ \"l'indice de gauche : indGMax et l'indice de droite : indDMax\";\nlo
+cal i::integer,j::integer, somMax::integer,somMaxD::integer,\n        \+
+indGMax::integer,indDMax::integer,indG::integer;\n        somMax:=0; s
+omMaxD:=0; indGMax:=0; indDMax:=0;\n        for i from 1 to taille(T) \+
+do\n                somMaxD:=max(somMaxD+T[i],0);\n                if(
+somMaxD>somMax) then \n                        indDMax:=i; \n         \+
+       end if; \n                somMax:=max(somMaxD,somMax);\n       \+
+ end do;\n        somMaxD:=0;\n        for j from indDMax to 1 by -1 d
+o\n                somMaxD:=somMaxD+T[j];\n                if(somMaxD<
+=0) then\n                        indGMax:=j+1;\n                end i
+f;\n        end do; \n        return [somMax,indGMax,indDMax];\nend pr
+oc:\n" }}}{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 14 "T:=genTab(10);
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"TGK%'vectorG6#7,\"\"$\"#T!#!)
+\"#U\"#u!#N!#E\"#x!#_\"#CQ)pprint196\"" }}}{EXCHG {PARA 201 "> " 0 "" 
+{MPLTEXT 1 201 14 "somMax4ind(T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7
+%\"$K\"\"\"!\"\")" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}}
+{SECT 1 {PARA 3 "" 0 "" {TEXT -1 14 "Racine enti\350re" }}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 270 "racentiter:=proc(n::integer)::inte
+ger;\ndescription \"Etant donn\351 l'entier positif n, renvoie la raci
+ne enti\350re de n\",\n            \"algorithme proc\351dant par it
+\351ration simple\";\n  local i::integer;\n  i:=0;\n  while (i+1)*(i+1
+)<n do\n    i:=i+1 \n  end do;\n  return i;\nend proc:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "racentiter(93*10^11);" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "time(racentiter(93*10^11));" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 183 "racentdicho:=proc(n::intege
+r)::integer;\ndescription \"Etant donn\351 l'entier positif n, renvoie
+ la racine enti\350re de n\",\n            \"algorithme proc\351dant p
+ar dichotomie\";\n\n\n\n\n\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 54 "racentdicho(93*10^11);\n                             \+
+ \n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "time(racentdicho(93*
+10^11));\n" }}}}{SECT 1 {PARA 200 "" 0 "" {TEXT -1 50 "Explication de \+
+la complexit\351 O(n.log n) de somMax3" }}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 164 "Soit tp(n) le nombre d'it\351rations ex\351cut\351es par
+ la proc\351dure somMax3(T) pour un tableau T de taille n\ntp(n) est u
+ne fonction de N -> N d\351finie par la r\351ccurrence :\n" }}{PARA 0 
+"" 0 "" {TEXT -1 452 "           tp(1)=0                              \+
+                             (le cas de base de la r\351cursivit\351 d
+e somMax3bis pour i=j)\n n>1   tp(n) = tp(n/2) + tp(n/2) + n          \+
+           (2 appels r\351cursifs avec chacun un tableau de taille n/2
+ + n it\351rations pour le calcul de  somG et somD\n\nLa primitive map
+le rsolve permet de r\351soudre des r\351currences : trouver l'express
+ion non r\351currente d'une fonction d\351finie par des relations de r
+\351currence. " }}{PARA 0 "" 0 "" {TEXT -1 208 "Elle admet 2 param\350
+tres : \n                        le premier est un ensemble de r\351cu
+rrences et de cas de base. \n                       le second pr\351ci
+se  la fonction dont on cherche la forme non r\351currente. " }}}
+{EXCHG {PARA 201 "> " 0 "" {MPLTEXT 1 201 39 "rsolve(\{tp(1)=0,tp(n)=2
+*tp(n/2)+n\},tp);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 201 "" 0 "" {TEXT -1 0 "" }}}}
+{PARA 203 "" 0 "" {TEXT -1 0 "" }}{PARA 203 "" 0 "" {TEXT -1 0 "" }}
+{PARA 203 "" 0 "" {TEXT -1 0 "" }}{PARA 203 "" 0 "" {TEXT -1 0 "" }}
+{PARA 203 "" 0 "" {TEXT -1 0 "" }}{PARA 203 "" 0 "" {TEXT -1 0 "" }}}
+{MARK "3 10 4 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 
+0 1 2 33 1 1 }

@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>tccp2012 Automate_ND:  Fichier source de auto_nd.h</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">tccp2012 Automate_ND
+   
+   </div>
+   
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.7.6.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="dynsections.js"></script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="headertitle">
+<div class="title">auto_nd.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="auto__nd_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00010"></a>00010 <span class="preprocessor">#ifndef AUTO_ND_H</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define AUTO_ND_H</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a><a class="code" href="auto__nd_8h.html#a01c9c2bc0eb92ea10d0d8ffe2444aa90">00013</a> <span class="preprocessor">#define Entier int </span>
+<a name="l00014"></a><a class="code" href="auto__nd_8h.html#a725c798f5e7ed9a07c672cb966f35ce1">00014</a> <span class="preprocessor"></span><span class="preprocessor">#define Char char </span>
+<a name="l00015"></a><a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">00015</a> <span class="preprocessor"></span><span class="preprocessor">#define Chaine char* </span>
+<a name="l00016"></a><a class="code" href="auto__nd_8h.html#af377ca31aa805000f5287ecb041d90df">00016</a> <span class="preprocessor"></span><span class="preprocessor">#define EnsembleEtat int* </span>
+<a name="l00017"></a><a class="code" href="auto__nd_8h.html#a8a9f3c362f156e37cdf72bfac024d7e3">00017</a> <span class="preprocessor"></span><span class="preprocessor">#define EnsembleChar char* </span>
+<a name="l00018"></a><a class="code" href="auto__nd_8h.html#abefd29f277cc57fe5d7540dcfa9c9edc">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define EnsembleTransition Transition* </span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span>
+<a name="l00020"></a>00020 <span class="comment">//#include &quot;../TypesBase/TypeBase.h&quot;</span>
+<a name="l00021"></a>00021 <span class="comment">//#include &quot;../Ensembles/ensemble.h&quot;</span>
+<a name="l00022"></a>00022 <span class="comment">//#include &quot;../Grammaires/grammaire.h&quot;</span>
+<a name="l00023"></a>00023 <span class="comment">//#include &quot;../Automate_D/auto_d.h&quot;</span>
+<a name="l00024"></a>00024 
+<a name="l00028"></a><a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">00028</a> <span class="keyword">typedef</span> <a class="code" href="auto__nd_8h.html#a01c9c2bc0eb92ea10d0d8ffe2444aa90">Entier</a> <a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a>;
+<a name="l00029"></a><a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">00029</a> <span class="keyword">typedef</span> <a class="code" href="auto__nd_8h.html#af377ca31aa805000f5287ecb041d90df">EnsembleEtat</a> <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a>;
+<a name="l00030"></a>00030 
+<a name="l00037"></a><a class="code" href="struct_transition.html">00037</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_transition.html" title="Objet fonction de transition.">Transition</a> {
+<a name="l00038"></a><a class="code" href="struct_transition.html#a90d9e6858a2ca20ec81be04500590396">00038</a>   <a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> <a class="code" href="struct_transition.html#a90d9e6858a2ca20ec81be04500590396">initial</a>;
+<a name="l00039"></a><a class="code" href="struct_transition.html#ad41be56e69e85f38f4be7cc7d7d3cc18">00039</a>   <a class="code" href="auto__nd_8h.html#a725c798f5e7ed9a07c672cb966f35ce1">Char</a> <a class="code" href="struct_transition.html#ad41be56e69e85f38f4be7cc7d7d3cc18">alpha</a>;
+<a name="l00040"></a><a class="code" href="struct_transition.html#abbe5fcc45cc44e9057bc028de5aed8a0">00040</a>   <a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> <span class="keyword">final</span>;
+<a name="l00041"></a>00041 }* <a class="code" href="auto__nd_8h.html#a83a8cfaf050dadd5e51f6bb00d0dee6a">Transition</a>;
+<a name="l00042"></a>00042 
+<a name="l00049"></a><a class="code" href="struct_automate___n_d.html">00049</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> {
+<a name="l00050"></a><a class="code" href="struct_automate___n_d.html#a7933064dbc75475ee4dcd408a4707d0d">00050</a>   <a class="code" href="auto__nd_8h.html#a8a9f3c362f156e37cdf72bfac024d7e3">EnsembleChar</a> <a class="code" href="struct_automate___n_d.html#a7933064dbc75475ee4dcd408a4707d0d">sigma</a>;
+<a name="l00051"></a><a class="code" href="struct_automate___n_d.html#aaf06b1de553b579c708e8d3a72252ff8">00051</a>   <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> <a class="code" href="struct_automate___n_d.html#aaf06b1de553b579c708e8d3a72252ff8">E</a>;
+<a name="l00052"></a><a class="code" href="struct_automate___n_d.html#ab814f5651b88a864f155f6fe428806b6">00052</a>   <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> <a class="code" href="struct_automate___n_d.html#ab814f5651b88a864f155f6fe428806b6">I</a>;
+<a name="l00053"></a><a class="code" href="struct_automate___n_d.html#af21e5b6b3c70a14bc833c833e1c3c1e1">00053</a>   <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> <a class="code" href="struct_automate___n_d.html#af21e5b6b3c70a14bc833c833e1c3c1e1">F</a>;
+<a name="l00054"></a><a class="code" href="struct_automate___n_d.html#ab0a6aaf56ad2b80412c18ed3b18db517">00054</a>   <a class="code" href="auto__nd_8h.html#abefd29f277cc57fe5d7540dcfa9c9edc">EnsembleTransition</a> <a class="code" href="struct_automate___n_d.html#ab0a6aaf56ad2b80412c18ed3b18db517">delta</a>;
+<a name="l00055"></a>00055 } *<a class="code" href="auto__nd_8h.html#a9fc9b66075644376db177bb7337bcb71">Automate_ND</a>;
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="comment">//======================================================================</span>
+<a name="l00058"></a>00058 <span class="comment">//==============================Fonctions de base :=====================</span>
+<a name="l00065"></a>00065 <span class="comment"></span><a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> <a class="code" href="auto__nd_8c.html#af69591ffe63ee61cfca113793e74a52a" title="Création d&#39;un automate indéterministe vide.">auto_nd_creer</a>();
+<a name="l00066"></a>00066 
+<a name="l00078"></a>00078 <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> <a class="code" href="auto__nd_8c.html#aaffcc81be17700a307595e9021d365dd" title="Création d&#39;un automate indéterministe non vide.">auto_nd_creerP</a>(<a class="code" href="auto__nd_8h.html#a8a9f3c362f156e37cdf72bfac024d7e3">EnsembleChar</a> s, <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> e, <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> i, <a class="code" href="auto__nd_8h.html#ab97da0c1b1e5f14d8f0cec086e90fece">Ets</a> f, <a class="code" href="auto__nd_8h.html#abefd29f277cc57fe5d7540dcfa9c9edc">EnsembleTransition</a> d);
+<a name="l00079"></a>00079 
+<a name="l00087"></a>00087 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a27230e67e659bac8ff1df31d275b51d7" title="Destruction d&#39;un automate indéterministe.">auto_nd_detruire</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00088"></a>00088 
+<a name="l00096"></a>00096 <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> <a class="code" href="auto__nd_8c.html#a212359ae461e94794fe0c56881505be5" title="Clonage d&#39;un automate indéterministe.">auto_nd_clone</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00097"></a>00097 
+<a name="l00105"></a>00105 <a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">Chaine</a> <a class="code" href="auto__nd_8c.html#a0b4c03d4ca0c54f969aa619b017294cd" title="Description d&#39;un automate indéterministe.">auto_nd_chaine</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 <span class="comment">//======================================================================</span>
+<a name="l00108"></a>00108 <span class="comment">//==============================Tests :=================================</span>
+<a name="l00117"></a>00117 <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a27515409d8bce85f300634555e05e763" title="Test d&#39;appartenance d&#39;un mot au langage d&#39;un automate indéterministe.">auto_nd_appartient</a>(<span class="keywordtype">char</span>* mot, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00118"></a>00118 
+<a name="l00127"></a>00127 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a79d94e6387dfdcf608f4725352d79f94" title="Test d&#39;accessibilité d&#39;un état d&#39;un automate indéterministe.">auto_nd_accessible</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> e, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00128"></a>00128 
+<a name="l00137"></a>00137 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#afe137460d216b118270adf740722bd27" title="Test de co-accessibilité d&#39;un état d&#39;un automate indéterministe.">auto_nd_coaccessible</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> e, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00138"></a>00138 
+<a name="l00147"></a>00147 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a3f3692af6a52ea59d2fb11706aa0e5b3" title="Test de gémélité (clone) entre deux automates indéterministes.">auto_nd_jumeaux</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd1, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd2);
+<a name="l00148"></a>00148 
+<a name="l00157"></a>00157 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a3f519dfe982a416e1817ad4baf7b6370" title="Test d&#39;équivalence (langage) de deux automates indéterministes.">auto_nd_equivalents</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd1, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd2);
+<a name="l00158"></a>00158 
+<a name="l00159"></a>00159 <span class="comment">//======================================================================</span>
+<a name="l00160"></a>00160 <span class="comment">//==============================Attributs :=============================</span>
+<a name="l00168"></a>00168 <span class="comment"></span><span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a1a3c107277000a6257a89a8480ee1afd" title="Nombre de lettre de l&#39;alphabet d&#39;un automate indéterministe.">auto_nd_nbLettres</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00169"></a>00169 
+<a name="l00177"></a>00177 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a61fe4e60e7bc060738643fd05c8932a0" title="Nombre d&#39;états total d&#39;un automate indéterministe.">auto_nd_nbEtats</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00178"></a>00178 
+<a name="l00186"></a>00186 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a31a554bb355b78f8c9650e0ad2494619" title="Nombre d&#39;états initiaux d&#39;un automate indéterministe.">auto_nd_nbInitiaux</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00187"></a>00187 
+<a name="l00195"></a>00195 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a6a77bca76f0c078d5c77a7d58ae1f680" title="Nombre d&#39;états finaux d&#39;un automate indéterministe.">auto_nd_nbFinaux</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00196"></a>00196 
+<a name="l00204"></a>00204 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#a377f0d84c496692b423d7df61fa2d85a" title="Nombre de transitions d&#39;un automate indéterministe.">auto_nd_nbTransitions</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206 <span class="comment">//======================================================================</span>
+<a name="l00207"></a>00207 <span class="comment">//==============================Ajouts :================================</span>
+<a name="l00215"></a>00215 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#a684e405d2bcaaeaab6309221f92ee5a6" title="Ajoute une lettre ASCII à l&#39;alphabet d&#39;un automate indéterministe.">auto_nd_ajoutLettre</a>(<span class="keywordtype">char</span> c, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00216"></a>00216 
+<a name="l00224"></a>00224 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#a699f7374d01be804c5d5a0f2d8ee8872" title="Ajoute un état (non initial, non final) à un automate indéterministe.">auto_nd_ajoutEtat</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> e, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00225"></a>00225 
+<a name="l00233"></a>00233 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#ae290407f1418df8dd0cb1a612901ae37" title="Ajoute un état initial à un automate indéterministe.">auto_nd_ajoutInitial</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> i, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00234"></a>00234 
+<a name="l00242"></a>00242 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#ad92ce4c86d5d4f695e614eba93a90c82" title="Ajoute un état final à un automate indéterministe.">auto_nd_ajoutFinal</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> f, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00243"></a>00243 
+<a name="l00251"></a>00251 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#ab4389b9b99010af37b0a1f55ba565a35" title="Ajoute une transition à un automate indéterministe.">auto_nd_ajoutTransition</a>(<a class="code" href="struct_transition.html" title="Objet fonction de transition.">Transition</a> t, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00252"></a>00252 
+<a name="l00253"></a>00253 <span class="comment">//======================================================================</span>
+<a name="l00254"></a>00254 <span class="comment">//==============================Suppressions :==========================</span>
+<a name="l00262"></a>00262 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#a71fd5b027c59c569247c144a97aac72f" title="Retire une lettre ASCII à l&#39;alphabet d&#39;un automate indéterministe.">auto_nd_supprLettre</a>(<span class="keywordtype">char</span> c, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00263"></a>00263 
+<a name="l00271"></a>00271 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#abc8e956fda2f30bc3af985a4a002a5ee" title="Retire un état à un automate indéterministe.">auto_nd_supprEtat</a>(<a class="code" href="auto__nd_8h.html#aae0c86cf5eb18ae170b50062873cb0c1">Etat</a> e, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00272"></a>00272 
+<a name="l00280"></a>00280 <span class="keywordtype">void</span> <a class="code" href="auto__nd_8c.html#aca2642240007ce7acab36a6ddc994a69" title="Retire une transition à un automate indéterministe.">auto_nd_supprTransition</a>(<a class="code" href="struct_transition.html" title="Objet fonction de transition.">Transition</a> t, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 <span class="comment">//======================================================================</span>
+<a name="l00283"></a>00283 <span class="comment">//==============================Divers :================================</span>
+<a name="l00291"></a>00291 <span class="comment"></span><a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> <a class="code" href="auto__nd_8c.html#a5bd71be0cb8a4c522c1ee818496983c5" title="Complète un automate indéterministe.">auto_nd_completer</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00292"></a>00292 
+<a name="l00300"></a>00300 <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> <a class="code" href="auto__nd_8c.html#a2649a06ebe3a71986c20371c16465636" title="Réduit un automate indéterministe.">auto_nd_reduire</a>(<a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00301"></a>00301 
+<a name="l00311"></a>00311 <a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">Chaine</a> <a class="code" href="auto__nd_8c.html#a956166e9403f28b1544dbc475db7afee" title="Liste les mots (suivant une fourchette de longueur) appartenants au langage d&#39;un automate indétermini...">auto_nd_listeMots</a>(<span class="keywordtype">int</span> debut, <span class="keywordtype">int</span> fin, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00312"></a>00312 
+<a name="l00322"></a>00322 <a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">Chaine</a> <a class="code" href="auto__nd_8c.html#aa18a4077a0868825391d5737fa0c8d29" title="Liste lexicographiquement les mots (suivant une fourchette de longueur) appartenants au langage d&#39;un ...">auto_nd_listeMotsAlpha</a>(<span class="keywordtype">int</span> debut, <span class="keywordtype">int</span> fin, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00323"></a>00323 
+<a name="l00324"></a>00324 <span class="comment">//======================================================================</span>
+<a name="l00325"></a>00325 <span class="comment">//==============================Chemins et traces :=====================</span>
+<a name="l00334"></a>00334 <span class="comment"></span><a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">Chaine</a> <a class="code" href="auto__nd_8c.html#a269f375009f4853e3f08f38142dbb2e2" title="Fourni un chemin possible d&#39;un mot pour un automate indéterministe donné.">auto_nd_chemin</a>(<span class="keywordtype">char</span>* mot, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00335"></a>00335 
+<a name="l00344"></a>00344 <a class="code" href="auto__nd_8h.html#a04b323d3d7ddb72161c7d0a8ba6b20b6">Chaine</a> <a class="code" href="auto__nd_8c.html#a8b25b03f74ee27486bbe15f29c9d5aa7" title="Fourni la liste de tous les chemins possible d&#39;un mot pour un automate indéterministe donné...">auto_nd_chemins</a>(<span class="keywordtype">char</span>* mot, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00345"></a>00345 
+<a name="l00354"></a>00354 <span class="keywordtype">int</span> <a class="code" href="auto__nd_8c.html#ad2d27eb4a14392cbb539d56d41524318" title="Nombre de chemins possibles d&#39;un mot pour un automate indéterministe donné.">auto_nd_nbCheminsPossibles</a>(<span class="keywordtype">char</span>* mot, <a class="code" href="struct_automate___n_d.html" title="Objet automate indéterministe.">Automate_ND</a> auto_nd);
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356 <span class="comment">// Chaine auto_nd_trace(char* mot, Automate_ND auto_nd);</span>
+<a name="l00357"></a>00357 <span class="comment">// Chaine auto_nd_traces(char* mot, Automate_ND auto_nd);</span>
+<a name="l00358"></a>00358 
+<a name="l00359"></a>00359 <span class="preprocessor">#endif</span>
+</pre></div></div><!-- contents -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+
+
+<hr class="footer"/><address class="footer"><small>
+Généré le Vendredi Octobre 19 2012 19:05:22 pour tccp2012 Automate_ND par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
+
+</body>
+</html>

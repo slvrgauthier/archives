@@ -1,0 +1,9 @@
+<form method="post" action="member/connection_post.php">
+	<input type=email name="mail" placeholder="Adresse mail" />
+	<input type="password" name="passwd" placeholder="Mot de passe" /><br/><br/>
+	<input type="submit" name="connect" value="Connexion"/>
+</form>
+
+<form method="post" action="member/inscription.php">
+	<input type="submit" name="inscr" value="Inscription"/>
+</form>

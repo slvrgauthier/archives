@@ -1,0 +1,49 @@
+body {
+  margin: 0px;
+}
+a {
+  color: #000000;
+}
+form {
+  display: inline;
+}
+#head {
+  height: 15%;
+  width: 100%;
+  float: left;
+  background-image: url(../medias/images/head_back.png);
+  background-size: auto 100%;
+  overflow: auto;
+}
+#content {
+  height: 75%;
+  width: 100%;
+  float: left;
+  background-color: #E8E8E8;
+}
+#menu {
+  height: 100%;
+  width: 15%;
+  float: left;
+  background-color: #9FB8BD;
+}
+#member {
+  width: 100%;
+}
+#corps, #profil, #connect, #profil_contact {
+  width: 85%;
+  height: 100%;
+  float: left;
+  overflow: auto;
+}
+#foot {
+  height: 10%;
+  width: 100%;
+  float: left;
+  background-color: #6C8387;
+  text-align: center;
+}
+
+#disconnect {
+  float: right;
+}

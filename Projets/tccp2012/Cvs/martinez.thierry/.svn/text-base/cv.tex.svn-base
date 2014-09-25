@@ -1,0 +1,71 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+\documentclass[a4paper]{article}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+
+\pagestyle{empty}
+
+\topmargin=-2.5cm
+\textheight=26cm
+\evensidemargin=-1cm
+\oddsidemargin=-1cm
+\textwidth=18cm
+
+\title{Curriculum Vit\ae}
+\author{Martinez Thierry}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{\'Etat Civil}
+\begin{flushleft}Mr Martinez Thierry\\
+Né le 14/11/1988 à Paris 9ème\\
+Adresse: 19 A rue Jacques Brives 34090 Montpellier\\
+Telephone: 06-26-19-86-01
+\end{flushleft}
+\section{Formation}
+ \begin{flushleft}2010-en cours:Licence Informatique Université des Sciences\\
+2009-2010:LEA Université Paul Valery\\
+ 2008-2009:IUT Informatique
+\end{flushleft}
+\subsection{Diplômes}
+ \begin {flushleft} 2008:Obtention du baccalauréat scientifique
+\\2003:Brevet des collèges
+\end{flushleft}
+\subsection{Stages}
+
+\section{Expériences professionnelles}
+ \begin{flushleft} Octobre 2009-en cours:Manutentionnaire dans un commerce de fruits et légumes\end{flushleft}
+
+\section*{Compétences informatiques}
+ \begin{flushleft} Xhtml,css:Niveau Avancé
+\\java,c++,c:Niveau Moyen
+\\Scheme:Niveau Debutant
+\end{flushleft}
+
+\section*{Compétences linguistiques}
+ \begin{flushleft} Anglais:Bon
+\\Espagnol:Scolaire
+\end{flushleft}
+
+\vspace{15cm}
+
+\section{Loisirs}
+\begin{flushleft}
+- Tennis\\
+- Informatique\\
+- Musique\\
+- Cinéma
+\end{flushleft}
+
+
+
+\end{document}
+
+

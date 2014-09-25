@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\pagestyle{empty}
+
+\topmargin=-3cm
+\textheight=26cm
+\evensidemargin=-1cm
+\oddsidemargin=-1cm
+\textwidth=18cm
+
+\title{Curriculum Vit\ae}
+\author{Florian Masip}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{\'Etat Civil}
+
+\begin{itemize}
+\item\textbf{ Nom :} Masip
+\item\textbf{ Prénom :} Florian
+\item\textbf{ date et lieu de naissance :} 25 novembre 1989 - 66000 PERPIGNAN
+\item\textbf{ mail :} florian.masip@gmail.com
+\item\textbf{ adresse :} 11, rue Paul Martin
+\item\textbf{ Téléphone :} 06.42.08.88.78
+\end{itemize}
+
+\section{Formation}
+
+\subsection{Diplômes}
+
+\begin{itemize}
+\item 2004 - Brevet des collèges
+\item 2007 - Bac Scientifique option SVT
+\item 2007/2010 - Concepteur réalisateur multimédia
+\item 2010/2011 - première année de licence informatique
+\item 2011/2012 - deuxième année de licence informatique
+\item 2012/2013 - troisième année de licence informatique \textit{( en cours de validation )}
+\end{itemize}
+
+\subsection{Stages}
+
+\begin{itemize}
+\item 2010 - refonte de l'identité visuelle de la clinique du parc à Castelnau le Lez
+\end{itemize}
+
+\section{Expériences professionnelles}
+
+\begin{itemize}
+\item 2010 - Magasinier chez Pier Import à Latte
+\end{itemize}
+
+\section*{Compétences informatiques}
+
+\subsubsection*{[] Langages maitrisés}
+
+\begin{itemize}
+\item\textbf{niveau avancé :} HTML, CSS
+\item\textbf{niveau moyen :} PHP, C/C++, JAVA, SQL
+\end{itemize}
+
+\subsubsection*{[] Bureautique}
+
+\subsubsection*{[] Compétences théoriques}
+
+\begin{itemize}
+\item Algorithmique, base de données
+\end{itemize}
+
+\subsubsection*{[] Infographie}
+\begin{itemize}
+\item compositon et retouche d'images, webdesign
+\item\textbf{logiciels maitrisés :} Photoshop, illustrator, flash
+\end{itemize}
+
+\section*{Compétences linguistiques}
+
+\begin{itemize}
+\item\textbf{langue maternelle :} Français
+\item\textbf{langue(s) étudiée(s) :} Anglais
+\end{itemize}
+
+\end{document}
+

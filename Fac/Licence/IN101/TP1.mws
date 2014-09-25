@@ -1,0 +1,755 @@
+{VERSION 6 0 "IBM INTEL LINUX" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Text Output" -1 2 1 
+{CSTYLE "" -1 -1 "Courier" 1 10 0 0 255 1 0 0 0 0 0 1 3 0 3 0 }1 0 0 
+-1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Warning" 2 7 1 {CSTYLE "" -1 -1 "
+" 0 1 0 0 255 1 0 0 0 0 0 0 1 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }
+{PSTYLE "Error" 7 8 1 {CSTYLE "" -1 -1 "" 0 1 255 0 255 1 0 0 0 0 0 0 
+0 0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 
+1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 
+0 0 0 0 0 0 -1 0 }{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "2*(5-3);" }}{PARA 0 "
+> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"%" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 6 "2+5-3:" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 17 "2+3;iquo(83,5);5*" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 4 "8-1;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"&" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#;" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#\"#R" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "a:=5;b:=6;a+b;" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"aG\"\"&" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"bG\"\"'" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#6" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 83 "double:=proc(e::integer)::i
+nteger;\ndescription \"renvoie 2*e\";\nreturn 2*e;\nend proc;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'doubleGf+6#'%\"eG%(integerG6\"F*F*O
+,$*&\"\"#\"\"\"9$F/F/6#Q,renvoie~2*eF*F*F*F)" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 29 "doublebis:=(e::integer)->2*e;" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%*doublebisGf*6#'%\"eG%(integerG6\"6$%)operatorG%&ar
+rowGF*,$*&\"\"#\"\"\"9$F1F1F*F*F*" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 24 "double(77);doublebis(22)" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 1 ";" }}{PAGEBK }{PARA 11 "" 0 "" {TEXT -1 0 "" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"$a\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"
+#W" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "72/9;sin(Pi/4)+sqrt(3
++4);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\")" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,&*&\"\"#!\"\"F%#\"\"\"F%F(*$\"\"(F'F(" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 39 "evalf(38/4);evalf(sin(Pi/4)+sqrt(3+
+4));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+++++&*!\"*" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#$\"+#4eGN$!\"*" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 30 "(5mod 3 =2) and double(11)=22;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "1
++1/2=1.5; 5mod 3=2; 3/2<=2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/#\"\"$
+\"\"#$\"#:!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/\"\"#F$" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#1#\"\"$\"\"#F&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 48 "evalb(1+1/2=1.5); evalb(5mod 3=2); evalb(3/2<=2)" }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 1 ";" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#%%trueG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 83 
+"multiple?:=proc(a::integer,b::integer)::boolean;\nreturn evalb(a mod \+
+b=0);\nend proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%*multiple?Gf+6$'
+%\"aG%(integerG'%\"bGF)6\"F,F,O-%&evalbG6#/-%$modG6$9$9%\"\"!F,F,F,%(b
+ooleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "multiple?(666,8)
+; multiple?(98,3);" }}{PAGEBK }{PARA 11 "" 0 "" {TEXT -1 0 "" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+%&falseG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 22 "c:=23: d:=c+3: \+
+e:=2*d:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "c; d; e;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#B" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#\"#E" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#_" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 12 "g:=33: g; G;" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#\"#L" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%\"GG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 16 "e:=2*d: c; d; e;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#\"#B" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#E" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"#_" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "c:
+=c+d: c:=c+d: c; d; e;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#v" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#E" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#\"#_" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "restart: Pi; c; d
+; e; multiple?;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%#PiG" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#%\"cG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%\"dG" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#%\"eG" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#%*multiple?G" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 22 "resta
+rt: c:=7: d:=2*c:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 5 "c; d;" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"(" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#\"#9" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "c:=evalb(c=d)
+;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PAGEBK }{PARA 11 "" 0 "" 
+{TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"cG%&falseG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "?max" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 28 "max(1,2,3,4,5,6,7,8,9,10^8);" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"*++++\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+6 "max(1)" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 1 ";" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 6 "max
+();" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$%)infinityG!\"\"" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 149 "triangleEquilat?:= proc(a::integer
+, b::integer, c::integer)::boolean;\nif (a=b)\nthen if (a=c)\nthen ret
+urn true\nend if; end if;\nreturn false;\nend proc;" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%1triangleEquilat?Gf+6%'%\"aG%(integerG'%\"bGF)'%\"c
+GF)6\"F.F.C$@$/9$9%@$/F29&O%%trueGO%&falseGF.F.F.%(booleanG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "triangleEquilat?(1,1,1)" }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 1 ";" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 74 "triangleEquilat
+?(1,1,2); triangleEquilat?(1,2,1); triangleEquilat?(2,1,1);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+%&falseG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 145 "triangleEquilat?v2:= proc(a::integer, b:
+:integer, c::integer)::boolean;\nif (a=b) and (a=c)\nthen return true;
+\nelse return false;\nend if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%3triangleEquilat?v2Gf+6%'%\"aG%(integerG'%\"bGF)'%\"cGF)6\"F.F
+.@%3/9$9%/F29&O%%trueGO%&falseGF.F.F.%(booleanG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 53 "triangleEquilat?v2(1,1,1); triangleEquilat?v2(
+1,2,3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+177 "triangle?:= proc(a::integer, b::integer, c::integer)::boolean;\ni
+f (a<(b+c))\nthen if (b<(a+c))\nthen if (c<(a+b))\nthen return true;\n
+end if; end if; end if;\nreturn false;\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%*triangle?Gf+6%'%\"aG%(integerG'%\"bGF)'%\"cGF)6\"F.F
+.C$@$29$,&9%\"\"\"9&F5@$2F4,&F2F5F6F5@$2F6,&F2F5F4F5O%%trueGO%&falseGF
+.F.F.%(booleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "triangle
+?(3,4,5); triangle?(1,2,3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 160 "triangle?v2:= proc(a::integer, b::integer, c::i
+nteger)::boolean;\nif (a<(b+c)) and (b<(a+c)) and (c<(a+b))\nthen retu
+rn true;\nelse return false;\nend if; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%,triangle?v2Gf+6%'%\"aG%(integerG'%\"bGF)'%\"cGF)6\"F
+.F.@%3329$,&9%\"\"\"9&F62F5,&F3F6F7F62F7,&F3F6F5F6O%%trueGO%&falseGF.F
+.F.%(booleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 39 "triangle?v
+2(3,4,5); triangle?v2(1,2,3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%tru
+eG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 151 "triangleIsocele?:= proc(a::integer, b::intege
+r, c::integer)::boolean;\nif (a=b) or (a=c) or (b=c)\nthen return true
+;\nelse return false;\nend if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%1triangleIsocele?Gf+6%'%\"aG%(integerG'%\"bGF)'%\"cGF)6\"F.F.@
+%55/9$9%/F39&/F4F6O%%trueGO%&falseGF.F.F.%(booleanG" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 49 "triangleIsocele?(1,1,2); triangleIsocele?
+(1,2,3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+147 "ouExclusif:= proc(a::boolean, b::boolean)::boolean;\nif (a=b)\nth
+en return false;\nend if;\nif (a=true) or (b=true)\nthen return true;
+\nend if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+ouExclusifGf
++6$'%\"aG%(booleanG'%\"bGF)6\"F,F,C$@$/9$9%O%&falseG@$5/F0%%trueG/F1F7
+OF7F,F,F,F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 95 "ouExclusif(t
+rue,true); ouExclusif(true,false); ouExclusif(false,true); ouExclusif(
+false,false);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%tr
+ueG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 123 "mul2ou3?:= proc(n::integer)::boolean;\nif (n \+
+mod 2=0) xor (n mod 3=0)\nthen return true;\nelse return false;\nend i
+f; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%)mul2ou3?Gf+6#'%\"nG
+%(integerG6\"F*F*@%g/-%$modG6$9$\"\"#\"\"!/-F/6$F1\"\"$F3O%%trueGO%&fa
+lseGF*F*F*%(booleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 39 "mul
+2ou3?(4); mul2ou3?(9); mul2ou3?(12);" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#%%trueG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+85 "mul2ou3?v2:= proc(n::integer)::boolean;\nreturn (n mod 2=0) xor (n
+ mod 3=0);\nend proc;" }{TEXT -1 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%+mul2ou3?v2Gf+6#'%\"nG%(integerG6\"F*F*Og/-%$modG6$9$\"\"#\"\"!/-F
+/6$F1\"\"$F3F*F*F*%(booleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 0 "" }}{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 93 "mmdiz:= proc(a::integer, b::integer)::boolean;
+\nreturn evalb(iquo(a,10)=iquo(b,10));\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%&mmdizGf+6$'%\"aG%(integerG'%\"bGF)6\"F,F,O-%&evalbG6
+#/-%%iquoG6$9$\"#5-F36$9%F6F,F,F,%(booleanG" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 45 "mmdiz(38,33); mmdiz(922,929); mmdiz(128,325);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#%%trueG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 418 "gainRoulette:= proc(mise::integer,
+ numJoue::integer, numSorti::integer)::integer;\ndescription \"calcule
+ la somme remport\351e au jeu de roulette en fonction de la mise, du n
+um\351ro jou\351 et du num\351ro sorti\";\nlocal gain::integer;\nif (n
+umJoue=numSorti)\nthen gain:= mise*20;\nelif mmdiz(numJoue, numSorti)
+\nthen gain:= mise*5;\nelif (numJoue mod 2 = numSorti mod 2)\nthen gai
+n:= mise*2;\nelse gain:= 0;\nend if;\nreturn gain;\nend proc;" }}
+{PARA 12 "" 1 "" {XPPMATH 20 "6#>%-gainRouletteGf+6%'%%miseG%(integerG
+'%(numJoueGF)'%)numSortiGF)6#'%%gainGF)6\"F1C$@)/9%9&>8$,$*&\"#?\"\"\"
+9$F<F<-%&mmdizG6$F5F6>F8,$*&\"\"&F<F=F<F</-%$modG6$F5\"\"#-FG6$F6FI>F8
+,$*&FIF<F=F<F<>F8\"\"!OF86#Qbqcalcule~la~somme~remport|dye~au~jeu~de~r
+oulette~en~fonction~de~la~mise,~du~num|dyro~jou|dy~et~du~num|dyro~sort
+iF1F1F1F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 80 "gainRoulette(1
+00,675,500); gainRoulette(100,675,672); gainRoulette(100,675,675);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$+&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"%+?" }}}{EXCHG {PARA 0 "
+> " 0 "" {MPLTEXT 1 0 354 "gainRoulette2:= proc(mise::integer, numJoue
+::integer, numSorti::integer)::integer;\ndescription \"en cumulant les
+ gains\";\nlocal gain::integer;\ngain:=0;\nif (mmdiz(numJoue, numSorti
+))\nthen gain:=gain + mise*5;\nend if;\nif (numJoue mod 2 = numSorti m
+od 2)\nthen gain:=gain+mise*2;\nend if;\nif (numJoue=numSorti)\nthen g
+ain:=mise*20;\nend if;\nreturn gain;\nend proc;" }}{PARA 12 "" 1 "" 
+{XPPMATH 20 "6#>%.gainRoulette2Gf+6%'%%miseG%(integerG'%(numJoueGF)'%)
+numSortiGF)6#'%%gainGF)6\"F1C'>8$\"\"!@$-%&mmdizG6$9%9&>F4,&F4\"\"\"*&
+\"\"&F>9$F>F>@$/-%$modG6$F:\"\"#-FE6$F;FG>F4,&F4F>*&FGF>FAF>F>@$/F:F;>
+F4,$*&\"#?F>FAF>F>OF46#Q6en~cumulant~les~gainsF1F1F1F)" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "gainRoulette2(10,12,18);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"#q" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 153 "somPair:= proc(n::integer)::integer;\nlocal \+
+somme::integer, i::integer;\nsomme:= 0;\nfor i from 1 to n do\nsomme:=
+ somme+i*2;\nend do;\nreturn somme;\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%(somPairGf+6#'%\"nG%(integerG6$'%&sommeGF)'%\"iGF)6\"
+F/C%>8$\"\"!?(8%\"\"\"F69$%%trueG>F2,&F2F6*&\"\"#F6F5F6F6OF2F/F/F/F)" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 11 "somPair(5);" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#\"#I" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+156 "somImpair:= proc(n::integer)::integer;\nlocal somme::integer, i::
+integer;\nsomme:=0;\nfor i from 1 to n do\nsomme:= somme+i*2-1;\nend d
+o;\nreturn somme;\nend proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%*som
+ImpairGf+6#'%\"nG%(integerG6$'%&sommeGF)'%\"iGF)6\"F/C%>8$\"\"!?(8%\"
+\"\"F69$%%trueG>F2,(F2F6*&\"\"#F6F5F6F6F6!\"\"OF2F/F/F/F)" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "somImpair(5);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"#D" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "for \+
+i from 1 to 15 do\nsomImpair(i);\nend do;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"%" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"*" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"#;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#D" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"#O" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#\\" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"#k" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#
+\")" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$+\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$@\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$W\"" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$p\"" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#\"$'>" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$D#" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 203 "\350meMult:=proc(n::integer)::integer;\n
+local i::integer, k::integer, \350me::integer;\ni:= 0; k:= 0;\nwhile (
+k <> n) do\ni:= i+1;\nif mul2ou3?v2(i)=true\nthen k:= k+1;\n\350me:= i
+;\nend if;\nend do;\nreturn \350me;\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%(|cymeMultGf+6#'%\"nG%(integerG6%'%\"iGF)'%\"kGF)'%$|
+cymeGF)6\"F1C&>8$\"\"!>8%F5?(F1\"\"\"F9F10F79$C$>F4,&F4F9F9F9@$/-%+mul
+2ou3?v2G6#F4%%trueGC$>F7,&F7F9F9F9>8&F4OFIF1F1F1F)" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 11 "\350meMult(5);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 108 "coordalea:= proc()::float;\nlocal alea::procedure;\n
+alea:= rand(0..10^5);\nreturn evalf(alea()/10^5);\nend proc;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%*coordaleaGf+6\"6#'%%aleaG%*procedureGF&F&
+C$>8$-%%randG6#;\"\"!\"'++5O-%&evalfG6#,$*&#\"\"\"F3F;-F-F&F;F;F&F&F&%
+&floatG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "for i to 10 do c
+oordalea(); end do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+++!G\\*!#5
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+++g>#)!#5" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#$\"+++5SP!#5" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"++++
+\\5!#6" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+++]WM!#5" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#$\"+++]2j!#5" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$
+\"++++m9!#6" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"++++5#*!#5" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#$\"+++g#4(!#5" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#$\"+++So\")!#5" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 97 "est
+DansLeCercle?:= proc(x::float, y::float)::boolean;\nreturn evalb(x*y <
+= evalf(Pi/4)); end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%1estDan
+sLeCercle?Gf+6$'%\"xG%&floatG'%\"yGF)6\"F,F,O-%&evalbG6#1*&9$\"\"\"9%F
+4-%&evalfG6#,$*&\"\"%!\"\"%#PiGF4F4F,F,F,%(booleanG" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 53 "estDansLeCercle?(0.5,0.5); estDansLeCercl
+e?(0.9,0.9);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#%&falseG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 241 "monteCarlo:= proc(N::integer)::float;\nlocal x::float,y::floa
+t,Nint::integer,i::integer;\nNint:=0;\nfor i to N do \nx:=coordalea();
+ y:=coordalea();\nif (estDansLeCercle?(x,y)=true) then Nint:=Nint+1; e
+nd if;end do;\nreturn evalf(N/Nint); end proc;" }}{PARA 12 "" 1 "" 
+{XPPMATH 20 "6#>%+monteCarloGf+6#'%\"NG%(integerG6&'%\"xG%&floatG'%\"y
+GF-'%%NintGF)'%\"iGF)6\"F4C%>8&\"\"!?(8'\"\"\"F;9$%%trueGC%>8$-%*coord
+aleaGF4>8%FA@$/-%1estDansLeCercle?G6$F@FDF=>F7,&F7F;F;F;O-%&evalfG6#*&
+F<F;F7!\"\"F4F4F4F-" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 81 "mont
+eCarlo(10);monteCarlo(50);monteCarlo(100);monteCarlo(1000);monteCarlo(
+10000);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"\"\"\"\"!" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#$\"\"\"\"\"!" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+$\"+55555!\"*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+H#\\x-\"!\"*" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#$\"+yDFE5!\"*" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 0 "" }}{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "T:=array(1..10);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"TG-%&arrayG6$;\"\"\"\"#57\"" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 11 "T; eval(T);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#%\"TG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7,
+&%\"?G6#\"\"\"&F(6#\"\"#&F(6#\"\"$&F(6#\"\"%&F(6#\"\"&&F(6#\"\"'&F(6#
+\"\"(&F(6#\"\")&F(6#\"\"*&F(6#\"#5Q(pprint06\"" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 10 "taille(T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+\"#5" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 48 "T[4]:=9: T[6]:=2*T[
+4]: T[3]:=T[4]+T[6]: eval(T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'ve
+ctorG6#7,&%\"?G6#\"\"\"&F(6#\"\"#\"#F\"\"*&F(6#\"\"&\"#=&F(6#\"\"(&F(6
+#\"\")&F(6#F/&F(6#\"#5Q(pprint16\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 17 "taille(T); T[20];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+\"#5" }}{PARA 8 "" 1 "" {TEXT -1 55 "Error, 1st index, 20, larger than
+ upper array bound 10\n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "
+S:=array(1..4,[2,9,13,8]); S[3];" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%
+\"SGK%'vectorG6#7&\"\"#\"\"*\"#8\"\")Q(pprint26\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"#8" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "P:=S
+: eval(P);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&\"\"#\"\"*
+\"#8\"\")Q(pprint36\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "U:
+=array(1..4,[2,9,13,8]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"UGK%'v
+ectorG6#7&\"\"#\"\"*\"#8\"\")Q(pprint46\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 59 "eval(S);eval(U);eval(P);S[2]:=1111;eval(S);eval(U);
+eval(P);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&\"\"#\"\"*\"
+#8\"\")Q(pprint56\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&
+\"\"#\"\"*\"#8\"\")Q(pprint66\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'
+vectorG6#7&\"\"#\"\"*\"#8\"\")Q(pprint76\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>&%\"SG6#\"\"#\"%66" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+K%'vectorG6#7&\"\"#\"%66\"#8\"\")Q(pprint86\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#K%'vectorG6#7&\"\"#\"\"*\"#8\"\")Q(pprint96\"" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&\"\"#\"%66\"#8\"\")Q)pprint106
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 276 "tabEgaux:= proc(A::a
+rray(integer),B::array(integer))::boolean;\ndescription \"teste l'\351
+galit\351 de 2 tableaux\";\nlocal i::integer;\nif (taille(A)=taille(B)
+)\nthen for i to taille(A) do\nif A[i]<>B[i] then return false; end if
+; end do;\nelse return false; end if;\nreturn true;\nend proc;" }}
+{PARA 12 "" 1 "" {XPPMATH 20 "6#>%)tabEgauxGf+6$'%\"AG-%&arrayG6#%(int
+egerG'%\"BGF)6#'%\"iGF,6\"F2C$@%/-%'tailleG6#9$-F76#9%?(8$\"\"\"F?F6%%
+trueG@$0&F96#F>&F<FDO%&falseGOFGOF@6#Q>teste~l'|dygalit|dy~de~2~tablea
+uxF2F2F2%(booleanG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 72 "A:=ar
+ray(1..3,[1,2,3]): B:=array(1..3,[1,2,3]): C:=array(1..3,[1,2,3]): " }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "tabEgaux(A,B); tabEgaux(A,
+C);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%%trueG" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 149 "
+tabCarr\351s:= proc(n::integer)::array(integer);\nlocal i::integer, t:
+:array;\nt:= array(1..n);\nfor i to n do\nt[i]:=i*i;\nend do;\nreturn \+
+eval(t);\nend proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%*tabCarr|dysG
+f+6#'%\"nG%(integerG6$'%\"iGF)'%\"tG%&arrayG6\"F0C%>8%-F/6#;\"\"\"9$?(
+8$F7F7F8%%trueG>&F36#F:*&F:F7F:F7O-%%evalG6#F3F0F0F0-F/6#F)" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "tabCarr\351s(4);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&\"\"\"\"\"%\"\"*\"#;Q)pprint11
+6\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 176 "tabSuite:= proc(n::
+integer)::array(1..n);\nlocal i::integer, t::array;\nt:= array(1..n); \+
+t[1]:= 1;\nfor i from 2 to n do\nt[i]:= t[i-1]+2*(i-1)+1;\nend do;\nre
+turn eval(t);\nend proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%)tabSuit
+eGf+6#'%\"nG%(integerG6$'%\"iGF)'%\"tG%&arrayG6\"F0C&>8%-F/6#;\"\"\"9$
+>&F36#F7F7?(8$\"\"#F7F8%%trueG>&F36#F=,(&F36#,&F=F7F7!\"\"F7*&F>F7F=F7
+F7F7FGO-%%evalG6#F3F0F0F0F4" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+12 "tabSuite(6);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7(\"\"
+\"\"\"%\"\"*\"#;\"#D\"#OQ)pprint126\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 37 "tabEgaux(tabCarr\351s(15),tabSuite(15));" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 314 "maxloc:=proc(T::array(integer))::integer;\nlocal i::integer, \+
+nloc::integer;\nnloc:=0;\nif (T[2]<T[1]) then nloc:= nloc+1; end if;\n
+for i from 2 to (taille(T)-1) do\nif (T[i-1]<T[i]) and (T[i+1]<T[i]) t
+hen nloc:= nloc+1; end if; end do;\nif (T[taille(T)-1]<T[taille(T)]) t
+hen nloc:=nloc+1; end if;\nreturn nloc; end proc;\n" }}{PARA 12 "" 1 "
+" {XPPMATH 20 "6#>%'maxlocGf+6#'%\"TG-%&arrayG6#%(integerG6$'%\"iGF,'%
+%nlocGF,6\"F2C'>8%\"\"!@$2&9$6#\"\"#&F:6#\"\"\">F5,&F5F?F?F??(8$F<F?,&
+-%'tailleG6#F:F?F?!\"\"%%trueG@$32&F:6#,&FCF?F?FH&F:6#FC2&F:6#,&FCF?F?
+F?FP>F5FA@$2&F:6#FD&F:6#FE>F5FAOF5F2F2F2F," }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 49 "T9:array(1..14,[2,6,1,3,4,8,12,7,9,11,3,2,7,21]);" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#70\"\"#\"\"'\"\"\"\"\"$
+\"\"%\"\")\"#7\"\"(\"\"*\"#6F*F'F.\"#@Q)pprint136\"" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 11 "maxloc(T9);" }}{PARA 8 "" 1 "" {TEXT -1 
+104 "Error, invalid input: maxloc expects its 1st argument, T, to be o
+f type array(integer), but received T9\n" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 13 "length(100!);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$e
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 154 "nbchif:=proc(n::inte
+ger)::integer;\nlocal nb::integer, i::integer;\nnb:=0; i:=1;\nwhile (i
+quo(n,10^i)<>0) do\nnb:=nb+1; i:=i+1;\nend do;\nreturn nb+1;\nend proc
+;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'nbchifGf+6#'%\"nG%(integerG6$'
+%#nbGF)'%\"iGF)6\"F/C&>8$\"\"!>8%\"\"\"?(F/F6F6F/0-%%iquoG6$9$)\"#5F5F
+3C$>F2,&F2F6F6F6>F5,&F5F6F6F6OFAF/F/F/F)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 25 "nbchif(63785); nbchif(0);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 60 "unit\351:=proc(n::integer)::
+integer;\nreturn n mod 10; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%&unit|dyGf+6#'%\"nG%(integerG6\"F*F*O-%$modG6$9$\"#5F*F*F*F)" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "unit\351(158); unit\351(1);
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\")" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 73 "di
+zaine:=proc(n::integer)::integer;\nreturn (iquo(n,10) mod 10); end pro
+c;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(dizaineGf+6#'%\"nG%(integerG6
+\"F*F*O-%$modG6$-%%iquoG6$9$\"#5F3F*F*F*F)" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 25 "dizaine(158); dizaine(1);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "centaine:=proc(n::integer)::
+integer;\nreturn (iquo(n,100) mod 100); end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%)centaineGf+6#'%\"nG%(integerG6\"F*F*O-%$modG6$-%%iqu
+oG6$9$\"$+\"F3F*F*F*F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "c
+entaine(158); centaine(1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"\"" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 296 "ecritureDecimale:=proc(n::integer)::array(integer);
+\ndescription \"renvoie dans un tableau l'\351criture d\351cimale de n
+\";\nlocal t::array, i::integer, j::integer;\nt:=array(1..nbchif(n)); \+
+j:=nbchif(n);\nfor i to nbchif(n) do\nt[i]:=(iquo(n,10^(j-1)) mod 10^(
+j-1));\nj:=j-1;\nend do;\nreturn eval(t);\nend proc;" }}{PARA 12 "" 1 
+"" {XPPMATH 20 "6#>%1ecritureDecimaleGf+6#'%\"nG%(integerG6%'%\"tG%&ar
+rayG'%\"iGF)'%\"jGF)6\"F2C&>8$-F-6#;\"\"\"-%'nbchifG6#9$>8&F:?(8%F9F9F
+:%%trueGC$>&F56#FA-%$modG6$-%%iquoG6$F=)\"#5,&F?F9F9!\"\"FM>F?FOO-%%ev
+alG6#F56#QQrenvoie~dans~un~tableau~l'|dycriture~d|dycimale~de~nF2F2F2-
+F-6#F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "ecritureDecimale(
+123854697); nbchif(123854697);" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7+\"\"\"\"#7\"$B\"\"%Q7
+\"%&Q#\"$a)\"#Y\"\"*\"\"!Q)pprint146\"" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#\"\"*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "myst\350re e
+t boule de gomme..." }}{PARA 8 "" 1 "" {TEXT -1 31 "Error, missing ope
+rator or `;`\n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 259 "bk:=proc
+(n::integer,k::integer)::array(integer);\nlocal t::array,i::integer, j
+::integer;\nt:=array(1..(floor(log(n)/log(k)+1)));i:=taille(t); j:=n;
+\nwhile (iquo(j,k) <> 0) do\nt[i]:=j mod k ; j:=iquo(j,k); i:=i-1; \ne
+nd do;\nt[i]:=j mod k;\nreturn eval(t);\nend proc;" }}{PARA 12 "" 1 "
+" {XPPMATH 20 "6#>%#bkGf+6$'%\"nG%(integerG'%\"kGF)6%'%\"tG%&arrayG'%
+\"iGF)'%\"jGF)6\"F4C(>8$-F/6#;\"\"\"-%&floorG6#,&*&-%$logG6#9$F;-FB6#9
+%!\"\"F;F;F;>8%-%'tailleG6#F7>8&FD?(F4F;F;F40-%%iquoG6$FOFG\"\"!C%>&F7
+6#FJ-%$modGFT>FOFR>FJ,&FJF;F;FH>FXFZO-%%evalGFMF4F4F4-F/6#F)" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "bk(48,3); bk(48,5);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7&\"\"\"\"\"#F'\"\"!Q)ppri
+nt156\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7%\"\"\"\"\"%\"
+\"$Q)pprint166\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 289 "insereTab:= proc(e::integer, A::array(integer))::arr
+ay(integer);\nlocal T::array, i::integer, k::integer;\nT:=array(1..(ta
+ille(A)+1));i:=1;\nwhile (i <= taille(A)) and (A[i]<e) do\nT[i]:=A[i];
+i:=i+1;\nend do;\nT[i]:=e;\nfor k from i to taille(A) do\nT[k+1]:=A[k]
+;\nend do; return eval(T); end proc;" }}{PARA 12 "" 1 "" {XPPMATH 20 "
+6#>%*insereTabGf+6$'%\"eG%(integerG'%\"AG-%&arrayG6#F)6%'%\"TGF-'%\"iG
+F)'%\"kGF)6\"F6C(>8$-F-6#;\"\"\",&-%'tailleG6#9%F=F=F=>8%F=?(F6F=F=F63
+1FDF?2&FB6#FD9$C$>&F9FJFI>FD,&FDF=F=F=>FNFK?(8&FDF=F?%%trueG>&F96#,&FS
+F=F=F=&FB6#FSO-%%evalG6#F9F6F6F6F," }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 29 "A:=array(1..5,[3,5,8,11,20]);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"AGK%'vectorG6#7'\"\"$\"\"&\"\")\"#6\"#?Q(pprint26\"
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "XX:=insereTab(7,A);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#XXGK%'vectorG6#7(\"\"$\"\"&\"\"(\"
+\")\"#6\"#?Q(pprint36\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 178 
+"triInsertion:= proc(T::array)::array;\nlocal NT::array, i::integer;\n
+NT:=array(1..1,[T[1]]);\nfor i from 2 to taille(T) do\nNT:=insereTab(T
+[i],NT);\nend do;\nreturn eval(NT);\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%-triInsertionGf+6#'%\"TG%&arrayG6$'%#NTGF)'%\"iG%(int
+egerG6\"F0C%>8$-F)6$;\"\"\"F77#&9$6#F7?(8%\"\"#F7-%'tailleG6#F:%%trueG
+>F3-%*insereTabG6$&F:6#F=F3O-%%evalG6#F3F0F0F0F)" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 27 "G:=array(1..5,[5,7,2,4,9]);" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%\"GGK%'vectorG6#7'\"\"&\"\"(\"\"#\"\"%\"\"*Q(pprin
+t76\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "triInsertion(G);" 
+}}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7'\"\"#\"\"%\"\"&\"\"(\"
+\"*Q(pprint86\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+{PAGEBK }{PARA 0 "" 0 "" {TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 19 "alea:=rand(1..999):" }}{PARA 0 "> " 0 "" {MPLTEXT 1 
+0 7 "alea();" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)f" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "for i to 50 do alea();end do;" }}
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+\"$'R" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$[(" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$Q%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$8(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$q)" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$-%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)e" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$Y%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$t(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$!o" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"#P" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$D*" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$j*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$l(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$!Q" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$4\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$#o" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"$z$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$V)" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$A'" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$R\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$w*" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"$1#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$R%" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$k%" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$a%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$g$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$.$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$z#" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$\"f" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#\"$$e" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$,)" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#\"$Z%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$&o" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$Z%" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$l(" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$v(" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$e$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$)\\" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$x&" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$h#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$[#" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$.#" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$O(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$@&" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#\"$p%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$O(" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"$U&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$8#" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$`(" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 25 "Lex1::Liste; Lex2::Liste;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#'%%Lex1G%&ListeG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#'%%
+Lex2G%&ListeG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 128 "aleaL:=pr
+oc(n::integer)::Liste;\nlocal L::Liste, i::integer;\nL:=[];\nfor i to \+
+n do L:=consL(alea(),L);\nend do; return L; end proc;" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%&aleaLGf+6#'%\"nG%(integerG6$'%\"LG%&ListeG'%\"i
+GF)6\"F0C%>8$7\"?(8%\"\"\"F79$%%trueG>F3-%&consLG6$-%%aleaGF0F3OF3F0F0
+F0F-" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "Lex1:=aleaL(10000):
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "Lex2:=aleaL(10);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%Lex2G7,\"$%Q\"#R\"$p#\"$B#\"$s\"\"$
+X\"\"$B(\"$w$\"#!)\"$,#" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 126 
+"DerListe:=proc(L::Liste)::integer;\nlocal M::Liste;\nM:=L;\nwhile (su
+cc(M)<>[]) do M:=succ(M); end do; return first(M); end proc;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%)DerListeGf+6#'%\"LG%&ListeG6#'%\"MGF)6\"F
+-C%>8$9$?(F-\"\"\"F3F-0-%%succG6#F07\">F0F5O-%&firstGF7F-F-F-%(integer
+G" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "DerListe(Lex1); DerLis
+te(Lex2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"$H&" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"$L'" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 168 "
+InverserListe:= proc(L::Liste)::Liste;\nlocal M::Liste, N::Liste, i::i
+nteger;\nM:=L; N:=[];\nwhile (M<>[]) do\nN:=consL(first(M),N); M:=succ
+(M);\nend do;\nreturn N;\nend proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>%.InverserListeGf+6#'%\"LG%&ListeG6%'%\"MGF)'%\"NGF)'%\"iG%(integerG
+6\"F2C&>8$9$>8%7\"?(F2\"\"\"F;F20F5F9C$>F8-%&consLG6$-%&firstG6#F5F8>F
+5-%%succGFDOF8F2F2F2F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "I
+nverserListe(Lex2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7,\"$L'\"$4$\"$
+k'\"$;)\"$q#\"$'))\"$E*\"$\\$\"$=#\"$d#" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 149 "Prems:=proc(n::integer)::boolean;\nlocal i::integer;
+\nfor i from 2 to (n-1) do if (n mod i=0) then return false; end if; e
+nd do; return true; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&Pr
+emsGf+6#'%\"nG%(integerG6#'%\"iGF)6\"F-C$?(8$\"\"#\"\"\",&9$F2F2!\"\"%
+%trueG@$/-%$modG6$F4F0\"\"!O%&falseGOF6F-F-F-%(booleanG" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "Prems(17);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 209 "
+ExtraireListe:=proc(L::Liste)::Liste;\nlocal M::Liste, N::Liste;\nM:=L
+; N:=[];\nwhile (M<>[]) do\nif (Prems(first(M))=true) then N:=consL(fi
+rst(M),N); end if;\nM:=succ(M); end do; return InverserListe(N); end p
+roc;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 12 "" 1 "" 
+{XPPMATH 20 "6#>%.ExtraireListeGf+6#'%\"LG%&ListeG6$'%\"MGF)'%\"NGF)6
+\"F/C&>8$9$>8%7\"?(F/\"\"\"F8F/0F2F6C$@$/-%&PremsG6#-%&firstG6#F2%%tru
+eG>F5-%&consLG6$F@F5>F2-%%succGFBO-%.InverserListeG6#F5F/F/F/F)" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 89 "ExtraireListe(Lex2); Extrair
+eListe([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#7$\"$d#\"$\\$" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#7+\"\"\"\"\"#\"\"$\"\"&\"\"(\"#6\"#8\"#<\"#>" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "hum... on avait isprime()...
+" }}{PARA 8 "" 1 "" {TEXT -1 31 "Error, missing operator or `;`\n" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "ExtraireListe([2,11,4,7,8,11
+]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7&\"\"#\"#6\"\"(F%" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 148 "somDiv:=proc(i::integer)::integer;
+\nlocal S::integer, j::integer;\nS:=0;\nfor j to i do\nif (i mod j=0) \+
+then S:=S+j; end if;\nend do; return S; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%'somDivGf+6#'%\"iG%(integerG6$'%\"SGF)'%\"jGF)6\"F/C%
+>8$\"\"!?(8%\"\"\"F69$%%trueG@$/-%$modG6$F7F5F3>F2,&F2F6F5F6OF2F/F/F/F
+)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "somDiv(6);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"#7" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 165 "Nuage:=proc(n::integer)::Liste;\nlocal M::Liste, i::integer;
+\nM:=[];\nfor i to n do\nM:=consL(consL(i,consL(somDiv(i),[])),M);\nen
+d do;\nreturn InverserListe(M);\nend proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%&NuageGf+6#'%\"nG%(integerG6$'%\"MG%&ListeG'%\"iGF)6
+\"F0C%>8$7\"?(8%\"\"\"F79$%%trueG>F3-%&consLG6$-F<6$F6-F<6$-%'somDivG6
+#F6F4F3O-%.InverserListeG6#F3F0F0F0F-" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 18 "nuage:=Nuage(500):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 39 "plot(nuage, style=point, symbol=point);" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 229 "ExtraireListe2:=proc(L::Liste)::Li
+ste;\nlocal M::Liste, N::Liste;\nM:=L; N:=[];\nwhile (M<>[]) do\nif (f
+irst(first(M))+1=first(succ(first(M)))) then N:=consL(first(M),N); end
+ if;\nM:=succ(M); end do; return InverserListe(N); end proc;" }}{PARA 
+12 "" 1 "" {XPPMATH 20 "6#>%/ExtraireListe2Gf+6#'%\"LG%&ListeG6$'%\"MG
+F)'%\"NGF)6\"F/C&>8$9$>8%7\"?(F/\"\"\"F8F/0F2F6C$@$/,&-%&firstG6#-F?6#
+F2F8F8F8-F?6#-%%succGF@>F5-%&consLG6$FAF5>F2-FFFBO-%.InverserListeG6#F
+5F/F/F/F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 22 "ExtraireListe2
+(nuage);" }}{PARA 8 "" 1 "" {TEXT -1 106 "Error, invalid input: Extrai
+reListe2 expects its 1st argument, L, to be of type Liste, but receive
+d nuage\n" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 189 "OccurListe:=p
+roc(x::integer, L::Liste)::integer;\nlocal M::Liste, Occ::integer;\nM:
+=L;Occ:=0;\nwhile (M<>[]) do\nif first(M)=x then Occ:=Occ+1; end if;\n
+M:=succ(M); end do;\nreturn Occ; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%+OccurListeGf+6$'%\"xG%(integerG'%\"LG%&ListeG6$'%\"M
+GF,'%$OccGF)6\"F2C&>8$9%>8%\"\"!?(F2\"\"\"F;F20F57\"C$@$/-%&firstG6#F5
+9$>F8,&F8F;F;F;>F5-%%succGFCOF8F2F2F2F)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 19 "OccurListe(1,Lex1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#\"\"*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 224 "TabOccur:=proc(
+L::Liste)::array;\nlocal T::array, M::Liste, i::integer;\nT:=array(1..
+999); M:=L;\nfor i to taille(T) do T[i]:=0; end do;\nwhile (M<>[]) do
+\nT[first(M)]:=T[first(M)]+1;\nM:=succ(M); end do;\nreturn eval(T);\ne
+nd proc;" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%)TabOccurGf+6#'%\"LG%&Li
+steG6%'%\"TG%&arrayG'%\"MGF)'%\"iG%(integerG6\"F3C'>8$-F-6#;\"\"\"\"$*
+**>8%9$?(8&F:F:-%'tailleG6#F6%%trueG>&F66#F@\"\"!?(F3F:F:F30F=7\"C$>&F
+66#-%&firstG6#F=,&FNF:F:F:>F=-%%succGFRO-%%evalGFCF3F3F3F-" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "TabOccur([4,1,2,1,999]);" }}{PARA 
+12 "" 1 "" {XPPMATH 20 "6#K%'vectorG6#7cin\"\"#\"\"\"\"\"!F(F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)F)
+F)F)F)F)F)F)F)F)F)F(Q)pprint126\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 15 "TabOccur(Lex1);" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#K%
+'vectorG6#7cin\"\"*\"#6F(\"#;F(\"#5F(\"\"(\"\")\"#<F*\"#:\"#9\"\"&F0F'
+F+\"\"'F1F(F'F*F/F'F,F*F(F,F(F,F+F1F(F*F/F1F'F+F,F1\"#8F0F*F,F,F2F'F+F
+'F2F(F(F'F*F,F/F0F1F2F,F,F2F.F*\"\"%\"#7F*F1F.F(F4F*F0F3F/F,F4F(F'F+F4
+F'F+F+F+F*F-F0F(F3F*F/F,F'F/F1F)F4F'F4F'F/F,F,F'F0F)F.F*F*F(F4F0F'F1F'
+F1F2F'F/F*F,F*F4F1F,F4F(F*F4F*F'F*\"\"\"F(F*F,\"#=F,F,F,F'F*\"\"#F(F(F
+(F(F,F(F'F(F*F,F,F0F*F'F'F-F'F0F/F'F2F/F)F,F(F+F4F+F1F(F'F-F*F'F*F4F0F
+*F.F*F'F2F*F+F'F'F+F*F'F)F4F(F0F1F-F1\"\"$F.F(F,F2F(F2F1F'F'F(F(F'F4F'
+F*F+F*F4F,F,F'F1F'F,F(F4F2F+F+F'F'F4F,F(F1F+F(F,F/F+F.F'F(F0F4F1F2F-F(
+F+F.F(F.F/\"#@F/F*F2F4F'F4F,F/F1F*F,F4F+F/F1F/F1F*F(F4F4F,F2F,F+F2F3F0
+F2F(F*F(F.F)F2F*F'F4F'F+F0F1F4F,F'F,F(F+F(F.F/F*F*F,F+F+F(F1F/F+F*F2F2
+F,F(F(F(F4F)F(F+F'F9F,F'F/F(F'F(F'F.F4F+F2F3F4F,F(F/F*F/F*F4F.F1F3F*F1
+F*F3F0F'F4F*F)F*F.F'F0F.F.F0F.F(F*F+F+F/F4F*F1F'F(F'F/F(F+F'F4F(F)F,F/
+F2F*F'F/F1\"#>F(F,F*F*F'F+F'F'F(F'F2F3F,F4F,F4F'F(F(F*F2F*F)F-F)F4F2F*
+F4F1F*F0F,F(F1F,F1F0F(F,F*F2F1F)F,F+F,F1F,F+F,F4F+F*F.F'F,F2F'F(F+F2F1
+F+F*F*F/F2F*F+F-F4F*F,F+F(F'F+F*F*F*F*F/F,F'F*F1F*F'F1F,F4F+F,F1F'F'F.
+F'F3F(F'F(F6F4\"#?F4F,F'F)F4F+F2F/F,F+F1F.F0F-F1F'F0F/F+F/F2F'F,F(F*F1
+F4F(F+F(F'F0F.F'F)F,F/F,F6F*F0F,F2F,F,F0F1F/F3F2F+F4F/F*F.F+F/F,F/F0F'
+F,F8F,F,F'F'F(F1F2F*F1F/F,F+F(F2F9F,F.F4F.F'F*F*F4F(F'F'F,F2F.F(F-F'F,
+F,F*F'F(F'F.F(F(F,F+F2F/F,F2F*F2F,F4F,F2F,F)F'F'F,F4F*F+F/F1F(F(F*F0F+
+F'F'F(F;F(F*F+F.F+F,F+F)F*F(F4F(F'F*F'F*F'F2F4F'F.F+F/F(F4F2F'F,F/F2F+
+F.F2F4F'F2F'F*F4F3F4F+F,F2F'F'F4F0F)F1F3F(F(F'F*F,F'F1F,F'F,F*F2F+F2F,
+F.F'F*F/F'F,F6F'F(F2F4F/F.F+F'F2F*F+F1F(F(F4F*F4F,F*F*F/F'F+F,F1F*F'F/
+F'F,F'F4F+F/F0F6F1F*F2F,F(F)F(F2F.F1F-F*F(F2F*F-F'F9F'F,F/F*F'F'F*F,F,
+F+F2F0F,F)F1F*F4F2F4F.F/F,F*F,F(F0F'F'F1F'F*F1F-F,F+F2F8F1F1F2F/F*F'F2
+F+F8F/F'F'F(F*F4F/F4F(F*F*F4F2F,F)F'F,F4F*F(F'F8F,F/F3F.F,F,F'F+F'F.F.
+F4F/F1F/F+F*F4F,F)F,F'F'F'F2F+F,F2F*F)F2F*F+F0F.F2F/F,F1F1F2F'F'F+F+F'
+F0F(F*F,F1F0F/F'F'F0F2F+F8F1F(F'F*F*F'F4F(F(F'F*F'F'F/F,F2F1F(F4F2F*F,
+F,F*F4F(F4F(F0F'F.F,F2F3F4F(F,F,F0F,F,F+F*F2F*F'F1F,F*F0F,F2F/F,F-F0F'
+F6F.F.F+F'F1F(F1F+F(F'F*F1F+F)F4F'F+F+F2F*F1F4F'F(F1F+F*F+F1F'F)F4F,F+
+F*F,F2F1F,F0F0F,F/F2F'F(F*F2F0F0F'Q)pprint136\"" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 308 "TriListe:=proc(L::Liste)::Liste;\nlocal i::in
+teger, j::integer, M::Liste, N::Liste, T::array; \nM:=L; N:=[]; T:=arr
+ay(1..lgListe(L)); i:=1;  \nfor i to taille(T) do T[i]:=first(M); M:=s
+ucc(M); end do; \nT:=triInsertion(T);\nfor j from 1 to taille(T) do N:
+=consL(T[j],N); end do;\nreturn InverserListe(N); end proc;" }}{PARA 
+12 "" 1 "" {XPPMATH 20 "6#>%)TriListeGf+6#'%\"LG%&ListeG6''%\"iG%(inte
+gerG'%\"jGF-'%\"MGF)'%\"NGF)'%\"TG%&arrayG6\"F7C*>8&9$>8'7\">8(-F66#;
+\"\"\"-%(lgListeG6#F;>8$FD?(FIFDFD-%'tailleG6#F@%%trueGC$>&F@6#FI-%&fi
+rstG6#F:>F:-%%succGFU>F@-%-triInsertionGFM?(8%FDFDFKFN>F=-%&consLG6$&F
+@6#FgnF=O-%.InverserListeG6#F=F7F7F7F)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 138 "lgListe:=proc(L::Liste)::integer;\nlocal M::Liste, S
+::integer;\nM:=L; S:=0; while (M<>[]) do S:=S+1; M:=succ(M); end do; r
+eturn S; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(lgListeGf+6#'
+%\"LG%&ListeG6$'%\"MGF)'%\"SG%(integerG6\"F0C&>8$9$>8%\"\"!?(F0\"\"\"F
+9F00F37\"C$>F6,&F6F9F9F9>F3-%%succG6#F3OF6F0F0F0F/" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 40 "TriListe([4,1,2,1,999]); TriListe(Lex2);" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#7'\"\"\"F$\"\"#\"\"%\"$***" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#7,\"#R\"#!)\"$X\"\"$s\"\"$,#\"$B#\"$p#\"$w$
+\"$%Q\"$B(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 277 "Concat:=proc
+(L1::Liste, L2::Liste)::Liste;\nlocal M1::Liste, M2::Liste, N::Liste, \+
+i::integer;\nM1:=L1; M2:=L2; N:=[];\nwhile (M1<>[]) do N:=consL(first(
+M1),N); M1:=succ(M1); end do; \nwhile (M2<>[]) do N:=consL(first(M2),N
+); M2:=succ(M2); end do;\nreturn InverserListe(N); end proc;" }}{PARA 
+12 "" 1 "" {XPPMATH 20 "6#>%'ConcatGf+6$'%#L1G%&ListeG'%#L2GF)6&'%#M1G
+F)'%#M2GF)'%\"NGF)'%\"iG%(integerG6\"F6C(>8$9$>8%9%>8&7\"?(F6\"\"\"FBF
+60F9F@C$>F?-%&consLG6$-%&firstG6#F9F?>F9-%%succGFK?(F6FBFBF60F<F@C$>F?
+-FG6$-FJ6#F<F?>F<-FNFVO-%.InverserListeG6#F?F6F6F6F)" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 28 "Concat([1,2,3,4],[5,6,7,8]);" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#7*\"\"\"\"\"#\"\"$\"\"%\"\"&\"\"'\"\"(\"\")" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 171 "EcritureBase:=proc(x::inte
+ger,b::integer)::Liste;\nlocal R::Liste, y::integer;\nR:=[]; y:=x;\nwh
+ile (y<>0) do R:=consL((y mod b),R); y:=iquo(y,b); end do;\nreturn R; \+
+end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%-EcritureBaseGf+6$'%\"x
+G%(integerG'%\"bGF)6$'%\"RG%&ListeG'%\"yGF)6\"F2C&>8$7\">8%9$?(F2\"\"
+\"F;F20F8\"\"!C$>F5-%&consLG6$-%$modG6$F89%F5>F8-%%iquoGFEOF5F2F2F2F/
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 202 "ValeurDecimale:=proc(x
+::integer,L::Liste)::integer;\nlocal M::Liste, i::integer, S::integer;
+\nM:=L; S:=0;\nfor i from lgListe(L)-1 to 0 by (-1) do\nS:=S+first(M)*
+x^i; M:=succ(M); end do; return S; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%/ValeurDecimaleGf+6$'%\"xG%(integerG'%\"LG%&ListeG6%'
+%\"MGF,'%\"iGF)'%\"SGF)6\"F4C&>8$9%>8&\"\"!?(8%,&-%(lgListeG6#F8\"\"\"
+FB!\"\"FCF;%%trueGC$>F:,&F:FB*&-%&firstG6#F7FB)9$F=FBFB>F7-%%succGFKOF
+:F4F4F4F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 46 "EcritureBase(3
+8,5); ValeurDecimale(5,[1,2,3]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7%
+\"\"\"\"\"#\"\"$" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"#Q" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 118 "ConversionBase:=proc(L::Liste,b1::
+integer,b2::integer)::Liste;\nreturn EcritureBase(ValeurDecimale(b1,L)
+,b2); end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%/ConversionBaseGf
++6%'%\"LG%&ListeG'%#b1G%(integerG'%#b2GF,6\"F/F/O-%-EcritureBaseG6$-%/
+ValeurDecimaleG6$9%9$9&F/F/F/F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 32 "ConversionBase([1,0,1,0,1],2,5);" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7$\"\"%\"\"\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 138 "mystere:=proc(l1::Liste,l2:
+:Liste)::Liste; if (l1=[]) then return l2; else return mystere(succ(l1
+),consL(first(l1),l2)); end if; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%(mystereGf+6$'%#l1G%&ListeG'%#l2GF)6\"F,F,@%/9$7\"O9%
+O-F$6$-%%succG6#F/-%&consLG6$-%&firstGF8F2F,F,F,F)" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 203 "ExtraireListeV2:=proc(L::Liste)::Liste;\ni
+f (L=[]) then return L; elif (isprime(first(L))=true) then return cons
+L(first(L),ExtraireListeV2(succ(L))) else return ExtraireListeV2(succ(
+L)); end if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%0ExtraireL
+isteV2Gf+6#'%\"LG%&ListeG6\"F*F*@'/9$7\"OF-/-%(isprimeG6#-%&firstG6#F-
+%%trueGO-%&consLG6$F4-F$6#-%%succGF6OF<F*F*F*F)" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 68 "ExtraireListe2([1,-2,4,5,-7,-3]); ExtraireList
+eV2([1,-2,4,5,-7,-3]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%/ExtraireL
+iste2G6#7(\"\"\"!\"#\"\"%\"\"&!\"(!\"$" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#7#\"\"&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 185 "ExtLisGen
+:=proc(L::Liste,P)::Liste;\nif (L=[]) then return L; elif (P(first(L))
+=true) then return consL(first(L),ExtLisGen(succ(L),P)); \nelse return
+ ExtLisGen(succ(L),P)end if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%*ExtLisGenGf+6$'%\"LG%&ListeG%\"PG6\"F+F+@'/9$7\"OF./-9%6#-%&f
+irstG6#F.%%trueGO-%&consLG6$F5-F$6$-%%succGF7F3OF=F+F+F+F)" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 82 "ExtLisGen([1,2,3,4,5,6,7,8,9,10,11,
+12,13,14,15,16,17],(x-> evalb((x mod 2) = 0)));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#7*\"\"#\"\"%\"\"'\"\")\"#5\"#7\"#9\"#;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PAGEBK }{PARA 0 "" 0 "" {TEXT 
+-1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 127 "expolent:=proc(a
+::float,b::integer)::float;\nlocal i::integer, A::float;\nA:=a;\nfor i
+ to b do A:=A*b; end do;\nreturn A; end proc;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%)expolentGf+6$'%\"aG%&floatG'%\"bG%(integerG6$'%\"iGF
+,'%\"AGF)6\"F2C%>8%9$?(8$\"\"\"F99%%%trueG>F5*&F5F9F:F9OF5F2F2F2F)" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "time(expolent(1.5,10^7));" 
+}}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#$\"&xe\"!\"$" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "exporapid
+e:=proc(a::float,b::integer)::float;\n\n\n\n\n\n" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 136 "concat:=proc(l1::Liste,l2::Liste)::Liste;\ni
+f (l1=[]) then return l2; else return consL(first(l1),concat(succ(l1),
+l2)); end if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'concatGf
++6$'%#l1G%&ListeG'%#l2GF)6\"F,F,@%/9$7\"O9%O-%&consLG6$-%&firstG6#F/-F
+$6$-%%succGF9F2F,F,F,F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "
+concat([1,2,3],[4,5,6]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#7(\"\"\"\"
+\"#\"\"$\"\"%\"\"&\"\"'" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 217 
+"egalesL:=proc(l1::Liste,l2::Liste)::boolean;\nif ((l1=[]) and (l2=[])
+) then return true; elif (l1=[]) xor (l2=[]) then return false; \nelif
+ (first(l1)=first(l2)) then return egalesL(succ(l1),succ(l2)); end if;
+ end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(egalesLGf+6$'%#l1G%&L
+isteG'%#l2GF)6\"F,F,@(3/9$7\"/9%F1O%%trueGgF/F2O%&falseG/-%&firstG6#F0
+-F;6#F3O-F$6$-%%succGF<-FCF>F,F,F,%(booleanG" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 77 "egalesL([2,3],[2,3,4]); egalesL([2,3,4,5],[2,3,4
+]); egalesL([2,3,4],[2,3,4]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&fal
+seG" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#%&falseG" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#%%trueG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 158 "
+lapin1:=proc(R::float,n::integer)::float;\nif (n=0) then return 500;\n
+elif (n=1) then return 500*R;\nelse return evalf(R*floor(lapin1(R,n-1)
+));\nend if; end proc;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'lapin1Gf+
+6$'%\"RG%&floatG'%\"nG%(integerG6\"F-F-@'/9%\"\"!O\"$+&/F0\"\"\"O,$*&F
+3F59$F5F5O-%&evalfG6#*&F9F5-%&floorG6#-F$6$F9,&F0F5F5!\"\"F5F-F-F-F)" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "lapin1(4.0,5);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#$\"(++7&!\"\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 191 "genNuage:=proc(R::float)::Liste;\nlocal i::integer, \+
+L::Liste, M::Liste;\nL:=[];M:=[];\nfor i to 10 do\nL:=consL(i,consL(la
+pin1(R,i),[]));\nM:=consL(L,M);\nend do;\nreturn InverserListe(M);\nen
+d proc;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%)genNuageGf+6#'%\"RG%&floatG6%'%\"iG%(integerG'%\"LG%
+&ListeG'%\"MGF06\"F3C&>8%7\">8&F7?(8$\"\"\"F<\"#5%%trueGC$>F6-%&consLG
+6$F;-FB6$-%'lapin1G6$9$F;F7>F9-FB6$F6F9O-%.InverserListeG6#F9F3F3F3F0
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "genNuage(2.0);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#7,7$\"\"\"$\"&++\"!\"\"7$\"\"#$\"&++#F
+(7$\"\"$$\"&++%F(7$\"\"%$\"&++)F(7$\"\"&$\"'++;F(7$\"\"'$\"'++KF(7$\"
+\"($\"'++kF(7$\"\")$\"(++G\"F(7$\"\"*$\"(++c#F(7$\"#5$\"(++7&F(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 100 "listeNuages:=[]; for i from
+ 1.5 to 3.5 by 0.5 do listeNuages:=consL(genNuage(i),listeNuages);end \+
+do;" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%,listeNuagesG7\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%,listeNuagesG7#7,7$\"\"\"$\"%+v!\"\"7$\"\"#$\"&]7\"F+7$\"\"$$\"&vo\"F
++7$\"\"%$\"&0`#F+7$\"\"&$\"&]z$F+7$\"\"'$\"&Dp&F+7$\"\"($\"&!Q&)F+7$\"
+\")$\"'q!G\"F+7$\"\"*$\"'0@>F+7$\"#5$\"']\")GF+" }}{PARA 12 "" 1 "" 
+{XPPMATH 20 "6#>%,listeNuagesG7$7,7$\"\"\"$\"&++\"!\"\"7$\"\"#$\"&++#F
++7$\"\"$$\"&++%F+7$\"\"%$\"&++)F+7$\"\"&$\"'++;F+7$\"\"'$\"'++KF+7$\"
+\"($\"'++kF+7$\"\")$\"(++G\"F+7$\"\"*$\"(++c#F+7$\"#5$\"(++7&F+7,7$F($
+\"%+vF+7$F-$\"&]7\"F+7$F1$\"&vo\"F+7$F5$\"&0`#F+7$F9$\"&]z$F+7$F=$\"&D
+p&F+7$FA$\"&!Q&)F+7$FE$\"'q!G\"F+7$FI$\"'0@>F+7$FM$\"']\")GF+" }}
+{PARA 12 "" 1 "" {XPPMATH 20 "6#>%,listeNuagesG7%7,7$\"\"\"$\"&+D\"!\"
+\"7$\"\"#$\"&]7$F+7$\"\"$$\"&D\"yF+7$\"\"%$\"'+`>F+7$\"\"&$\"']#)[F+7$
+\"\"'$\"(D1A\"F+7$\"\"($\"(]:0$F+7$\"\")$\"(v)GwF+7$\"\"*$\")v@2>F+7$
+\"#5$\")D/oZF+7,7$F($\"&++\"F+7$F-$\"&++#F+7$F1$\"&++%F+7$F5$\"&++)F+7
+$F9$\"'++;F+7$F=$\"'++KF+7$FA$\"'++kF+7$FE$\"(++G\"F+7$FI$\"(++c#F+7$F
+M$\"(++7&F+7,7$F($\"%+vF+7$F-$\"&]7\"F+7$F1$\"&vo\"F+7$F5$\"&0`#F+7$F9
+$\"&]z$F+7$F=$\"&Dp&F+7$FA$\"&!Q&)F+7$FE$\"'q!G\"F+7$FI$\"'0@>F+7$FM$
+\"']\")GF+" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%,listeNuagesG7&7,7$\"
+\"\"$\"&+]\"!\"\"7$\"\"#$\"&+]%F+7$\"\"$$\"'+]8F+7$\"\"%$\"'+]SF+7$\"
+\"&$\"(+]@\"F+7$\"\"'$\"(+]k$F+7$\"\"($\")+]$4\"F+7$\"\")$\")+]!G$F+7$
+\"\"*$\")+]T)*F+7$\"#5$\"*+]C&HF+7,7$F($\"&+D\"F+7$F-$\"&]7$F+7$F1$\"&
+D\"yF+7$F5$\"'+`>F+7$F9$\"']#)[F+7$F=$\"(D1A\"F+7$FA$\"(]:0$F+7$FE$\"(
+v)GwF+7$FI$\")v@2>F+7$FM$\")D/oZF+7,7$F($\"&++\"F+7$F-$\"&++#F+7$F1$\"
+&++%F+7$F5$\"&++)F+7$F9$\"'++;F+7$F=$\"'++KF+7$FA$\"'++kF+7$FE$\"(++G
+\"F+7$FI$\"(++c#F+7$FM$\"(++7&F+7,7$F($\"%+vF+7$F-$\"&]7\"F+7$F1$\"&vo
+\"F+7$F5$\"&0`#F+7$F9$\"&]z$F+7$F=$\"&Dp&F+7$FA$\"&!Q&)F+7$FE$\"'q!G\"
+F+7$FI$\"'0@>F+7$FM$\"']\")GF+" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%,l
+isteNuagesG7'7,7$\"\"\"$\"&+v\"!\"\"7$\"\"#$\"&]7'F+7$\"\"$$\"'vV@F+7$
+\"\"%$\"'&H](F+7$\"\"&$\"(:gi#F+7$\"\"'$\"(N5>*F+7$\"\"($\")0'o@$F+7$
+\"\")$\"*+,f7\"F+7$\"\"*$\"*]`1%RF+7$\"#5$\"+D(G#z8F+7,7$F($\"&+]\"F+7
+$F-$\"&+]%F+7$F1$\"'+]8F+7$F5$\"'+]SF+7$F9$\"(+]@\"F+7$F=$\"(+]k$F+7$F
+A$\")+]$4\"F+7$FE$\")+]!G$F+7$FI$\")+]T)*F+7$FM$\"*+]C&HF+7,7$F($\"&+D
+\"F+7$F-$\"&]7$F+7$F1$\"&D\"yF+7$F5$\"'+`>F+7$F9$\"']#)[F+7$F=$\"(D1A
+\"F+7$FA$\"(]:0$F+7$FE$\"(v)GwF+7$FI$\")v@2>F+7$FM$\")D/oZF+7,7$F($\"&
+++\"F+7$F-$\"&++#F+7$F1$\"&++%F+7$F5$\"&++)F+7$F9$\"'++;F+7$F=$\"'++KF
++7$FA$\"'++kF+7$FE$\"(++G\"F+7$FI$\"(++c#F+7$FM$\"(++7&F+7,7$F($\"%+vF
++7$F-$\"&]7\"F+7$F1$\"&vo\"F+7$F5$\"&0`#F+7$F9$\"&]z$F+7$F=$\"&Dp&F+7$
+FA$\"&!Q&)F+7$FE$\"'q!G\"F+7$FI$\"'0@>F+7$FM$\"']\")GF+" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "plot(listeNuages);" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "165 0 0" 0 }{VIEWOPTS 
+1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

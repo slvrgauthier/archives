@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Liste doublement chainée: Référence de la structure typeAssocie</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Liste doublement chainée
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.2 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;structures&#160;de&#160;données</span></a></li>
+      <li><a href="functions.html"><span>Champs&#160;de&#160;donnée</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Champs de données</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la structure typeAssocie</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>la structure permettant d'associer un type à une Liste ou une Cellule.  
+ <a href="structtype_associe.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="liste_8h_source.html">liste.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:ab3fd33f37ae53e2b1ee394b8a0d45677"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtype_associe.html#ab3fd33f37ae53e2b1ee394b8a0d45677">fonctionAffichage</a> )(void *data)</td></tr>
+<tr class="memdesc:ab3fd33f37ae53e2b1ee394b8a0d45677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche sur la sortie standard data.  <a href="#ab3fd33f37ae53e2b1ee394b8a0d45677"></a><br/></td></tr>
+<tr class="separator:ab3fd33f37ae53e2b1ee394b8a0d45677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a2b3a7933ce17765c9516535c323320"><td class="memItemLeft" align="right" valign="top">int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtype_associe.html#a2a2b3a7933ce17765c9516535c323320">fonctionCompare</a> )(const void *data1, const void *data2)</td></tr>
+<tr class="memdesc:a2a2b3a7933ce17765c9516535c323320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare data1 et data2, renvoie -1 si data1 &lt; data2, 0 si data1 = data2, 1 si data1 &gt; data2.  <a href="#a2a2b3a7933ce17765c9516535c323320"></a><br/></td></tr>
+<tr class="separator:a2a2b3a7933ce17765c9516535c323320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad740bd3d10d0b85df91f4c9698e1cf17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad740bd3d10d0b85df91f4c9698e1cf17"></a>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtype_associe.html#ad740bd3d10d0b85df91f4c9698e1cf17">estNull</a> )(struct <a class="el" href="structtype_associe.html">typeAssocie</a> ta)</td></tr>
+<tr class="memdesc:ad740bd3d10d0b85df91f4c9698e1cf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie 1 si la fonction d'affichage et la fonction de comparaison ne sont pas définies, sinon 0. <br/></td></tr>
+<tr class="separator:ad740bd3d10d0b85df91f4c9698e1cf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6f2d923ef0db699935b2838d68d15b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf6f2d923ef0db699935b2838d68d15b"></a>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtype_associe.html#acf6f2d923ef0db699935b2838d68d15b">estEgal</a> )(struct <a class="el" href="structtype_associe.html">typeAssocie</a> ta1, struct <a class="el" href="structtype_associe.html">typeAssocie</a> ta2)</td></tr>
+<tr class="memdesc:acf6f2d923ef0db699935b2838d68d15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie 1 si la structure ta1 et ta2 sont identiques, sinon 0. <br/></td></tr>
+<tr class="separator:acf6f2d923ef0db699935b2838d68d15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>la structure permettant d'associer un type à une Liste ou une Cellule. </p>
+<p><a class="el" href="structtype_associe.html" title="la structure permettant d&#39;associer un type à une Liste ou une Cellule.">typeAssocie</a> est une simple interface permettant quelques operations :<br/>
+</p>
+<ul>
+<li>L'affichage d'une liste ou d'une cellule sur la sortie standard (par default).<br/>
+</li>
+<li>La comparaison de deux cellules.<br/>
+</li>
+<li>Le triage d'une liste.<br/>
+ Les types primitifs sont dejà implementés voir associe_chaine, associe_int, associe_short, associe_long, associe_float, associe_double, associe_char, associe_void.<br/>
+ Si votre liste est heterogene, veuillez utiliser le type : associe_void.<br/>
+ Si il vous faut utiliser des types personalisés pour vos listes ou vos cellules, le code basique sera :<br/>
+ <div class="fragment"><div class="line"><a class="code" href="structtype_associe.html" title="la structure permettant d&#39;associer un type à une Liste ou une Cellule.">typeAssocie</a> monTa = typeAssocie_creer(&amp;maFctAffichage,&amp;maFctDeComparaison);</div>
+<div class="line"><a class="code" href="struct_liste__struct.html" title="la structure Liste est une collection de cellule.">Liste</a> l = Liste_creer(NULL,monTa);</div>
+</div><!-- fragment --> </li>
+</ul>
+</div><h2 class="groupheader">Documentation des champs</h2>
+<a class="anchor" id="ab3fd33f37ae53e2b1ee394b8a0d45677"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* fonctionAffichage)(void *data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche sur la sortie standard data. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="liste_8h.html#aa359268fb18484632ae700e82b36bfc4" title="Affiche le contenu d&#39;une chaine de caractères.">__CHAINE__affiche()</a>, <a class="el" href="liste_8h.html#aca653315b32befca2d4a15ec9fdac0db" title="Affiche le contenu d&#39;un int.">__INT__affiche()</a>, <a class="el" href="liste_8h.html#a0a572d42ebb1a70aeb4f4b413206eecc" title="Affiche le contenu d&#39;un short.">__SHORT__affiche()</a>, <a class="el" href="liste_8h.html#a095d199a29bd9be79158a13f469dbc01" title="Affiche le contenu d&#39;un long.">__LONG__affiche()</a>, <a class="el" href="liste_8h.html#ad958f01e19c4451c7075261ad0b3d7d7" title="Afficher le contenu d&#39;un char.">__CHAR__affiche()</a>, <a class="el" href="liste_8h.html#a0700538632048fc7c4743ed1e98c03e3" title="Affiche le contenu d&#39;un double.">__DOUBLE__affiche()</a>, <a class="el" href="liste_8h.html#a07a093bd767ef1e2735f55d318f51523" title="Affiche le contenu d&#39;un float.">__FLOAT__affiche()</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2a2b3a7933ce17765c9516535c323320"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(* fonctionCompare)(const void *data1, const void *data2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare data1 et data2, renvoie -1 si data1 &lt; data2, 0 si data1 = data2, 1 si data1 &gt; data2. </p>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="liste_8h.html#acee2cbb3418624d83c051fc6949de26e" title="Comparer 2 chaines de caractères.">__CHAINE__compare()</a>, <a class="el" href="liste_8h.html#a92ff2a3d13541cd896d6e25e9007f2ec" title="Compare 2 int.">__INT__compare()</a>, <a class="el" href="liste_8h.html#acc95d8bd5f0cd264ba1cf533c124e047" title="Comparer 2 short.">__SHORT__compare()</a>, <a class="el" href="liste_8h.html#a14d504a388bb827c1fdd91ec66786aff" title="Comparer 2 long.">__LONG__compare()</a>, <a class="el" href="liste_8h.html#ad958f01e19c4451c7075261ad0b3d7d7" title="Afficher le contenu d&#39;un char.">__CHAR__affiche()</a>, <a class="el" href="liste_8h.html#a0700538632048fc7c4743ed1e98c03e3" title="Affiche le contenu d&#39;un double.">__DOUBLE__affiche()</a>, <a class="el" href="liste_8h.html#a07a093bd767ef1e2735f55d318f51523" title="Affiche le contenu d&#39;un float.">__FLOAT__affiche()</a>. </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li><a class="el" href="liste_8h_source.html">liste.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Samedi Décembre 1 2012 23:16:52 pour Liste doublement chainée par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.2
+</small></address>
+</body>
+</html>

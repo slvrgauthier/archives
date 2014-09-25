@@ -1,0 +1,73 @@
+(define (accumulate combiner null-value a b)
+  (if (> a b)
+      null-value
+      (combiner a (accumulate combiner null-value (+ a 1) b))))
+
+;exo1
+(define (fact-accu n) (accumulate * 1 1 n))
+
+(define (somme-accu n) (accumulate + 0 1 n))
+
+(define (liste-accu n) (accumulate cons () 1 n))
+
+;exo2
+(define (accumulate-term combiner null-value term a b) 
+  (if (> a b)
+      null-value
+      (combiner (term a) (accumulate-term combiner null-value term (+ a 1) b))))
+
+(define (fact-accu2 n) (accumulate-term * 1 (lambda (x) x) 1 n))
+
+(define (somme-accu2 n) (accumulate-term + 0 (lambda (x) x) 1 n))
+
+(define (liste-accu2 n) (accumulate-term cons () (lambda (x) x) 1 n))
+
+(define (e2 n) (accumulate-term + 1 (lambda (x) (/ 1.0 (fact-accu x))) 1 n))
+; on a une précision inférieur à 10^-11 à partir de n = 14
+
+(define pimpair50 (accumulate-term * 1 (lambda (x) (if (= (modulo x 2) 0) 1 x)) 1 50))
+
+(define ppair50 (accumulate-term * 1 (lambda (x) (if (= (modulo x 2) 0) x 1)) 1 50))
+
+(define pmod1-3 (accumulate-term * 1 (lambda (x) (if (= (modulo x 3) 1) x 1)) 1 50))
+
+;exo3
+(define (accumulate-term-next combiner null-value term a next b) 
+  (if (> a b)
+      null-value
+      (combiner (term a) (accumulate-term-next combiner null-value term (next a) next b))))
+
+(define (fact-accu3 n) (accumulate-term-next * 1 (lambda (x) x) 1 (lambda (x) (+ x 1)) n))
+
+(define (somme-accu3 n) (accumulate-term-next + 0 (lambda (x) x) 1 (lambda (x) (+ x 1)) n))
+
+(define (liste-accu3 n) (accumulate-term-next cons () (lambda (x) x) 1 (lambda (x) (+ x 1)) n))
+
+(define (S n) (accumulate-term-next + 1 (lambda (x) (if (= (modulo x 2) 0) (- 0 (/ 1.0 x)) (/ 1.0 x))) 2 (lambda (x) (+ x 1)) n))
+; la limite tend vers 0.7
+
+;exo4
+(define (pi-product n) (accumulate-term-next * 1.0 (lambda (x) (* (/ x (- x 1)) (/ x (+ x 1)))) 2 (lambda (x) (+ x 2)) (* 2 n)))
+; précis à 10^-3 à partir de n = 493 (bien moins efficace que pour e)
+
+;exo5
+(define (accumulate-term-next-rec combiner null-value term a next b)
+  (let ((acc null-value))
+    (define (accumulate a acc)
+      (if (> a b)
+      acc
+      (accumulate (next a) (combiner (term a) acc))))
+    (accumulate a acc)))
+
+;exo6
+(define (fact-accu4 n) (accumulate-term-next-rec * 1 (lambda (x) x) 1 (lambda (x) (+ x 1)) n))
+
+(define (somme-accu4 n) (accumulate-term-next-rec + 0 (lambda (x) x) 1 (lambda (x) (+ x 1)) n))
+
+(define (liste-accu4 n) (reverse (accumulate-term-next-rec cons () (lambda (x) x) 1 (lambda (x) (+ x 1)) n)))
+
+;> (time (fact-accu3 1000))
+;cpu time: 4 real time: 2 gc time: 0
+
+;> (time (fact-accu4 1000))
+;cpu time: 0 real time: 1 gc time: 0

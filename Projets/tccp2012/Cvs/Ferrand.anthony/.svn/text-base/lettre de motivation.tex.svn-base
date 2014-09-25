@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{marvosym}
+\usepackage{graphicx}
+
+
+\usepackage[scale=0.775]{geometry}
+\setlength{\parindent}{0pt}
+\addtolength{\parskip}{6pt}
+
+\renewcommand{\ttdefault}{pcr}
+
+\begin{document}
+\sffamily
+\hfill
+%
+\begin{minipage}[t]{.6\textwidth}
+    \raggedleft
+    {\bfseries Anthony Ferrand}\\[.35ex]
+    \small\itshape
+    5 Rue du Parc\\
+    34210, Siran\\[.35ex]
+    \Telefon~0687579669\\
+    \Letter~anthony.ferrand@etud.univ-montp2.fr
+\end{minipage}\\
+%
+\hfill
+%
+\begin{minipage}[t]{.4\textwidth}
+    \raggedleft
+    A Montpellier, le \today
+\end{minipage}\\[2em]
+%
+\raggedright
+Madame, Monsieur,\\[1em]
+
+Je vous adresse cette lettre afin de vous soumettre ma candidature au Master AIGLE. Ayant lu et particulièrement apprécié le bref descriptif de votre parcours, je me suis plus longuement renseigné sur votre Master. Durant cette phase de renseignement, je me suis rapidement rendu compte que votre parcours est en parfaite adéquation avec ce que je désire. 
+
+Je désire acquérir les notions théoriques et pratiques me permettant de devenir un informaticien confirmé, avec un regard scientifique sur l'informatique. J'apprécie particulièrement aider à résoudre les problèmes de mes collègues lié à l'informatique (Programmation, conceptualisation des projets...), et j'aimerais m'orienter dans cette voix là, par exemple en tant que Chef de projet.
+
+D'un coté social, je me décrirais comme quelqu'un qui apprécie le travail collaboratif, le contact humain qui, je pense, est la clef de la réussite dans les projets. Quand je dois travailler en groupe, je me positionne souvent comme leader de par mon caractère, même si je reste à l'écoute de l'avis de chacun de mes collègues.\\
+D'un autre coté, je suis très tenace lorsque je programme, lorsque je dois faire face à un problème, je prend le temps de réfléchir à comment le résoudre, j'aime voir les grosses difficultés comme une série de difficulté facilement surmontable ce qui me permet de m'en sortir méthodiquement et rapidement de situation à priori très compliquées. Tant qu'un problème persiste, j'y songerai jusqu'à ce que je trouve une solution, en ce sens je me décris comme quelqu'un de très perfectionniste.
+
+
+Actuellement en troisième année de ma licence informatique à l'université de Montpellier 2,  j'apprécie particulièrement la grande majorité des cours qui nous sont enseignés. Le coté très scientifique de votre Master satisferont mon envie d'apprendre et de parfaire mes connaissances actuelles.
+
+Je suis certain de faire un bon choix en vous choisissant, pour me perfectionner et pour apprendre tout ce qui feront de moi un informaticien complet. 
+Je reste à votre entière disposition pour toute information complémentaire.
+
+Je vous prie d'agréer l'expression de mes salutations distinguées.
+
+Cordialement,\\[1em]
+
+{\bfseries Anthony Ferrand}\\
+
+\raggedright{\includegraphics[width=43mm]{signature.png}}
+\end{document}

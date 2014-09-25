@@ -1,0 +1,178 @@
+/* Fichier CSS du chat
+ */
+#menu {
+  height: 543px;
+}
+div {
+  display: block;
+}
+span {
+  display: inline;
+  font-size: 14px;
+}
+button {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 12px;
+  display: block;
+}
+ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  font-size: 13px;
+} 
+li {
+  white-space: nowrap;
+}
+form dd, form dt { 
+  margin-left: -25px;
+  margin-right: -10px;
+  padding-right: 20px;
+  display: inline; 
+}
+#bandeau {
+  border: solid 1px #000000;
+  border-color: #000000;
+  display: block;
+  height: 40px;
+  width: auto;
+  background-image: url(../images/bandeau_mosaique.png);
+  overflow: auto;
+}
+#bandeau_logo {
+  float: left;
+  height: 100%;
+  width: 10%;
+  border-right: solid 1px #000000;
+  z-index: -10;
+}
+#liste_bandeau {
+  float: left;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 88%;
+}
+#contacts {
+  border: solid 1px #000000;
+  border-color: #000000;
+  border-top: none;
+  float: left; 
+  height: 500px; 
+  width: 140px; 
+  overflow: auto;
+  background: url(../images/contact_logo.png) bottom left no-repeat;
+  background-size: 100% auto;
+  background-color: #cccccc;
+}
+#contacts_liste {
+  height: 347px;
+  overflow: auto;
+  white-space: nowrap;
+  display: block;
+}
+#select_all {
+  font-size: 11px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+#conversations {
+  border: solid 1px #000000;
+  border-color: #000000;
+  border-top: none;
+  float: right; 
+  height: 500px; 
+  width: 120px;
+  overflow: hidden;
+  background: url(../images/conversation_back.png) top left no-repeat;
+  background-size: 100% 100%;
+}
+#favoris_liste {
+  height: 180px;
+  width: auto;
+  white-space: nowrap;
+  overflow: auto;
+  border-bottom: solid 1px #000000;
+  background: none;
+}
+#liste_conversation {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  height: 248px;
+  width: auto;
+  overflow: auto;
+  background: none;
+}
+#conversation_logo {
+  border-top: solid 1px #000000;
+  height: auto;
+  width: 120px;
+}
+#zone_centre {
+  height: 100%;
+  width: auto;
+}
+#zone_affichage {
+  margin-top: 1px;
+  height: 427px; 
+  width: auto; 
+  overflow: auto;
+  background: url(../images/affichage_back.png) center no-repeat;
+  background-size: 100% 100%;
+}
+#zone_saisie {
+  border: solid 1px #000000;
+  border-color: #000000;
+  border-left: none;
+  border-right: none;
+  margin-top: 1px;
+  height: 70px; 
+  width: auto; 
+  overflow: hidden;
+  white-space: nowrap;
+  background-image: url(../images/saisie_mosaique.png);
+}
+#saisie_logo {
+  float: right;
+  height: 100%;
+  width: auto;
+  z-index: -10;
+}
+#form_message {
+  margin-left: 0px;
+  margin-right: 50px;
+  margin-top: 1px;
+  width: 535px;
+  height: 30px;
+  resize: none;
+  opacity: 0.5;
+}
+#form_submit {
+  font-size: 12px;
+}
+#search {
+  margin-left: 3px;
+  margin-right: 3px;
+  width: 90%;
+}
+.msg_left {
+  margin-left: 1%;
+}
+.msg_right {
+  float: right;
+  margin-right: 1%;
+}
+.item {
+  margin-left: 10px;
+}
+.img_list {
+  height: 12px;
+  width: auto;
+}
+.wrap {
+  display: block;
+}

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/204/trunk/Sd/Liste
+END
+test_Liste.c
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/204/trunk/Sd/Liste/test_Liste.c
+END
+refman.pdf
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/201/trunk/Sd/Liste/refman.pdf
+END
+liste.c
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/204/trunk/Sd/Liste/liste.c
+END
+liste.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/201/trunk/Sd/Liste/liste.h
+END

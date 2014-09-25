@@ -1,0 +1,90 @@
+; GAUTHIER Silvère 20100568
+; L2 - Info B
+
+(require (lib "turtles.ss" "graphics"))
+;exo9
+(define (signal t) (cond
+                     ((<= t -3) 0)
+                     ((<= t -1) 1)
+                     ((<= t 2) 0)
+                     ((<= t 4) 2)
+                     (else 0)))
+;exo11
+;(turtles #t)
+(define (spirale2 n tour)(if (= tour n) () ((draw tour)(turn 30)(spirale2 n (+ 1 tour)))))
+;(spirale2 24 1)
+;exo12
+(define (carré lgr)((draw lgr)(turn 90)(draw lgr)(turn 90)(draw lgr)(turn 90)(draw lgr)))
+;exo13
+(define (hexagone lgr)((draw lgr)(turn 60)(draw lgr)(turn 60)(draw lgr)(turn 60)(draw lgr)(turn 60)(draw lgr)(turn 60)(draw lgr)))
+;exo14
+(define (figure lgr n m)(if (= n 0) () ((draw lgr)(turn (/ 360 m))(figure lgr (- n 1) m))))
+;exo15
+(define (bissextile? a)(if (or(=(modulo a 400)0)(and(=(modulo a 4)0)(not(=(modulo a 100)0)))) #t #f))
+;exo16
+(define (nb-annees-bissextiles annee base somme)(if (> base annee) somme (if(bissextile? base)(nb-annees-bissextiles annee (+ base 1)(+ somme 1))(nb-annees-bissextiles annee (+ base 1) somme))))
+;(nb-annees-bissextiles 1999 1900 0)
+;(nb-annees-bissextiles 2001 1900 0)
+;exo17
+(define (nb-jours-au-1-jan m)(cond ((= m 1) 0 ) ((= m 2) 31 )((= m 3)(+ 31 28))((= m 4)(+ 31 28 31))((= m 5)(+ 31 28 31 30))((= m 6)(+ 31 28 31 30 31))((= m 7)(+ 31 28 31 30 31 30))((= m 8)(+ 31 28 31 30 31 30 31))((= m 9)(+ 31 28 31 30 31 30 31 31))((= m 10)(+ 31 28 31 30 31 30 31 31 30))((= m 11)(+ 31 28 31 30 31 30 31 31 30 31)) ((= m 12)(+ 31 28 31 30 31 30 31 31 30 31 30)) (#t #f)))
+;exo18
+(define (nb-jours j m a)(if (> m 2) (+ (* (nb-annees-bissextiles (- a 1)) 366) (*(- a 1 (nb-annees-bissextiles (- a 1)))365) (nb-jours-au-1-jan m) 1) (+ (* (nb-annees-bissextiles (- a 1) 1900 0) 366) (*(- a 1 (nb-annees-bissextiles (- a 1) 1900 0))365) (nb-jours-au-1-jan m))))
+;exo19
+(define (jour-de-semaine j m a)(cond 
+                                 ((=(modulo (nb-jours j m a) 7) 0)(display "Dimanche"))
+                                 ((=(modulo (nb-jours j m a) 7) 1)(display "Lundi"))
+                                 ((=(modulo (nb-jours j m a) 7) 2)(display "Mardi"))
+                                 ((=(modulo (nb-jours j m a) 7) 3)(display "Mercredi"))
+                                 ((=(modulo (nb-jours j m a) 7) 4)(display "Jeudi"))
+                                 ((=(modulo (nb-jours j m a) 7) 5)(display "Vendredi"))
+                                 ((=(modulo (nb-jours j m a) 7) 6)(display "Samedi"))))
+
+;------------------------------------------------------------------------
+;                                TP1 Bis
+;------------------------------------------------------------------------
+
+;exo1
+;a1=a0 , ai=a(i-1) et ai=a0 donc quand i tend vers l'infini, ai reste égal.
+
+;exo2
+(define (von_koch prof a)(if (= prof 0) 
+                             (draw a) 
+                             (begin
+                               (von_koch (- prof 1) (/ a 3))
+                               (turn 60)
+                               (von_koch (- prof 1) (/ a 3))
+                               (turn 240)
+                               (von_koch (- prof 1) (/ a 3))
+                               (turn 60)
+                               (von_koch (- prof 1) (/ a 3)))))
+;exo3
+(define (prepa-von-koch)(begin(turtles #t)(clear)(turn 180)(move 400)(turn 180)))
+;exo4 : "de n à m"
+(define (anim-von-koch n m) (begin (prepa-von-koch) (if (= m 0) (von_koch n 800) (begin (von_koch n 800)(sleep 3)(prepa-von-koch)(anim-von-koch (+ n 1) (- m 1))))))
+
+
+
+
+;------------------------------------------------------------------------
+;    EXAM TP
+;------------------------------------------------------------------------
+
+;Exercice 1 :
+(map signal (list -5 -4 -3 -2 -1 0 1 2 3 4 5))
+
+;Exercice 2 :
+(bissextile? 1408)
+(bissextile? 1500)
+(jour-de-semaine 13 1 2408)
+
+;Exercice 12 :
+(define (polyKoch nbCot rec long) (let ((rec2 nbCot))
+                                    (define (pK rec2) (if (= rec2 1)
+                                                     (von_koch rec long)
+                                                     (begin
+                                                       (von_koch rec long)
+                                                       (turn (/ 360 nbCot))
+                                                       (pK (- rec2 1)))))
+                                    (pK rec2)))
+(turtles #t)
+(polyKoch 6 4 200)

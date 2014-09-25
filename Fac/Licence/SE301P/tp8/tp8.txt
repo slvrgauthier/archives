@@ -1,0 +1,118 @@
+set terminal png size 400,250
+set output '01.png'
+plot [-3*pi:3*pi] [-1.5:1.5] sin(x)
+set output '02.png'
+plot [-10:10] [-10:10] 2*x+4
+set output '03.png'
+plot [-10:10] [-10:10] x*x+2*x+1
+set output '04.png'
+plot [-10:10] [-10:10] 2*x*sin(pi*x/2)
+set output '05.png'
+plot [-10:10] [-10:10] 2*x+4,x*x+2*x+1,2*x*sin(pi*x/2)
+set output '06.png'
+plot [-10:10] [-10:10] 2*x+4 with lines title "f(x)",x*x+2*x+1 with lines title "g(x)",2*x*sin(pi*x/2) with lines title "h(x)" linewidth 2.0
+set output '07.png'
+plot [-10:10] [-10:10] 2*x+4 with points title "f(x)",x*x+2*x+1 with points title "g(x)",2*x*sin(pi*x/2) with points title "h(x)" pointsize 2.0
+set output '08.png'
+plot [-10:10] [-10:10] 2*x+4 with linespoints title "f(x)",x*x+2*x+1 with linespoints title "g(x)",2*x*sin(pi*x/2) with linespoints title "h(x)" linewidth 2.0 pointsize 2.0
+set output '09.png'
+plot [-10:10] [-10:10] 2*x+4 with impulses title "f(x)",x*x+2*x+1 with impulses title "g(x)",2*x*sin(pi*x/2) with impulses title "h(x)"
+set output '10.png'
+plot [-10:10] [-10:10] 2*x+4 with dots title "f(x)",x*x+2*x+1 with dots title "g(x)",2*x*sin(pi*x/2) with dots title "h(x)" pointsize 2.0
+set output '11.png'
+plot [-10:10] [-10:10] 2*x+4 with steps title "f(x)",x*x+2*x+1 with steps title "g(x)",2*x*sin(pi*x/2) with steps title "h(x)" linewidth 2.0
+set output '12.png'
+plot [-10:10] [-10:10] 2*x+4 with fsteps title "f(x)",x*x+2*x+1 with fstep title "g(x)",2*x*sin(pi*x/2) with fstep title "h(x)" linewidth 2.0
+set output '13.png'
+plot [-10:10] [-10:10] 2*x+4 with histeps title "f(x)",x*x+2*x+1 with histeps title "g(x)",2*x*sin(pi*x/2) with histeps title "h(x)" linewidth 2.0
+set xrange [-20:20]
+set yrange [0:*]
+set output '14.png'
+plot x*x+2*x+1
+help set
+set title "Courbe"
+set xlabel "Abcisses"
+set ylabel "Ordonnees"
+set output '15.png'
+plot x*x+2*x+1
+set samples 20
+set isosamples 20
+set hidden3d
+set output '16.png'
+splot [-3:3] [-2:2] 1 / (x*x+y*y+1)
+set output '17.png'
+splot (2*x+3*y+2)
+set output '18.png'
+splot (x*x+y*y-2*x+y+1)
+set output '19.png'
+splot (sin(x)+2*cos(x+y))
+help splot
+set output '20.png'
+splot (2*x+3*y+2) with pm3d
+set output '21.png'
+splot (2*x+3*y+2) with line palette
+set output '22.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set hidden3d
+set output '23.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+unset hidden3d
+set output '24.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set hidden3d
+set output '25.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+unset hidden3d
+set output '26.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set isosamples 10,10
+set output '27.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set isosamples 20,10
+set output '28.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set isosamples 10,20
+set output '29.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set isosamples 20,20
+set output '30.png'
+splot (2*x+3*y+2) title "f(x)",(x*x+y*y-2*x+y+1) title "g(x)",(sin(x)+2*cos(x+y)) title "h(x)"
+set contour
+set output '31.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set grid
+set output '32.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set pm3d
+set output '33.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set palette defined (0 "red", 1 "blue", 2 "green", 3 "dark-yellow")
+set output '34.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set palette defined (0 "light-red", 1 "red", 2 "dark-red", 3 "black")
+set output '35.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)"
+set palette defined (0 "black", 1 "brown", 2 "dark-green", 3 "white") 
+set output '36.png'
+splot (sin(x)+2*cos(x+y)) title "h(x)" 
+#plot [0:6] [0:20] "-" with linespoint
+#input data ('e' ends) > 1 5
+#input data ('e' ends) > 2 12
+#input data ('e' ends) > 3 17
+#input data ('e' ends) > 4 13
+#input data ('e' ends) > 5 2
+#input data ('e' ends) > e
+set output '37.png'
+plot 'samples.dat' with lines
+set style data histograms
+set output '38.png'
+plot 'samples.dat'
+set style data histograms
+set style histogram clustered
+set output '39.png'
+plot './data.dat' using 1, '' using 2
+set yrange [0:100]
+set output '40.png'
+plot 'samples.dat' with lines title 'Echantillon 1', 'data.dat' title 'Echantillon 2' with linespoint, x**2
+load '3dsample.plt'
+load 'output.plt'

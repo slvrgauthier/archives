@@ -1,0 +1,156 @@
+These sites have many mac files, and are still getting new ones:
+-----------------------------------------------------------------------------
+ezinfo.ethz.ch             129.132.2.72    ./mac                            1
+ftp.apple.com              130.43.2.3      /dts                             2
+ftp.cso.uiuc.edu           128.174.5.59    /mac/MUG                         3
+ftp.funet.fi               128.214.6.100   /pub/mac                         4
+ftp.lu.se                  130.235.132.90  /pub/mac                         5
+irisa.irisa.fr             131.254.2.3     /News/comp.binaries.mac          6
+mac.archive.umich.edu      141.211.32.2    /mac                             7
+nic.switch.ch              130.59.1.40     /software/mac                    8
+sumex-aim.stanford.edu     36.44.0.6       /info-mac                        9
+toklab.ics.osaka-u.ac.jp   133.1.12.100    /mac/info-mac/info-mac          10
+
+These sites are home to a few specific file(s) or file types:
+-----------------------------------------------------------------------------
+arthur.cs.purdue.edu       128.10.2.1      /pub/trinkle (mac32.tar.Z)
+aux.support.apple.com      130.43.6.2      / (A/UX stuff)
+bert.cs.byu.edu            128.187.2.20    /NCSA_Telnet (BYU's version)
+biom3.univ-lyon1.fr        134.214.100.42  /pub/mac (MacMul, GraphMu)
+boombox.micro.umn.edu      128.101.95.95   /pub (gopher, POPmail, more)
+brownvm.brown.edu          128.148.128.40  / (tn3270, term, lpr)
+ccb.ucsf.edu               128.218.1.13    /Pub/Sound_list (sounds!)
+cecelia.media.mit.edu      18.85.0.104     /pub (CSound)
+chook.cs.adelaide.edu.au   129.127.8.8     /pub/VHDL-Cookbook
+cs.orst.edu                128.193.32.1    /pub/mac (lab-logger)
+d31rz0.stanford.edu        36.76.0.151     /Igor (Igor demos, utilities)
+dartvax.dartmouth.edu      129.170.16.4    /pub/mac (Dartmouth XCMDs, etc)
+dftsrv.gsfc.nasa.gov       128.183.10.134  /mac (MacSecure.3.1.hqx)
+fiji.wri.com               140.177.10.76   /pub (Mathematica)
+ftp.acns.nwu.edu           129.105.113.52  /pub/disinfectant (Disinf HQ)   11
+ftp.acns.nwu.edu           129.105.49.1    /pub/tiff (mactonext2.sit.hqx)
+ftp.cayman.com             143.137.1.2     /pub (GatorBox stuff)
+ftp.cc.purdue.edu          128.210.10.6    /pub/mac (RevRdist)
+ftp.embl-heidelberg.de     192.54.41.33    /? (molecular biology)
+ftp.ncsa.uiuc.edu          141.142.20.50   /Mac (NCSA Telnet, etc)         12
+ftp.primate.wisc.edu       144.92.43.11    /pub/mac (TransSkel & misc)     13
+ftp.psi.com                136.161.128.3   /wp (PSIWP, an X.500 client)
+ftp.utas.edu.au            131.217.10.1    /pub/mac (Mews)
+ftp.uu.net                 192.48.96.9     /languages/abc (ABC prog lang)  14
+geom.umn.edu               128.101.25.35   /stuff/snappea/mac (Snap pea)
+hobbes.lbl.gov             128.3.12.38     /pub/mac (Radiance)
+ics.uci.edu                128.195.1.1     /mac/think-c                    15
+imag.imag.fr               129.88.32.1     /edu/math/mac/Cabri             16
+iraun1.ira.uka.de          129.13.10.90    /pub/mac (SingleShare,NewsView)
+linc.cis.upenn.edu         130.91.6.8      /pub/NH3.0/mac (Mac NetHack!)
+maddog.llnl.gov            128.115.10.1    /pub (uw.tar.Z unix windows)
+menudo.uh.edu              129.7.1.16      /pub/gene-server/mac (Science)
+microlib.cc.utexas.edu     128.83.1.21     /microlib/mac (Gatekeeper HQ)   17
+midway.uchicago.edu        128.135.12.73   /pub/OzTex
+mojo.ots.utexas.edu        128.83.185.16   /pub/slip/mac/ncsa SLIP telnet
+munnari.oz.au              128.250.1.21    /mac (CAP, Multigate stuff)     18
+ncbi.nlm.nih.gov           130.14.20.1     /entrez                         19
+neptune.ethz.ch            129.132.101.33  /Oberon/MacII, /XYZ             20
+novamail.cerl.uiuc.edu     128.174.180.9   /pub/lime (Lime demo, for MIDI)
+oddjob.uchicago.edu        128.135.4.2     /pub/Yerk
+otter.stanford.edu         36.21.0.104     /mma, /mac (Mathematica)
+pacific.mps.ohio-state.edu 128.146.37.18   /mac (LabanWriter)
+ruunfs.fys.ruu.nl          131.211.32.68   /pub/vtools [vs2ps, vs2ris]
+ssyx.ucsc.edu              128.114.133.1   /pub/mac (HyperUnix, ClientDA)
+statlab.uni-heidelberg.de  129.206.113.100 /pub/network (NetWork stuff)
+tau.sm.luth.se             130.240.0.3     /pub/mac/nisus (macros, etc)
+terminator.cc.umich.edu    141.211.164.8   /x500 (maX.500 white pages)
+walrus.wr.usgs.gov         130.118.7.254   /pub/mac {Geology}
+zippy.nimh.nih.gov         128.231.98.32   /pub/nih-image (NIH-Image)
+
+These sites are shadow/mirror archives (the same stuff) of something else:
+-----------------------------------------------------------------------------
+archie.au                  139.130.4.6     /micros/mac [sumex, umich]
+dftnic.gsfc.nasa.gov       128.183.10.3    /mac.dir [dftsrv.gov]
+ftp.cs.tu-berlin.de        130.149.17.7    /pub/mac [sumex]                21
+ftp.lth.se                 130.235.20.3    /mac [sumex]                    22
+ftp.rrzn.uni-hannover.de   130.75.5.71     /ftp1/mac [sumex]
+ftp.uwtc.washington.edu    128.95.202.40   /pub/Macintosh [collection]
+ftphost.aukuni.ac.nz       130.216.1.5     /mac [sumex]                    23
+garbo.uwasa.fi             128.214.87.1    /mac [funet]
+giza.cis.ohio-state.edu    128.146.8.61    /pub/oztex [midway]
+grind.isca.uiowa.edu       128.255.40.200  /mac [sumex, umich]             24
+                           128.255.21.233
+jyu.fi                     128.214.7.5     /maclib [sumex]
+minnehaha.rhrk.uni-kl.de   131.246.9.95    /pub/mac [sumex]
+mrcnext.cso.uiuc.edu       128.174.201.12  /mac/MUG [ux1]
+nic.switch.ch              130.59.1.40     /mirror/info-mac [sumex]         8
+nic.switch.ch              130.59.1.40     /mirror/Oberon/MacII [MacOberon] 8
+oswego.oswego.edu          129.3.1.1       /pub/mac [sumex]
+pomme.src.umd.edu          128.8.111.252   /info-mac [sumex]               25
+rusmv1.rus.uni-stuttgart.de129.69.1.12     /soft/mac [sumex]
+shark.mel.dit.csiro.au     144.110.16.11   /info-mac [sumex]
+sics.se                    192.16.123.90   /pub/info-mac, /pub/mac
+src.doc.ic.ac.uk           146.169.3.7     /mac, /public/other3/sumex-mac  26
+utsun.s.u-tokyo.ac.jp      133.11.11.11    /Mac, /Mac/info-mac [sumex]
+watmsg.waterloo.edu        129.97.129.9    /pub/oztex [midway]
+wuarchive.wustl.edu        128.252.135.4   /systems/mac {See note}         27
+
+
+These sites have just a few mac files:
+-----------------------------------------------------------------------------
+apple.com                  130.43.2.2      /pub                            28
+bode.ee.ualberta.ca        129.128.16.96   /pub/mac
+eff.org                    192.88.144.3    /pub/mac
+fs-1.iastate.edu           129.186.151.151 /pub/mac
+ftp.nevada.edu             131.216.1.11    /pub/heathers (sounds)
+genbank.bio.net            134.172.1.160   /pub/mac
+hpcsos.col.hp.com          15.255.240.16   /packet/mac
+icarus.cns.syr.edu         128.230.1.49    /software/mac (w/ Unix_Mac)
+icarus.riacs.edu           134.12.1.1      /pub
+mailer.cc.fsu.edu          128.186.6.103   /pub/mac
+procyon.cis.ksu.edu        129.130.10.80   /pub/Macintosh
+rascal.ics.utexas.edu      128.83.138.20   /mac                            29
+splicer.cba.hawaii.edu     128.171.17.7    /mac
+teetot.acusd.edu                ???        /pub/Macintosh/SuperCard
+tolsun.oulu.fi             128.214.5.6     /pub/mac
+ucsd.edu                   128.54.16.1     /midi/software/mac, /pub/mac
+
+These sites have a lot of files, but do not get much new:
+-----------------------------------------------------------------------------
+f.ms.uky.edu               128.163.128.6   /pub/mac [sumex]
+ftp.bio.indiana.edu        129.79.224.50   / (large science archive)       30
+impaqt1.mem.drexel.edu     129.25.10.1     /pub/files/mac
+joker.optics.rochester.edu 128.151.240.1   /Sounds, /mac
+kth.se                     130.237.72.201  /macintosh
+mcsun.eu.net               192.16.202.1    /comp/mac
+merlin.cs.purdue.edu       128.10.2.3      /pub/mac
+plains.nodak.edu           134.129.111.64  /pub/mac/pub                    31
+ra.nrl.navy.mil            128.60.0.21     /MacSciTech
+
+I can't connect to these sites, which may have mac stuff:
+-----------------------------------------------------------------------------
+beach.gal.utexas.edu       129.109.1.207   /pub/virus/mac (VMS though)
+peace.waikato.ac.nz        130.217.64.62   anu-news gnu msdos mac ncsa
+saffron.inset.com          192.94.75.2     / (new Sound_list HQ)
+slug.pws.bull.com          128.35.10.203   comp.binaries.mac
+
+Some Miscellaneous sites
+-----------------------------------------------------------------------------
+csd4.csd.uwm.edu           129.89.7.4      /pub/inet.services.txt
+fsa.cpsc.ucalgary.ca       136.159.2.1     /pub/text.compression.corpus    32
+pilot.njin.net             128.6.7.38      /pub/ftp-list (big ftp.list)
+
+Current archie servers (as of Jan 3 1993):
+-----------------------------------------------------------------------------
+archie.ans.net            147.225.1.2     ANS, New York, USA
+archie.au                 139.130.4.6     Deakin University, Geelong,Australia
+archie.cs.huji.ac.il      132.65.6.5      Hebrew University, Jerusalem,Israel
+archie.doc.ic.ac.uk       146.169.11.3    Imperial College, London, UK
+archie.funet.fi           128.214.6.100   FUnet, Helsinki, Finland
+archie.kuis.kyoto-u.ac.jp 130.54.20.1     Japan
+archie.luth.se            130.240.18.4    Sweden
+archie.ncu.edu.tw         140.115.19.24   Taiwanese server
+archie.nz                 130.195.9.4     New Zealand server
+archie.rutgers.edu        128.6.18.15     Piscataway, New Jersey, USA
+archie.sogang.ac.kr       163.239.1.11    Korean server
+archie.sura.net           128.167.254.179 SURAnet, College Park, Maryland, USA
+archie.switch.ch          139.59.1.40     SWITCH, Zurich, Switzerland
+archie.th-darmstadt.de    130.83.128.111  Germany
+archie.univie.ac.at       131.130.1.23    Austria
+archie.unl.edu            129.93.1.14     Lincoln, Nebraska, USA

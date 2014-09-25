@@ -1,0 +1,16 @@
+<?php 
+/* Fichier permettant l'affichage de la liste des favoris.
+ */
+ 
+// Connexion à la base de données
+require_once("connexion_db.php");
+
+echo '<span id="liste_favoris" class="trigger"><img src="images/list_close.png" class="img_list" /><img src="images/list_open.png" class="img_list" hidden /> Favoris</span><input class="check_con" id="check_fav" type=checkbox /> <div id="select_fav">'; 
+
+$reponse = $bdd->prepare("SELECT * FROM chat_favoris,utilisateur WHERE id_contact=id_user AND id_utilisateur=? ORDER BY nom,prenom");
+$reponse->execute(array($user));
+
+while ($donnees=$reponse->fetch()){
+  echo '<div class="item" style="margin-left:10px" id="'.$donnees["id_favoris"].'"><small>'.$donnees["nom"].' '.$donnees["prenom"].'</small><input class="check_item_fav" type=checkbox name="invites" value="'.$donnees["id_contact"].'"/></div>';
+}
+echo '</div><br/>';

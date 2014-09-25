@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Bubble\'Em\'Up</string>
+    <string name="game">Game(test)</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Bubble\'Em\'Up</string>
+
+</resources>

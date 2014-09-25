@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+void Tri(int t[], int deb, int fin);
+int TriB(int t[], int deb, int fin, int aux);
+int TriH(int t[], int deb, int fin, int aux);
+bool TriT(int t[], int n);
+
+int main(int argc, char* argv[]){
+  printf("la");
+  
+ int n=10;
+ if(argc>1)
+   n=atoi(argv[1]);
+ int* T=(int*)malloc(n*sizeof(int));
+   
+ for(int i=0;i<n;i++)
+   T[i]=rand();
+  
+ Tri(T,0,n);
+  for(int i=0;i<n;i++)
+    printf("%d ",T[i]);
+  printf("\n");
+  
+  return 0;
+}
+
+void Tri(int t[], int deb, int fin){
+  int aux,x;
+  do{
+    aux=t[deb];
+    x=TriB(t,deb,fin,aux);
+  }while(TriT(t,10)==false);
+}
+
+int TriB(int t[], int deb, int fin, int aux){
+  for(int i=fin;i>deb;i--)
+    if(t[i]<aux){
+      t[deb]=t[i];
+      return TriH(t,deb,i,aux);
+    }
+  t[deb]=aux;
+  return -1;
+}
+
+int TriH(int t[], int deb, int fin, int aux){
+  for(int i=deb+1;i<fin;i++)
+    if(t[i]>aux){
+      t[fin]=t[i];
+      return TriB(t,i,fin,aux);
+    }
+  t[fin]=aux;
+  return -1;
+}
+
+bool TriT(int t[], int n){
+  for(int i=0;i<n-1;i++)
+    if(t[i]>t[i+1])
+      return false;
+  return true;
+}

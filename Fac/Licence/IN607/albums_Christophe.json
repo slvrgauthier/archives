@@ -1,0 +1,12 @@
+[
+  {
+    "nom": "Les mots bleus",
+    "image": "les_mots_bleus.jpg",
+    "lien": "Album_les_mots_bleus.json"
+  },
+  {
+    "nom": "Les mots",
+    "image": "les_mots.jpg",
+    "lien": "Album_les_mots.json"
+  }
+]

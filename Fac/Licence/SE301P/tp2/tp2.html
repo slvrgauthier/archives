@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html><head>
+
+
+    
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Les feuilles de style</title>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+    </head><body>
+
+
+<h1>Rappel HTML</h1>
+
+
+
+<h2>Sommaire</h2>
+
+<p> Nous allons nous entra�ner sur cette page pour apprendre �
+changer l'affichage de certains éléments  :
+</p>
+
+<ol>
+   <li><a href="#aaa">Un texte</a></li>
+   <li><a href="#bbb">Un tableau</a></li>
+   <li><a href="#ccc">Des liens</a></li>
+   <li><a href="#ddd">Le s�lecteur de classe</a></li>
+</ol>
+
+
+
+<h2><a name="aaa">Un texte</a></h2>
+
+<p>
+Un petit texte que l'on va tenter d'a�rer un peu � l'aide des feuilles
+de style. Il serait bon en effet que les diff�rents paragraphes d'une
+page ne soient pas coll�s contre les diff�rentes bordures de la
+fen�tre de votre navigateur et soient de plus un peu
+d�cal�s par rapport aux titres.
+C'est ce que nous essaierons de faire � l'exercice 5.
+</p>
+
+
+
+<h2><a name="bbb">Un tableau</a></h2>
+
+<p>
+Un tableau qui recense une liste de livre en mentionnant titre,
+auteur, �diteur et ann�e de parution :
+</p>
+
+<table border="1" cellpadding="5%">
+<th>Titres</th><th>Auteurs</th><th>Editions</th><th>Années de parutions</th>
+<tbody><tr>
+   <td class="titres"> La vie mode d'emploi</td>
+   <td class="pastitre" rowspan="3"><a href="http://fr.wikipedia.org/wiki/Georges_Perec"> Georges Perec</a></td>
+   <td class="pastitre"> Le Livre de Poche</td>
+   <td class="pastitre"> 2002 (1978)</td>
+</tr><tr>
+   <td class="titres"> Le palace</td>
+   <td class="pastitre"><a href="http://fr.wikipedia.org/wiki/Claude_Simon"> Claude Simon</a></td>
+   <td class="pastitre"> Les �ditions de Minuit</td>
+   <td class="pastitre"> 2000 (1962)</td>
+</tr><tr>
+   <td class="titres"> Michael K, sa vie, son temps</td>
+   <td class="pastitre"><a href="http://fr.wikipedia.org/wiki/J._M._Coetzee"> J.M.Coetzee</a></td>
+   <td class="pastitre"> Points Seuil</td>
+   <td class="pastitre"> 2000 (1983)</td>
+</tr><tr>
+   <td class="titres"> Affliction</td>
+   <td class="pastitre"><a href="http://fr.wikipedia.org/wiki/Russell_Banks"> Russel Banks</a></td>
+   <td class="pastitre"> Babel, Actes Sud</td>
+   <td class="pastitre"> 2000 (1989)</td>
+</tr><tr>
+   <td class="titres">Le paum�</td>
+   <td class="pastitre"><a href="http://fr.wikipedia.org/wiki/Fatos_Kongoli"> Fatos Kongoli</a></td>
+   <td class="pastitre"> Rivages Poche</td>
+   <td class="pastitre"> 2005 (1992)</td>
+</tr><tr>
+   <td class="titres">La splendeur du Portugal</td>
+   <td class="pastitre"><a href="http://fr.wikipedia.org/wiki/Ant%C3%B3nio_Lobo_Antunes">  Antonio Lobo Antunes</a></td>
+   <td class="pastitre"> Points Seuil</td>
+   <td class="pastitre"> 2000 (1998)</td>
+</tr>
+</tbody></table>
+
+
+
+<h2><a name="ccc">Des liens</a></h2>
+
+<p>
+Nous allons jouer ici sur l'aspect que l'on peut donner aux
+liens. Commen�ons par pointer quelques pages utiles pour l'�dition des pages web : celle de 
+<a href="http://www.w3.org/">w3c</a>,
+l'organisme de r�f�rence pour les diff�rentes normes html et 
+<a href="http://www.w3schools.com/default.asp">w3c school</a>
+qui contient quelques tutoriaux qui pourront vous �tre utiles et
+surtout des listes de balises avec leurs attributs.
+</p>
+
+
+
+<h2 class="decal10"><a name="ddd">Le s�lecteur de classe</a></h2>
+
+<p>
+Ici, nous allons apprendre � affecter un style � plusieurs balises
+en m�me temps grace � l'attribut <tt>class</tt>. Ceci est en
+particulier utile lorsque l'on veut attribuer des affichages
+diff�rents � une m�me balise. Par exemple, lorque l'exercice 8 aura
+�t� fait, ce paragraphe restera semblable au paragraphe de la partie
+<b>"Un texte"</b> alors que le paragraphe suivant sera �crit en rouge.
+</p>
+
+<p class=special> 
+Ce paragraphe est encadr� par les balises <tt>&lt;p&gt;</tt> et
+<tt>&lt;/p&gt;</tt>
+comme le pr�c�dent mais on va y rajouter l'attribut
+<tt>class="special"</tt>. Tant que les feuilles de
+styles ne seront pas �dit�es, il n'y aura aucune diff�rence, apr�s
+l'exercice 11, il y en aura une.
+</p> 
+<div>
+  <img src="cafe.gif" alt="Café" />
+</div>
+<p class="decal10">
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+Quelques lignes pour rallonger la page<br>
+</p>
+<a href="../TPOI/index.html">Retour à l'index</a>
+<a href="../tp1/tp1.html">Tp 1</a>
+<a href="../tp3/index.html">Tp 3</a>
+   </body></html>
