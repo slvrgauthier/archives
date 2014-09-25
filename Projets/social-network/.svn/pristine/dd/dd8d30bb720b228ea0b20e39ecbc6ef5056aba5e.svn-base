@@ -1,5 +1,0 @@
-<?php
-	include('send_message.php');
-	echo "<br/>";
-	include('read_message.php');
-?>

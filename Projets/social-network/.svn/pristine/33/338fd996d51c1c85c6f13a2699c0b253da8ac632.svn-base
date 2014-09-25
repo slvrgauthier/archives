@@ -1,6 +1,0 @@
-$().ready(function(){	
-	$('#friend_list').toggleClass('active').slideUp(0,'linear');
-	$('#list').click(function(){
-		$('#friend_list').toggleClass('active').slideToggle(300,'linear');
-	});
-});

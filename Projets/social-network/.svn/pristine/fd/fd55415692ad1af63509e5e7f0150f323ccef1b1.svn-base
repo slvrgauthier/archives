@@ -1,8 +1,0 @@
-<?php
-require_once("connexion_db.php");
-$req = $bdd->prepare('select id_conversation from chat_conversation where id_membre=?');
-$req->execute(array($_POST['id_user']));
-while ($data = $req->fetch())
-	{
-		echo "<li class='conv' value='".$data['id_conversation']."'>Conversation ".$data['id_conversation']."</li>";
-	}
