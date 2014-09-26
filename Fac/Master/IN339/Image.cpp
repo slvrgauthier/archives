@@ -13,41 +13,38 @@
 using namespace std;
 
 Image::Image(const string filename) { load(filename); }
-Image::Image(const Image& image) {/* TODO */}
-Image::~Image() {/* TODO */}
+Image::Image(Format f, string n, unsigned int w, unsigned int h, bool c, vector<Channel> C) {
+	format = f;
+	name = n;
+	width = w;
+	height = h;
+	colored = c;
+	channels = C;
+	resizeData(width * height * channels.size());
+}
+Image::Image(const Image* image) {
+	format = image->getFormat();
+	name = image->getName();
+	width = image->getWidth();
+	height = image->getHeight();
+	colored = image->isColored();
+	channels = image->getChannels();
+	resizeData(width * height * channels.size());
+	for(unsigned int i=0 ; i < length ; i++) {
+		data[i] = image->getData(i);
+	}
+}
+Image::~Image() {/*TODO*/}
 
 Format Image::getFormat() const { return format; }
 string Image::getName() const { return name; }
 unsigned int Image::getWidth() const { return width; }
 unsigned int Image::getHeight() const { return height; }
-bool Image::isColored() { return colored; }
-vector<ChannelID> Image::getChannels() const {
-	vector<ChannelID> ids;
-	for(unsigned int i=0 ; i < channels.size() ; i++) {
-		ids.push_back(channels[i].id);
-	}
-	return ids;
-}
-unsigned char Image::getPixel(ChannelID channel, unsigned int x, unsigned int y) const {
-	unsigned int i=0;
-	while(i < channels.size()) {
-		if(channels[i].id == channel) {
-			//return channels[i].data[ y * width + x];
-		}
-		i++;
-	}
-	return 0; // channel don't exist
-}
-void Image::setPixel(ChannelID channel, unsigned int x, unsigned int y, unsigned char value) {
-	unsigned int i=0;
-	while(i < channels.size()) {
-		if(channels[i].id == channel) {
-			//channels[i].data[ y * width + x] = value;
-			i = channels.size();
-		}
-		i++;
-	}
-}
+bool Image::isColored() const { return colored; }
+vector<Channel> Image::getChannels() const { return channels; }
+unsigned int Image::getLength() const { return length; }
+unsigned char Image::getData(int i) const { return data[i]; }
+void Image::setData(int i, unsigned char value) { data[i] = value; }
 
 bool Image::load(const string filename) {
 	ifstream is(filename.c_str());
@@ -61,14 +58,28 @@ bool Image::load(const string filename) {
 	
 	if(keyWord.compare("P6") == 0) {
 		format = PPM;
+		name = filename;
+		colored = true;
 		return load_ppm(filename);
+	}
+	else if(keyWord.compare("RGBC") == 0) {
+		format = RGBC;
+		name = filename;
+		colored = true;
+		return load_rgbc(filename);
+	}
+	else if(keyWord.compare("YCCC") == 0) {
+		format = YCCC;
+		name = filename;
+		colored = true;
+		return load_yccc(filename);
 	}
 	else {
 		return false;
 	}
 }
 
-bool Image::save(const string filename, Format fileformat) {
+bool Image::save(const string filename, Format fileformat) const {
 	if(fileformat == PPM) {
 		if(format == PPM) {
 			return save_ppm(filename);
@@ -77,7 +88,31 @@ bool Image::save(const string filename, Format fileformat) {
 			return convertToPPM().save_ppm(filename);
 		}
 	}
+	else if(fileformat == RGBC) {
+		if(format == RGBC) {
+			return save_rgbc(filename);
+		}
+		else {
+			return convertToRGBC().save_rgbc(filename);
+		}
+	}
+	else if(fileformat == YCCC) {
+		if(format == YCCC) {
+			return save_yccc(filename);
+		}
+		else {
+			return convertToYCCC().save_yccc(filename);
+		}
+	}
 	else {
 		return false;
+	}
+}
+
+void Image::resizeData(unsigned int length) {
+	this->length = length;
+	if((data = (unsigned char*)calloc(length, sizeof(unsigned char))) == NULL) {
+		cout << "Allocation dynamique impossible" << endl;
+		exit(EXIT_FAILURE);
 	}
 }

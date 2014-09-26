@@ -11,34 +11,28 @@ using namespace std;
 enum Format {
 	BMP,
 	GIF,
-	JPEG,
-	JPEG2000,
+	JPG,
 	PBM,
 	PGM,
 	PNG,
 	PPM,
 	TGA,
-	TIFF,
+	TIF,
 	
 	RGBC,
 	YCCC
 };
 
-enum ChannelID {
+enum Channel {
 	BINARY,
 	GREY,
 	RED,
 	GREEN,
 	BLUE,
 	LUMA,
-	BLUEDIFF,
-	REDDIFF
+	REDDIFF,
+	BLUEDIFF
 };
-
-typedef struct Channel {
-	ChannelID id;
-	bool compressed;
-} Channel;
 
 class Image {
 	private:
@@ -48,32 +42,41 @@ class Image {
 		unsigned int height;
 		bool colored;
 		vector<Channel> channels;
+		unsigned int length;
 		unsigned char* data;
 
 	public:
 		Image(const string filename);
-		Image(const Image& image);
+		Image(Format f, string n, unsigned int w, unsigned int h, bool c, vector<Channel> C);
+		Image(const Image* image);
 		~Image();
 
 		Format getFormat() const;
 		string getName() const;
 		unsigned int getWidth() const;
 		unsigned int getHeight() const;
-		bool isColored();
-		vector<ChannelID> getChannels() const;
-		unsigned char getPixel(ChannelID channel, unsigned int x, unsigned int y) const;
-		void setPixel(ChannelID channel, unsigned int x, unsigned int y, unsigned char value);
+		bool isColored() const;
+		vector<Channel> getChannels() const;
+		unsigned int getLength() const;
+		unsigned char getData(int i) const;
+		void setData(int i, unsigned char value);
 
 		bool load(const string filename);
-		bool save(const string filename, Format fileformat);
+		bool save(const string filename, Format fileformat) const;
+		
+		void resizeData(unsigned int length);
 		
 	private:
 		bool load_ppm(string filename);
-		bool save_ppm(string filename);
-		Image& convertToPPM();
+		bool save_ppm(string filename) const;
+		bool load_rgbc(string filename);
+		bool save_rgbc(string filename) const;
+		bool load_yccc(string filename);
+		bool save_yccc(string filename) const;
+		
+		Image convertToPPM() const;
+		Image convertToRGBC() const;
+		Image convertToYCCC() const;
 };
-
-//name.substr(name.find_last_of(".")+1, string::npos).compare("ppm") != 0
-//string l_name = name.erase(name.find_last_of("."), string::npos)+".RGBc";
 
 #endif
