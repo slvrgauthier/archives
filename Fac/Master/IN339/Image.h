@@ -1,3 +1,6 @@
+#ifndef IMAGE_H
+#define IMAGE_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -10,20 +13,23 @@ enum Format {
 	GIF,
 	JPEG,
 	JPEG2000,
+	PBM,
 	PGM,
 	PNG,
 	PPM,
 	TGA,
-	TIFF
+	TIFF,
+	
+	RGBC,
+	YCCC
 };
 
 enum ChannelID {
+	BINARY,
 	GREY,
-
 	RED,
 	GREEN,
 	BLUE,
-
 	LUMA,
 	BLUEDIFF,
 	REDDIFF
@@ -32,17 +38,17 @@ enum ChannelID {
 typedef struct Channel {
 	ChannelID id;
 	bool compressed;
-	vector<unsigned char> data;
 } Channel;
 
 class Image {
 	private:
 		Format format;
 		string name;
-		unsigned int width = 0;
-		unsigned int height = 0;
+		unsigned int width;
+		unsigned int height;
 		bool colored;
 		vector<Channel> channels;
+		unsigned char* data;
 
 	public:
 		Image(const string filename);
@@ -59,10 +65,15 @@ class Image {
 		void setPixel(ChannelID channel, unsigned int x, unsigned int y, unsigned char value);
 
 		bool load(const string filename);
-		bool load(const Image& image);
-		bool save(const string filename);
+		bool save(const string filename, Format fileformat);
+		
+	private:
+		bool load_ppm(string filename);
+		bool save_ppm(string filename);
+		Image& convertToPPM();
 };
 
 //name.substr(name.find_last_of(".")+1, string::npos).compare("ppm") != 0
 //string l_name = name.erase(name.find_last_of("."), string::npos)+".RGBc";
 
+#endif

@@ -10,7 +10,7 @@ void YCCcompress(Image& imIn, Image& imOut, string name, bool psnr);
 int main(int argc, char **argv)
 {
 	if(argc != 2) {
-		cout << "Usage: Compresseur Image.ppm\n" << endl; 
+		cout << "Usage: Compresseur Image\n" << endl; 
 		return 1;
 	}
 
@@ -19,6 +19,7 @@ int main(int argc, char **argv)
 	Image imOut(imIn);
 
 	int w = imIn.getWidth(), h = imIn.getHeight();
+	cout<<"length = "<<w*h<<endl;
 	int action = -1;
 	bool psnr = false, ratio = false;
 
@@ -29,6 +30,7 @@ int main(int argc, char **argv)
 		cout << "2 : Activer / Désactiver le Taux de compression" << endl;
 		cout << "3 : Compresser l'image en RGBc" << endl;
 		cout << "4 : Compresser l'image en YCCc" << endl;
+		cout << "5 : Convertir l'image en PPM" << endl;
 
 		cout << endl << "Action : ";
 		cin >> action;
@@ -50,6 +52,7 @@ int main(int argc, char **argv)
 				break;
 			case 3 : RGBcompress(imIn, imOut, name, psnr); break;
 			case 4 : YCCcompress(imIn, imOut, name, psnr); break;
+			case 5 : imIn.save(name.erase(name.find_last_of("."), string::npos), PPM); break;
 			default : cout << "Action inconnue" << endl; break;
 		}
 		
@@ -65,7 +68,7 @@ void RGBcompress(Image& imIn, Image& imOut, string name, bool psnr) {
 	}
 	else {
 		string l_name = name.erase(name.find_last_of("."), string::npos);
-		if(imOut.save((char*)l_name.c_str()))
+		if(imOut.save(l_name, RGBC))
 			cout << l_name << " enregistrée." << endl;
 		else
 			cout << "Erreur: " << l_name << " non enregistrée." << endl;
@@ -78,7 +81,7 @@ void YCCcompress(Image& imIn, Image& imOut, string name, bool psnr) {
 	}
 	else {
 		string l_name = name.erase(name.find_last_of("."), string::npos);
-		if(imOut.save((char*)l_name.c_str()))
+		if(imOut.save(l_name, YCCC))
 			cout << l_name << " enregistrée." << endl;
 		else
 			cout << "Erreur: " << l_name << " non enregistrée." << endl;
