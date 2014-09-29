@@ -18,9 +18,10 @@ Image Image::convertToPPM() const {
 		for(unsigned int j=0 ; j < height ; j++) {
 			for(unsigned int i=0 ; i < width ; i++) {
 				int xy = j * width + i;
-				imageOut.setData(3*xy, this->getData(xy/4));
-				imageOut.setData(3*xy + 1, this->getData((xy + xy%4 + width*height)/4));
-				imageOut.setData(3*xy + 2, this->getData((xy + 3*width*height)/4));
+				int xyc = j/2 * width/2 + i/2;
+				imageOut.setData(3*xy, this->getData(xyc));
+				imageOut.setData(3*xy + 1, this->getData(xy + width*height/4));
+				imageOut.setData(3*xy + 2, this->getData(xyc + 5*width*height/4));
 			}
 		}
 		return imageOut;
@@ -32,12 +33,13 @@ Image Image::convertToPPM() const {
 		for(unsigned int j=0 ; j < height ; j++) {
 			for(unsigned int i=0 ; i < width ; i++) {
 				int xy = j * width + i;
-				unsigned char Y = this->getData((xy + xy%4)/4);
-				unsigned char Cr = this->getData((xy + width*height)/4);
-				unsigned char Cb = this->getData((xy + 3*width*height)/4);
-				imageOut.setData(3*xy, (unsigned char)(Y + 1.402 * (Cr-128)));
-				imageOut.setData(3*xy + 1, (unsigned char)(Y - 0.34414 * (Cb-128) - 0.71414 * (Cr-128)));
-				imageOut.setData(3*xy + 2, (unsigned char)(Y + 1.772 * (Cb-128)));
+				int xyc = j/2 * width/2 + i/2;
+				unsigned char Y = this->getData(xy);
+				unsigned char Cb = this->getData(xyc + width*height);
+				unsigned char Cr = this->getData(xyc + 5*width*height/4);
+				imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,(Y - 0.34414 * (Cb-128) - 0.71414 * (Cr-128))))));
+				imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,(Y + 1.402 * (Cr-128))))));
+				imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,(Y + 1.772 * (Cb-128))))));
 			}
 		}
 		return imageOut;
@@ -56,9 +58,10 @@ Image Image::convertToRGBC() const {
 	for(unsigned int j=0 ; j < height ; j++) {
 		for(unsigned int i=0 ; i < width ; i++) {
 			int xy = j * width + i;
-			imageOut.setData(xy/4, imageref.getData(3*xy));
-			imageOut.setData((xy + xy%4 + width*height)/4, imageref.getData(3*xy + 1));
-			imageOut.setData((xy + 3*width*height)/4, imageref.getData(3*xy + 2));
+			int xyc = j/2 * width/2 + i/2;
+			imageOut.setData(xyc, imageref.getData(3*xy));
+			imageOut.setData(xy + width*height/4, imageref.getData(3*xy + 1));
+			imageOut.setData(xyc + 5*width*height/4, imageref.getData(3*xy + 2));
 		}
 	}
 	return imageOut;
@@ -76,12 +79,13 @@ Image Image::convertToYCCC() const {
 	for(unsigned int j=0 ; j < height ; j++) {
 		for(unsigned int i=0 ; i < width ; i++) {
 			int xy = j * width + i;
+			int xyc = j/2 * width/2 + i/2;
 			unsigned char ppm_r = imageref.getData(3*xy);
 			unsigned char ppm_g = imageref.getData(3*xy + 1);
 			unsigned char ppm_b = imageref.getData(3*xy + 2);
-			imageOut.setData((xy + xy%4)/4, (unsigned char)(0.299*ppm_r + 0.587*ppm_g + 0.114*ppm_b));
-			imageOut.setData((xy + width*height)/4, (unsigned char)(-0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128));
-			imageOut.setData((xy + 3*width*height)/4, (unsigned char)(0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128));
+			imageOut.setData(xy, (unsigned char)(max(0.0,min(255.0,(0.299*ppm_r + 0.587*ppm_g + 0.114*ppm_b)))));
+			imageOut.setData(xyc + width*height, (unsigned char)(max(0.0,min(255.0,(-0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128)))));
+			imageOut.setData(xyc + 5*width*height/4, (unsigned char)(max(0.0,min(255.0,(0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128)))));
 		}
 	}
 	return imageOut;
