@@ -108,6 +108,21 @@ bool Image::save(const string filename, Format fileformat) const {
 	}
 }
 
+double Image::psnr(const Image image) const {
+	double result = 0;
+	if(length != image.getLength()) {
+		result = -1;
+	}
+	else {
+		for(unsigned int i=0 ; i < length ; i++) {
+			result += pow(getData(i) - image.getData(i), 2);
+		}
+		result /= width * height;
+		result = 10 * log(255*255/result);
+	}
+	return result;
+}
+
 void Image::resizeData(unsigned int length) {
 	this->length = length;
 	if((data = (unsigned char*)calloc(length, sizeof(unsigned char))) == NULL) {

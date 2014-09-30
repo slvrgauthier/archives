@@ -63,6 +63,7 @@ class Image {
 
 		bool load(const string filename);
 		bool save(const string filename, Format fileformat) const;
+		double psnr(const Image image) const;
 		
 		void resizeData(unsigned int length);
 		
