@@ -67,13 +67,10 @@ class Image {
 		void resizeData(unsigned int length);
 		
 	private:
-		bool load_ppm(string filename);
-		bool save_ppm(string filename) const;
-		bool load_rgbc(string filename);
-		bool save_rgbc(string filename) const;
-		bool load_yccc(string filename);
-		bool save_yccc(string filename) const;
+		bool load_(string filename);
+		bool save_(string filename) const;
 		
+		Image convertToPGM() const;
 		Image convertToPPM() const;
 		Image convertToRGBC() const;
 		Image convertToYCCC() const;

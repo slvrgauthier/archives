@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 		cout << "3 : Compresser l'image en RGBc" << endl;
 		cout << "4 : Compresser l'image en YCCc" << endl;
 		cout << "5 : Convertir l'image en PPM" << endl;
+		cout << "6 : Changer d'image" << endl;
 
 		cout << endl << "Action : ";
 		cin >> action;
@@ -49,6 +50,12 @@ int main(int argc, char **argv)
 			case 3 : imIn.save(name, RGBC); break;
 			case 4 : imIn.save(name, YCCC); break;
 			case 5 : imIn.save(name, PPM); break;
+			case 6 : cout << "Nom de l'image : ";
+				cin >> name;
+				name = "img/" + name;
+				imIn.load(name);
+				imOut.load(name);
+				break;
 			default : cout << "Action inconnue" << endl; break;
 		}
 		

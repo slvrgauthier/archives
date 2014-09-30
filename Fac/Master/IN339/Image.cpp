@@ -56,23 +56,29 @@ bool Image::load(const string filename) {
 	is >> keyWord;
 	is.close();
 	
-	if(keyWord.compare("P6") == 0) {
+	if(keyWord.compare("P5") == 0) {
+		format = PGM;
+		name = filename;
+		colored = false;
+		return load_(filename);
+	}
+	else if(keyWord.compare("P6") == 0) {
 		format = PPM;
 		name = filename;
 		colored = true;
-		return load_ppm(filename);
+		return load_(filename);
 	}
 	else if(keyWord.compare("RGBC") == 0) {
 		format = RGBC;
 		name = filename;
 		colored = true;
-		return load_rgbc(filename);
+		return load_(filename);
 	}
 	else if(keyWord.compare("YCCC") == 0) {
 		format = YCCC;
 		name = filename;
 		colored = true;
-		return load_yccc(filename);
+		return load_(filename);
 	}
 	else {
 		return false;
@@ -80,32 +86,25 @@ bool Image::load(const string filename) {
 }
 
 bool Image::save(const string filename, Format fileformat) const {
-	if(fileformat == PPM) {
-		if(format == PPM) {
-			return save_ppm(filename);
-		}
-		else {
-			return convertToPPM().save_ppm(filename);
-		}
-	}
-	else if(fileformat == RGBC) {
-		if(format == RGBC) {
-			return save_rgbc(filename);
-		}
-		else {
-			return convertToRGBC().save_rgbc(filename);
-		}
-	}
-	else if(fileformat == YCCC) {
-		if(format == YCCC) {
-			return save_yccc(filename);
-		}
-		else {
-			return convertToYCCC().save_yccc(filename);
-		}
+	if(fileformat == format) {
+		return save_(filename);
 	}
 	else {
-		return false;
+		if(fileformat == PGM) {
+			return convertToPGM().save_(filename + ".");
+		}
+		else if(fileformat == PPM) {
+			return convertToPPM().save_(filename + ".");
+		}
+		else if(fileformat == RGBC) {
+			return convertToRGBC().save_(filename + ".");
+		}
+		else if(fileformat == YCCC) {
+			return convertToYCCC().save_(filename + ".");
+		}
+		else {
+			return false;
+		}
 	}
 }
 
