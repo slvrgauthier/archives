@@ -4,6 +4,56 @@
 using namespace std;
 using namespace cimg_library;
 
+void erosion(CImg<unsigned short>* img) {
+	long w = (*img).width(), h = (*img).height(), d = (*img).depth();
+	for(long x=0 ; x<w ; x++) {
+		for(long y=0 ; y<h ; y++) {
+			for(long z=0 ; z<d ; z++) {
+				if((*img).atXYZ(x,y,z) != 0) {
+					if(((*img).atXYZ(x-1,y,z) == 0 && x > 0)
+					||((*img).atXYZ(x+1,y,z) == 0 && x < w)
+					||((*img).atXYZ(x,y-1,z) == 0 && y > 0)
+					||((*img).atXYZ(x,y+1,z) == 0 && y < h)
+					||((*img).atXYZ(x,y,z-1) == 0 && z > 0)
+					||((*img).atXYZ(x,y,z+1) == 0) && z < d) {
+						*((*img).data(x,y,z)) = 0;
+					}
+				}
+			}
+		}
+	}
+}
+void dilatation(CImg<unsigned short>* img) {
+	long w = (*img).width(), h = (*img).height(), d = (*img).depth();
+	for(long x=0 ; x<w ; x++) {
+		for(long y=0 ; y<h ; y++) {
+			for(long z=0 ; z<d ; z++) {
+				if((*img).atXYZ(x,y,z) == 0) {
+					if((*img).atXYZ(x-1,y,z) != 0 && x > 0) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x-1,y,z);
+					}
+					if((*img).atXYZ(x+1,y,z) != 0 && x < w) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x+1,y,z);
+					}
+					if((*img).atXYZ(x,y-1,z) != 0 && y > 0) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x,y-1,z);
+					}
+					if((*img).atXYZ(x,y+1,z) != 0 && y < h) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x,y+1,z);
+					}
+					if((*img).atXYZ(x,y,z-1) != 0 && z > 0) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x,y,z-1);
+					}
+					if((*img).atXYZ(x,y,z+1) != 0 && z < d) {
+						*((*img).data(x,y,z)) = (*img).atXYZ(x,y,z+1);
+					}
+				}
+			}
+		}
+	}
+
+}
+
 int main(int argc, char* argv[]) {
 
 	unsigned short seuil1, seuil2;
@@ -28,6 +78,9 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
+
+	erosion(&img);
+	dilatation(&img);
 
 // Visualisation
 	img.display();
