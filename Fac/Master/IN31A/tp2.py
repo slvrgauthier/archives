@@ -42,7 +42,7 @@ class GMap:
 	
 	def set_position(self, dart, position) :
 		""" Associate coordinates with the vertex &lt;alpha_1,alpha_2&gt;(dart) """
-		self.positions[dart] = self.position
+		self.positions[dart] = position
 
 	def orbit(self, dart,list_of_alpha_value):
 		""" Return the orbit of dart using a list of alpha relation."""
@@ -78,11 +78,34 @@ class GMap:
 
 def cube(xsize,ysize,zsize):
 	gmap = GMap()
-	for i in range(0,8):
+	
+	# front face
+	for i in range(0,16):
 		gmap.add_dart(i)
-	for i in range(0,4):
+	for i in range(0,8):
 		gmap.link_dart(0,2*i,2*i+1)
-		gmap.link_dart(1,2*i+1,(2*i+2)%8)
+		if (2*i+2)%8 == 0:
+			gmap.link_dart(1,2*i+1,2*i-6)
+		else:
+			gmap.link_dart(1,2*i+1,2*i+2)
+	gmap.set_position(0, [-xsize, -ysize, -zsize])
+	gmap.set_position(1, [-xsize, +ysize, -zsize])
+	gmap.set_position(2, [-xsize, +ysize, -zsize])
+	gmap.set_position(3, [+xsize, +ysize, -zsize])
+	gmap.set_position(4, [+xsize, +ysize, -zsize])
+	gmap.set_position(5, [+xsize, -ysize, -zsize])
+	gmap.set_position(6, [+xsize, -ysize, -zsize])
+	gmap.set_position(7, [-xsize, -ysize, -zsize])
+	
+	# back face
+	gmap.set_position(8, [-xsize, -ysize, +zsize])
+	gmap.set_position(9, [-xsize, +ysize, +zsize])
+	gmap.set_position(10, [-xsize, +ysize, +zsize])
+	gmap.set_position(11, [+xsize, +ysize, +zsize])
+	gmap.set_position(12, [+xsize, +ysize, +zsize])
+	gmap.set_position(13, [+xsize, -ysize, +zsize])
+	gmap.set_position(14, [+xsize, -ysize, +zsize])
+	gmap.set_position(15, [-xsize, -ysize, +zsize])
 		
 	return gmap
 	
@@ -96,7 +119,7 @@ def display_face(pointlist, indexlist, color):
 
 gmap = cube(10, 10, 10)
 print "darts() :", gmap.darts()
-print "alpha_0 :", gmap.alpha_0
-print "alpha_1 :", gmap.alpha_1
+#print "alpha_0 :", gmap.alpha_0
+#print "alpha_1 :", gmap.alpha_1
 print "is_valid() :", gmap.is_valid()
 print "orbit(0, [0,1]) :", gmap.orbit(0, [0,1])
