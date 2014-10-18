@@ -20,7 +20,8 @@ enum Format {
 	TIF,
 	
 	RGBC,
-	YCCC
+	YCCC,
+	SLVR
 };
 
 enum Channel {
@@ -75,6 +76,7 @@ class Image {
 		Image convertToPPM() const;
 		Image convertToRGBC() const;
 		Image convertToYCCC() const;
+		Image convertToSLVR() const;
 };
 
 #endif

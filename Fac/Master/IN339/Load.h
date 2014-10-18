@@ -1,7 +1,6 @@
 #ifndef LOAD_H
 #define LOAD_H
 
-#include "Image.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -38,6 +37,9 @@ bool Image::load_(string filename) {
 		else if(format == YCCC) {
 			fscanf(f_image, "YCCC ");
 		}
+		else if(format == SLVR) {
+			fscanf(f_image, "SLVR ");
+		}
 		ignoreComments(f_image);
 		fscanf(f_image, "%d %d %d%*c", &width, &height, &max_grey_val);
 		
@@ -58,6 +60,12 @@ bool Image::load_(string filename) {
 			channels.push_back(BLUE);
 		}
 		else if(format == YCCC) {
+			length = 3 * width * height / 2;
+			channels.push_back(LUMA);
+			channels.push_back(REDDIFF);
+			channels.push_back(BLUEDIFF);
+		}
+		else if(format == SLVR) {
 			length = 3 * width * height / 2;
 			channels.push_back(LUMA);
 			channels.push_back(REDDIFF);

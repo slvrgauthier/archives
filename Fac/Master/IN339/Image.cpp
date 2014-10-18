@@ -1,12 +1,10 @@
 #include "Image.h"
-#include "Load.h"
-#include "Save.h"
-#include "Convert.h"
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
+#include <cmath>
 
 #define MAX_INT 65536  // 2^16
 
@@ -80,6 +78,12 @@ bool Image::load(const string filename) {
 		colored = true;
 		return load_(filename);
 	}
+	else if(keyWord.compare("SLVR") == 0) {
+		format = SLVR;
+		name = filename;
+		colored = true;
+		return load_(filename);
+	}
 	else {
 		return false;
 	}
@@ -101,6 +105,9 @@ bool Image::save(const string filename, Format fileformat) const {
 		}
 		else if(fileformat == YCCC) {
 			return convertToYCCC().save_(filename + ".");
+		}
+		else if(fileformat == SLVR) {
+			return convertToSLVR().save_(filename + ".");
 		}
 		else {
 			return false;

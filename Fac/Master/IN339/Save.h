@@ -1,7 +1,6 @@
 #ifndef SAVE_H
 #define SAVE_H
 
-#include "Image.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,6 +19,9 @@ bool Image::save_(string filename) const {
 	}
 	else if(format == YCCC) {
 		name += ".yccc";
+	}
+	else if(format == SLVR) {
+		name += ".slvr";
 	}
 	else {
 		name += ".unknown";
@@ -45,6 +47,9 @@ bool Image::save_(string filename) const {
 		}
 		else if(format == YCCC) {
 			fprintf(f_image,"YCCC\r");
+		}
+		else if(format == SLVR) {
+			fprintf(f_image,"SLVR\r");
 		}
 		else {
 			fprintf(f_image,"UNKNOWN\r");
