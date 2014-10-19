@@ -232,9 +232,9 @@ print "alpha_0 :", gmap.nb_elements(0), "brins"
 print "alpha_1 :", gmap.nb_elements(1), "brins"
 print "alpha_2 :", gmap.nb_elements(2), "brins"
 print "is_valid() :", gmap.is_valid()
-print "orbit(0, [0,1]) :", len(gmap.orbit(0, [0,1])), "brins"
+print "\norbit(0, [0,1]) :", len(gmap.orbit(0, [0,1])), "brins"
 print "orbit(0, [1,2]) :", len(gmap.orbit(0, [1,2])), "brins"
 print "orbit(0, [0,2]) :", len(gmap.orbit(0, [0,2])), "brins"
-print "orbit(0, [0,1,2]) :", len(gmap.orbit(0, [0,1,2])), "brins"
+print "orbit(0, [0,1,2]) :", len(gmap.orbit(0, [0,1,2])), "brins\n"
 eulercharacteristic(gmap)
 display(gmap)
