@@ -56,7 +56,7 @@ class GMap:
 			stop = True
 			l_orbit = orbit.copy()
 			for d in l_orbit:
-				if not(d in seen):
+				if d not in seen:
 					seen[d] = True
 					for a in list_of_alpha_value:
 						if a == 0 and d in self.alpha_0:
@@ -68,7 +68,7 @@ class GMap:
 						if a == 2 and d in self.alpha_2:
 							stop = False
 							orbit.add(self.alpha_2[d])
-		return orbit
+		return list(orbit)
 
 	def sew_dart(self, degree, dart1, dart2, merge_attribute = True):
 		""" Sew two elements of degree 'degree' that start at dart1 and dart2."""
@@ -193,30 +193,38 @@ def cube(xsize,ysize,zsize):
 	return gmap
 
 def eulercharacteristic (gmap):
-	#FIXME calculer les 6 et 4... positions individuelles ?
-	S = len(gmap.brins) / 6
+	S = []
+	for p in gmap.positions.values():
+		if p not in S:
+			S.append(p)
+	S = len(S)
+	
+	# double liaison pour chaque couple de brins et double arete pour chaque arete visible donc /4
 	A = gmap.nb_elements(0) / 4
-	F = 6
+	
+	F = []
+	for b in gmap.brins:
+		o = gmap.orbit(b,[0,1])
+		# les orbites sont triees donc comparaison possible
+		if o not in F:
+			F.append(o)
+	F = len(F)
+	
+	print S,"sommets,",A,"aretes,",F,"faces : euler() =",S - A + F
 	return S - A + F
 
 def display(gmap):
-	l1 = []
-	l2 = []
-	for i in range(0,24):
-		l1.append(gmap.positions[2*i])
-	for i in range(0,6):
-		l2.append([4*i,4*i+1,4*i+2,4*i+3])
-	display_face(l1,l2,[0,0,0])
-	#display_face([gmap.positions[0],gmap.positions[2],gmap.positions[4],gmap.positions[6]], [[0,1,2,3]], [255,0,0])
-	#display_face([gmap.positions[8],gmap.positions[10],gmap.positions[12],gmap.positions[14]], [[0,1,2,3]], [255,255,0])
-	#display_face([gmap.positions[16],gmap.positions[18],gmap.positions[20],gmap.positions[22]], [[0,1,2,3]], [0,255,0])
-	#display_face([gmap.positions[24],gmap.positions[26],gmap.positions[28],gmap.positions[30]], [[0,1,2,3]], [0,255,255])
-	#display_face([gmap.positions[32],gmap.positions[34],gmap.positions[36],gmap.positions[38]], [[0,1,2,3]], [0,0,255])
-	#display_face([gmap.positions[40],gmap.positions[42],gmap.positions[44],gmap.positions[46]], [[0,1,2,3]], [255,0,255])
+	shapes = []
+	shapes.append(display_face([gmap.positions[0],gmap.positions[2],gmap.positions[4],gmap.positions[6]], [[0,1,2,3]], [255,0,0]))
+	shapes.append(display_face([gmap.positions[8],gmap.positions[10],gmap.positions[12],gmap.positions[14]], [[0,1,2,3]], [255,255,0]))
+	shapes.append(display_face([gmap.positions[16],gmap.positions[18],gmap.positions[20],gmap.positions[22]], [[0,1,2,3]], [0,255,0]))
+	shapes.append(display_face([gmap.positions[24],gmap.positions[26],gmap.positions[28],gmap.positions[30]], [[0,1,2,3]], [0,255,255]))
+	shapes.append(display_face([gmap.positions[32],gmap.positions[34],gmap.positions[36],gmap.positions[38]], [[0,1,2,3]], [0,0,255]))
+	shapes.append(display_face([gmap.positions[40],gmap.positions[42],gmap.positions[44],gmap.positions[46]], [[0,1,2,3]], [255,0,255]))
+	Viewer.display(Scene(shapes))
 
 def display_face(pointlist, indexlist, color):
-	sc = Scene([Shape(FaceSet(pointlist,indexlist),Material(color))])
-	Viewer.display(sc)
+	return Shape(FaceSet(pointlist,indexlist),Material(color))
 
 gmap = cube(5, 5, 5)
 print "darts() :", len(gmap.darts()), "brins"
@@ -228,5 +236,5 @@ print "orbit(0, [0,1]) :", len(gmap.orbit(0, [0,1])), "brins"
 print "orbit(0, [1,2]) :", len(gmap.orbit(0, [1,2])), "brins"
 print "orbit(0, [0,2]) :", len(gmap.orbit(0, [0,2])), "brins"
 print "orbit(0, [0,1,2]) :", len(gmap.orbit(0, [0,1,2])), "brins"
-print "euler() :", eulercharacteristic(gmap)
+eulercharacteristic(gmap)
 display(gmap)
