@@ -81,12 +81,12 @@ Image Image::convertToPPM() const {
 							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
 								int xy2 = (j+y) * width + (i+x);
 								int xyc2 = (j+y)/2 * width/2 + (i+x)/2;
-								A[0] = (u == 0)? 1/sqrt(2) : 1;
-								A[1] = (v == 0)? 1/sqrt(2) : 1;
+								A[0] = (i == 0)? 1/sqrt(2) : 1;
+								A[1] = (j == 0)? 1/sqrt(2) : 1;
 								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
 								valY += Y[xy2] * val_cos * A[0] * A[1];
-								valCr += Cr[xyc2] * val_cos;
-								valCb += Cb[xyc2] * val_cos;
+								valCr += Cr[xyc2] * val_cos * A[0] * A[1];
+								valCb += Cb[xyc2] * val_cos * A[0] * A[1];
 							}
 						}
 						valY *= 2 / bloc_dim;
@@ -99,7 +99,7 @@ Image Image::convertToPPM() const {
 						valCr *= quant(u,v,REDDIFF);
 						valCb *= quant(u,v,BLUEDIFF);
 						// =================================================
-//valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
 						// ========== Convert to uncompressed RGB ==========
 						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr-128) ))))); //R
 						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb-128) - 0.71414 * (valCr-128) ))))); //G
@@ -301,7 +301,7 @@ Image Image::convertToSLVR() const {
 						valCr /= quant(u,v,REDDIFF);
 						valCb /= quant(u,v,BLUEDIFF);
 						// =================================================
-//valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
 						imageOut.setData(xy, (unsigned char)valY);
 						imageOut.setData(xyc + height*width, (unsigned char)valCr);
 						imageOut.setData(xyc + 5*height*width/4, (unsigned char)valCb);
