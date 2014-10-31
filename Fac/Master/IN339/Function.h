@@ -64,4 +64,24 @@ int quant(int u, int v, Channel c) {
 	}
 }
 
+Image spreadSpectrumIn(Image* image, bool* key, int keyLength, int alpha, char* message, char*) {
+	Image imageOut(image);
+	unsigned int length = image->getLength(), counter = 0;
+	for(unsigned int i=0 ; i < length ; i++) {
+		//TODO : créer Wr et Wm
+	}
+	for(unsigned int i=0 ; i < length ; i++) {
+		imageOut.setData(i, image->getData(i) + alpha * key[counter]);
+		if(i%8 == 0) {
+			counter = (counter+1)%keyLength;
+		}
+	}
+	
+	return imageOut;
+}
+
+char* spreadSpectrumOut(Image* image, bool* key, unsigned int keyLength, int alpha) {
+	
+}
+
 #endif
