@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
 			case 5 : imIn.save(name, YCCC); break;
 			case 6 : imIn.save(name, PGM); break;
 			case 7 : imIn.save(name, PPM); break;
-			case 8 : toDiff(&imIn).save(name, PGM); break;
+			case 8 : /*toDiff(&imIn).save(name, PGM);*/ spreadSpectrumIn(&imIn, string("01010101"), 8, string("01001110")).save(name, PPM); break;
 			case 9 : imIn.save(name, SLVR); break;
 			default : cout << "Action inconnue" << endl; break;
 		}

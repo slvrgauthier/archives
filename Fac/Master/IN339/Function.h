@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <bitset>
 
 using namespace std;
 
@@ -62,6 +63,61 @@ int quant(int u, int v, Channel c) {
 	else {
 		return 1;
 	}
+}
+
+Image spreadSpectrumIn(Image* image, string key, int alpha, string message) {
+	Image imageOut(image);
+	unsigned int length = image->getLength(), counter = 0;
+	for(unsigned int i=0 ; i < length ; i++) {
+		if(key[i%key.size()] == '1') {
+			// wr = 1
+			if(message[counter] == '1') {
+				// wm = wr
+				imageOut.setData(i, image->getData(i) + alpha);
+			}
+			else {
+				// wm = -wr
+				imageOut.setData(i, image->getData(i) - alpha);
+			}
+		}
+// 		else {
+			// wr = 0 et wm = 0
+// 			imageOut.setData(i, image->getData(i));
+// 		}
+		if(i%8 == 0) {
+			counter = (counter+1)%message.size();
+		}
+	}
+	
+	return imageOut;
+}
+
+bitset<8> spreadSpectrumOut(Image* image, bitset<8> key, int alpha) {
+	Image imageOut(image);
+	unsigned int length = image->getLength(), counter = 0;
+	bitset<8> message;
+	for(unsigned int i=0 ; i < length ; i++) {
+		if(key[i%key.size()] == 1) {
+			// wr = 1
+			if(message[counter] == 1) {
+				// wm = wr
+				imageOut.setData(i, image->getData(i) + alpha * message[counter]);
+			}
+			else {
+				// wm = -wr
+				imageOut.setData(i, image->getData(i) - alpha * message[counter]);
+			}
+		}
+		else {
+			// wr = 0 et wm = 0
+			imageOut.setData(i, image->getData(i));
+		}
+		if(i%8 == 0) {
+			counter = (counter+1)%message.size();
+		}
+	}
+	
+	return message;
 }
 
 #endif
