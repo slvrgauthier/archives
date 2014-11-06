@@ -1,0 +1,15 @@
+r1 = 0.05
+e = 1.5
+rp1 = pow(2 * pow(r1,e) + pow(r1,e), 1./e) 
+rp0 = pow(pow(rp1,e) + pow(r1,e), 1./e) 
+
+Axiom: _(rp0) F [ +(30) _(rp1) F  [ +(30) _(r1) F  ] [ -(45) _(r1) F ] ] [ -(45) _(r1) F ] 
+
+derivation length: 1
+production:
+
+
+interpretation:
+
+
+endlsystem

@@ -1,0 +1,17 @@
+r1 = 0.05
+e = 1.5
+
+def piperadius(ris):
+   return pow(sum([pow(ri,e) for ri in ris]),1./e)
+
+backward()
+
+Axiom: _(r1) I(r1) [ +(30) I(r1) [ +(30) I(r1) ] [ -(45) I(r1) ] ]  [ -(45) I(r1) ]
+production:
+
+
+ignore: +-
+I(r) >> [ I(r1) ] [ I(r2) ] --> I(piperadius([r1,r2]))
+
+interpretation:
+I(r) --> _(r) F
