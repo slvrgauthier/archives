@@ -1,0 +1,24 @@
+from random import randint, seed
+dl = 0.5
+
+seed(0)
+
+module Bud
+module I
+
+Axiom: /(90) Bud
+production:
+derivation length: 4
+
+Bud :
+  nproduce /(180) I(1)
+  nblateralchild = randint(1,2)
+  for i in xrange(nblateralchild):
+     nproduce [  /(i*360./nblateralchild) ^(60)  Bud ]
+  nproduce Bud
+
+I(l) --> I(l+dl)
+interpretation:
+
+I(l) --> F(l)
+Bud --> [,(3) f(0.1) @O ]
