@@ -6,7 +6,14 @@
 #include <string.h>
 #include <math.h>
 
-Image Image::convertToPGM() const {}
+Image Image::convertToPGM() const {
+	if(format == PGM) {
+		return Image(this);
+	}
+	else if(format == SLVR) {
+		
+	}
+}
 
 Image Image::convertToPPM() const {
 	if(format == PPM) {
@@ -81,17 +88,17 @@ Image Image::convertToPPM() const {
 							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
 								int xy2 = (j+y) * width + (i+x);
 								int xyc2 = (j+y)/2 * width/2 + (i+x)/2;
-								A[0] = (i == 0)? 1/sqrt(2) : 1;
-								A[1] = (j == 0)? 1/sqrt(2) : 1;
+								A[0] = (i != 0)? 1/sqrt(2) : 1;
+								A[1] = (j != 0)? 1/sqrt(2) : 1;
 								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
 								valY += Y[xy2] * val_cos * A[0] * A[1];
 								valCr += Cr[xyc2] * val_cos * A[0] * A[1];
 								valCb += Cb[xyc2] * val_cos * A[0] * A[1];
 							}
 						}
-						valY *= 2 / bloc_dim;
-						valCr *= 2 / bloc_dim;
-						valCb *= 2 / bloc_dim;
+						valY *= 2 / (double)bloc_dim;
+						valCr *= 2 / (double)bloc_dim;
+						valCb *= 2 / (double)bloc_dim;
 						// ============================================================
 						
 						// ============= Second Quantification =============
@@ -99,7 +106,8 @@ Image Image::convertToPPM() const {
 						valCr *= quant(u,v,REDDIFF);
 						valCb *= quant(u,v,BLUEDIFF);
 						// =================================================
-valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+// cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb<<endl;
 						// ========== Convert to uncompressed RGB ==========
 						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr-128) ))))); //R
 						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb-128) - 0.71414 * (valCr-128) ))))); //G
@@ -197,122 +205,124 @@ Image Image::convertToSLVR() const {
 	if(format == SLVR) {
 		return Image(this);
 	}
-	
-	Image imageref = new Image(this->convertToPPM());
-	Image imageOut(SLVR, imageref.getName(), imageref.getWidth(), imageref.getHeight(), true, imageref.getChannels());
-	imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * imageref.getChannels().size() / 2);
-	
-	// ========== Convert to compressed YCrCb ==========
-	unsigned char Y[width*height];
-	unsigned char Cr[width*height/4];
-	unsigned char Cb[width*height/4];
-	{
-		unsigned char tmp_Cr[width*height];
-		unsigned char tmp_Cb[width*height];
+	else if(format == PPM) {
+		Image imageref = new Image(this->convertToPPM());
+		Image imageOut(SLVR, imageref.getName(), imageref.getWidth(), imageref.getHeight(), true, imageref.getChannels());
+		imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * imageref.getChannels().size() / 2);
 		
-		// Convert RGB to YCrCb
-		for(unsigned int j=0 ; j < height ; j++) {
-			for(unsigned int i=0 ; i < width ; i++) {
-				int xy = j * width + i;
-				unsigned char ppm_r = imageref.getData(3*xy);
-				unsigned char ppm_g = imageref.getData(3*xy + 1);
-				unsigned char ppm_b = imageref.getData(3*xy + 2);
-				Y[xy] = (unsigned char)(max(0.0,min(255.0,( 0.299*ppm_r + 0.587*ppm_g + 0.114*ppm_b ))));
-				tmp_Cr[xy] = (unsigned char)(max(0.0,min(255.0,( 0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128 ))));
-				tmp_Cb[xy] = (unsigned char)(max(0.0,min(255.0,( -0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128 ))));
+		// ========== Convert to compressed YCrCb ==========
+		unsigned char Y[width*height];
+		unsigned char Cr[width*height/4];
+		unsigned char Cb[width*height/4];
+		{
+			unsigned char tmp_Cr[width*height];
+			unsigned char tmp_Cb[width*height];
+			
+			// Convert RGB to YCrCb
+			for(unsigned int j=0 ; j < height ; j++) {
+				for(unsigned int i=0 ; i < width ; i++) {
+					int xy = j * width + i;
+					unsigned char ppm_r = imageref.getData(3*xy);
+					unsigned char ppm_g = imageref.getData(3*xy + 1);
+					unsigned char ppm_b = imageref.getData(3*xy + 2);
+					Y[xy] = (unsigned char)(max(0.0,min(255.0,( 0.299*ppm_r + 0.587*ppm_g + 0.114*ppm_b ))));
+					tmp_Cr[xy] = (unsigned char)(max(0.0,min(255.0,( 0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128 ))));
+					tmp_Cb[xy] = (unsigned char)(max(0.0,min(255.0,( -0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128 ))));
+				}
+			}
+		
+			// Compress Cr and Cb with mean
+			for(unsigned int j=0 ; j < height ; j+=2) {
+				for(unsigned int i=0 ; i < width ; i+=2) {
+					int xy = j * width + i;
+					int xyc = j/2 * width/2 + i/2;
+					int val_cr = tmp_Cr[xy];
+					int val_cb = tmp_Cb[xy];
+					int count = 1;
+					if(i < width-1) {
+						val_cr += tmp_Cr[xy+1];
+						val_cb += tmp_Cb[xy+1];
+						count++;
+					}
+					if(j < height-1) {
+						val_cr += tmp_Cr[xy+width];
+						val_cb += tmp_Cb[xy+width];
+						count++;
+					}
+					if(j < height-1 && i < width-1) {
+						val_cr += tmp_Cr[xy+width+1];
+						val_cb += tmp_Cb[xy+width+1];
+						count++;
+					}
+					Cr[xyc] = (unsigned char)(val_cr / count);
+					Cb[xyc] = (unsigned char)(val_cb / count);
+				}
 			}
 		}
-	
-		// Compress Cr and Cb with mean
-		for(unsigned int j=0 ; j < height ; j+=2) {
-			for(unsigned int i=0 ; i < width ; i+=2) {
-				int xy = j * width + i;
-				int xyc = j/2 * width/2 + i/2;
-				int val_cr = tmp_Cr[xy];
-				int val_cb = tmp_Cb[xy];
-				int count = 1;
-				if(i < width-1) {
-					val_cr += tmp_Cr[xy+1];
-					val_cb += tmp_Cb[xy+1];
-					count++;
-				}
-				if(j < height-1) {
-					val_cr += tmp_Cr[xy+width];
-					val_cb += tmp_Cb[xy+width];
-					count++;
-				}
-				if(j < height-1 && i < width-1) {
-					val_cr += tmp_Cr[xy+width+1];
-					val_cb += tmp_Cb[xy+width+1];
-					count++;
-				}
-				Cr[xyc] = (unsigned char)(val_cr / count);
-				Cb[xyc] = (unsigned char)(val_cb / count);
+		// =================================================
+		
+		// ============= First Quantification =============
+		unsigned char mask = 252;
+		for(unsigned int i=0 ; i < width*height ; i++) {
+			Y[i] = Y[i] & mask;
+			if(i%4 == 0) {
+				Cr[i/4] = Cr[i/4] & mask;
+				Cb[i/4] = Cb[i/4] & mask;
 			}
 		}
-	}
-	// =================================================
-	
-	// ============= First Quantification =============
-	unsigned char mask = 252;
-	for(unsigned int i=0 ; i < width*height ; i++) {
-		Y[i] = Y[i] & mask;
-		if(i%4 == 0) {
-			Cr[i/4] = Cr[i/4] & mask;
-			Cb[i/4] = Cb[i/4] & mask;
-		}
-	}
-	// ================================================
-	
-	{
-		unsigned char bloc_dim = 8;
-		double A[2];
-		double valY, valCr, valCb, val_cos;
+		// ================================================
 		
-		for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
-			for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
-				cout << "\rDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
-				for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
-					for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
-						int xy = (v+y) * width + (u+x);
-						int xyc = (v+y)/2 * width/2 + (u+x)/2;
-						
-						// ============= Discret Cosine Transform =============
-						valY = valCr = valCb = 0;
-						A[0] = (u == 0)? 1/sqrt(2) : 1;
-						A[1] = (v == 0)? 1/sqrt(2) : 1;
-						for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
-							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
-								int xy2 = (j+y) * width + (i+x);
-								int xyc2 = (j+y)/2 * width/2 + (i+x)/2;
-								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
-								valY += Y[xy2] * val_cos;
-								valCr += Cr[xyc2] * val_cos;
-								valCb += Cb[xyc2] * val_cos;
+		{
+			unsigned char bloc_dim = 8;
+			double A[2];
+			double valY, valCr, valCb, val_cos;
+			
+			for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
+				for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
+					cout << "\rDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
+					for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
+						for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
+							int xy = (v+y) * width + (u+x);
+							int xyc = (v+y)/2 * width/2 + (u+x)/2;
+							
+							// ============= Discret Cosine Transform =============
+							valY = valCr = valCb = 0;
+							A[0] = (u != 0)? 1/sqrt(2) : 1;
+							A[1] = (v != 0)? 1/sqrt(2) : 1;
+							for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
+								for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
+									int xy2 = (j+y) * width + (i+x);
+									int xyc2 = (j+y)/2 * width/2 + (i+x)/2;
+									val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
+									valY += Y[xy2] * val_cos;
+									valCr += Cr[xyc2] * val_cos;
+									valCb += Cb[xyc2] * val_cos;
+								}
 							}
+							valY *= 2*A[0]*A[1] / bloc_dim;
+							valCr *= 2*A[0]*A[1] / bloc_dim;
+							valCb *= 2*A[0]*A[1] / bloc_dim;
+							// ====================================================
+							
+							// ============= Second Quantification =============
+							valY /= (double)quant(u,v,LUMA);
+							valCr /= (double)quant(u,v,REDDIFF);
+							valCb /= (double)quant(u,v,BLUEDIFF);
+							// =================================================
+// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+// cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb<<endl;
+							imageOut.setData(xy, (unsigned char)valY);
+							imageOut.setData(xyc + height*width, (unsigned char)valCr);
+							imageOut.setData(xyc + 5*height*width/4, (unsigned char)valCb);
 						}
-						valY *= 2*A[0]*A[1] / bloc_dim;
-						valCr *= 2*A[0]*A[1] / bloc_dim;
-						valCb *= 2*A[0]*A[1] / bloc_dim;
-						// ====================================================
-						
-						// ============= Second Quantification =============
-						valY /= quant(u,v,LUMA);
-						valCr /= quant(u,v,REDDIFF);
-						valCb /= quant(u,v,BLUEDIFF);
-						// =================================================
-valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-						imageOut.setData(xy, (unsigned char)valY);
-						imageOut.setData(xyc + height*width, (unsigned char)valCr);
-						imageOut.setData(xyc + 5*height*width/4, (unsigned char)valCb);
 					}
 				}
 			}
+			cout << "\rDCT en cours... 100%" << endl;
 		}
-		cout << "\rDCT en cours... 100%" << endl;
+			
+		return imageOut;
 	}
-		
-	return imageOut;
 }
 
 #endif
