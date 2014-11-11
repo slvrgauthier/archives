@@ -21,3 +21,6 @@ clean:
 	rm -rf $(TMPFOLDER)/*.o
 	rm -rf $(BUILDFOLDER)/*
 
+Projet: Projet.cpp
+	@ if [ ! -d $(BUILDFOLDER) ]; then mkdir $(BUILDFOLDER); fi
+	$(CC) -o $(BUILDFOLDER)/Projet $^
