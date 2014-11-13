@@ -262,10 +262,20 @@ bool Image::load_(string filename) {
 		}
 		
 		resizeData(length);
-		if(fread((unsigned char*)data, sizeof(unsigned char), length, f_image) != (size_t)(length))
-		{
-			cout << "Erreur de lecture de l'image" << endl;
-			return false;
+		
+		if(format == SLVR) {
+			if(fread((char*)data, sizeof(char), length, f_image) != (size_t)(length))
+			{
+				cout << "Erreur de lecture de l'image" << endl;
+				return false;
+			}
+		}
+		else {
+			if(fread((unsigned char*)data, sizeof(unsigned char), length, f_image) != (size_t)(length))
+			{
+				cout << "Erreur de lecture de l'image" << endl;
+				return false;
+			}
 		}
 		fclose(f_image);
 		return true;
@@ -314,10 +324,19 @@ bool Image::save_(string filename) const {
 		fprintf(f_image,"# Created by Slvr\n");
 		fprintf(f_image,"%d %d\r255\r", width, height);
 		
-		if(fwrite((unsigned char*)data, sizeof(unsigned char), length, f_image) != (size_t)(length))
-		{
-			cout << "Erreur d'ecriture de l'image" << endl;
-			return false;
+		if(format == SLVR) {
+			if(fwrite((char*)data, sizeof(char), length, f_image) != (size_t)(length))
+			{
+				cout << "Erreur d'ecriture de l'image" << endl;
+				return false;
+			}
+		}
+		else {
+			if(fwrite((unsigned char*)data, sizeof(unsigned char), length, f_image) != (size_t)(length))
+			{
+				cout << "Erreur d'ecriture de l'image" << endl;
+				return false;
+			}
 		}
 		fclose(f_image);
 		return true;
@@ -441,16 +460,17 @@ Image Image::convertToPPM() const {
 						// ============================================================
 						
 						// ============= Second Quantification =============
-/*						valY *= quant(u,v,LUMA);
-						valCr *= quant(u,v,REDDIFF);
-						valCb *= quant(u,v,BLUEDIFF);
-*/						// =================================================
+						valY *= (double)quant(u,v,LUMA);
+						valCr *= (double)quant(u,v,REDDIFF);
+						valCb *= (double)quant(u,v,BLUEDIFF);
+						// =================================================
 // valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
+if(xy<8)cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb;
+// if((char)valY != 0)cout<<endl<<"valY = "<<valY;
 						// ========== Convert to uncompressed RGB ==========
-						imageOut.setData(3*xy, (char)(max(-128.0,min(128.0,( valY + 1.402 * valCr ))))); //R
-						imageOut.setData(3*xy + 1, (char)(max(-128.0,min(128.0,( valY - 0.34414 * valCb - 0.71414 * valCr ))))); //G
-						imageOut.setData(3*xy + 2, (char)(max(-128.0,min(128.0,( valY + 1.772 * valCb ))))); //B
+						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr - 128) +128))))); //R
+						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb - 128) - 0.71414 * (valCr - 128) +128))))); //G
+						imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( valY + 1.772 * (valCb - 128) +128))))); //B
 						// =================================================
 					}
 				}
@@ -476,8 +496,8 @@ Image Image::convertToSLVR() const {
 		unsigned char Cr[width*height/4];
 		unsigned char Cb[width*height/4];
 		{
-			unsigned char tmp_Cr[width*height];
-			unsigned char tmp_Cb[width*height];
+			char tmp_Cr[width*height];
+			char tmp_Cb[width*height];
 			
 			// Convert RGB to YCrCb
 			for(unsigned int j=0 ; j < height ; j++) {
@@ -566,12 +586,13 @@ Image Image::convertToSLVR() const {
 							// ====================================================
 							
 							// ============= Second Quantification =============
-/*							valY /= (double)quant(u,v,LUMA);
+							valY /= (double)quant(u,v,LUMA);
 							valCr /= (double)quant(u,v,REDDIFF);
 							valCb /= (double)quant(u,v,BLUEDIFF);
-*/							// =================================================
+							// =================================================
 // valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
+if(xy<8)cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb;
+// if((char)valY != 0)cout<<endl<<"valY = "<<valY;
 							imageOut.setData(xy, (char)valY);
 							imageOut.setData(xyc + height*width, (char)valCr);
 							imageOut.setData(xyc + 5*height*width/4, (char)valCb);
