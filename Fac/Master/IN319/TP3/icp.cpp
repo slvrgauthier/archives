@@ -15,6 +15,14 @@ using namespace std;
 static const unsigned char red[]={255,0,0},green[]={0,255,0},blue[]={0,0,255},lightblue[]={150,150,255},white[]={255,255,255},black[]={0,0,0},grey[]={128,128,128};
 enum transformationType {affine, rigid, similitude};
 
+float norm(float p[3], float _p[3]) {
+    float dist = 0;
+    for(int i=0;i<3;i++) {
+        dist += pow(p[i]-_p[i], 2);
+    }
+    return sqrt(dist);
+}
+
 void Registration(float A[3][3],  float t[3], MESH& source, MESH& target, const transformationType &transformType)
 {
     target.updateNormals();
@@ -27,6 +35,19 @@ void Registration(float A[3][3],  float t[3], MESH& source, MESH& target, const 
         float cp[3]={p[0],p[1],p[2]};
 
         ///********   TO BE COMPLETED  ************///
+        p[0] = A[0][0]*cp[0] + A[0][1]*cp[1] + A[0][2]*cp[2] + t[0];
+        p[1] = A[1][0]*cp[0] + A[1][1]*cp[1] + A[1][2]*cp[2] + t[1];
+        p[2] = A[2][0]*cp[0] + A[2][1]*cp[1] + A[2][2]*cp[2] + t[2];
+
+        float _p[3]; source.getPoint(_p,0);
+        float dist = norm(p,_p);
+        for(unsigned int j=1;j<target.getNbPoints();j++) {
+            target.getPoint(_p,j);
+            if(norm(p,_p) < dist) {
+                dist = norm(p,_p);
+                target.getPoint(cp,j);
+            }
+        }
 
         source.setCorrespondence(cp,i);
     }
@@ -37,18 +58,45 @@ void Registration(float A[3][3],  float t[3], MESH& source, MESH& target, const 
     {
         source.setWeight( 1,i);
         ///********   TO BE COMPLETED  ************///
+
     }
 
     // compute centroids
     float c0[]={0,0,0}, c[]={0,0,0}, N=0;
 
     ///********   TO BE COMPLETED  ************///
+    float sum1 = 0, sum2[3] = {0,0,0}, sum3[3] = {0,0,0};
+    float wi, cp[3], p[3];
+    for(unsigned int i=0;i<source.getNbPoints();i++) {
+        wi = source.getWeight(i);
+        source.getCorrespondence(cp,i);
+        source.getPoint0(p,i);
+        sum1 += wi;
+        for(int j=0;j<3;j++) {
+            sum2[j] += wi*cp[j];
+            sum3[j] += wi*p[j];
+        }
+    }
+    for(int i=0;i<3;i++) {
+        c0[i] = sum2[i]/sum1;
+        c[i] = sum3[i]/sum1;
+    }
 
     // fill matrices
-    float Q[][3]={{1,0,0},{0,1,0},{0,0,1}}, K[][3]={{1,0,0},{0,1,0},{0,0,1}},sx=3;
+    float Q[][3]={{0,0,0},{0,0,0},{0,0,0}}, K[][3]={{0,0,0},{0,0,0},{0,0,0}},sx=3;
 
     ///********   TO BE COMPLETED  ************///
-
+    for(unsigned int i=0;i<source.getNbPoints();i++) {
+        wi = source.getWeight(i);
+        source.getPoint0(p,i);
+        source.getCorrespondence(cp,i);
+        for(int j=0;j<3;j++) {
+            for(int k=0;k<3;k++) {
+                Q[j][k] += wi*(p[j]-c[j])*(p[k]-c[k]);
+                K[j][k] += wi*(cp[j]-c0[j])*(p[k]-c[k]);
+            }
+        }
+    }
 
     // compute solution for affine part
     if(transformType==affine) { float Qinv[3][3]; Invert(Qinv,Q); Mult(A,K,Qinv); }
@@ -62,7 +110,7 @@ void Registration(float A[3][3],  float t[3], MESH& source, MESH& target, const 
     }
 
     // compute solution for translation
-    Mult(t,A,c0); for(unsigned int j=0;j<3;j++) t[j]=c[j]-t[j];
+    Mult(t,A,c0); for(unsigned int j=0;j<3;j++) t[j]=c0[j]-(A[j][0]*c[0]+A[j][1]*c[1]+A[j][2]*c[2]);
 }
 
 
