@@ -31,9 +31,11 @@ void man() {
 	cout << "2 : Recharger l'image" << endl;
 	cout << "3 : Changer d'image" << endl;
 	cout << "4 : Calculer le PSNR" << endl;
-	cout << "5 : Convertir l'image en PGM" << endl;
-	cout << "6 : Convertir l'image en PPM" << endl;
-	cout << "7 : Compresser l'image en SLVR (projet)" << endl;
+	cout << "5 : Calculer le taux de compression" << endl;
+	cout << "6 : Convertir l'image en PGM" << endl;
+	cout << "7 : Convertir l'image en PPM" << endl;
+	cout << "8 : Compresser l'image en SLVR" << endl;
+	cout << "9 : Compresser et décompresser en SLVR (projet)" << endl;
 }
 
 unsigned char quant_luma[64] = {16,11,10,16,24,40,51,61,
@@ -449,28 +451,23 @@ Image Image::convertToPPM() const {
 								A[0] = (i == 0)? 1/sqrt(2) : 1;
 								A[1] = (j == 0)? 1/sqrt(2) : 1;
 								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
-								valY += Y[xy2] * val_cos * A[0] * A[1];
-								valCr += Cr[xyc2] * val_cos * A[0] * A[1];
-								valCb += Cb[xyc2] * val_cos * A[0] * A[1];
+								
+								// ============= Second Quantification =============
+								valY += Y[xy2] * val_cos * A[0] * A[1] * (double)quant(i,j,LUMA);
+								valCr += Cr[xyc2] * val_cos * A[0] * A[1] * (double)quant(i,j,REDDIFF);
+								valCb += Cb[xyc2] * val_cos * A[0] * A[1] * (double)quant(i,j,BLUEDIFF);
+								// =================================================
 							}
 						}
 						valY *= 2 / (double)bloc_dim;
 						valCr *= 2 / (double)bloc_dim;
 						valCb *= 2 / (double)bloc_dim;
 						// ============================================================
-						
-						// ============= Second Quantification =============
-						valY *= (double)quant(u,v,LUMA);
-						valCr *= (double)quant(u,v,REDDIFF);
-						valCb *= (double)quant(u,v,BLUEDIFF);
-						// =================================================
-// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-if(xy<8)cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb;
-// if((char)valY != 0)cout<<endl<<"valY = "<<valY;
+if(xy<2)cout<<endl<<"valY = "<<(int)Y[xy]<<" -> "<<valY<<", valCr = "<<(int)Cr[xyc]<<" -> "<<valCr<<", valCb = "<<(int)Cb[xyc]<<" -> "<<valCb<<endl;
 						// ========== Convert to uncompressed RGB ==========
-						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr - 128) +128))))); //R
-						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb - 128) - 0.71414 * (valCr - 128) +128))))); //G
-						imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( valY + 1.772 * (valCb - 128) +128))))); //B
+						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr)))))); //R
+						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb) - 0.71414 * (valCr)))))); //G
+						imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( valY + 1.772 * (valCb)))))); //B
 						// =================================================
 					}
 				}
@@ -590,19 +587,19 @@ Image Image::convertToSLVR() const {
 							valCr /= (double)quant(u,v,REDDIFF);
 							valCb /= (double)quant(u,v,BLUEDIFF);
 							// =================================================
-// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-if(xy<8)cout<<endl<<"valY = "<<valY<<", valCr = "<<valCr<<", valCb = "<<valCb;
-// if((char)valY != 0)cout<<endl<<"valY = "<<valY;
+if(xy<2)cout<<endl<<"valY = "<<(int)Y[xy]<<" -> "<<(int)(char)valY<<", valCr = "<<(int)Cr[xyc]<<" -> "<<(int)(char)valCr<<", valCb = "<<(int)Cb[xyc]<<" -> "<<(int)(char)valCb<<endl;
 							imageOut.setData(xy, (char)valY);
-							imageOut.setData(xyc + height*width, (char)valCr);
-							imageOut.setData(xyc + 5*height*width/4, (char)valCb);
+							if((v+y)%2 == 0 && (u+x)%2 == 0) {
+								imageOut.setData(xyc + height*width, (char)valCr);
+								imageOut.setData(xyc + 5*height*width/4, (char)valCb);
+							}
 						}
 					}
 				}
 			}
 			cout << "\rDCT en cours... 100%" << endl;
 		}
-			
+		
 		return imageOut;
 	}
 	else if(format == PGM) {
@@ -712,9 +709,27 @@ int main(int argc, char **argv) {
 					cout << "Le PSNR entre "<< name << " et " << name2 << " est de " << psnr << endl;
 				}
 				break;
-			case 5 : imIn.save(name, PGM); break;
-			case 6 : imIn.save(name, PPM); break;
-			case 7 : imIn.save(name, SLVR); break;
+			case 5 : 
+				cout << "Nom de l'image à comparer : ";
+				cin >> name2;
+				name2 = "img/" + name2;
+				psnr = imIn.psnr(Image(name2));
+				if(psnr == -1) {
+					cout << "Erreur : les deux images sont de tailles ou formats différent(e)s" << endl;
+				}
+				else {
+					cout << "Le PSNR entre "<< name << " et " << name2 << " est de " << psnr << endl;
+				}
+				break;
+			case 6 : imIn.save(name, PGM); break;
+			case 7 : imIn.save(name, PPM); break;
+			case 8 : imIn.save(name, SLVR); break;
+			case 9 : 
+				imIn.save(name, SLVR);
+				imIn.load(name+".slvr");
+				imIn.save(name+".slvr", PPM);
+				imIn.load(name);
+				break;
 			default : cout << "Action inconnue" << endl; break;
 		}
 	}
