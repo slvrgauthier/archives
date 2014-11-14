@@ -157,8 +157,8 @@ Image Image::convertToPPM() const {
 						valCr *= quant(u,v,REDDIFF);
 						valCb *= quant(u,v,BLUEDIFF);
 */						// =================================================
-// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
+ valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+// cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
 						// ========== Convert to uncompressed RGB ==========
 						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * valCr ))))); //R
 						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * valCb - 0.71414 * valCr ))))); //G
@@ -360,8 +360,8 @@ Image Image::convertToSLVR() const {
 							valCr /= (double)quant(u,v,REDDIFF);
 							valCb /= (double)quant(u,v,BLUEDIFF);
 */							// =================================================
-// valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
-cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
+ valY=Y[xy];valCr=Cr[xyc];valCb=Cb[xyc];
+// cout<<endl;if(valY > 1 || valY < -1)cout<<"valY = "<<valY;if(valCr > 1 || valCr < -1)cout<<", valCr = "<<valCr;if(valCb > 1 || valCb < -1)cout<<", valCb = "<<valCb;
 							imageOut.setData(xy, (unsigned char)valY);
 							imageOut.setData(xyc + height*width, (unsigned char)valCr);
 							imageOut.setData(xyc + 5*height*width/4, (unsigned char)valCb);
