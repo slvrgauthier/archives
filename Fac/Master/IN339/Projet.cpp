@@ -361,7 +361,7 @@ Image Image::convertToPGM() const {
 		for(unsigned i=0 ; i < width ; i++) {
 			for(unsigned j=0 ; j < height ; j++) {
 				int xy = j * width + i;
-				Y[xy] = (int)this->getData(xy) - 128;
+				Y[xy] = (int)(this->getData(xy) - 128);
 			}
 		}
 		
@@ -388,7 +388,7 @@ Image Image::convertToPGM() const {
 								int xy2 = (j+y) * width + (i+x);
 								A[0] = (i == 0)? 1/sqrt(2) : 1;
 								A[1] = (j == 0)? 1/sqrt(2) : 1;
-								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
+								val_cos = cos((2*i+1)*u*M_PI/(2.0*bloc_dim)) * cos((2*j+1)*v*M_PI/(2.0*bloc_dim));
 								
 								// ============= Second Quantification =============
 								valY += (double)Y[xy2] * val_cos * A[0] * A[1] * (double)quant(i,j,LUMA);
@@ -652,7 +652,7 @@ if(xy<8)cout<<"valY = "<<(int)Y[xy]<</*" -> "<<(int)valY<<*/", valCr = "<<(int)C
 							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
 								
 								int xy2 = (j+y) * width + (i+x);
-								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
+								val_cos = cos((2*i+1)*u*M_PI/(2.0*bloc_dim)) * cos((2*j+1)*v*M_PI/(2.0*bloc_dim));
 								
 								valY += (double)Y[xy2] * val_cos;
 							}
