@@ -15,7 +15,9 @@ using namespace std;
 enum Format {
 	PGM,
 	PPM,
-	SLVR
+	SLVR,
+	SLVRG,
+	SLVRP
 };
 
 enum Channel {
@@ -167,8 +169,13 @@ bool Image::load(const string filename) {
 		name = filename;
 		return load_(filename);
 	}
-	else if(keyWord.compare("SLVR") == 0) {
-		format = SLVR;
+	else if(keyWord.compare("SLVRG") == 0) {
+		format = SLVRG;
+		name = filename;
+		return load_(filename);
+	}
+	else if(keyWord.compare("SLVRP") == 0) {
+		format = SLVRP;
 		name = filename;
 		return load_(filename);
 	}
@@ -188,7 +195,7 @@ bool Image::save(const string filename, Format fileformat) const {
 		else if(fileformat == PPM) {
 			return convertToPPM().save_(filename + ".");
 		}
-		else if(fileformat == SLVR) {
+		else if(fileformat == SLVR || fileformat == SLVRG || fileformat == SLVRP) {
 			return convertToSLVR().save_(filename + ".");
 		}
 		else {
@@ -247,8 +254,11 @@ bool Image::load_(string filename) {
 		else if(format == PPM) {
 			fscanf(f_image, "P6 ");
 		}
-		else if(format == SLVR) {
-			fscanf(f_image, "SLVR ");
+		else if(format == SLVRG) {
+			fscanf(f_image, "SLVRG ");
+		}
+		else if(format == SLVRP) {
+			fscanf(f_image, "SLVRP ");
 		}
 		ignoreComments(f_image);
 		fscanf(f_image, "%d %d %d%*c", &width, &height, &max_grey_val);
@@ -259,8 +269,11 @@ bool Image::load_(string filename) {
 		else if(format == PPM) {
 			length = 3 * width * height;
 		}
-		else if(format == SLVR) {
-			length = 3 * width * height / 2;
+		else if(format == SLVRG) {
+			length = width * height;
+		}
+		else if(format == SLVRP) {
+			length = 3 * width * height;
 		}
 		
 		resizeData(length);
@@ -287,7 +300,7 @@ bool Image::save_(string filename) const {
 	else if(format == PPM) {
 		name += ".ppm";
 	}
-	else if(format == SLVR) {
+	else if(format == SLVRG || format == SLVRP) {
 		name += ".slvr";
 	}
 	else {
@@ -309,8 +322,11 @@ bool Image::save_(string filename) const {
 		else if(format == PPM) {
 			fprintf(f_image,"P6\r");
 		}
-		else if(format == SLVR) {
-			fprintf(f_image,"SLVR\r");
+		else if(format == SLVRG) {
+			fprintf(f_image,"SLVRG\r");
+		}
+		else if(format == SLVRP) {
+			fprintf(f_image,"SLVRP\r");
 		}
 		else {
 			fprintf(f_image,"UNKNOWN\r");
@@ -336,8 +352,63 @@ Image Image::convertToPGM() const {
 	if(format == PGM) {
 		return Image(this);
 	}
-	else if(format == SLVR) {
+	else if(format == SLVRG) {
+		Image imageOut(PGM, name, width, height);
+		imageOut.resizeData(width * height);
 		
+		int Y[width*height];
+		
+		for(unsigned i=0 ; i < width ; i++) {
+			for(unsigned j=0 ; j < height ; j++) {
+				int xy = j * width + i;
+				Y[xy] = (int)this->getData(xy) - 128;
+			}
+		}
+		
+		unsigned int bloc_dim = 8;
+		double A[2];
+		double valY, val_cos;
+		
+		for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
+			for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
+				
+// 				cout << "\rIDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
+				
+				for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
+					for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
+						
+						int xy = (v+y) * width + (u+x);
+							
+						// ============= Inverse Discret Cosine Transform =============
+						valY = 0;
+						
+						for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
+							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
+								
+								int xy2 = (j+y) * width + (i+x);
+								A[0] = (i == 0)? 1/sqrt(2) : 1;
+								A[1] = (j == 0)? 1/sqrt(2) : 1;
+								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
+								
+								// ============= Second Quantification =============
+								valY += (double)Y[xy2] * val_cos * A[0] * A[1] * (double)quant(i,j,LUMA);
+								// =================================================
+							}
+						}
+						valY *= 2 / (double)bloc_dim;
+						// ============================================================
+if(xy<8)cout<<"valY = "<<(int)Y[xy]<<" -> "<<(int)valY<<endl;
+
+						// ========== Convert to uncompressed RGB ==========
+						imageOut.setData(xy, (unsigned char)(max(0.0,min(255.0,valY))));
+						// =================================================
+					}
+				}
+			}
+		}
+		cout << "\rIDCT en cours... 100%" << endl;
+		
+		return imageOut;
 	}
 }
 
@@ -345,7 +416,7 @@ Image Image::convertToPPM() const {
 	if(format == PPM) {
 		return Image(this);
 	}
-	else if(format == SLVR) {
+	else if(format == SLVRP) {
 		Image imageOut(PPM, name, width, height);
 		imageOut.resizeData(width * height * 3);
 		
@@ -362,29 +433,30 @@ Image Image::convertToPPM() const {
 			}
 		}
 		
+		unsigned int bloc_dim = 8;
 		double A[2];
 		double valY, valCr, valCb, val_cos;
 		
-		for(unsigned int y=0 ; y < height ; y+=8) {
-			for(unsigned int x=0 ; x < width ; x+=8) {
+		for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
+			for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
 				
 // 				cout << "\rIDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
 				
-				for(unsigned int u=0 ; u < 8 && u+x < width ; u++) {
-					for(unsigned int v=0 ; v < 8 && v+y < height ; v++) {
+				for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
+					for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
 						
 						int xy = (v+y) * width + (u+x);
 							
 						// ============= Inverse Discret Cosine Transform =============
 						valY = valCr = valCb = 0;
 						
-						for(unsigned int i=0 ; i < 8 && i+x < width ; i++) {
-							for(unsigned int j=0 ; j < 8 && j+y < height ; j++) {
+						for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
+							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
 								
 								int xy2 = (j+y) * width + (i+x);
 								A[0] = (i == 0)? 1/sqrt(2) : 1;
 								A[1] = (j == 0)? 1/sqrt(2) : 1;
-								val_cos = cos((2*i+1)*u*M_PI/(2*8)) * cos((2*j+1)*v*M_PI/(2*8));
+								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
 								
 								// ============= Second Quantification =============
 								valY += (double)Y[xy2] * val_cos * A[0] * A[1] * (double)quant(i,j,LUMA);
@@ -393,12 +465,13 @@ Image Image::convertToPPM() const {
 								// =================================================
 							}
 						}
-						valY *= 2 / 8.0;
-						valCr *= 2 / 8.0;
-						valCb *= 2 / 8.0;
-						// ============================================================
+						valY *= 2 / (double)bloc_dim;
+						valCr *= 2 / (double)bloc_dim;
+						valCb *= 2 / (double)bloc_dim;
 						
-if(xy<4)cout<<"valY = "<<(int)Y[xy]<<" -> "<<valY<<", valCr = "<<(int)Cr[xy]<<" -> "<<valCr<<", valCb = "<<(int)Cb[xy]<<" -> "<<valCb<<endl;
+						valCr = valCb = 128;
+						// ============================================================
+if(xy<8)cout<<"valY = "<</*(int)Y[xy]<<" -> "<<*/(int)valY<<", valCr = "<</*(int)Cr[xy]<<" -> "<<*/(int)valCr<<", valCb = "<</*(int)Cb[xy]<<" -> "<<*/(int)valCb<<endl;
 
 						// ========== Convert to uncompressed RGB ==========
 						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr - 128)))))); //R
@@ -416,12 +489,12 @@ if(xy<4)cout<<"valY = "<<(int)Y[xy]<<" -> "<<valY<<", valCr = "<<(int)Cr[xy]<<" 
 }
 
 Image Image::convertToSLVR() const {
-	if(format == SLVR) {
+	if(format == SLVRG || format == SLVRP) {
 		return Image(this);
 	}
 	else if(format == PPM) {
 		Image imageref = new Image(this->convertToPPM());
-		Image imageOut(SLVR, imageref.getName(), imageref.getWidth(), imageref.getHeight());
+		Image imageOut(SLVRP, imageref.getName(), imageref.getWidth(), imageref.getHeight());
 		imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * 3);
 		
 		// ========== Convert to compressed YCrCb ==========
@@ -486,16 +559,17 @@ Image Image::convertToSLVR() const {
 		}
 		// ================================================
 */
+		unsigned int bloc_dim = 8;
 		double A[2];
 		double valY, valCr, valCb, val_cos;
 		
-		for(unsigned int y=0 ; y < height ; y+=8) {
-			for(unsigned int x=0 ; x < width ; x+=8) {
+		for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
+			for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
 				
 // 				cout << "\rDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
 				
-				for(unsigned int u=0 ; u < 8 && u+x < width ; u++) {
-					for(unsigned int v=0 ; v < 8 && v+y < height ; v++) {
+				for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
+					for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
 						
 						int xy = (v+y) * width + (u+x);
 						
@@ -504,11 +578,11 @@ Image Image::convertToSLVR() const {
 						A[0] = (u == 0)? 1/sqrt(2) : 1;
 						A[1] = (v == 0)? 1/sqrt(2) : 1;
 						
-						for(unsigned int i=0 ; i < 8 && i+x < width ; i++) {
-							for(unsigned int j=0 ; j < 8 && j+y < height ; j++) {
+						for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
+							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
 								
 								int xy2 = (j+y) * width + (i+x);
-								val_cos = cos((2*i+1)*u*M_PI/(2*8)) * cos((2*j+1)*v*M_PI/(2*8));
+								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
 								
 								valY += (double)Y[xy2] * val_cos;
 								valCr += (double)Cr[xy2] * val_cos;
@@ -516,9 +590,9 @@ Image Image::convertToSLVR() const {
 							}
 						}
 						
-						valY *= 2*A[0]*A[1] / 8.0;
-						valCr *= 2*A[0]*A[1] / 8.0;
-						valCb *= 2*A[0]*A[1] / 8.0;
+						valY *= 2*A[0]*A[1] / (double)bloc_dim;
+						valCr *= 2*A[0]*A[1] / (double)bloc_dim;
+						valCb *= 2*A[0]*A[1] / (double)bloc_dim;
 						// ====================================================
 						
 						// ============= Second Quantification =============
@@ -527,7 +601,7 @@ Image Image::convertToSLVR() const {
 						valCb /= (double)quant(u,v,BLUEDIFF);
 						// =================================================
 						
-if(xy<4)cout<<"valY = "<<(int)Y[xy]<<" -> "<<(int)valY<<", valCr = "<<(int)Cr[xy]<<" -> "<<(int)valCr<<", valCb = "<<(int)Cb[xy]<<" -> "<<(int)valCb<<endl;
+if(xy<8)cout<<"valY = "<<(int)Y[xy]<</*" -> "<<(int)valY<<*/", valCr = "<<(int)Cr[xy]<</*" -> "<<(int)valCr<<*/", valCb = "<<(int)Cb[xy]<</*" -> "<<(int)valCb<<*/endl;
 						
 						imageOut.setData(xy, (unsigned char)((int)valY + 128));
 						imageOut.setData(xy + height*width, (unsigned char)((int)valCr + 128));
@@ -541,7 +615,66 @@ if(xy<4)cout<<"valY = "<<(int)Y[xy]<<" -> "<<(int)valY<<", valCr = "<<(int)Cr[xy
 		return imageOut;
 	}
 	else if(format == PGM) {
+		Image imageref = new Image(this->convertToPGM());
+		Image imageOut(SLVRG, imageref.getName(), imageref.getWidth(), imageref.getHeight());
+		imageOut.resizeData(imageref.getWidth() * imageref.getHeight());
 		
+		// ========== Convert to compressed YCrCb ==========
+		unsigned char Y[width*height];
+		
+		for(unsigned int j=0 ; j < height ; j++) {
+			for(unsigned int i=0 ; i < width ; i++) {
+				int xy = j * width + i;
+				Y[xy] = imageref.getData(xy);
+			}
+		}
+		
+		unsigned int bloc_dim = 8;
+		double A[2];
+		double valY, val_cos;
+		
+		for(unsigned int y=0 ; y < height ; y+=bloc_dim) {
+			for(unsigned int x=0 ; x < width ; x+=bloc_dim) {
+				
+// 				cout << "\rDCT en cours... " << 100*(y*width+x)/(height*width) << "%" << flush;
+				
+				for(unsigned int u=0 ; u < bloc_dim && u+x < width ; u++) {
+					for(unsigned int v=0 ; v < bloc_dim && v+y < height ; v++) {
+						
+						int xy = (v+y) * width + (u+x);
+						
+						// ============= Discret Cosine Transform =============
+						valY = 0;
+						A[0] = (u == 0)? 1/sqrt(2) : 1;
+						A[1] = (v == 0)? 1/sqrt(2) : 1;
+						
+						for(unsigned int i=0 ; i < bloc_dim && i+x < width ; i++) {
+							for(unsigned int j=0 ; j < bloc_dim && j+y < height ; j++) {
+								
+								int xy2 = (j+y) * width + (i+x);
+								val_cos = cos((2*i+1)*u*M_PI/(2*bloc_dim)) * cos((2*j+1)*v*M_PI/(2*bloc_dim));
+								
+								valY += (double)Y[xy2] * val_cos;
+							}
+						}
+						
+						valY *= 2*A[0]*A[1] / (double)bloc_dim;
+						// ====================================================
+						
+						// ============= Second Quantification =============
+						valY /= (double)quant(u,v,LUMA);
+						// =================================================
+						
+if(xy<8)cout<<"valY = "<<(int)Y[xy]<<" -> "<<(int)valY<<endl;
+						
+						imageOut.setData(xy, (unsigned char)((int)valY + 128));
+					}
+				}
+			}
+		}
+		cout << "\rDCT en cours... 100%" << endl;
+		
+		return imageOut;
 	}
 }
 
@@ -558,6 +691,7 @@ int main(int argc, char **argv) {
 	int w = imIn.getWidth(), h = imIn.getHeight();
 	int action = -1;
 	double psnr = 0;
+	Format format;
 	
 	man();
 
@@ -603,9 +737,10 @@ int main(int argc, char **argv) {
 			case 7 : imIn.save(name, PPM); break;
 			case 8 : imIn.save(name, SLVR); break;
 			case 9 : 
+				format = imIn.getFormat();
 				imIn.save(name, SLVR);
 				imIn.load(name+".slvr");
-				imIn.save(name+".slvr", PPM);
+				imIn.save(name+".slvr", format);
 				imIn.load(name);
 				break;
 			default : cout << "Action inconnue" << endl; break;
