@@ -449,10 +449,13 @@ Image Image::convertToPPM() const {
 		for(unsigned i=0 ; i < width ; i++) {
 			for(unsigned j=0 ; j < height ; j++) {
 				unsigned int xy = j * width + i;
-				unsigned int xyc = j/2 * width/2 + i/2;
-				Y[i][j] = ((int)this->getData(j * width + i) - 128) * quant(i%8,j%8,LUMA);
-				Cr[i][j] = ((int)this->getData(xy + height*width) - 128) * quant(i%8,j%8,REDDIFF);
-				Cb[i][j] = ((int)this->getData(xy + 8*height*width/4) - 128) * quant(i%8,j%8,BLUEDIFF);
+				unsigned int xyc = j/2 * width/2 + i/2;xyc = xy;
+				Y[i][j] = ((int)this->getData(xy) - 128) * quant(i%8,j%8,LUMA);
+				if(i < width/2 && j < height/2) {
+				Cr[i][j] = ((int)this->getData(xyc + height*width) - 128) * quant(i%8,j%8,REDDIFF);
+				Cr[i+width/2][j]=Cr[i][j+height/2]=Cr[i+width/2][j+height/2]=Cr[i][j];
+				Cb[i][j] = ((int)this->getData(xyc + 2*height*width) - 128) * quant(i%8,j%8,BLUEDIFF);
+				Cb[i+width/2][j]=Cb[i][j+height/2]=Cb[i+width/2][j+height/2]=Cb[i][j];}
 			}
 		}
 		
@@ -520,7 +523,7 @@ Image Image::convertToSLVR() const {
 		
 		// ========== Convert to compressed YCrCb ==========
 		
-		unsigned char Y[width][height], Cr[width][height], Cb[width][height];
+		unsigned char Y[width][height], Cr[width/2][height/2], Cb[width/2][height/2];
 		{
 			unsigned char tmp_Cr[width][height];
 			unsigned char tmp_Cb[width][height];
@@ -559,14 +562,8 @@ Image Image::convertToSLVR() const {
 						val_cb += tmp_Cb[i+1][j+1];
 						count++;
 					}
-					Cr[i][j] = (unsigned char)(val_cr / count);
-					Cr[i+1][j] = (unsigned char)(val_cr / count);
-					Cr[i][j+1] = (unsigned char)(val_cr / count);
-					Cr[i+1][j+1] = (unsigned char)(val_cr / count);
-					Cb[i][j] = (unsigned char)(val_cb / count);
-					Cb[i+1][j] = (unsigned char)(val_cb / count);
-					Cb[i][j+1] = (unsigned char)(val_cb / count);
-					Cb[i+1][j+1] = (unsigned char)(val_cb / count);
+					Cr[i/2][j/2] = (unsigned char)(val_cr / count);
+					Cb[i/2][j/2] = (unsigned char)(val_cb / count);
 				}
 			}
 		}
@@ -602,19 +599,20 @@ Image Image::convertToSLVR() const {
 						valY = valCr = valCb = 0;
 						for(unsigned int x=0 ; x < 8 ; x++) {
 							for(unsigned int y=0 ; y < 8 ; y++) {
-								valY += (Y[r*8+x][c*8+y]) * COS[x][i] * COS[y][j];
-								valCr += (Cr[r*8+x][c*8+y]) * COS[x][i] * COS[y][j];
-								valCb += (Cb[r*8+x][c*8+y]) * COS[x][i] * COS[y][j];
+								valY += Y[r*8+x][c*8+y] * COS[x][i] * COS[y][j];
+// 								if(r < height/16 && c < width/16) {
+								valCr += Cr[(r*8+x)][(c*8+y)] * COS[x][i] * COS[y][j];
+								valCb += Cb[(r*8+x)][(c*8+y)] * COS[x][i] * COS[y][j];
 							}
 						}
 						valY *= C[i]*C[j]*0.25/(double)quant(i,j,LUMA);
 						valCr *= C[i]*C[j]*0.25/(double)quant(i,j,REDDIFF);
 						valCb *= C[i]*C[j]*0.25/(double)quant(i,j,BLUEDIFF);
-						unsigned int xy = (r*8+j) * width + (c*8+i); 
-						unsigned int xyc = (r*8+j)/2 * width/2 + (c*8+i)/2; 
+						unsigned int xy = (r*8+j) * width + (c*8+i);
+						unsigned int xyc = (r*8+j)/2 * width/2 + (c*8+i)/2;
 						imageOut.setData(xy, (unsigned char)(max(0,min(255,(int)valY+128))));
 						imageOut.setData(xy + height*width, (unsigned char)(max(0,min(255,(int)valCr+128))));
-						imageOut.setData(xy + 8*height*width/4, (unsigned char)(max(0,min(255,(int)valCb+128))));
+						imageOut.setData(xy + 2*height*width, (unsigned char)(max(0,min(255,(int)valCb+128))));
 					}
 				}
 			}
