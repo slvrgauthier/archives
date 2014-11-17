@@ -601,8 +601,8 @@ Image Image::convertToSLVR() const {
 							for(unsigned int y=0 ; y < 8 ; y++) {
 								valY += Y[r*8+x][c*8+y] * COS[x][i] * COS[y][j];
 // 								if(r < height/16 && c < width/16) {
-								valCr += Cr[(r*8+x)][(c*8+y)] * COS[x][i] * COS[y][j];
-								valCb += Cb[(r*8+x)][(c*8+y)] * COS[x][i] * COS[y][j];
+								valCr += Cr[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
+								valCb += Cb[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
 							}
 						}
 						valY *= C[i]*C[j]*0.25/(double)quant(i,j,LUMA);
