@@ -5,9 +5,9 @@ breed [batiments batiment]
 breed [habitants habitant]
 
 mairies-own []
-batiments-own [b_categorie b_nom]
+batiments-own [b_categorie b_nom b_densite]
 habitants-own [h_direction]
-patches-own [p_categorie]
+patches-own [p_categorie p_densite]
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Setup procedures ;;;
@@ -18,6 +18,30 @@ to setup
   set-default-shape mairies "house"
   set-default-shape batiments "house"
   set-default-shape habitants "person"
+  generer-patches
+  generer-batiments
+  create-habitants 5 [
+    set color green
+    setxy 0 -3
+    set size 2
+  ]
+  reset-ticks
+end
+
+to generer-patches
+  ask patches [set pcolor black]
+  ask patches with [
+    pycor < 40 and pycor > -40 and pxcor < 40 and pxcor > -40 and
+    (pycor = -3 
+    or pycor = -39 
+    or pycor = 39 
+    or pxcor = 0 
+    or pxcor = 39 
+    or pxcor = -39) ] [set p_categorie "route"]
+  ask patches with [p_categorie = "route"] [set pcolor grey]
+end
+
+to generer-batiments
   create-mairies 1 [
     set color white
     setxy 0 0
@@ -29,6 +53,7 @@ to setup
     set size 6
     set b_categorie "service"
     set b_nom "Poste de Police"
+    set b_densite p_densite
   ]
   create-batiments 1 [
     set color red
@@ -37,22 +62,6 @@ to setup
     set b_categorie "service"
     set b_nom "Caserne de Pompiers"
   ]
-  create-habitants 5 [
-    set color green
-    setxy 0 -3
-    set size 2
-  ]
-  ask patches [set pcolor black]
-  ask patches with [
-    pycor < 40 and pycor > -40 and pxcor < 40 and pxcor > -40 and
-    (pycor = -3 
-    or pycor = -39 
-    or pycor = 39 
-    or pxcor = 0 
-    or pxcor = 39 
-    or pxcor = -39) ] [set p_categorie "route"]
-  ask patches with [p_categorie = "route"] [set pcolor grey]
-  reset-ticks
 end
 
 to marcher-aleatoire
@@ -73,6 +82,12 @@ end
 ;;;;;;;;;;;;;;;;;;;;;
 
 to go
+  ask mairies [
+    m_decider
+  ]
+  ask batiments [
+    b_decider
+  ]
   ask habitants [
     h_decider
   ]
@@ -88,7 +103,42 @@ to m_decider
 end
 
 to b_decider
-  
+  if (b_categorie = "service") [
+    
+  ]
+  if (b_categorie = "residence") [
+    if (b_densite = "faible") [
+      
+    ]
+    if (b_densite = "moyenne") [
+      
+    ]
+    if (b_densite = "forte") [
+      
+    ]
+  ]
+  if (b_categorie = "industrie") [
+    if (b_densite = "faible") [
+      
+    ]
+    if (b_densite = "moyenne") [
+      
+    ]
+    if (b_densite = "forte") [
+      
+    ]
+  ]
+  if (b_categorie = "commerce") [
+    if (b_densite = "faible") [
+      
+    ]
+    if (b_densite = "moyenne") [
+      
+    ]
+    if (b_densite = "forte") [
+      
+    ]
+  ]
 end
 
 to h_decider
