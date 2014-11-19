@@ -20,7 +20,7 @@ to setup
   set-default-shape habitants "person"
   generer-patches
   generer-batiments
-  create-habitants 5 [
+  create-habitants 50 [
     set color green
     setxy 0 -3
     set size 2
@@ -29,16 +29,53 @@ to setup
 end
 
 to generer-patches
-  ask patches [set pcolor black]
   ask patches with [
     pycor < 40 and pycor > -40 and pxcor < 40 and pxcor > -40 and
-    (pycor = -3 
-    or pycor = -39 
-    or pycor = 39 
-    or pxcor = 0 
-    or pxcor = 39 
-    or pxcor = -39) ] [set p_categorie "route"]
+    (pycor = -3 or
+    pycor = -39 or
+    pycor = 39 or
+    pxcor = 0 or
+    pxcor = 39 or
+    pxcor = -39 or
+    (pxcor = -20 and pycor < 20) or
+    (pxcor = 20 and pycor > -20) or
+    (pxcor > 0 and pycor = -20) or
+    (pxcor < 0 and pycor = 20)) 
+  ] 
+  [
+    set p_categorie "route"
+  ]
+  
+  ask patches with [
+    (pycor < 39 and pycor > 20 and pxcor < 0 and pxcor > -39) or
+    (pycor < -20 and pycor > -39 and pxcor < 39 and pxcor > 0)
+  ]
+  [
+    set p_categorie "residence"
+    set p_densite "faible"
+  ]
+  
+  ask patches with [
+    (pycor < 39 and pycor > 20 and pxcor < 0 and pxcor > -39) or
+    (pycor < -20 and pycor > -39 and pxcor < 39 and pxcor > 0)
+  ]
+  [
+    set p_categorie "residence"
+    set p_densite "moyenne"
+  ]
+  
+  ask patches with [
+    (pycor < 39 and pycor > 20 and pxcor < 0 and pxcor > -39) or
+    (pycor < -20 and pycor > -39 and pxcor < 39 and pxcor > 0)
+  ]
+  [
+    set p_categorie "residence"
+    set p_densite "forte"
+  ]
+      
+  ask patches [set pcolor black]
   ask patches with [p_categorie = "route"] [set pcolor grey]
+  ask patches with [p_categorie = "residence" and p_densite = "faible"] [set pcolor scale-color green 50 0 100]
 end
 
 to generer-batiments
