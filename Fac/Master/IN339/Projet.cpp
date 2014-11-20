@@ -10,6 +10,7 @@
 #include "huffman.h"
 
 #define TEST false
+#define HQ false
 
 using namespace std;
 
@@ -76,7 +77,7 @@ unsigned char quant_luma[64] = {16,11,10,16,24,40,51,61,
 								24,35,55,64,81,104,113,92,
 								49,64,78,87,103,121,120,101,
 								72,92,95,98,112,100,103,99};
-								
+
 unsigned char quant_crcb[64] = {17,18,24,47,99,99,99,99,
 								18,21,26,66,99,99,99,99,
 								24,26,56,99,99,99,99,99,
@@ -91,7 +92,12 @@ int quant(int u, int v, Channel c) {
 		return quant_luma[v * 8 + u];
 	}
 	else if(c == BLUEDIFF || c == REDDIFF) {
-		return quant_crcb[v * 8 + u];
+		if(HQ) {
+			return quant_crcb[v * 8 + u];
+		}
+		else {
+			return quant_crcb[v * 8 + u] / 2;
+		}
 	}
 	else {
 		return 1;
@@ -301,7 +307,12 @@ bool Image::load_(string filename) {
 			length = width * height;
 		}
 		else if(format == SLVRP) {
-			length = 3 * width * height;
+			if(HQ) {
+				length = 3 * width * height;
+			}
+			else {
+				length = 3 * width * height / 2;
+			}
 		}
 		
 		resizeData(length);
@@ -445,17 +456,22 @@ Image Image::convertToPPM() const {
 		Image imageOut(PPM, name, width, height);
 		imageOut.resizeData(width * height * 3);
 		
-		int Y[width][height], Cr[width][height], Cb[width][height];
+		int dctY[width][height], dctCr[width][height], dctCb[width][height];
 		for(unsigned i=0 ; i < width ; i++) {
 			for(unsigned j=0 ; j < height ; j++) {
 				unsigned int xy = j * width + i;
-				unsigned int xyc = j/2 * width/2 + i/2;xyc = xy;
-				Y[i][j] = ((int)this->getData(xy) - 128) * quant(i%8,j%8,LUMA);
-				if(i < width/2 && j < height/2) {
-				Cr[i][j] = ((int)this->getData(xyc + height*width) - 128) * quant(i%8,j%8,REDDIFF);
-				Cr[i+width/2][j]=Cr[i][j+height/2]=Cr[i+width/2][j+height/2]=Cr[i][j];
-				Cb[i][j] = ((int)this->getData(xyc + 2*height*width) - 128) * quant(i%8,j%8,BLUEDIFF);
-				Cb[i+width/2][j]=Cb[i][j+height/2]=Cb[i+width/2][j+height/2]=Cb[i][j];}
+				dctY[i][j] = ((int)this->getData(xy) - 128) * quant(i%8,j%8,LUMA);
+				if(HQ) {
+					dctCr[i][j] = ((int)this->getData(xy + height*width) - 128) * quant(i%8,j%8,REDDIFF);
+					dctCb[i][j] = ((int)this->getData(xy + 2*height*width) - 128) * quant(i%8,j%8,BLUEDIFF);
+				}
+				else {
+					if(i < width/2 && j < height/2) {
+						unsigned int xyc = j * width/2 + i;
+						dctCr[i][j] = ((int)this->getData(xyc + height*width) - 128) * quant(i%8,j%8,REDDIFF);
+						dctCb[i][j] = ((int)this->getData(xyc + 5*height*width/4) - 128) * quant(i%8,j%8,BLUEDIFF);
+					}
+				}
 			}
 		}
 		
@@ -467,6 +483,7 @@ Image Image::convertToPPM() const {
 			else C[i] = 1 / sqrt(2);
 		}
 		
+		int Y[width*height], Cr[width*height], Cb[width*height];
 		for(unsigned int r=0 ; r < height/8 ; r++) {
 			for(unsigned int c=0 ; c < width/8 ; c++) {
 				
@@ -477,28 +494,59 @@ Image Image::convertToPPM() const {
 						valY = valCr = valCb = 0;
 						for(unsigned int i=0 ; i < 8 ; i++) {
 							for(unsigned int j=0 ; j < 8 ; j++) {
-								valY += Y[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
-								valCr += Cr[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
-								valCb += Cb[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
+								valY += dctY[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
+								if(HQ || (r < height/16 && c < width/16)) {
+									valCr += dctCr[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
+									valCb += dctCb[r*8+i][c*8+j] * COS[x][i] * COS[y][j] * C[i] * C[j];
+								}
 							}
 						}
-						valY *= 0.25;
-						valCr *= 0.25;
-						valCb *= 0.25;
 						unsigned int xy = (r*8+y) * width + (c*8+x);
-						imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( valY + 1.402 * (valCr-128) ))))); //R
-						imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( valY - 0.34414 * (valCb-128) - 0.71414 * (valCr-128) ))))); //G
-						imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( valY + 1.772 * (valCb-128) ))))); //B
+						valY *= 0.25;
+						Y[xy] = valY;
+						if(HQ) {
+							valCr *= 0.25;
+							valCb *= 0.25;
+							Cr[xy] = valCr;
+							Cb[xy] = valCb;
+						}
+						else {
+							if(r < height/16 && c < width/16) {
+								unsigned int xyc = (r*8+y) * width/2 + (c*8+x);
+								valCr *= 0.25;
+								valCb *= 0.25;
+								Cr[xyc] = valCr;
+								Cb[xyc] = valCb;
+							}
+						}
 					}
 				}
 			}
 		}
 		cout << "\rIDCT en cours... 100%" << endl;
 		
+		for(unsigned i=0 ; i < width ; i++) {
+			for(unsigned j=0 ; j < height ; j++) {
+				unsigned int xy = j * width + i;
+				if(HQ) {
+					imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( Y[xy] + 1.402 * (Cr[xy]-128) ))))); //R
+					imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( Y[xy] - 0.34414 * (Cb[xy]-128) - 0.71414 * (Cr[xy]-128) ))))); //G
+					imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( Y[xy] + 1.772 * (Cb[xy]-128) ))))); //B
+				}
+				else {
+					unsigned int xyc = j/2 * width/2 + i/2;
+					imageOut.setData(3*xy, (unsigned char)(max(0.0,min(255.0,( Y[xy] + 1.402 * (Cr[xyc]-128) ))))); //R
+					imageOut.setData(3*xy + 1, (unsigned char)(max(0.0,min(255.0,( Y[xy] - 0.34414 * (Cb[xyc]-128) - 0.71414 * (Cr[xyc]-128) ))))); //G
+					imageOut.setData(3*xy + 2, (unsigned char)(max(0.0,min(255.0,( Y[xy] + 1.772 * (Cb[xyc]-128) ))))); //B
+				}
+			}
+		}
+		
+		
 		if(TEST) {
 			for(unsigned int j=0;j<8;j++) {
 				for(unsigned int i=0;i<8;i++) {
-					cout<<setw(3)<<(int)Y[i][j]<<" ";
+					cout<<setw(3)<<(int)dctY[i][j]<<" ";
 				}
 				cout<<"   ";
 				for(unsigned int i=0;i<8;i++) {
@@ -519,11 +567,16 @@ Image Image::convertToSLVR() const {
 	else if(format == PPM) {
 		Image imageref = new Image(this->convertToPPM());
 		Image imageOut(SLVRP, imageref.getName(), imageref.getWidth(), imageref.getHeight());
-		imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * 3);
+		if(HQ) {
+			imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * 3);
+		}
+		else {
+			imageOut.resizeData(imageref.getWidth() * imageref.getHeight() * 3 / 2);
+		}
 		
 		// ========== Convert to compressed YCrCb ==========
 		
-		unsigned char Y[width][height], Cr[width/2][height/2], Cb[width/2][height/2];
+		unsigned char Y[width][height], Cr[width][height], Cb[width][height];
 		{
 			unsigned char tmp_Cr[width][height];
 			unsigned char tmp_Cb[width][height];
@@ -536,50 +589,73 @@ Image Image::convertToSLVR() const {
 					unsigned char ppm_g = imageref.getData(3*xy + 1);
 					unsigned char ppm_b = imageref.getData(3*xy + 2);
 					Y[i][j] = (unsigned char)(max(0.0,min(255.0,( 0.299*ppm_r + 0.587*ppm_g + 0.114*ppm_b ))));
-					tmp_Cr[i][j] = (unsigned char)(max(0.0,min(255.0,( 0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128 ))));
-					tmp_Cb[i][j] = (unsigned char)(max(0.0,min(255.0,( -0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128 ))));
+					if(HQ) {
+						Cr[i][j] = (unsigned char)(max(0.0,min(255.0,( 0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128 ))));
+						Cb[i][j] = (unsigned char)(max(0.0,min(255.0,( -0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128 ))));
+					}
+					else {
+						tmp_Cr[i][j] = (unsigned char)(max(0.0,min(255.0,( 0.5*ppm_r + -0.4187*ppm_g + -0.0813*ppm_b +128 ))));
+						tmp_Cb[i][j] = (unsigned char)(max(0.0,min(255.0,( -0.1687*ppm_r + -0.3313*ppm_g + 0.5*ppm_b +128 ))));
+					}
 				}
 			}
 
-			// Compress Cr and Cb with mean
-			for(unsigned int j=0 ; j < height ; j+=2) {
-				for(unsigned int i=0 ; i < width ; i+=2) {
-					int val_cr = tmp_Cr[i][j];
-					int val_cb = tmp_Cb[i][j];
-					int count = 1;
-					if(i < width-1) {
-						val_cr += tmp_Cr[i+1][j];
-						val_cb += tmp_Cb[i+1][j];
-						count++;
+			if(!HQ) {
+				// Compress Cr and Cb with mean
+				for(unsigned int j=0 ; j < height ; j+=2) {
+					for(unsigned int i=0 ; i < width ; i+=2) {
+						int val_cr = tmp_Cr[i][j];
+						int val_cb = tmp_Cb[i][j];
+						int count = 1;
+						if(i < width-1) {
+							val_cr += tmp_Cr[i+1][j];
+							val_cb += tmp_Cb[i+1][j];
+							count++;
+						}
+						if(j < height-1) {
+							val_cr += tmp_Cr[i][j+1];
+							val_cb += tmp_Cb[i][j+1];
+							count++;
+						}
+						if(j < height-1 && i < width-1) {
+							val_cr += tmp_Cr[i+1][j+1];
+							val_cb += tmp_Cb[i+1][j+1];
+							count++;
+						}
+						Cr[i/2][j/2] = (unsigned char)(val_cr / count);
+						Cb[i/2][j/2] = (unsigned char)(val_cb / count);
 					}
-					if(j < height-1) {
-						val_cr += tmp_Cr[i][j+1];
-						val_cb += tmp_Cb[i][j+1];
-						count++;
-					}
-					if(j < height-1 && i < width-1) {
-						val_cr += tmp_Cr[i+1][j+1];
-						val_cb += tmp_Cb[i+1][j+1];
-						count++;
-					}
-					Cr[i/2][j/2] = (unsigned char)(val_cr / count);
-					Cb[i/2][j/2] = (unsigned char)(val_cb / count);
 				}
 			}
 		}
 		// =================================================
-		
+/*
 		// ============= First Quantification =============
-/*		unsigned char mask = 255;
+		unsigned char mask = 16;
 		for(unsigned int i=0 ; i < width ; i++) {
 			for(unsigned int j=0 ; j < height ; j++) {
-				Y[i][j] = Y[i][j] & mask;
-				Cr[i][j] = Cr[i][j] & mask;
-				Cb[i][j] = Cb[i][j] & mask;
+				if(rand()%100 < 50) {
+					Y[i][j] = Y[i][j] + rand()%mask;
+				}
+				else {
+					Y[i][j] = Y[i][j] - rand()%mask;
+				}
+				if(rand()%100 < 50) {
+					Cr[i][j] = Cr[i][j] + rand()%mask;
+				}
+				else {
+					Cr[i][j] = Cr[i][j] - rand()%mask;
+				}
+				if(rand()%100 < 50) {
+					Cb[i][j] = Cb[i][j] + rand()%mask;
+				}
+				else {
+					Cb[i][j] = Cb[i][j] - rand()%mask;
+				}
 			}
-		}*/
+		}
 		// ================================================
-
+*/
 		
 		double COS[8][8], C[8], valY, valCr, valCb;
 		for (int i = 0; i < 8; i++) {
@@ -600,19 +676,34 @@ Image Image::convertToSLVR() const {
 						for(unsigned int x=0 ; x < 8 ; x++) {
 							for(unsigned int y=0 ; y < 8 ; y++) {
 								valY += Y[r*8+x][c*8+y] * COS[x][i] * COS[y][j];
-// 								if(r < height/16 && c < width/16) {
-								valCr += Cr[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
-								valCb += Cb[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
+								if(HQ) {
+									valCr += Cr[r*8+x][c*8+y] * COS[x][i] * COS[y][j];
+									valCb += Cb[r*8+x][c*8+y] * COS[x][i] * COS[y][j];
+								}
+								else {
+									if(r < height/16 && c < width/16) {
+										valCr += Cr[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
+										valCb += Cb[(r*8+x)/2][(c*8+y)/2] * COS[x][i] * COS[y][j];
+									}
+								}
 							}
 						}
 						valY *= C[i]*C[j]*0.25/(double)quant(i,j,LUMA);
 						valCr *= C[i]*C[j]*0.25/(double)quant(i,j,REDDIFF);
 						valCb *= C[i]*C[j]*0.25/(double)quant(i,j,BLUEDIFF);
 						unsigned int xy = (r*8+j) * width + (c*8+i);
-						unsigned int xyc = (r*8+j)/2 * width/2 + (c*8+i)/2;
 						imageOut.setData(xy, (unsigned char)(max(0,min(255,(int)valY+128))));
-						imageOut.setData(xy + height*width, (unsigned char)(max(0,min(255,(int)valCr+128))));
-						imageOut.setData(xy + 2*height*width, (unsigned char)(max(0,min(255,(int)valCb+128))));
+						if(HQ) {
+							imageOut.setData(xy + height*width, (unsigned char)(max(0,min(255,(int)valCr+128))));
+							imageOut.setData(xy + 2*height*width, (unsigned char)(max(0,min(255,(int)valCb+128))));
+						}
+						else {
+							if(r < height/16 && c < width/16) {
+								unsigned int xyc = (r*8+j) * width/2 + (c*8+i);
+								imageOut.setData(xyc + height*width, (unsigned char)(max(0,min(255,(int)valCr+128))));
+								imageOut.setData(xyc + 5*height*width/4, (unsigned char)(max(0,min(255,(int)valCb+128))));
+							}
+						}
 					}
 				}
 			}
