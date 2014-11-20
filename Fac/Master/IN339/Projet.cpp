@@ -10,7 +10,7 @@
 #include "huffman.h"
 
 #define TEST false
-#define HQ false
+#define HQ true
 
 using namespace std;
 
