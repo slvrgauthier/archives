@@ -10,7 +10,7 @@
 #include "huffman.h"
 
 #define TEST false
-#define HQ true
+bool HQ = true;
 
 using namespace std;
 
@@ -34,15 +34,26 @@ enum Channel {
 void man() {
 	cout << "Mode d'emploi :"<< endl;
 	cout << "0 : Quitter" << endl;
-	cout << "1 : Afficher le mode d'emploi" << endl;
+	cout << "1 : Afficher le mode d'emploi étendu" << endl;
 	cout << "2 : Recharger l'image" << endl;
 	cout << "3 : Changer d'image" << endl;
-	cout << "4 : Calculer le PSNR" << endl;
-	cout << "5 : Calculer le taux de compression" << endl;
-	cout << "6 : Convertir l'image en PGM" << endl;
-	cout << "7 : Convertir l'image en PPM" << endl;
-	cout << "8 : Compresser l'image en SLVR" << endl;
-	cout << "9 : Compresser et décompresser en SLVR (projet)" << endl;
+	cout << "4 : Activer / Désactiver la HQ" << endl;
+	cout << "5 : Compresser et décompresser en SLVR (projet)" << endl;
+}
+
+void man2() {
+	cout << "Mode d'emploi :"<< endl;
+	cout << "0 : Quitter" << endl;
+	cout << "1 : Afficher le mode d'emploi étendu" << endl;
+	cout << "2 : Recharger l'image" << endl;
+	cout << "3 : Changer d'image" << endl;
+	cout << "4 : Activer / Désactiver la HQ" << endl;
+	cout << "5 : Compresser et décompresser en SLVR (projet)" << endl;
+	cout << "6 : Calculer le PSNR" << endl;
+	cout << "7 : Calculer le taux de compression" << endl;
+	cout << "8 : Convertir l'image en PGM" << endl;
+	cout << "9 : Convertir l'image en PPM" << endl;
+	cout << "10 : Compresser l'image en SLVR" << endl;
 }
 
 double taux(string path1, string path2) {
@@ -812,7 +823,7 @@ int main(int argc, char **argv) {
 		cin >> action;
 		switch(action) {
 			case 0 : break;
-			case 1 : man(); break;
+			case 1 : man2(); break;
 			case 2 : imIn.load(name); break;
 			case 3 : 
 				loaded = false;
@@ -824,28 +835,16 @@ int main(int argc, char **argv) {
 					if(!loaded) cout<<"Erreur de chargement de l'image."<<endl;
 				}
 				break;
-			case 4 : 
-				cout << "Nom de l'image à comparer : ";
-				cin >> name2;
-				name2 = "img/" + name2;
-				psnr = imIn.psnr(Image(name2));
-				if(psnr == -1) {
-					cout << "Erreur : les deux images sont de tailles ou formats différent(e)s" << endl;
+			case 4 :
+				HQ = !HQ;
+				if(HQ) {
+					cout << "HQ activée." << endl;
 				}
 				else {
-					cout << "Le PSNR entre "<< name << " et " << name2 << " est de " << psnr << endl;
+					cout << "HQ désactivée." << endl;
 				}
 				break;
 			case 5 : 
-				cout << "Nom de l'image à comparer : ";
-				cin >> name2;
-				name2 = "img/" + name2;
-				cout << "Le taux de compression entre "<< name << " et " << name2 << " est de " << taux(name,name2) << endl;
-				break;
-			case 6 : imIn.save(name, PGM); break;
-			case 7 : imIn.save(name, PPM); break;
-			case 8 : imIn.save(name, SLVR); break;
-			case 9 : 
 				format = imIn.getFormat();
 				if(format != PGM && format != PPM) {
 					cout<<"Ce projet ne prend pas en charge le format de l'image"<<endl;
@@ -874,6 +873,27 @@ int main(int argc, char **argv) {
 					cout << "Le taux de compression entre "<< name << " et " << name2 << " est de " << taux(name,name2) << endl;
 				}
 				break;
+			case 6 : 
+				cout << "Nom de l'image à comparer : ";
+				cin >> name2;
+				name2 = "img/" + name2;
+				psnr = imIn.psnr(Image(name2));
+				if(psnr == -1) {
+					cout << "Erreur : les deux images sont de tailles ou formats différent(e)s" << endl;
+				}
+				else {
+					cout << "Le PSNR entre "<< name << " et " << name2 << " est de " << psnr << endl;
+				}
+				break;
+			case 7 : 
+				cout << "Nom de l'image à comparer : ";
+				cin >> name2;
+				name2 = "img/" + name2;
+				cout << "Le taux de compression entre "<< name << " et " << name2 << " est de " << taux(name,name2) << endl;
+				break;
+			case 8 : imIn.save(name, PGM); break;
+			case 9 : imIn.save(name, PPM); break;
+			case 10 : imIn.save(name, SLVR); break;
 			default : cout << "Action inconnue" << endl; break;
 		}
 	}
