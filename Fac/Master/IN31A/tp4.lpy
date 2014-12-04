@@ -1,0 +1,143 @@
+from openalea.plantgl.all import *
+
+mesh = None
+soil_heigth = 0
+module Visu
+
+Axiom: 
+  global mesh
+  mesh = init()
+  produce Visu
+
+production:
+interpretation:
+Visu :
+  nproduce ,(2) @g(QuadSet([[10,10,soil_heigth],[10,-10,soil_heigth],[-10,-10,soil_heigth],[-10,10,soil_heigth]],[range(4)], ccw = False ) )
+  if mesh: 
+    nproduce ,(3) @g(mesh.repr3d())
+
+endlsystem
+
+defaultmass = 100
+
+
+def EndEach():
+  global mesh
+  mesh = step(mesh, dt)
+
+from numpy import *
+
+def indices2edges(indices):
+  edges = set()
+  for face in indices:
+    nbedges = len(face)
+    for i in xrange(nbedges):
+      pi = face[i]
+      pj = face[(i+1)%nbedges]
+      edges.add((min(pi,pj),max(pi,pj)))
+  return list(edges)
+
+class Mesh:
+  def __init__(self, positions, indices, mass = None):
+    self.positions = positions
+    self.initialpositions = positions
+    self.indices = indices
+    self.edges = indices2edges(indices)
+    
+    nbpositions = len(positions)
+    
+    p = array([0,0,0])
+    for i in xrange(nbpositions) :
+      p += self.positions[i]
+    p *= 1/nbpositions
+    self.initialpositions.append((p))
+    self.positions.append((p))
+    
+    for i in xrange(nbpositions) :
+      self.edges.append((i,nbpositions))
+    
+    nbpositions = len(positions)
+    if mass is None :
+      mass = defaultmass
+    self.velocity = array([[0.,0.,0.] for i in xrange(nbpositions)])
+    self.mass = array([mass for i in xrange(nbpositions)])
+    self.forces = array([[0.,0.,0.] for i in xrange(nbpositions)])
+    self.restlength = array([0. for i in xrange(len(self.edges))])
+    
+    for i in xrange(len(self.edges)) :
+      a = self.initialpositions[self.edges[i][0]]
+      self.restlength[i] = norm(self.initialpositions[self.edges[i][0]],self.initialpositions[self.edges[i][1]])
+  
+  def repr3d(self):
+    return FaceSet(self.positions, self.indices)
+
+  def updateNormals(self):
+    f = self.repr3d()
+    f.computeNormalList()
+    self.normals = f.normalList
+
+derivation length: 1000
+initial_view = 1
+
+dt = 0.01
+gravity = array([0,0,-9.8])
+K =  5000
+Kp = 10000
+Kd = 20
+dh = 1
+
+def sphere():
+  s = Sphere()
+  d = Discretizer()
+  s.apply(d)
+  d.result.pointList.translate((0,0,5))
+  return d.result  
+
+def init():
+  shape = sphere()
+  return Mesh(shape.pointList,shape.indexList)
+
+def norm(p1, p2):
+  n = 0
+  for i in xrange(2):
+    n += pow(p2[i]-p1[i],2)
+  return sqrt(n)
+  
+def step(mesh, dt): 
+  mesh.forces = array([[0.,0.,0.] for i in xrange(len(mesh.positions))]) 
+  # internal forces
+  # f += K(l-l0)
+  for i in xrange(len(mesh.edges)) :
+    i1 = mesh.edges[i][0]
+    i2 = mesh.edges[i][1]
+    l0 = mesh.restlength[i]
+    l = norm(mesh.positions[i1],mesh.positions[i2])
+    df = K*(l-l0)*(mesh.positions[i2]-mesh.positions[i1])
+    mesh.forces[i1] += df
+    mesh.forces[i2] -= df
+    
+  for i in xrange(len(mesh.positions)) :
+    # external forces : gravity , mass
+    mesh.forces[i] += mesh.mass[i] * gravity
+    
+    # damping
+    # f += -Kd * v
+    mesh.forces[i] += -Kd * mesh.velocity[i]
+    
+    # external forces : soil
+    # f += Kp *( (soil_heigth+dh) - z)
+    if(mesh.positions[i][2] <= soil_heigth+dh) :
+      mesh.forces[i] += Kp * (soil_heigth + dh - mesh.positions[i][2]) * array([0,0,1])
+    
+    #solve
+    # v(t+dt) = v(t) + f/m * dt
+    mesh.velocity[i] += (mesh.forces[i] / mesh.mass[i]) * dt
+    # p(t+dt) = p(t) + v(t+dt) *dt
+    mesh.positions[i] += mesh.velocity[i] * dt
+  
+  return mesh
+
+
+
+
+
