@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$pile_8c.html#a8729158ffc4eee604e81c0f8bba3b8e5" title="Creer une pile." alt="" coords="127,5,199,35"/>
-<area shape="rect" id="node5" href="$pile_8c.html#a50548a68daf8f2f724c2efcbfe855836" title="Depiler la pile." alt="" coords="133,59,192,88"/>
-<area shape="rect" id="node7" href="$pile_8c.html#ad3a19b016c642c27b9bdbdb888271686" title="Empiler un element e." alt="" coords="131,112,195,141"/>
-<area shape="rect" id="node9" href="$pile_8c.html#adfcf20d1fdaed0b7ba52d44171671cba" title="Renvoie dernier element entre." alt="" coords="104,165,221,195"/>
-<area shape="rect" id="node11" href="$pile_8c.html#a5aedd4d59deded2adfecbe8946c45498" title="Renvoie la taille de la pile." alt="" coords="139,219,187,248"/>
-</map>
