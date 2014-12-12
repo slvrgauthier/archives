@@ -33,7 +33,7 @@ void computeCorrespondences(MESH& mesh, const CImg<float> &dist,const float l)
         /// A COMPLETER(fini)
         int min =dist(S,i);
         int valeur =0;
-        for(int j=0; j<2*S; j++)
+        for(unsigned int j=0; j<2*S; j++)
         {
             if(min>dist(j,i) && j<S)
             {
@@ -70,17 +70,16 @@ CImg<float> computeDistance(const CImg<unsigned char> &sourceProf,const CImg<uns
 
     CImg<float> dist(2*S,nbpoints);
     dist.fill(0);
-    int som = 0;
     int choix = 1;
     if(choix == 1)// on choisie le ssd
     {
 
         /// A COMPLETER(fini)
-      for(int i=0; i<nbpoints; i++)
+      for(unsigned int i=0; i<nbpoints; i++)
       {
-            for(int j =0; j< 2*S; j++)
+            for(unsigned int j =0; j< 2*S; j++)
             {
-                for(int k= 0; k<N ;k++)
+                for(unsigned int k= 0; k<N ;k++)
                 {
                     dist(j,i)+= pow((targetProf(k+j,i)-sourceProf(k,i)),2);
                 }
@@ -112,7 +111,7 @@ CImg<unsigned char> computeProfiles(const MESH& mesh, const IMG<unsigned char,fl
     int valNo =0;
 
 
-    for( int i=0 ; i<N; i++)
+    for(int i=0 ; i<N; i++)
     {
         float p[3];
         mesh.getPoint(p,i);
@@ -121,7 +120,7 @@ CImg<unsigned char> computeProfiles(const MESH& mesh, const IMG<unsigned char,fl
         val = img.getValue(p,interpolationType);
 
 
-        for(int j=Ni-1; j>=0 ; j--)
+        for(unsigned int j=Ni-1; j>=0 ; j--)
         {
             p[0]=-norm[0]*l+p[0];
             p[1]=-norm[1]*l+p[1];
@@ -133,7 +132,7 @@ CImg<unsigned char> computeProfiles(const MESH& mesh, const IMG<unsigned char,fl
         prof(i,Ni)= val;
         mesh.getPoint(p,i);
 
-        for(int j=0; j<No ; j++)
+        for(unsigned int j=0; j<No ; j++)
         {
             p[0]=norm[0]*l+p[0];
             p[1]=norm[1]*l+p[1];
@@ -153,14 +152,37 @@ CImg<unsigned char> computeProfiles(const MESH& mesh, const IMG<unsigned char,fl
 void Registration(float A[3][3],  float t[3],const MESH& mesh, const transformationType &transformType)
 {
     // get centroids
-    float c0[]={0,0,0}, c[]={0,0,0}, N=0;
+    float c0[]={0,0,0}, c[]={0,0,0};
 
-    /// A COMPLETER
+    float sum1 = 0, sum2[3] = {0,0,0}, sum3[3] = {0,0,0};
+    float cp[3], p[3];
+    for(unsigned int i=0;i<mesh.getNbPoints();i++) {
+		sum1 += 1;
+        mesh.getCorrespondence(cp,i);
+        mesh.getPoint0(p,i);
+        for(int j=0;j<3;j++) {
+            sum2[j] += cp[j];
+            sum3[j] += p[j];
+        }
+    }
+    for(unsigned int i=0;i<3;i++) {
+        c0[i] = sum2[i]/sum1;
+        c[i] = sum3[i]/sum1;
+    }
 
     // fill matrices
-    float Q[][3]={{1,0,0},{0,1,0},{0,0,1}}, K[][3]={{1,0,0},{0,1,0},{0,0,1}},sx=3;
+    float Q[][3]={{0,0,0},{0,0,0},{0,0,0}}, K[][3]={{0,0,0},{0,0,0},{0,0,0}},sx=3;
 
-    /// A COMPLETER
+    for(unsigned int i=0;i<mesh.getNbPoints();i++) {
+        mesh.getPoint0(p,i);
+        mesh.getCorrespondence(cp,i);
+        for(unsigned int j=0;j<3;j++) {
+            for(unsigned int k=0;k<3;k++) {
+                Q[j][k] += (p[j]-c[j])*(p[k]-c[k]);
+                K[j][k] += (cp[j]-c0[j])*(p[k]-c[k]);
+            }
+        }
+    }
 
     // compute solution for affine part
     if(transformType==affine) { float Qinv[3][3]; Invert(Qinv,Q); Mult(A,K,Qinv); }
