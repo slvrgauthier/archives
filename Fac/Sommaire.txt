@@ -33,3 +33,9 @@ IN207 : Programmation Orientée Agents
 IN212 : Programmation 3D
 IN215 : Traitement d'images
 IN216 : Algorithmique Géométrique
+IN21C : Conduite de projet
+IN31A : Modélisation géométrique
+IN319 : Imagerie médicale
+IN330 : Réalité virtuelle
+IN334 : Sociétés virtuelles
+IN339 : Image et compression
