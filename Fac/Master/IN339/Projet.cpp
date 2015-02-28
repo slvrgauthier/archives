@@ -315,7 +315,7 @@ bool Image::load_(string filename) {
 			length = 3 * width * height;
 		}
 		else if(format == SLVRG) {
-			length = width * height;
+			length = width * height / 4;
 		}
 		else if(format == SLVRP) {
 			if(HQ) {
@@ -406,10 +406,10 @@ Image Image::convertToPGM() const {
 		Image imageOut(PGM, name, width, height);
 		imageOut.resizeData(width * height);
 		
-		int Y[width][height];
-		for(unsigned i=0 ; i < width ; i++) {
-			for(unsigned j=0 ; j < height ; j++) {
-				Y[i][j] = ((int)this->getData(j * width + i) - 128) * quant(i%8,j%8,LUMA);
+		int Y[width/2][height/2];
+		for(unsigned i=0 ; i < width/2 ; i++) {
+			for(unsigned j=0 ; j < height/2 ; j++) {
+				Y[i][j] = ((int)this->getData(j * width/2 + i) - 128) * quant(i%8,j%8,LUMA);
 			}
 		}
 		
@@ -421,10 +421,10 @@ Image Image::convertToPGM() const {
 			else C[i] = 1 / sqrt(2);
 		}
 		
-		for(unsigned int r=0 ; r < width/8 ; r++) {
-			for(unsigned int c=0 ; c < height/8 ; c++) {
+		for(unsigned int r=0 ; r < width/16 ; r++) {
+			for(unsigned int c=0 ; c < height/16 ; c++) {
 				
-				cout << "\rIDCT en cours... " << 100*(c*width+r)/(height*width) << "%" << flush;
+				cout << "\rIDCT en cours... " << 100*(c*width/2+r)/(height*width/4) << "%" << flush;
 				
 				for(unsigned int x=0 ; x < 8 ; x++) {
 					for(unsigned int y=0 ; y < 8 ; y++) {
@@ -441,6 +441,12 @@ Image Image::convertToPGM() const {
 			}
 		}
 		cout << "\rIDCT en cours... 100%" << endl;
+		
+		for(unsigned i=0 ; i < width ; i++) {
+			for(unsigned j=0 ; j < height ; j++) {
+				imageOut.setData(j * width + i, imageOut.getData(j/2 * width + i/2));
+			}
+		}
 		
 		if(TEST) {
 			for(unsigned int j=0;j<8;j++) {
@@ -739,12 +745,27 @@ Image Image::convertToSLVR() const {
 	else if(format == PGM) {
 		Image imageref = new Image(this->convertToPGM());
 		Image imageOut(SLVRG, imageref.getName(), imageref.getWidth(), imageref.getHeight());
-		imageOut.resizeData(imageref.getWidth() * imageref.getHeight());
+		imageOut.resizeData(imageref.getWidth() * imageref.getHeight() / 4);
 		
-		unsigned char Y[width][height];
-		for(unsigned int j=0 ; j < height ; j++) {
-			for(unsigned int i=0 ; i < width ; i++) {
-				Y[i][j] = imageref.getData(j * width + i);
+		unsigned char Y[width/2][height/2];
+		// Compress Y with mean
+		for(unsigned int j=0 ; j < height ; j+=2) {
+			for(unsigned int i=0 ; i < width ; i+=2) {
+				int val_y = imageref.getData(j * width + i);
+				int count = 1;
+				if(i < width-1) {
+					val_y += imageref.getData(j * width + i+1);
+					count++;
+				}
+				if(j < height-1) {
+					val_y += imageref.getData((j+1) * width + i);
+					count++;
+				}
+				if(j < height-1 && i < width-1) {
+					val_y += imageref.getData((j+1) * width + i+1);
+					count++;
+				}
+				Y[i/2][j/2] = (unsigned char)(val_y / count);
 			}
 		}
 		
@@ -756,10 +777,10 @@ Image Image::convertToSLVR() const {
 			else C[i] = 1 / sqrt(2);
 		}
 		
-		for(unsigned int r=0 ; r < width/8 ; r++) {
-			for(unsigned int c=0 ; c < height/8 ; c++) {
+		for(unsigned int r=0 ; r < width/16 ; r++) {
+			for(unsigned int c=0 ; c < height/16 ; c++) {
 				
-				cout << "\rDCT en cours... " << 100*(c*width+r)/(height*width) << "%" << flush;
+				cout << "\rDCT en cours... " << 100*(c*width/2+r)/(height*width/4) << "%" << flush;
 				
 				for(unsigned int i=0 ; i < 8 ; i++) {
 					for(unsigned int j=0 ; j < 8 ; j++) {
@@ -770,7 +791,7 @@ Image Image::convertToSLVR() const {
 							}
 						}
 						valY *= C[i]*C[j]*0.25/(double)quant(i,j,LUMA);
-						imageOut.setData((c*8+j) * width + (r*8+i), (unsigned char)(max(0,min(255,(int)valY+128))));
+						imageOut.setData((c*8+j) * width/2 + (r*8+i), (unsigned char)(max(0,min(255,(int)valY+128))));
 					}
 				}
 			}
